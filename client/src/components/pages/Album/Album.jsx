@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import LoadingSpinner from "../../LoadingSpinner"
 import { useParams } from "react-router-dom"
 import useFetch from "../../../useFetch"
 import PhotoCard from "../../PhotoCard/PhotoCard"
@@ -63,7 +64,7 @@ export default function Album({ onAddToCart, cartImages }) {
     return (
         <div className="grid photos-container">
             { 
-                loading ? <h1>Caricamento...</h1> : 
+                loading ? <LoadingSpinner className="loading-spinner" /> : 
                 images && images.length > 0 ? images.map((image, imageIndex) => {
                     const toFindCartImage =  cartImages.find(img => img === image)
                     return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.length > -1 ? objectsAreEqual(toFindCartImage, image) : false} />

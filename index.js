@@ -4,7 +4,7 @@ import { Stripe } from "stripe";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { STRIPE_PRIVATE_KEY, SECRET_IMAGES_LOCATION } from "./constants.js";
+import { STRIPE_PRIVATE_KEY } from "./constants.js";
 import crypto from "crypto";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -12,8 +12,7 @@ const stripe = new Stripe(STRIPE_PRIVATE_KEY, {
     apiVersion: "2020-08-27",
     typescript: true
 });
-// Middleware
-app.use(express.static(path.join(__dirname, "/client/build")));
+process.env.NODE_ENV === "production" ? app.use(express.static(path.join(__dirname, "/client/build"))) : null;
 app.use(bodyParser.json({
     limit: '50mb'
 }));
@@ -33,13 +32,11 @@ fs.readdir(path.join(__dirname, "/img"), (err, albums) => {
                 return console.log(`Unable to open dir: `, err);
             files.forEach((fileName, i) => {
                 images.push({
-                    path: path.join(__dirname, `/img/${album}/${fileName}`),
                     original: fs.readFileSync(path.join(__dirname, `/img/${album}/${fileName}`)).toString("base64"),
                     index: i,
                     id: crypto.randomBytes(16).toString("hex"),
                     album: album,
                     filename: fileName,
-                    previewPath: path.join(__dirname, `/previews/${album}/${fileName}`),
                     preview: fs.readFileSync(path.join(__dirname, `/previews/${album}/${fileName}`)).toString("base64")
                 });
             });
@@ -59,33 +56,20 @@ app.get("/begin-session/:session_id?", (req, res) => {
     const toFindSession = sessions.find(session => session.id === req.params.session_id);
     if (!req.params.session_id || !toFindSession) {
         const session = generateSession();
-        return res.json({ imagesLocation: SECRET_IMAGES_LOCATION, session: session });
+        return res.json({ session: session });
     }
     else {
-        return res.json({ session: toFindSession, imageLocation: SECRET_IMAGES_LOCATION });
+        return res.json({ session: toFindSession });
     }
-});
-app.get(`/${SECRET_IMAGES_LOCATION}/:img_id`, (req, res) => {
-    const img = images.find(image => image.id === req.params.img_id);
-    if (!img)
-        return res.status(400);
-    res.json(fs.readFileSync(img.path).toString("base64"));
 });
 app.get("/images/:album_name", (req, res) => {
     const imagesToSend = images.filter(image => image.album === req.params.album_name);
     res.json(imagesToSend);
 });
-app.get("/previews/:img_id", (req, res) => {
-    const image = images.find(image => image.id === req.params.img_id);
-    if (!image)
-        return res.status(404);
-    res.sendFile(image.previewPath);
-});
 app.post("/checkout/:session_id", async (req, res) => {
     const session = sessions.find(s => s.id === req.params.session_id);
     if (!session)
         return res.status(400);
-    session.bought = true;
     session.boughtImages = req.body.items;
     try {
         const session = await stripe.checkout.sessions.create({
@@ -117,10 +101,10 @@ app.post("/checkout/:session_id", async (req, res) => {
     }
 });
 app.get("/success", (req, res) => {
-    res.sendFile(path.join(__dirname, "/success.html"));
+    res.sendFile(path.join(__dirname, "/payment/success.html"));
 });
 app.get("/cancel", (req, res) => {
-    res.sendFile(path.join(__dirname, "/cancel.html"));
+    res.sendFile(path.join(__dirname, "/payment/cancel.html"));
 });
 // Server listening
 app.listen(process.env.PORT || 5000, () => console.log(`Server listening on port 5000`));

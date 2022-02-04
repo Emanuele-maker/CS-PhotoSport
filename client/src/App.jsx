@@ -5,7 +5,6 @@ import Layout from "./components/Layout/Layout"
 import Album from "./components/pages/Album/Album"
 import Cart from "./components/pages/Cart/Cart"
 import Home from "./components/pages/Home/Home"
-import Success from "./components/pages/Success"
 import "./style.scss"
 
 let albums = [
@@ -77,11 +76,9 @@ export default function App() {
         }
       })
       .then(res => {
-        console.log(res)
         imagesLocation = res.data.imageLocation
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
-        localStorage.setItem("hasSessionBought", res.data.session.bought)
       })
     }
 
@@ -113,17 +110,12 @@ export default function App() {
       </Route>
       <Route path="/cart">
         <Layout cartCount={cartCount}>
-          <Cart cartElements={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+          <Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
             cartImages.splice(cartImages.indexOf(item), 1)
             setcartCount(cartCount - 1)
             setStatefulCartImages(cartImages)
             return statefulCartImages
           }} />
-        </Layout>
-      </Route>
-      <Route path="/success">
-        <Layout cartCount={cartCount}>
-          <Success boughtImages={boughtImages} />
         </Layout>
       </Route>
     </Router>
