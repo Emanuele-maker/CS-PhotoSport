@@ -1,0 +1,131 @@
+import { useState, useEffect } from "react"
+import axios from "axios"
+import { Route, BrowserRouter as Router } from "react-router-dom"
+import Layout from "./components/Layout/Layout"
+import Album from "./components/pages/Album/Album"
+import Cart from "./components/pages/Cart/Cart"
+import Home from "./components/pages/Home/Home"
+import Success from "./components/pages/Success"
+import "./style.scss"
+
+let albums = [
+  {
+    id: 1,
+    title: "Pallanuoto",
+    description: "Scatti di pallanuoto a livello giovanile e di Serie A2",
+    cover: null
+  },
+  {
+    id: 2,
+    title: "Monumenti e Paesaggi",
+    description: "Scatti in giro per l'Italia e per il mondo",
+    cover: null
+  },
+  {
+    id: 3,
+    title: "Famiglia",
+    description: "Gli scatti della mia famiglia",
+    cover: null
+  },
+  {
+    id: 4,
+    title: "Album Prova",
+    description: "Descrizione",
+    cover: null
+  },
+  {
+    id: 5,
+    title: "Album Prova 2",
+    description: "Descrizione 2",
+    cover: null
+  }
+]
+
+let cartImages = []
+let imagesLocation;
+let boughtImagesInit = []
+
+export default function App() {
+  const [cartCount, setcartCount] = useState(0)
+  const [statefulCartImages, setStatefulCartImages] = useState(undefined)
+  const [boughtImages, setBoughtImages] = useState(undefined)
+  const [sessionId, setSessionId] = useState("")
+
+  useEffect(() => {
+    setSessionId(localStorage.getItem("sessionId"))
+
+    const getLatestSessionInfo = async () => {
+      await axios.get(`/begin-session/${sessionId}`, {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => {
+        imagesLocation = res.data.imageLocation
+        setSessionId(res.data.session.id)
+        localStorage.setItem("sessionId", res.data.session.id)
+        if (res.data.session.boughtImages) setBoughtImages(res.data.session.boughtImages)
+      })
+    }
+
+    const getFirstSessionInfo = async() => {
+      await axios.get("/begin-session", {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => {
+        console.log(res)
+        imagesLocation = res.data.imageLocation
+        setSessionId(res.data.session.id)
+        localStorage.setItem("sessionId", res.data.session.id)
+        localStorage.setItem("hasSessionBought", res.data.session.bought)
+      })
+    }
+
+    if (sessionId) {
+      getLatestSessionInfo()
+    } else {
+      getFirstSessionInfo()
+    }
+
+    setStatefulCartImages(cartImages)
+    setBoughtImages(boughtImagesInit)
+  }, [!boughtImages, !sessionId])
+
+  return (
+    <Router>
+      <Route exact path="/">
+        <Layout cartCount={cartCount}>
+          <Home albums={albums} />
+        </Layout>
+      </Route>
+      <Route path="/album/:album_name">
+        <Layout cartCount={cartCount}>
+          <Album onAddToCart={(image) => {
+            cartImages.push(image)
+            setStatefulCartImages(cartImages)
+            setcartCount(cartCount + 1)
+          }} cartImages={statefulCartImages} />
+        </Layout>
+      </Route>
+      <Route path="/cart">
+        <Layout cartCount={cartCount}>
+          <Cart cartElements={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+            cartImages.splice(cartImages.indexOf(item), 1)
+            setcartCount(cartCount - 1)
+            setStatefulCartImages(cartImages)
+            return statefulCartImages
+          }} />
+        </Layout>
+      </Route>
+      <Route path="/success">
+        <Layout cartCount={cartCount}>
+          <Success boughtImages={boughtImages} />
+        </Layout>
+      </Route>
+    </Router>
+  )
+}

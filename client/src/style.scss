@@ -1,0 +1,10 @@
+@import "config";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font;
+    margin: 0;
+}

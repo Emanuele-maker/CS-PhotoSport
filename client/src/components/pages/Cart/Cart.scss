@@ -1,0 +1,41 @@
+.content {
+    text-align: center;
+
+    .element {
+        box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, .3);
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        height: 8rem;
+
+        img {
+            height: 100%;
+            margin: 0 2.5rem;
+            margin-right: 1rem;
+        }
+
+        .cross-icon:hover {
+            color: gray;
+            cursor: pointer;
+        }
+
+        h2 {
+            justify-self: flex-end;
+        }
+    }
+    button {
+        padding: .7rem;
+        margin: 1.4rem 0;
+        border-radius: 18px;
+        font-size: 1rem;
+        width: 20rem;
+        border: solid;
+        background-color: #0F0F0F;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: lighten($color: #0F0F0F, $amount: 20%);
+        }
+    }
+}
