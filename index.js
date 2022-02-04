@@ -13,7 +13,7 @@ const stripe = new Stripe(STRIPE_PRIVATE_KEY, {
     typescript: true
 });
 // Middleware
-app.use(express.static(path.join(__dirname, "/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(bodyParser.json({
     limit: '50mb'
 }));
