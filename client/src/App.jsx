@@ -110,7 +110,6 @@ export default function App() {
   return (
     <Router>
       <Route exact path="/">
-        <h1>Ciao zio</h1>
         <Layout cartCount={cartCount}>
           <Home albums={albums} />
         </Layout>
