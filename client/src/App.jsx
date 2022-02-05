@@ -41,7 +41,6 @@ let albums = [
 ]
 
 let cartImages = []
-let imagesLocation;
 let boughtImagesInit = []
 
 export default function App() {
@@ -55,13 +54,12 @@ export default function App() {
 
     const getLatestSessionInfo = async () => {
       await axios.get(`/begin-session/${sessionId}`, {
-        headers : { 
+        headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       })
       .then(res => {
-        imagesLocation = res.data.imageLocation
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
         if (res.data.session.boughtImages) setBoughtImages(res.data.session.boughtImages)
@@ -76,7 +74,6 @@ export default function App() {
         }
       })
       .then(res => {
-        imagesLocation = res.data.imageLocation
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
       })
@@ -92,9 +89,28 @@ export default function App() {
     setBoughtImages(boughtImagesInit)
   }, [!boughtImages, !sessionId])
 
+      function objectsAreEqual(object1, object2) {
+        if (!object1 || !object2) return false
+        const keys1 = Object.keys(object1);
+        const keys2 = Object.keys(object2);
+      
+        if (keys1.length !== keys2.length) {
+          return false;
+        }
+      
+        for (let key of keys1) {
+          if (object1[key] !== object2[key]) {
+            return false;
+          }
+        }
+      
+        return true;
+      }
+      
   return (
     <Router>
       <Route exact path="/">
+        <h1>Ciao zio</h1>
         <Layout cartCount={cartCount}>
           <Home albums={albums} />
         </Layout>
@@ -105,7 +121,12 @@ export default function App() {
             cartImages.push(image)
             setStatefulCartImages(cartImages)
             setcartCount(cartCount + 1)
-          }} cartImages={statefulCartImages} />
+          }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+            const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
+            if (!cartImageToFind) return
+            cartImageToFind.previewSrc = previewSrc
+            setStatefulCartImages(cartImages)
+          }} />
         </Layout>
       </Route>
       <Route path="/cart">

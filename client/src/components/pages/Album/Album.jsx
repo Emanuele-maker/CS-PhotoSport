@@ -7,7 +7,7 @@ import "./Album.scss"
 
 let previews = []
 
-export default function Album({ onAddToCart, cartImages }) {
+export default function Album({ onAddToCart, cartImages, onAddPreviewSrc }) {
     const { album_name } = useParams()
  
     const { data: images, loading, error } = useFetch(`/images/${album_name}`)
@@ -36,6 +36,7 @@ export default function Album({ onAddToCart, cartImages }) {
         images?.forEach(image => {
             const blobStr = base64ToBlob(image.preview, "image/jpg")
             const blobUrl = URL.createObjectURL(blobStr)
+            onAddPreviewSrc(image, blobUrl)
             image.previewSrc = blobUrl
             if (!previews.includes(blobUrl)) previews.push(blobUrl)
         })
@@ -43,31 +44,12 @@ export default function Album({ onAddToCart, cartImages }) {
 
     if (error) console.log(error)
 
-    function objectsAreEqual(object1, object2) {
-        if (!object1 || !object2) return false
-        const keys1 = Object.keys(object1);
-        const keys2 = Object.keys(object2);
-      
-        if (keys1.length !== keys2.length) {
-          return false;
-        }
-      
-        for (let key of keys1) {
-          if (object1[key] !== object2[key]) {
-            return false;
-          }
-        }
-      
-        return true;
-      }
-
     return (
         <div className="grid photos-container">
             { 
                 loading ? <LoadingSpinner className="loading-spinner" /> : 
                 images && images.length > 0 ? images.map((image, imageIndex) => {
-                    const toFindCartImage =  cartImages.find(img => img === image)
-                    return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.length > -1 ? objectsAreEqual(toFindCartImage, image) : false} />
+                    return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.find(img => img === image)} />
                 }) : <h1>Nessuna foto trovata in questo album</h1>
             }
         </div>

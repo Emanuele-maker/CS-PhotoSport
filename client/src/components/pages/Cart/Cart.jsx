@@ -29,7 +29,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
           {
             cartItems && cartItems.length > 0 ?
             statefulItems.map(item => {
-                return <CartItem item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} />
+                return <CartItem key={item.index} item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} />
             })
             :
             <h2>Nessun elemento ancora aggiunto al carrello</h2>
