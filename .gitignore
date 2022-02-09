@@ -1,4 +1,4 @@
 node_modules/
 client/node_modules/
 deploy.bat
-Create Preview Image/
+.env
