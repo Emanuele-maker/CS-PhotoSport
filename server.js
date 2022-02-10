@@ -1,14 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-import { config } from "dotenv";
 import __dirname from "./__dirname.js";
 import { router as imagesRouter } from "./routes/imagesRoutes.js";
 import { router as sessionRouter } from "./routes/sessionRoutes.js";
 import { router as paymentRouter } from "./routes/paymentRoutes.js";
 const app = express();
-config();
-app.use(express.static(path.join(__dirname, "../../client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json({
     limit: '50mb'

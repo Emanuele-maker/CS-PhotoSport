@@ -7,7 +7,7 @@ import __dirname from "../__dirname.js"
 
 config()
 
-const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY
+const STRIPE_PRIVATE_KEY = "sk_test_51K70ndGAxcO40dtlfGBXA7hdtTspL7IfV4zqvONyhFtWxbDLWI1GZ74OicjK4nvM7500PZt5XOZUsN8G0aA0tHeh00xLbFDOTo"
 
 if (!STRIPE_PRIVATE_KEY) throw new Error("Could not get any Stripe API access key from the execution enviroment. Make sure that the variable name is STRIPE_PRIVATE_KEY")
 
