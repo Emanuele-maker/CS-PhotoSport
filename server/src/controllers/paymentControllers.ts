@@ -3,6 +3,7 @@ import images from "../models/Image.js"
 import path from "path"
 import sessions from "../models/Session.js"
 import { config } from "dotenv"
+import __dirname from "../__dirname.js"
 
 config()
 
@@ -56,11 +57,11 @@ const createCheckoutSession = async (req: any, res: any) => {
 }
 
 const sendSuccessPage = (req: any, res: any) => {
-    res.sendFile(path.join(__dirname, "../payment/success.html"))
+    res.sendFile(path.join(__dirname, "../../payment/success.html"))
 }
 
 const sendCancelPage = (req: any, res: any) => {
-    res.sendFile(path.join(__dirname, "../payment/cancel.html"))
+    res.sendFile(path.join(__dirname, "../../payment/cancel.html"))
 }
 
 export {

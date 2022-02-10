@@ -3,6 +3,7 @@ import images from "../models/Image.js";
 import path from "path";
 import sessions from "../models/Session.js";
 import { config } from "dotenv";
+import __dirname from "../__dirname.js";
 config();
 const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY;
 if (!STRIPE_PRIVATE_KEY)
@@ -46,9 +47,9 @@ const createCheckoutSession = async (req, res) => {
     }
 };
 const sendSuccessPage = (req, res) => {
-    res.sendFile(path.join(__dirname, "../payment/success.html"));
+    res.sendFile(path.join(__dirname, "../../payment/success.html"));
 };
 const sendCancelPage = (req, res) => {
-    res.sendFile(path.join(__dirname, "../payment/cancel.html"));
+    res.sendFile(path.join(__dirname, "../../payment/cancel.html"));
 };
 export { createCheckoutSession, sendSuccessPage, sendCancelPage };

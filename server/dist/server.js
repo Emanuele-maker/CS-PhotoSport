@@ -8,7 +8,7 @@ import { router as sessionRouter } from "./routes/sessionRoutes.js";
 import { router as paymentRouter } from "./routes/paymentRoutes.js";
 const app = express();
 config();
-process.env.NODE_ENV === "production" ? app.use(express.static(path.join(__dirname, "/client/build"))) : null;
+app.use(express.static(path.join(__dirname, "../../client/build")));
 const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json({
     limit: '50mb'
