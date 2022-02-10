@@ -1,7 +1,8 @@
 import express from "express"
 import bodyParser from "body-parser"
 import path from "path"
-import { config } from "dotenv" 
+import { config } from "dotenv"
+import __dirname from "./__dirname.js"
 
 import { router as imagesRouter } from "./routes/imagesRoutes.js"
 import { router as sessionRouter } from "./routes/sessionRoutes.js"

@@ -2,9 +2,7 @@ import images from "../models/Image.js"
 import fs from "fs"
 import * as path from "path"
 import crypto from "crypto"
-import { fileURLToPath } from "url"
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import __dirname from "../__dirname.js"
 
 fs.readdir(path.join(__dirname, "../../img"), (err, albums) => {
     if (err) return console.log(`Unable to open dir: `, err)
