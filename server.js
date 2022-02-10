@@ -9,7 +9,7 @@ const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 const app = express()
 
 app.use(express.static(path.join(__dirname, "./client/build")))
-const PORT = 80
+const PORT = process.env.PORT || 3000
 
 app.use(bodyParser.json({
     limit: '50mb'
