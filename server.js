@@ -8,7 +8,7 @@ const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 
 const app = express()
 
-app.use(express.static(path.join(__dirname, "./client/build")))
+app.use(express.static(path.join(__dirname, "./build")))
 const PORT = process.env.PORT || 3000
 
 app.use(bodyParser.json({
