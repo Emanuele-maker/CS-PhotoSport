@@ -1,5 +1,10 @@
-import { getAlbumImages } from "../controllers/imagesControllers.js";
-import { Router } from "express";
-const router = Router();
-router.get("/:album_name", getAlbumImages);
-export { router };
+const { getAlbumImages } = require("../controllers/imagesControllers.js")
+const { Router } = require("express")
+
+const router = Router()
+
+router.get("/:album_name", getAlbumImages)
+
+module.exports = { 
+    router 
+}

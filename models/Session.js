@@ -1,2 +1,2 @@
-const sessions = [];
-export default sessions;
+const sessions = []
+module.exports = sessions

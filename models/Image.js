@@ -1,2 +1,2 @@
-const images = [];
-export default images;
+const images = []
+module.exports = images

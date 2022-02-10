@@ -1,10 +1,10 @@
-import express from "express";
-import bodyParser from "body-parser";
-import path from "path";
-import __dirname from "./__dirname.js";
-import { router as imagesRouter } from "./routes/imagesRoutes.js";
-import { router as sessionRouter } from "./routes/sessionRoutes.js";
-import { router as paymentRouter } from "./routes/paymentRoutes.js";
+"use strict";
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const { router: imagesRouter } = require("./routes/imagesRoutes.js");
+const { router: sessionRouter } = require("./routes/sessionRoutes.js");
+const { router: paymentRouter } = require("./routes/paymentRoutes.js");
 const app = express();
 app.use(express.static(path.join(__dirname, "./client/build")));
 const PORT = process.env.PORT || 5000;

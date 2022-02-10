@@ -1,5 +1,10 @@
-import { Router } from "express";
-import { beginSession } from "../controllers/sessionControllers.js";
-const router = Router();
-router.get("/begin-session/:session_id?", beginSession);
-export { router };
+const { Router } = require("express")
+const { beginSession } = require("../controllers/sessionControllers.js")
+
+const router = Router()
+
+router.get("/begin-session/:session_id?", beginSession)
+
+module.exports = { 
+    router
+}
