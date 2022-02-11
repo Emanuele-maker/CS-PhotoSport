@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Route, BrowserRouter as Router } from "react-router-dom"
-import Layout from "./client/src/components/Layout/Layout"
-import Album from "./client/src/components/pages/Album/Album"
-import Cart from "./client/src/components/pages/Cart/Cart"
-import Home from "./client/src/components/pages/Home/Home"
+import Layout from "./components/Layout/Layout"
+import Album from "./components/pages/Album/Album"
+import Cart from "./components/pages/Cart/Cart"
+import Home from "./components/pages/Home/Home"
 import "./style.scss"
 
-const albums = []
+const albums = [
+  {
+    title: "Pallanuoto",
+    description: "Pallanuoto",
+    cover: null
+  }
+]
 
 let cartImages = []
 let boughtImagesInit = []
