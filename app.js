@@ -8,7 +8,7 @@ const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 
 const app = express()
 
-app.use(express.static(path.join(__dirname)))
+// app.use(express.static(path.join(__dirname)))
 
 app.use(bodyParser.json({
     limit: '50mb'
@@ -19,8 +19,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use("/images", imagesRouter)
-app.use("/", sessionRouter)
-app.use("/", paymentRouter)
+// app.use("/images", imagesRouter)
+// app.use("/", sessionRouter)
+// app.use("/", paymentRouter)
+
+app.get("/", (req, res) => {
+    res.status(200).send("Hello, World!")
+})
 
 module.exports = app
