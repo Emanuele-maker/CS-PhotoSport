@@ -35,15 +35,6 @@
             return new Blob(byteArrays, {type: mime})
         }
 
-        function downloadImage(img, imageSrc) {
-            const link = document.createElement('a')
-            link.href = imageSrc
-            link.download = `${img.filename}`
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-        }
-
         if (!sessionId) console.log("é stato riscontrato un problema...")
         else {
             const getSession = async () => {

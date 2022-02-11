@@ -1,5 +1,4 @@
 const { Stripe } = require("stripe")
-const images = require("../models/Image.js")
 const path = require("path")
 const sessions = require("../models/Session.js")
 
@@ -19,23 +18,20 @@ const createCheckoutSession = async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             mode: "payment",
-            line_items: req.body.items.map((item) => {
-                const storeItem = images.find(img => img.id === item.id)
-                if (!storeItem)
-                    throw new Error("cannot find the requested item")
+            line_items: req.body.items.map(item => {
                 return {
                     price_data: {
                         currency: "eur",
                         product_data: {
-                            name: storeItem.filename,
+                            name: item.fileName
                         },
                         unit_amount: 300
                     },
                     quantity: 1
                 }
             }),
-            success_url: process.env.NODE_ENV === "production" ? `https://fotosport-server.herokuapp.com/success` : "http://localhost:5000/success",
-            cancel_url: process.env.NODE_ENV === "production" ? `https://fotosport-server.herokuapp.com/cancel` : "http://localhost:5000/cancel"
+            success_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com` : "http://localhost:3000",
+            cancel_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com` : "http://localhost:3000"
         })
         res.json({ url: session.url, boughtImages: req.body.items })
     }

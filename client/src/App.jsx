@@ -7,6 +7,9 @@ import Cart from "./components/pages/Cart/Cart"
 import Home from "./components/pages/Home/Home"
 import "./style.scss"
 
+import imagesJSON from "./images.json"
+import previewsJSON from "./previews.json"
+
 const albums = [
   {
     title: "Pallanuoto",
@@ -18,11 +21,23 @@ const albums = [
 let cartImages = []
 let boughtImagesInit = []
 
+const originalImages = JSON.parse(JSON.stringify(imagesJSON))
+const previews = JSON.parse(JSON.stringify(previewsJSON))
+
 export default function App() {
   const [cartCount, setcartCount] = useState(0)
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
   const [boughtImages, setBoughtImages] = useState(undefined)
   const [sessionId, setSessionId] = useState("")
+
+  function downloadImage(img, imageSrc) {
+      const link = document.createElement('a')
+      link.href = imageSrc
+      link.download = `${img.fileName}`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+  }
 
   useEffect(() => {
     setSessionId(localStorage.getItem("sessionId"))
@@ -37,7 +52,14 @@ export default function App() {
       .then(res => {
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
-        if (res.data.session.boughtImages) setBoughtImages(res.data.session.boughtImages)
+        if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
+          setBoughtImages(res.data.session.boughtImages)
+          res.data.session.boughtImages.forEach(image => {
+            console.log(image)
+            downloadImage(image, require(`./img/${image.album}/${image.fileName}`))
+          })
+          localStorage.removeItem("sessionId")
+        }
       })
     }
 
