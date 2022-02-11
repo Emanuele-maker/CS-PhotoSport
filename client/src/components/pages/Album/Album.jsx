@@ -53,7 +53,7 @@ export default function Album({ onAddToCart, cartImages, onAddPreviewSrc }) {
                         return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.find(img => img === image)} />
                     }) : <h1>Nessuna foto trovata in questo album</h1>
                 }
-                <PhotoCard key={1} preview="" onAddToCart={() => onAddToCart(image)} addedToCart={true} />
+                <PhotoCard key={1} preview={""} onAddToCart={() => onAddToCart(images[0])} addedToCart={true} />
                 </>
         </div>
     )
