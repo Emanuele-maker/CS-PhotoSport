@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use("/images", imagesRouter)
-app.use(sessionRouter)
-app.use(paymentRouter)
+app.use("/", sessionRouter)
+app.use("/", paymentRouter)
 
 module.exports = app
