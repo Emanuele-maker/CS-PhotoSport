@@ -46,12 +46,15 @@ export default function Album({ onAddToCart, cartImages, onAddPreviewSrc }) {
 
     return (
         <div className="grid photos-container">
-            { 
-                loading ? <LoadingSpinner className="loading-spinner" /> : 
-                images && images.length > 0 ? images.map((image, imageIndex) => {
-                    return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.find(img => img === image)} />
-                }) : <h1>Nessuna foto trovata in questo album</h1>
-            }
+                <>
+                {
+                    loading ? <LoadingSpinner className="loading-spinner" /> : 
+                    images && images.length > 0 ? images.map((image, imageIndex) => {
+                        return <PhotoCard key={imageIndex} preview={previews[imageIndex]} onAddToCart={() => onAddToCart(image)} addedToCart={cartImages.find(img => img === image)} />
+                    }) : <h1>Nessuna foto trovata in questo album</h1>
+                }
+                <PhotoCard key={1} preview="" onAddToCart={() => onAddToCart(image)} addedToCart={true} />
+                </>
         </div>
     )
 }

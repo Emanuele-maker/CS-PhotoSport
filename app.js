@@ -2,7 +2,6 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
 
-const { router: imagesRouter } = require("./routes/imagesRoutes.js")
 const { router: sessionRouter } = require("./routes/sessionRoutes.js")
 const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 
@@ -19,7 +18,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use("/images", imagesRouter)
 app.use("/", sessionRouter)
 app.use("/", paymentRouter)
 

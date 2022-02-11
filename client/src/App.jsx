@@ -1,44 +1,13 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Route, BrowserRouter as Router } from "react-router-dom"
-import Layout from "./components/Layout/Layout"
-import Album from "./components/pages/Album/Album"
-import Cart from "./components/pages/Cart/Cart"
-import Home from "./components/pages/Home/Home"
+import Layout from "./client/src/components/Layout/Layout"
+import Album from "./client/src/components/pages/Album/Album"
+import Cart from "./client/src/components/pages/Cart/Cart"
+import Home from "./client/src/components/pages/Home/Home"
 import "./style.scss"
 
-let albums = [
-  {
-    id: 1,
-    title: "Pallanuoto",
-    description: "Scatti di pallanuoto a livello giovanile e di Serie A2",
-    cover: null
-  },
-  {
-    id: 2,
-    title: "Monumenti e Paesaggi",
-    description: "Scatti in giro per l'Italia e per il mondo",
-    cover: null
-  },
-  {
-    id: 3,
-    title: "Famiglia",
-    description: "Gli scatti della mia famiglia",
-    cover: null
-  },
-  {
-    id: 4,
-    title: "Album Prova",
-    description: "Descrizione",
-    cover: null
-  },
-  {
-    id: 5,
-    title: "Album Prova 2",
-    description: "Descrizione 2",
-    cover: null
-  }
-]
+const albums = []
 
 let cartImages = []
 let boughtImagesInit = []
