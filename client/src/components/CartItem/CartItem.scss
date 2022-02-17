@@ -4,19 +4,26 @@
     align-items: center;
     padding: 2rem;
     height: 8rem;
+    background-color: #074e81;
+    margin-top: 1.3rem;
+    width: 100%;
 
     img {
-        height: 100%;
+        height: 120%;
         margin: 0 2.5rem;
         margin-right: 1rem;
     }
 
     .cross-icon:hover {
-        color: gray;
+        color: whitesmoke;
         cursor: pointer;
     }
 
     h2 {
         margin-left: 1rem;
+    }
+
+    h3 {
+        color: white;
     }
 }

@@ -25,7 +25,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     }
 
   return (
-      <div className="content">
+      <div className="cart-content">
           {
             cartItems && cartItems.length > 0 ?
             statefulItems.map(item => {

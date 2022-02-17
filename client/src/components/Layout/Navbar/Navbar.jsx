@@ -1,29 +1,20 @@
 import { Link } from "react-router-dom"
 import "./Navbar.scss"
-import { FaShoppingCart, FaBars } from "react-icons/fa"
-import { useState } from "react"
+import Footer from "../Footer/Footer"
+import { useHistory } from "react-router-dom"
 
-export default function Navbar({ cartCount }) {
-    const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
+export default function Navbar() {
+    const history = useHistory()
 
     return (
         <nav className="nav">
-            <Link to="/" className="link"><h1>Cristian Salvadori</h1></Link>
+            <h1>CS PhotoSport</h1>
             <div className="list">
-                <ul className={`list ${isMobileNavbarOpened ? "visible-list" : "unvisible-list"}`}>
-                        <li><Link to="/" className="link">Home</Link></li>
-                        <li><Link to="/shop" className="link">Shop</Link></li>
-                        <li>
-                            {
-                                <div className="cart-container">
-                                    <Link to="/cart"><FaShoppingCart color="white" size="1.5rem" className="cart-icon" /></Link>
-                                    <p className="cart-count">{ cartCount }</p>
-                                    <Link className="cart-link link" to="/cart">Carrello</Link>
-                                </div>
-                            }
-                        </li>
+                <ul className={`list`}>
+                        <li onClick={() => history.push("/")}><Link to="/" className="link">Home</Link></li>
+                        <li onClick={() => history.push("/cart")}><Link className="cart-link link" to="/cart">Carrello</Link></li>
                     </ul>
-                <FaBars size="1.5rem" className="bars" color="white" onClick={() => setIsMobileNavbarOpened(!isMobileNavbarOpened)} />
+                <Footer />
             </div>
         </nav>
     )

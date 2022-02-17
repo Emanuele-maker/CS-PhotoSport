@@ -1,0 +1,33 @@
+@import "../../config";
+
+.page-content {
+    margin-left: $nav-width;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: calc(100% - 18rem);
+    overflow-x: hidden;
+
+    .obfuscator {
+        background-color: rgba(0, 0, 0, .5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .visible {
+        display: block;
+    }
+    .invisible {
+        display: none;
+    }
+}
+
+@media (max-width: 1500px) {
+    .page-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}

@@ -4,8 +4,8 @@ import "./AlbumList.scss"
 export default function AlbumList({ albums }) {
     return (
         <div className="grid albums-container">
-            { albums.map(album => {
-                return (<AlbumCard key={album.id} album={album} />)
+            { albums.map((album, albumIndex) => {
+                return (<AlbumCard key={albumIndex} album={album} />)
             }) }
         </div>
     )

@@ -1,0 +1,65 @@
+@import "../../../config";
+
+.header {
+    background-color: #004171;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+
+    * {
+        margin-right: .3rem;
+    }
+
+    .cart-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+
+        a {
+            margin: 0;
+            .cart-icon {
+                margin: 0;
+            }
+        }
+
+        .cart-count {
+            margin-bottom: .08rem;
+            display: flex;
+            justify-content: center;
+            color: white;
+            background-color: black;
+            padding: 0 .1rem;
+            border-radius: 20px;
+        }
+    }
+
+    .icon {
+        transition: change-color .4s;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .bars {
+        display: none;
+        margin-left: .5rem;
+    }
+}
+
+.mobile {
+    margin-left: 0;
+    justify-content: space-between;
+    .bars {
+        display: block;
+    }
+}
+
+@keyframes change-color {
+    to {
+        color: #458BA9;
+    }
+}

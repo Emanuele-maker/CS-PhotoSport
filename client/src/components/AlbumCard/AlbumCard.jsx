@@ -6,9 +6,8 @@ export default function AlbumCard({ album }) {
 
     return (
         <div className="album-container" onClick={() => history.push(`/album/${album.title}`)}>
-            <img src={album.cover} alt="Cover dell'album" />
+            <img src={ album.cover } alt="Cover dell'album" />
             <h4>{ album.title }</h4>
-            <p>{ album.description }</p>
         </div>
     )
 }

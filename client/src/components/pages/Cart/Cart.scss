@@ -1,5 +1,12 @@
-.content {
-    text-align: center;
+.cart-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        color: white;
+    }
 
     button {
         padding: .7rem;

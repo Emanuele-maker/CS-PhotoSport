@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: space-around;
     padding-bottom: 1rem;
+    border: solid 2px white;
 
     h4 {
         font-size: 1.8rem;
@@ -26,7 +27,7 @@
         border-radius: 18px;
         font-size: 1rem;
         width: 75%;
-        border: solid;
+        border: solid 1.3px grey;
 
         &:hover {
             cursor: pointer;
@@ -34,11 +35,11 @@
     }
 
     .add-to-cart {
-        background-color: #0F0F0F;
+        background-color: #004171;
         color: white;
 
         &:hover {
-            background-color: lighten($color: #0F0F0F, $amount: 20%);
+            background-color: lighten($color: #004171, $amount: 20%);
         }
     }
 

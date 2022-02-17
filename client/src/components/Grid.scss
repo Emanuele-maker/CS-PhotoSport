@@ -12,10 +12,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        grid-gap: calc($grid-gap - .3rem);
 
         div {
-            margin: 2rem 0;
+            margin: 1rem 0;
             width: 70%;
             padding: .7rem;
         }
