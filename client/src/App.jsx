@@ -64,41 +64,41 @@ export default function App() {
       
         return true;
       }
-      
-  return (
-    <Router>
-      <Route exact path="/">
-        <Layout cartCount={cartCount}>
-          <Home albums={albums} />
-        </Layout>
-      </Route>
-      <Route path="/album/:album_name">
-        <Layout cartCount={cartCount}>
-          <Album onAddToCart={(image) => {
-            cartImages.push(image)
-            setStatefulCartImages(cartImages)
-            setcartCount(cartCount + 1)
-          }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
-            const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
-            if (!cartImageToFind) return
-            cartImageToFind.previewSrc = previewSrc
-            setStatefulCartImages(cartImages)
-          }} />
-        </Layout>
-      </Route>
-      <Route path="/cart">
-        <Layout cartCount={cartCount}>
-          <Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
-            cartImages.splice(cartImages.indexOf(item), 1)
-            setcartCount(cartCount - 1)
-            setStatefulCartImages(cartImages)
-            return statefulCartImages
-          }} />
-        </Layout>
-      </Route>
-      <Route path="/success">
-        <Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />
-      </Route>
-    </Router>
-  )
+
+    return (
+      <Router>
+        <Route exact path="/">
+          <Layout cartCount={cartCount}>
+            <Home albums={albums} />
+          </Layout>
+        </Route>
+        <Route path="/album/:album_name">
+          <Layout cartCount={cartCount}>
+            <Album onAddToCart={(image) => {
+              cartImages.push(image)
+              setStatefulCartImages(cartImages)
+              setcartCount(cartCount + 1)
+            }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+              const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
+              if (!cartImageToFind) return
+              cartImageToFind.previewSrc = previewSrc
+              setStatefulCartImages(cartImages)
+            }} />
+          </Layout>
+        </Route>
+        <Route path="/carrello">
+          <Layout cartCount={cartCount}>
+            <Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+              cartImages.splice(cartImages.indexOf(item), 1)
+              setcartCount(cartCount - 1)
+              setStatefulCartImages(cartImages)
+              return statefulCartImages
+            }} />
+          </Layout>
+        </Route>
+        <Route path="/success">
+          <Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />
+        </Route>
+      </Router>
+    )
 }

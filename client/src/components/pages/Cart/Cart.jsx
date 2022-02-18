@@ -1,6 +1,7 @@
 import "./Cart.scss"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CartItem from "../../CartItem/CartItem"
+import Heading from "../../Heading/Heading"
 
 export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     const [statefulItems, setStatefulItems] = useState(cartItems)
@@ -24,7 +25,13 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
         })
     }
 
+  useEffect(() => {
+    document.title = "CS PhotoSport: Carrello"
+  }, [])
+
   return (
+    <>
+      <Heading>Carrello</Heading>
       <div className="cart-content">
           {
             cartItems && cartItems.length > 0 ?
@@ -38,5 +45,6 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             cartItems && cartItems.length > 0 && <button onClick={goToCheckout}>Procedi al checkout</button>
           }
       </div>
+    </>
   )
 }

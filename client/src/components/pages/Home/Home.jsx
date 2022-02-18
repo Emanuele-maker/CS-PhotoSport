@@ -1,10 +1,16 @@
 import AlbumList from "../../AlbumList/AlbumList"
+import Heading from "../../Heading/Heading"
 import "./Home.scss"
+import { useEffect } from "react"
 
 export default function Home({ albums }) {
+    useEffect(() => {
+        document.title = "CS PhotoSport: Home"
+    }, [])
+
     return (
         <div className="container">
-            <h1 style={{ color: "white", width: "100%", background: "rgb(102, 101, 101)" }}>CS PhotoSport</h1>
+            <Heading>CS PhotoSport</Heading>
             <AlbumList albums={albums} />
         </div>
     )

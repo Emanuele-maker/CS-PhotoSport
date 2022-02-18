@@ -15,7 +15,7 @@ export default function Header({ cartCount, setMobileNavbar }) {
         ]
         
         return toMatch.some((toMatchItem) => {
-            return navigator.userAgent.match(toMatchItem);
+            return navigator.userAgent.match(toMatchItem)
         })
     }
 
@@ -23,7 +23,7 @@ export default function Header({ cartCount, setMobileNavbar }) {
         <div className={`header ${detectMob() ? "mobile" : ""}`}>
             <FaBars size="1.5rem" className="icon bars" color="white" onClick={setMobileNavbar} />
             <div className="cart-container">
-                <Link to="/cart"><FaShoppingCart color="white" size="1.5rem" className="icon cart-icon" /></Link>
+                <Link to="/carrello"><FaShoppingCart color="white" size="1.5rem" className="icon cart-icon" /></Link>
                 <p className="cart-count">{ cartCount }</p>
             </div>
         </div>

@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="list">
                 <ul className={`list`}>
                         <li onClick={() => history.push("/")}><Link to="/" className="link">Home</Link></li>
-                        <li onClick={() => history.push("/cart")}><Link className="cart-link link" to="/cart">Carrello</Link></li>
+                        <li onClick={() => history.push("/carrello")}><Link className="cart-link link" to="/carrello">Carrello</Link></li>
                     </ul>
                 <Footer />
             </div>

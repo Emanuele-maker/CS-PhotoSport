@@ -1,10 +1,11 @@
 import Navbar from "./Navbar/Navbar"
 import "./Layout.scss"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "./Header/Header"
 
 export default function Layout({ children, cartCount }) {
-    const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(true)
+    const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
 
     function detectMob() {
         const toMatch = [
@@ -18,13 +19,19 @@ export default function Layout({ children, cartCount }) {
         ]
         
         return toMatch.some((toMatchItem) => {
-            return navigator.userAgent.match(toMatchItem);
-        }) || (( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 ))
+            return navigator.userAgent.match(toMatchItem)
+        }) || (( window.innerWidth <= 1000 ) && ( window.innerHeight <= 800 ))
     }
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setIsMobile(detectMob())
+        })
+    }, [])
 
     return (
         <>
-            { isMobileNavbarOpened && <Navbar cartCount={cartCount} /> }
+            { isMobileNavbarOpened || !isMobile ? <Navbar cartCount={cartCount} /> : <></> }
             <Header setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { detectMob() && setIsMobileNavbarOpened(false) }}>
                 <div className={`obfuscator ${isMobileNavbarOpened && detectMob() ? "visible" : "invisible"}`}></div>

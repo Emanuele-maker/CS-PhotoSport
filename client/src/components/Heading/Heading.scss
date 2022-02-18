@@ -1,0 +1,11 @@
+$font-size: 2.8rem;
+$bg-color: rgb(102, 101, 101);
+
+.heading {
+    width: 100%;
+    color: white;
+    background-color: $bg-color;
+    font-size: $font-size;
+    text-align: center;
+    text-transform: uppercase;
+}
