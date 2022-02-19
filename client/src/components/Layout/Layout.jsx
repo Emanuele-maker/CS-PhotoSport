@@ -3,9 +3,10 @@ import "./Layout.scss"
 import { useEffect, useState } from "react"
 import Header from "./Header/Header"
 
+let isMobile = false
+
 export default function Layout({ children, cartCount }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
-    const [isMobile, setIsMobile] = useState(false)
 
     function detectMob() {
         const toMatch = [
@@ -25,13 +26,13 @@ export default function Layout({ children, cartCount }) {
 
     useEffect(() => {
         window.addEventListener("resize", () => {
-            setIsMobile(detectMob())
+            isMobile = detectMob()
         })
     }, [])
 
     return (
         <>
-            { isMobileNavbarOpened || !isMobile ? <Navbar cartCount={cartCount} /> : <></> }
+            { isMobileNavbarOpened || !detectMob() ? <Navbar cartCount={cartCount} /> : <></> }
             <Header setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { detectMob() && setIsMobileNavbarOpened(false) }}>
                 <div className={`obfuscator ${isMobileNavbarOpened && detectMob() ? "visible" : "invisible"}`}></div>
