@@ -4,7 +4,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: nowrap;
     height: 100%;
     max-height: 100%;
@@ -17,7 +17,6 @@
 
     h1 {
         font-size: 2rem;
-        margin-left: 1.5rem;
         user-select: none;
     }
 
@@ -60,6 +59,9 @@
 
 @media (max-width: 850px) {
     .nav {
+        h1 {
+            font-size: 1.8rem;
+        }
         .list {
             .visible-list {
                 display: flex;

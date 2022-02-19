@@ -20,3 +20,21 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .grid {
+        div {
+            width: 85%;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .grid {
+        margin-left: 0;
+        div {
+            width: 95%;
+            padding: 0;
+        }
+    }
+}

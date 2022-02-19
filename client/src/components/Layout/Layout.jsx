@@ -1,9 +1,7 @@
 import Navbar from "./Navbar/Navbar"
 import "./Layout.scss"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Header from "./Header/Header"
-
-let isMobile = false
 
 export default function Layout({ children, cartCount }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
@@ -23,12 +21,6 @@ export default function Layout({ children, cartCount }) {
             return navigator.userAgent.match(toMatchItem)
         }) || (( window.innerWidth <= 1000 ) && ( window.innerHeight <= 800 ))
     }
-
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            isMobile = detectMob()
-        })
-    }, [])
 
     return (
         <>

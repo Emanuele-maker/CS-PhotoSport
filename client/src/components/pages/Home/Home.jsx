@@ -9,8 +9,8 @@ export default function Home({ albums }) {
     }, [])
 
     return (
-        <div className="container">
-            <Heading>CS PhotoSport</Heading>
+        <div className="home-container">
+            <Heading>HOME</Heading>
             <AlbumList albums={albums} />
         </div>
     )

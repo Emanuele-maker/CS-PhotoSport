@@ -8,14 +8,18 @@
     margin-top: 1.3rem;
     width: 100%;
 
-    img {
+    .preview {
         height: 120%;
         margin: 0 2.5rem;
         margin-right: 1rem;
     }
 
+    .cross-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
     .cross-icon:hover {
-        color: whitesmoke;
         cursor: pointer;
     }
 
@@ -25,5 +29,13 @@
 
     h3 {
         color: white;
+    }
+}
+
+@media (max-width: 500px) {
+    .item {
+        h3 {
+            display: none;
+        }
     }
 }
