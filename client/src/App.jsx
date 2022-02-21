@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Route, BrowserRouter as Router } from "react-router-dom"
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Layout from "./components/Layout/Layout"
 import Album from "./components/pages/Album/Album"
 import Cart from "./components/pages/Cart/Cart"
@@ -67,38 +67,28 @@ export default function App() {
 
     return (
       <Router>
-        <Route exact path="/">
-          <Layout cartCount={cartCount}>
-            <Home albums={albums} />
+        <Layout cartCount={cartCount}>
+            <Routes>
+              <Route exact path="/" element={<Home albums={albums} />} />
+              <Route path="/album/:album_name" element={<Album onAddToCart={(image) => {
+                  cartImages.push(image)
+                  setStatefulCartImages(cartImages)
+                  setcartCount(cartCount + 1)
+                }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+                  const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
+                  if (!cartImageToFind) return
+                  cartImageToFind.previewSrc = previewSrc
+                  setStatefulCartImages(cartImages)
+                }} />} />
+              <Route path="/carrello" element={<Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+                  cartImages.splice(cartImages.indexOf(item), 1)
+                  setcartCount(cartCount - 1)
+                  setStatefulCartImages(cartImages)
+                  return statefulCartImages
+              }} />} />
+              <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />} />
+            </Routes>
           </Layout>
-        </Route>
-        <Route path="/album/:album_name">
-          <Layout cartCount={cartCount}>
-            <Album onAddToCart={(image) => {
-              cartImages.push(image)
-              setStatefulCartImages(cartImages)
-              setcartCount(cartCount + 1)
-            }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
-              const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
-              if (!cartImageToFind) return
-              cartImageToFind.previewSrc = previewSrc
-              setStatefulCartImages(cartImages)
-            }} />
-          </Layout>
-        </Route>
-        <Route path="/carrello">
-          <Layout cartCount={cartCount}>
-            <Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
-              cartImages.splice(cartImages.indexOf(item), 1)
-              setcartCount(cartCount - 1)
-              setStatefulCartImages(cartImages)
-              return statefulCartImages
-            }} />
-          </Layout>
-        </Route>
-        <Route path="/success">
-          <Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />
-        </Route>
       </Router>
     )
 }

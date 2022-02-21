@@ -27,6 +27,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
 
   useEffect(() => {
     document.title = "CS PhotoSport: Carrello"
+    console.log(statefulItems)
   }, [])
 
   return (

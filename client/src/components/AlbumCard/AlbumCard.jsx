@@ -1,11 +1,11 @@
 import "./AlbumCard.scss"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function AlbumCard({ album }) {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     return (
-        <div className="album-container" onClick={() => history.push(`/album/${album.title}`)}>
+        <div className="album-container" onClick={() => navigate(`/album/${album.title}`)}>
             <img src={ album.cover } alt="Cover dell'album" />
             <h4>{ album.title }</h4>
         </div>
