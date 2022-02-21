@@ -7,6 +7,7 @@ import Cart from "./components/pages/Cart/Cart"
 import Home from "./components/pages/Home/Home"
 import Success from "./components/pages/Success/Success"
 import "./style.scss"
+import NotFound from "./components/pages/404/404"
 
 const albums = [
   {
@@ -45,7 +46,7 @@ export default function App() {
 
     setStatefulCartImages(cartImages)
     setBoughtImages(boughtImagesInit)
-  }, [!boughtImages, !sessionId])
+  }, [boughtImages, sessionId])
 
       function objectsAreEqual(object1, object2) {
         if (!object1 || !object2) return false
@@ -74,12 +75,12 @@ export default function App() {
                   cartImages.push(image)
                   setStatefulCartImages(cartImages)
                   setcartCount(cartCount + 1)
-                }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+              }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
                   const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
                   if (!cartImageToFind) return
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
-                }} />} />
+              }} />} />
               <Route path="/carrello" element={<Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
                   cartImages.splice(cartImages.indexOf(item), 1)
                   setcartCount(cartCount - 1)
@@ -87,6 +88,7 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />} />
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>
       </Router>
