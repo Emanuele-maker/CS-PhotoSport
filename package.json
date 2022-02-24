@@ -7,7 +7,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "build": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./build.ps1",
+    "build": "build.bat",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
