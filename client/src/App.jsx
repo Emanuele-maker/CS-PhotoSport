@@ -13,7 +13,7 @@ const albums = [
   {
     title: "Pallanuoto",
     description: "Pallanuoto",
-    cover: require("./img/Pallanuoto/IMG_1008-1.jpg")
+    cover: require("./previews/Pallanuoto/51878695352_dc43b59fa1_c.jpg")
   }
 ]
 

@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6d52626.css",
-    "main.js": "/static/js/main.576f7f39.js",
-    "static/media/IMG_1009-1.jpg": "/static/media/IMG_1009-1.52cc0aecb2000d0586df.jpg",
-    "static/media/IMG_1008-1.jpg": "/static/media/IMG_1008-1.035af40467252b2a5f6a.jpg",
-    "static/media/wp4583961.jpg": "/static/media/wp4583961.77b3d2fa5702073b2835.jpg",
-    "static/media/ImCross.svg": "/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
-    "index.html": "/index.html",
-    "main.e6d52626.css.map": "/static/css/main.e6d52626.css.map",
-    "main.576f7f39.js.map": "/static/js/main.576f7f39.js.map"
+    "main.css": "http://csphotosport.com/client/build/static/css/main.e6d52626.css",
+    "main.js": "http://csphotosport.com/client/build/static/js/main.3f5dfa88.js",
+    "static/media/51896147860_df49a13051_c.jpg": "http://csphotosport.com/client/build/static/media/51896147860_df49a13051_c.18827dd461ce730bea49.jpg",
+    "static/media/51895584233_0df6d49861_c.jpg": "http://csphotosport.com/client/build/static/media/51895584233_0df6d49861_c.e3b2931aa8987499a265.jpg",
+    "static/media/51889647085_639604b0f5_c.jpg": "http://csphotosport.com/client/build/static/media/51889647085_639604b0f5_c.c3f675b6424d2326cd73.jpg",
+    "static/media/51892573731_b66fb56046_c.jpg": "http://csphotosport.com/client/build/static/media/51892573731_b66fb56046_c.3d9a31c563af16d0c36e.jpg",
+    "static/media/51887613288_e614d363e9_c.jpg": "http://csphotosport.com/client/build/static/media/51887613288_e614d363e9_c.1bb72cb7757e9b7b35df.jpg",
+    "static/media/51894535542_5c5ac2cc52_c.jpg": "http://csphotosport.com/client/build/static/media/51894535542_5c5ac2cc52_c.80afa667a20c36868069.jpg",
+    "static/media/51892574077_e74cb660f3_c.jpg": "http://csphotosport.com/client/build/static/media/51892574077_e74cb660f3_c.20a420975ad0f5e16fda.jpg",
+    "static/media/51878695352_dc43b59fa1_c.jpg": "http://csphotosport.com/client/build/static/media/51878695352_dc43b59fa1_c.a05067971bb944c174e1.jpg",
+    "static/media/51894536217_7fdf82b241_c.jpg": "http://csphotosport.com/client/build/static/media/51894536217_7fdf82b241_c.d6b7989d0e3c41e445e6.jpg",
+    "static/media/ImCross.svg": "http://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
+    "index.html": "http://csphotosport.com/client/build/index.html",
+    "main.e6d52626.css.map": "http://csphotosport.com/client/build/static/css/main.e6d52626.css.map",
+    "main.3f5dfa88.js.map": "http://csphotosport.com/client/build/static/js/main.3f5dfa88.js.map"
   },
   "entrypoints": [
     "static/css/main.e6d52626.css",
-    "static/js/main.576f7f39.js"
+    "static/js/main.3f5dfa88.js"
   ]
 }
