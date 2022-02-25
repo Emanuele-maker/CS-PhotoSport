@@ -3,7 +3,7 @@
 @REM call del .\static\css\* /Q
 @REM call del .\static\media\* /Q
 call cd client/
-call del .\test.txt
+call npm run testBat
 @REM call npm run build
 @REM call robocopy .\build ..\ * /mt /move
 @REM cd .\build\static
