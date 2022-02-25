@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "build": "build.bat",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dep": "installClientDep.bat"
   },
   "keywords": [],
   "author": "",
