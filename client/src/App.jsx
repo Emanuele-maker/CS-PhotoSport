@@ -30,7 +30,7 @@ export default function App() {
     setSessionId(localStorage.getItem("sessionId"))
 
     const getFirstSessionInfo = async() => {
-      await axios.get("/begin-session", {
+      await axios.get("http://csphotosport.com/api/begin-session", {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'

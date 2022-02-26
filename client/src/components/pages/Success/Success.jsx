@@ -13,7 +13,7 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
           document.body.removeChild(link)
       }
       
-      await axios.get(`/begin-session/${localStorage.getItem("sessionId")}`, {
+      await axios.get(`http://csphotosport.com/api/begin-session/${localStorage.getItem("sessionId")}`, {
             headers : {
               'Content-Type': 'application/json',
               'Accept': 'application/json'

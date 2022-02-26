@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use("/", sessionRouter)
-app.use("/", paymentRouter)
+app.use("/api", sessionRouter)
+app.use("/api", paymentRouter)
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'))

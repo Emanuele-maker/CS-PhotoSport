@@ -11,7 +11,7 @@ const stripe = new Stripe(STRIPE_PRIVATE_KEY)
 
 const createCheckoutSession = async (req, res) => {
     const session = sessions.find(s => s.id === req.params.session_id)
-    if (!session) res.status(404).json({ message: "Session not found" })
+    if (!session) res.status(400).json({ message: "Session not found" })
     await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         mode: "payment",
