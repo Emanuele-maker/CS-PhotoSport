@@ -1,7 +1,6 @@
 import "./Sucess.scss"
 import axios from "axios"
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
 
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
     useEffect(async () => {
@@ -38,7 +37,6 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
     <div className="success-content">
       <h1>Pagamento Riuscito!</h1>
       <h2>Le immagini acquistate verranno scaricate automaticamente dal tuo browser!</h2>
-      <Link to="/">Torna alla home</Link>
     </div>
   )
 }

@@ -24,7 +24,7 @@ export default function Layout({ children, cartCount }) {
 
     return (
         <>
-            { isMobileNavbarOpened || !detectMob() ? <Navbar cartCount={cartCount} /> : <></> }
+            { isMobileNavbarOpened || !detectMob() ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
             <Header setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { detectMob() && setIsMobileNavbarOpened(false) }}>
                 <div className={`obfuscator ${isMobileNavbarOpened && detectMob() ? "visible" : "invisible"}`}></div>

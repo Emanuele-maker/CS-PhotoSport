@@ -3,3 +3,9 @@
 .albums-container {
     margin-left: .5rem;
 }
+
+@media (max-width: 950px) {
+    .albums-container {
+        margin-left: 0;
+    }
+}
