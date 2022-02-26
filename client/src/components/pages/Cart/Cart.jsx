@@ -7,7 +7,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     const [statefulItems, setStatefulItems] = useState(cartItems)
 
     async function goToCheckout() {
-        await fetch(`/checkout/${sessionId}`, {
+        await fetch(`http://csphotosport.com/api/checkout/${sessionId}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
