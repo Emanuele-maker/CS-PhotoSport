@@ -37,6 +37,7 @@ export default function App() {
         }
       })
       .then(res => {
+        console.log(res.data)
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
       })
