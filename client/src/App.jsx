@@ -31,13 +31,12 @@ export default function App() {
 
     const getFirstSessionInfo = async() => {
       await axios.get("http://csphotosport.com/api/begin-session", {
-        headers : { 
+        headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       })
       .then(res => {
-        console.log(res.data)
         setSessionId(res.data.session.id)
         localStorage.setItem("sessionId", res.data.session.id)
       })
