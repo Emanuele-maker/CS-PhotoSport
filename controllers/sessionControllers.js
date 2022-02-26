@@ -10,7 +10,6 @@ function generateSession() {
     sessions.push(newSession)
     return newSession
 }
-
 const beginSession = (req, res) => {
     const toFindSession = sessions.find(session => session.id === req.params.session_id)
     if (!req.params.session_id || !toFindSession) {
@@ -21,7 +20,6 @@ const beginSession = (req, res) => {
         return res.json({ session: toFindSession })
     }
 }
-
-module.exports = { 
-    beginSession 
+module.exports = {
+    beginSession
 }
