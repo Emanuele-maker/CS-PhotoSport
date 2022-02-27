@@ -9,10 +9,20 @@ import Success from "./components/pages/Success/Success"
 import "./style.scss"
 import NotFound from "./components/pages/404/404"
 
-const albums = [
+const categories = [
   {
     title: "Pallanuoto",
-    description: "Pallanuoto",
+    cover: require("./previews/Pallanuoto/51878695352_dc43b59fa1_c.jpg")
+  }
+]
+
+const albums = [
+  {
+    title: "Anzio Waterpolis vs Centro Nuoto Latina",
+    cover: require("./previews/Pallanuoto/51895584233_0df6d49861_c.jpg")
+  },
+  {
+    title: "Centro Nuoto Latina vs Aquademia Velletri",
     cover: require("./previews/Pallanuoto/51878695352_dc43b59fa1_c.jpg")
   }
 ]
