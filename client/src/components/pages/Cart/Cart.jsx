@@ -18,7 +18,8 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             }),
         })
         .then(res => {
-          return res.json()
+          if (res.ok) return res.json()
+          else console.error(res)
         })
         .then(({ url }) => {
           localStorage.setItem("downloaded", "false")
