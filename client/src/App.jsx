@@ -38,8 +38,8 @@ export default function App() {
   const [sessionId, setSessionId] = useState("")
 
   useEffect(() => {
-    const getFirstSessionInfo = async() => {
-      await axios.get("http://csphotosport.com/api/begin-session", {
+    const getSessionInfo = async() => {
+      await axios.get(`http://csphotosport.com/api/begin-session/${localStorage.getItem("sessionId")}`, {
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -51,21 +51,7 @@ export default function App() {
       })
     }
 
-    if (!localStorage.getItem("sessionId")) getFirstSessionInfo()
-    else {
-      (async () => {
-        await axios.get(`http://csphotosport.com/api/begin-session/${sessionId}`, {
-            headers : {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }
-        })
-        .then(res => {
-          if (res.status === 400) getFirstSessionInfo()
-          else if (res.status === 200) setSessionId(res.data.session.id)
-        })
-      })()
-    }
+    getSessionInfo()
 
     setStatefulCartImages(cartImages)
     setBoughtImages(boughtImagesInit)

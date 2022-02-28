@@ -12,15 +12,12 @@ function generateSession() {
 }
 const beginSession = (req, res) => {
     const toFindSession = sessions.find(session => session.id === req.params.session_id)
-    if (!req.params.session_id) {
+    if (!req.params.session_id || !toFindSession) {
         const session = generateSession()
-        return res.status(200).json({ session: session })
-    } else if (!toFindSession) {
-        const session = generateSession()
-        return res.status(400)
+        return res.json({ session: session })
     }
     else {
-        return res.status(200).json({ session: toFindSession })
+        return res.json({ session: toFindSession })
     }
 }
 module.exports = {
