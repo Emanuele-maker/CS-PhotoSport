@@ -18,6 +18,7 @@ export default function Navbar({ onCloseNav }) {
                 <ul className={`list`}>
                         <li onClick={() => onClickLink("/")}><Link to="/" className="link">Home</Link></li>
                         <li onClick={() => onClickLink("/carrello")}><Link className="cart-link link" to="/carrello">Carrello</Link></li>
+                        <li onClick={() => onClickLink("/contatti")}><Link className="link" to="/contatti">Contatti</Link></li>
                     </ul>
                 <Footer />
             </div>

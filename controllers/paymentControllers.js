@@ -9,24 +9,31 @@ if (!STRIPE_PRIVATE_KEY)
 
 const stripe = new Stripe(STRIPE_PRIVATE_KEY)
 
+const getPrice = (quantity) => {
+    const basePrice = 3.5
+    const discount = 1 / 10
+    const limit = 10
+    if (quantity < limit) return basePrice * quantity
+    else return Math.round((basePrice * quantity) - (basePrice * quantity * discount))
+}
+
 const createCheckoutSession = async (req, res) => {
     const session = sessions.find(s => s.id === req.params.session_id)
     if (!session) res.status(400).json({ message: "Session not found" })
+
     await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         mode: "payment",
-        line_items: req.body.items.map(item => {
-            return {
-                price_data: {
-                    currency: "eur",
-                    product_data: {
-                        name: item.fileName
-                    },
-                    unit_amount: 300
+        line_items: [{
+            price_data: {
+                currency: "eur",
+                product_data: {
+                    name: "immagini"
                 },
-                quantity: 1
-            }
-        }),
+                unit_amount: getPrice(req.body.items.length) * 100
+            },
+            quantity: 1
+        }],
         success_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com/success` : "http://localhost:3000/success",
         cancel_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com` : "http://localhost:3000"
     })

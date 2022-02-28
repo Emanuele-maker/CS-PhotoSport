@@ -3,7 +3,7 @@ import axios from "axios"
 import { useEffect } from "react"
 
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
-    useEffect(async () => {
+    useEffect(() => {
       function downloadImage(img, imageSrc) {
           const link = document.createElement('a')
           link.href = imageSrc
@@ -12,7 +12,9 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
           link.click()
           document.body.removeChild(link)
       }
-      
+      (async () =>
+      {
+      if (localStorage.getItem("downloaded") === "true") return
       await axios.get(`http://csphotosport.com/api/begin-session/${localStorage.getItem("sessionId")}`, {
             headers : {
               'Content-Type': 'application/json',
@@ -26,11 +28,13 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
             onSetBoughtImages(res.data.session.boughtImages)
             res.data.session.boughtImages.forEach(image => {
               downloadImage(image, require(`../../../img/${image.category}/${image.album}/${image.fileName}`))
+              localStorage.setItem("downloaded", "true")
             })
-            localStorage.removeItem("sessionId")
             onResetBoughtImages()
           }
       })
+      }
+      )()
     }, [])
 
   return (

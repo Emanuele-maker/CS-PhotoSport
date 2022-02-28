@@ -9,6 +9,7 @@ import Success from "./components/pages/Success/Success"
 import "./style.scss"
 import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
+import Contact from "./components/pages/Contact/Contact"
 
 const categories = [
   {
@@ -37,8 +38,6 @@ export default function App() {
   const [sessionId, setSessionId] = useState("")
 
   useEffect(() => {
-    setSessionId(localStorage.getItem("sessionId"))
-
     const getFirstSessionInfo = async() => {
       await axios.get("http://csphotosport.com/api/begin-session", {
         headers : {
@@ -52,7 +51,8 @@ export default function App() {
       })
     }
 
-    if (!sessionId) getFirstSessionInfo()
+    if (!localStorage.getItem("sessionId")) getFirstSessionInfo()
+    else setSessionId(localStorage.getItem("sessionId"))
 
     setStatefulCartImages(cartImages)
     setBoughtImages(boughtImagesInit)
@@ -101,6 +101,7 @@ export default function App() {
                   setStatefulCartImages(cartImages)
                   return statefulCartImages
               }} />} />
+              <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
