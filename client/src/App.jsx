@@ -52,7 +52,20 @@ export default function App() {
     }
 
     if (!localStorage.getItem("sessionId")) getFirstSessionInfo()
-    else setSessionId(localStorage.getItem("sessionId"))
+    else {
+      (async () => {
+        await axios.get(`http://csphotosport.com/api/begin-session/${sessionId}`, {
+            headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(res => {
+          if (res.status === 400) getFirstSessionInfo()
+          else if (res.status === 200) setSessionId(res.data.session.id)
+        })
+      })()
+    }
 
     setStatefulCartImages(cartImages)
     setBoughtImages(boughtImagesInit)
