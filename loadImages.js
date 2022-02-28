@@ -1,46 +1,60 @@
 const fs = require("fs")
+const editJsonFile = require("edit-json-file")
 const path = require("path")
 
-const main = async () => {
-    let images = {}
-    let previews = {}
-     fs.readdir(path.join(__dirname, "./client/src/img"), async (err, albums) => {
-        if (err) return console.log(`Unable to open dir: `, err)
-        albums.forEach(album => {
-            fs.readdir(path.join(__dirname, `./client/src/img/${album}`), (err, files) => {
-                if (err) return console.log(`Unable to open dir: `, err)
-                images[album] = []
-                files.forEach((fileName, i) => {
-                    images[album].push({
-                        path: `./img/${fileName}`,
-                        index: i,
-                        fileName: fileName,
-                        album: album
-                    })
-                })
-                fs.writeFile("./client/src/images.json", JSON.stringify(images), err => {
-                    if (err) console.log(err)
-                })
+let imagesFile = editJsonFile(path.join(__dirname, "./client/src/images.json"))
+let previewsFile = editJsonFile(path.join(__dirname, "./client/src/previews.json"))
 
-            })
-
-            fs.readdir(path.join(__dirname, `./client/src/previews/${album}`), async (err, files) => {
-                if (err) console.log("Unable to open dir:", err)
-                previews[album] = []
-                files.forEach((fileName, i) => {
-                    previews[album].push({
-                        path: `./previews/${fileName}`,
-                        index: i,
-                        fileName: fileName,
-                        album: album
+fs.readdir(path.join(__dirname, "./client/src/img"), (err, categories) => {
+    if (err) throw new Error(err)
+    categories.forEach(category => {
+        fs.readdir(path.join(__dirname, `./client/src/img/${category}`), (err, albums) => {
+            if (err) throw new Error(err)
+            albums.forEach(album => {
+                fs.readdir(path.join(__dirname, `./client/src/img/${category}/${album}`), (err, fileImages) => {
+                    if (err) throw new Error(err)
+                    imagesFile.append(category, {
+                        title: album,
+                        images: fileImages.map((fileName, i) => {
+                            return {
+                                index: i,
+                                fileName: fileName,
+                                album: album,
+                                category: category,
+                                addedToCart: false
+                            }
+                        })
                     })
-                })
-                fs.writeFile("./client/src/previews.json", JSON.stringify(previews), err => {
-                    if (err) console.log(err)
+                    imagesFile.save()
                 })
             })
         })
     })
-}
+})
 
-main()
+fs.readdir(path.join(__dirname, "./client/src/previews"), (err, categories) => {
+    if (err) throw new Error(err)
+    categories.forEach(category => {
+        fs.readdir(path.join(__dirname, `./client/src/previews/${category}`), (err, albums) => {
+            if (err) throw new Error(err)
+            albums.forEach(album => {
+                fs.readdir(path.join(__dirname, `./client/src/previews/${category}/${album}`), (err, filePreviews) => {
+                    if (err) throw new Error(err)
+                    previewsFile.append(category, {
+                        title: album,
+                        previews: filePreviews.map((fileName, i) => {
+                            return {
+                                index: i,
+                                fileName: fileName,
+                                album: album,
+                                category: category,
+                                addedToCart: false
+                            }
+                        })
+                    })
+                    previewsFile.save()
+                })
+            })
+        })
+    })
+})

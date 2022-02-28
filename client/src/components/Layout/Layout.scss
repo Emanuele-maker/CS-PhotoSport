@@ -1,12 +1,11 @@
 @import "../../config";
 
 .page-content {
-    margin-left: $nav-width;
     margin-top: $header-height;
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-    width: calc(100% - 18rem);
+    width: 100%;
     overflow-x: hidden;
 
     .obfuscator {

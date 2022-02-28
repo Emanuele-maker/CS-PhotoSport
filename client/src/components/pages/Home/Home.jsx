@@ -1,9 +1,9 @@
-import AlbumList from "../../AlbumList/AlbumList"
+import CategoryList from "../../CategoryList/CategoryList"
 import Heading from "../../Heading/Heading"
 import "./Home.scss"
 import { useEffect } from "react"
 
-export default function Home({ albums }) {
+export default function Home({ categories }) {
     useEffect(() => {
         document.title = "CS PhotoSport: Home"
     }, [])
@@ -11,7 +11,7 @@ export default function Home({ albums }) {
     return (
         <div className="home-container">
             <Heading>HOME</Heading>
-            <AlbumList albums={albums} />
+            <CategoryList categories={categories} />
         </div>
     )
 }

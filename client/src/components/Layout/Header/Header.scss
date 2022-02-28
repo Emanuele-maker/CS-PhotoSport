@@ -5,7 +5,7 @@
     height: 4rem;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
     position: fixed;
     top: 0;
@@ -47,7 +47,6 @@
     }
 
     .bars {
-        display: none;
         margin-left: .5rem;
     }
 }
@@ -55,9 +54,6 @@
 .mobile {
     margin-left: 0;
     justify-content: space-between;
-    .bars {
-        display: block;
-    }
 }
 
 @keyframes change-color {

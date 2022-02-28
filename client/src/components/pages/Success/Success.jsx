@@ -25,7 +25,7 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
           if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
             onSetBoughtImages(res.data.session.boughtImages)
             res.data.session.boughtImages.forEach(image => {
-              downloadImage(image, require(`../../../img/${image.album}/${image.fileName}`))
+              downloadImage(image, require(`../../../img/${image.category}/${image.album}/${image.fileName}`))
             })
             localStorage.removeItem("sessionId")
             onResetBoughtImages()

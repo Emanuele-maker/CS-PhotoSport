@@ -8,22 +8,22 @@ import Home from "./components/pages/Home/Home"
 import Success from "./components/pages/Success/Success"
 import "./style.scss"
 import NotFound from "./components/pages/404/404"
+import AlbumList from "./components/AlbumList/AlbumList"
 
 const categories = [
   {
     title: "Pallanuoto",
-    cover: require("./previews/Pallanuoto/51878695352_dc43b59fa1_c.jpg")
-  }
-]
-
-const albums = [
-  {
-    title: "Anzio Waterpolis vs Centro Nuoto Latina",
-    cover: require("./previews/Pallanuoto/51895584233_0df6d49861_c.jpg")
-  },
-  {
-    title: "Centro Nuoto Latina vs Aquademia Velletri",
-    cover: require("./previews/Pallanuoto/51878695352_dc43b59fa1_c.jpg")
+    cover: require("./previews/Pallanuoto/Centro Nuoto Latina vs Aquademia Velletri/51878695352_dc43b59fa1_c.jpg"),
+    albums: [  
+      {
+        title: "Anzio Waterpolis vs Centro Nuoto Latina",
+        cover: require("./previews/Pallanuoto/Anzio Waterpolis vs Centro Nuoto Latina/51894535542_5c5ac2cc52_c.jpg")
+      },
+      {
+        title: "Centro Nuoto Latina vs Aquademia Velletri",
+        cover: require("./previews/Pallanuoto/Centro Nuoto Latina vs Aquademia Velletri/51887613288_e614d363e9_c.jpg")
+      }
+    ]
   }
 ]
 
@@ -60,31 +60,34 @@ export default function App() {
 
       function objectsAreEqual(object1, object2) {
         if (!object1 || !object2) return false
-        const keys1 = Object.keys(object1);
-        const keys2 = Object.keys(object2);
+        const keys1 = Object.keys(object1)
+        const keys2 = Object.keys(object2)
       
         if (keys1.length !== keys2.length) {
-          return false;
+          return false
         }
       
         for (let key of keys1) {
           if (object1[key] !== object2[key]) {
-            return false;
+            return false
           }
         }
       
-        return true;
+        return true
       }
 
     return (
       <Router>
         <Layout cartCount={cartCount}>
             <Routes>
-              <Route exact path="/" element={<Home albums={albums} />} />
-              <Route path="/album/:album_name" element={<Album onAddToCart={(image) => {
+              <Route exact path="/" element={<Home categories={categories} />} />
+              <Route path="/:category_name" element={<AlbumList categories={categories} />} />
+              <Route path="/:category_name/:album_name" element={<Album onAddToCart={(image) => {
+                  image.addedToCart = true
                   cartImages.push(image)
                   setStatefulCartImages(cartImages)
                   setcartCount(cartCount + 1)
+                  return image
               }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
                   const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
                   if (!cartImageToFind) return
@@ -92,6 +95,7 @@ export default function App() {
                   setStatefulCartImages(cartImages)
               }} />} />
               <Route path="/carrello" element={<Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+                  item.addedToCart = false
                   cartImages.splice(cartImages.indexOf(item), 1)
                   setcartCount(cartCount - 1)
                   setStatefulCartImages(cartImages)

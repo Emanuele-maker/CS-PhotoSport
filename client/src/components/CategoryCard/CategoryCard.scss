@@ -1,10 +1,12 @@
-.album-container {
+.category-container {
+    margin-left: .5rem;
+    
     &:hover {
         cursor: pointer;
     }
 
     h4 {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
         color: white;
         background-color: #004171;
         width: 100%;

@@ -2,34 +2,20 @@ import Navbar from "./Navbar/Navbar"
 import "./Layout.scss"
 import { useState } from "react"
 import Header from "./Header/Header"
+import CookieBanner from "./CookieBanner/CookieBanner"
 
-export default function Layout({ children, cartCount }) {
+export default function Layout({ children, cartCount, isCartIconVisible }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
-
-    function detectMob() {
-        const toMatch = [
-            /Android/i,
-            /webOS/i,
-            /iPhone/i,
-            /iPad/i,
-            /iPod/i,
-            /BlackBerry/i,
-            /Windows Phone/i
-        ]
-        
-        return toMatch.some((toMatchItem) => {
-            return navigator.userAgent.match(toMatchItem)
-        }) || (( window.innerWidth <= 1000 ) && ( window.innerHeight <= 800 ))
-    }
 
     return (
         <>
-            { isMobileNavbarOpened || !detectMob() ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
-            <Header setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
-            <div className={`page-content`} onClick={() => { detectMob() && setIsMobileNavbarOpened(false) }}>
-                <div className={`obfuscator ${isMobileNavbarOpened && detectMob() ? "visible" : "invisible"}`}></div>
+            { isMobileNavbarOpened ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
+            <Header isCartIconVisible={isCartIconVisible} setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
+            <div className={`page-content`} onClick={() => { setIsMobileNavbarOpened(false) }}>
+                <div className={`obfuscator ${isMobileNavbarOpened ? "visible" : "invisible"}`}></div>
                 { children }
             </div>
+            <CookieBanner />
         </>
     )
 }
