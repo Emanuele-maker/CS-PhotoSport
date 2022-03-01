@@ -14,15 +14,11 @@ import Contact from "./components/pages/Contact/Contact"
 const categories = [
   {
     title: "Pallanuoto",
-    cover: require("./previews/Pallanuoto/Centro Nuoto Latina vs Aquademia Velletri/51878695352_dc43b59fa1_c.jpg"),
-    albums: [  
+    cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg"),
+    albums: [
       {
-        title: "Anzio Waterpolis vs Centro Nuoto Latina",
-        cover: require("./previews/Pallanuoto/Anzio Waterpolis vs Centro Nuoto Latina/51894535542_5c5ac2cc52_c.jpg")
-      },
-      {
-        title: "Centro Nuoto Latina vs Aquademia Velletri",
-        cover: require("./previews/Pallanuoto/Centro Nuoto Latina vs Aquademia Velletri/51887613288_e614d363e9_c.jpg")
+        title: "CN Latina vs Muri Antichi",
+        cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
       }
     ]
   }
