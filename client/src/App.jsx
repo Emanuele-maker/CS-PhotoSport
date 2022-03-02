@@ -20,6 +20,16 @@ const categories = [
         title: "CN Latina vs Muri Antichi",
         cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
       }
+    ],
+  },
+  {
+    title: "Kite, Windsurf & Windfoil",
+    cover: require("./img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg"),
+    albums: [
+      {
+        title: "Fogliano 2 Febbraio 2022",
+        cover: require("./img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg")
+      }
     ]
   }
 ]
