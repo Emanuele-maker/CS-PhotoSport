@@ -2,6 +2,8 @@ import "./Sucess.scss"
 import axios from "axios"
 import { useEffect } from "react"
 
+const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : ""
+
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
     useEffect(() => {
       function downloadImage(img, imageSrc) {
@@ -15,7 +17,7 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
       (async () =>
       {
       if (localStorage.getItem("downloaded") === "true") return
-      await axios.get(`http://csphotosport.com/api/begin-session/${localStorage.getItem("sessionId")}`, {
+      await axios.get(`${siteRoute}/api/begin-session/${localStorage.getItem("sessionId")}`, {
             headers : {
               'Content-Type': 'application/json',
               'Accept': 'application/json'

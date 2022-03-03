@@ -3,11 +3,13 @@ import { useState, useEffect } from "react"
 import CartItem from "../../CartItem/CartItem"
 import Heading from "../../Heading/Heading"
 
+const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : ""
+
 export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     const [statefulItems, setStatefulItems] = useState(cartItems)
 
     async function goToCheckout() {
-        await fetch(`http://csphotosport.com/api/checkout/${sessionId}`, {
+        await fetch(`${siteRoute}/api/checkout/${sessionId}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

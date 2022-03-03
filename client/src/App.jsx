@@ -34,6 +34,10 @@ const categories = [
   }
 ]
 
+let previews = JSON.parse(JSON.stringify(require("./previews.json")))
+
+const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : ""
+
 let cartImages = []
 let boughtImagesInit = []
 
@@ -45,7 +49,7 @@ export default function App() {
 
   useEffect(() => {
     const getSessionInfo = async() => {
-      await axios.get(`http://csphotosport.com/api/begin-session/${localStorage.getItem("sessionId")}`, {
+      await axios.get(`${siteRoute}/api/begin-session/${localStorage.getItem("sessionId")}`, {
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -87,7 +91,7 @@ export default function App() {
             <Routes>
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name" element={<AlbumList categories={categories} />} />
-              <Route path="/:category_name/:album_name" element={<Album onAddToCart={(image) => {
+              <Route path="/:category_name/:album_name" element={<Album previewsStruct={previews} onAddToCart={(image) => {
                   image.addedToCart = true
                   cartImages.push(image)
                   setStatefulCartImages(cartImages)
