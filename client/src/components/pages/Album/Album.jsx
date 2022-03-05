@@ -6,7 +6,7 @@ import Heading from "../../Heading/Heading"
 import NotFound from "../404/404"
 
 export default function Album({ onAddToCart, previewsStruct }) {
-    const { category_name, album_name } = useParams()
+    const { category_name, sub_category_name, album_name } = useParams()
 
     useEffect(() => {
         document.title = `CS PhotoSport: ${album_name}`
@@ -14,8 +14,14 @@ export default function Album({ onAddToCart, previewsStruct }) {
 
     const category = previewsStruct[category_name]
     if (!category) return <NotFound />
-    
-    const album = category.find(album => album.title === album_name)
+
+    let album
+
+    if (category.subCategories) {
+        album = category.subCategories.find(c => c.title === sub_category_name).albums.find(album => album.title === album_name)
+    } else {
+        album = category.find(album => album.title === album_name)
+    }
     if (!album) return <NotFound />
 
     const previews = album.previews
@@ -27,7 +33,7 @@ export default function Album({ onAddToCart, previewsStruct }) {
                     <>
                         {
                             previews ? previews.map((preview, previewIndex) => {
-                                return <PhotoCard key={previewIndex} preview={require(`../../../previews/${category_name}/${album_name}/${preview.fileName}`)} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                return <PhotoCard key={previewIndex} preview={require(`../../../previews/${category_name}/${sub_category_name && sub_category_name}/${album_name}/${preview.fileName}`)} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                             }) : <h1>Nessuna foto trovata in questo album</h1>
                         }
                     </>
