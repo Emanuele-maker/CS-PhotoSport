@@ -14,8 +14,18 @@ export default function AlbumList({ categories }) {
     }, [])
     const category = categories.find(c => c.title === category_name)
     if (!category) return <NotFound />
-    if (!sub_category_name) return <SubCategoryList categories={category.subCategories} generalCategories={categories} areSub={true} />
-    const albums = category.subCategories.find(sC => sC.title === sub_category_name).albums
+    if (category.subCategories && !sub_category_name) return <SubCategoryList categories={category.subCategories} generalCategories={categories} areSub={true} />
+    
+    let subCategory, albums
+
+    if (category.subCategories) {
+        subCategory = category.subCategories.find(sC => sC.title === sub_category_name)
+        if (!subCategory) return <NotFound />
+        else albums = subCategory.albums
+    }
+    else albums = category.albums
+
+    if (!albums) return <NotFound />
 
     return (
         <>

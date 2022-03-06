@@ -15,10 +15,14 @@ export default function Album({ onAddToCart, previewsStruct }) {
     const category = previewsStruct[category_name]
     if (!category) return <NotFound />
 
-    let album
+    let subCategory, albums, album
 
     if (category.subCategories) {
-        album = category.subCategories.find(c => c.title === sub_category_name).albums.find(album => album.title === album_name)
+        subCategory = category.subCategories.find(c => c.title === sub_category_name)
+        if (!subCategory) return <NotFound />
+        albums = subCategory.albums
+        if (!albums) return <NotFound />
+        album = albums.find(album => album.title === album_name)
     } else {
         album = category.find(album => album.title === album_name)
     }
@@ -33,7 +37,7 @@ export default function Album({ onAddToCart, previewsStruct }) {
                     <>
                         {
                             previews ? previews.map((preview, previewIndex) => {
-                                return <PhotoCard key={previewIndex} preview={require(`../../../previews/${category_name}/${sub_category_name && sub_category_name}/${album_name}/${preview.fileName}`)} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                return <PhotoCard key={previewIndex} preview={require(`../../../previews/${category_name}${sub_category_name !== undefined ? `/${sub_category_name}` : ""}/${album_name}/${preview.fileName}`)} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                             }) : <h1>Nessuna foto trovata in questo album</h1>
                         }
                     </>

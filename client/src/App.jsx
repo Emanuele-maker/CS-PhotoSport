@@ -10,22 +10,15 @@ import "./style.scss"
 import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
-import SubCategoryList from "./components/SubCategoryList/SubCategoryList"
 
 const categories = [
   {
     title: "Pallanuoto",
-    cover: require("./img/Pallanuoto/Campionato Serie A2/CN Latina vs Muri Antichi/IMG_1716.jpg"),
-    subCategories: [
+    cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg"),
+    albums: [
       {
-        title: "Campionato Serie A2",
-        cover: require("./img/Pallanuoto/Campionato Serie A2/CN Latina vs Muri Antichi/IMG_1716.jpg"),
-        albums: [
-          {
-            title: "CN Latina vs Muri Antichi",
-            cover: require("./img/Pallanuoto/Campionato Serie A2/CN Latina vs Muri Antichi/IMG_1258.jpg")
-          }
-        ],
+        title: "CN Latina vs Muri Antichi",
+        cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
       }
     ]
   },
@@ -103,7 +96,18 @@ export default function App() {
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
               <Route path="/:category_name" element={<AlbumList categories={categories} />} />
-              <Route path="/:category_name" element={<SubCategoryList categories={categories} />} />
+              <Route path="/:category_name/album/:album_name" element={<Album previewsStruct={previews} onAddToCart={(image) => {
+                  image.addedToCart = true
+                  cartImages.push(image)
+                  setStatefulCartImages(cartImages)
+                  setcartCount(cartCount + 1)
+                  return image
+              }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+                  const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
+                  if (!cartImageToFind) return
+                  cartImageToFind.previewSrc = previewSrc
+                  setStatefulCartImages(cartImages)
+              }} />} />
               <Route path="/:category_name/:sub_category_name/:album_name" element={<Album previewsStruct={previews} onAddToCart={(image) => {
                   image.addedToCart = true
                   cartImages.push(image)
