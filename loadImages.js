@@ -13,26 +13,28 @@ fs.readdir(path.join(__dirname, "./client/src/img"), (err, categories) => {
             subCategories.forEach((subCategory, subCategoryIndex) => {
                 fs.readdir(path.join(__dirname, `./client/src/img/${category}/${subCategory}`), (err, albums) => {
                     if (err) throw new Error(err)
+                    if (albums[0].endsWith(".jpg")) {
+                        const images = albums
+                        const album = subCategories[subCategoryIndex]
+                        imagesFile.append(category, {
+                            title: album,
+                            images: images.map((fileName, i) => {
+                                return {
+                                    index: i,
+                                    fileName: fileName,
+                                    album: album,
+                                    category: category,
+                                    addedToCart: false
+                                }
+                            })
+                        })
+                        imagesFile.save()
+                        return
+                    }
                     albums.forEach(album => {
                         fs.readdir(path.join(__dirname, `./client/src/img/${category}/${subCategory}/${album}`), (err, fileImages) => {
-                            if (err) {
-                                const images = albums
-                                const album = subCategories[subCategoryIndex]
-                                imagesFile.append(category, {
-                                    title: album,
-                                    images: images.map((fileName, i) => {
-                                        return {
-                                            index: i,
-                                            fileName: fileName,
-                                            album: album,
-                                            category: category,
-                                            addedToCart: false
-                                        }
-                                    })
-                                })
-                                imagesFile.save()
-                                return
-                            }
+                            if (err) throw new Error(err)
+
                             imagesFile.set(category, {
                                 subCategories: subCategories.map(subC => {
                                     return {
@@ -72,26 +74,28 @@ fs.readdir(path.join(__dirname, "./client/src/previews"), (err, categories) => {
             subCategories.forEach((subCategory, subCategoryIndex) => {
                 fs.readdir(path.join(__dirname, `./client/src/previews/${category}/${subCategory}`), (err, albums) => {
                     if (err) throw new Error(err)
+                    if (albums[0].endsWith(".jpg")) {
+                        const images = albums
+                        const album = subCategories[subCategoryIndex]
+                        previewsFile.append(category, {
+                            title: album,
+                            previews: images.map((fileName, i) => {
+                                return {
+                                    index: i,
+                                    fileName: fileName,
+                                    album: album,
+                                    category: category,
+                                    addedToCart: false
+                                }
+                            })
+                        })
+                        previewsFile.save()
+                        return
+                    }
                     albums.forEach(album => {
+                        console.log(album)
                         fs.readdir(path.join(__dirname, `./client/src/previews/${category}/${subCategory}/${album}`), (err, fileImages) => {
-                            if (err) {
-                                const images = albums
-                                const album = subCategories[subCategoryIndex]
-                                previewsFile.append(category, {
-                                    title: album,
-                                    previews: images.map((fileName, i) => {
-                                        return {
-                                            index: i,
-                                            fileName: fileName,
-                                            album: album,
-                                            category: category,
-                                            addedToCart: false
-                                        }
-                                    })
-                                })
-                                previewsFile.save()
-                                return
-                            }
+                            if (err) throw new Error(err)
                             previewsFile.set(category, {
                                 subCategories: subCategories.map(subC => {
                                     return {
