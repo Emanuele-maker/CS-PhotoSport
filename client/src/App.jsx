@@ -19,6 +19,10 @@ const categories = [
       {
         title: "CN Latina vs Muri Antichi",
         cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
+      },
+      {
+        title: "Open Waterpolo 2019",
+        cover: require("./IMG_8061.jpg")
       }
     ]
   },
