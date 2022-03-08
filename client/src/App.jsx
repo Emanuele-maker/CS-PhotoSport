@@ -11,36 +11,37 @@ import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
 
+const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : "http://localhost:3000"
+const staticRoute = `${siteRoute}/client/build`
+
 const categories = [
   {
     title: "Pallanuoto",
-    cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg"),
+    cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
         title: "CN Latina vs Muri Antichi",
-        cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
+        cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
       }
     ]
   },
   {
     title: "Kite, Windsurf & Windfoil",
-    cover: require("./img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg"),
+    cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
     albums: [
       {
         title: "Fogliano 2 Febbraio 2022",
-        cover: require("./img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg")
+        cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`
       },
       {
         title: "Fogliano 26 Gennaio 2022",
-        cover: require("./img/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg") 
+        cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg` 
       }
     ]
   }
 ]
 
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
-
-const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : ""
 
 let cartImages = []
 let boughtImagesInit = []

@@ -51,34 +51,44 @@
       ]
     }
   ],
-  "Pallanuoto": {
-    "subCategories": [
-      {
-        "title": "Campionato Serie A2",
-        "albums": [
-          {
-            "title": "CN Latina vs Muri Antichi",
-            "previews": [
-              {
-                "index": 0,
-                "fileName": "IMG_1258.jpg",
-                "album": "CN Latina vs Muri Antichi",
-                "category": "Pallanuoto",
-                "subCategory": "Campionato Serie A2",
-                "addedToCart": false
-              },
-              {
-                "index": 1,
-                "fileName": "IMG_1716.jpg",
-                "album": "CN Latina vs Muri Antichi",
-                "category": "Pallanuoto",
-                "subCategory": "Campionato Serie A2",
-                "addedToCart": false
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "Pallanuoto": [
+    {
+      "title": "CN Latina vs Muri Antichi",
+      "previews": [
+        {
+          "index": 0,
+          "fileName": "IMG_1258.jpg",
+          "album": "CN Latina vs Muri Antichi",
+          "category": "Pallanuoto",
+          "addedToCart": false
+        },
+        {
+          "index": 1,
+          "fileName": "IMG_1716.jpg",
+          "album": "CN Latina vs Muri Antichi",
+          "category": "Pallanuoto",
+          "addedToCart": false
+        }
+      ]
+    },
+    {
+      "title": "CN Latina vs Muri Antichi",
+      "previews": [
+        {
+          "index": 0,
+          "fileName": "IMG_1258.jpg",
+          "album": "CN Latina vs Muri Antichi",
+          "category": "Pallanuoto",
+          "addedToCart": false
+        },
+        {
+          "index": 1,
+          "fileName": "IMG_1716.jpg",
+          "album": "CN Latina vs Muri Antichi",
+          "category": "Pallanuoto",
+          "addedToCart": false
+        }
+      ]
+    }
+  ]
 }
