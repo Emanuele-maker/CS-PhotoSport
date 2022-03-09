@@ -21,7 +21,8 @@ const categories = [
     albums: [
       {
         title: "CN Latina vs Muri Antichi",
-        cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
+        cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`,
+        cover: require("./img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg")
       }
     ]
   },

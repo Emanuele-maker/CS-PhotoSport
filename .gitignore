@@ -7,3 +7,5 @@ client/build/img
 client/build/previews
 client/public/img
 client/public/previews
+client/src/images.json
+client/src/previews.json
