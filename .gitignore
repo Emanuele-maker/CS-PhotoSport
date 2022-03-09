@@ -3,3 +3,10 @@ node_modules/
 client/src/img/
 client/src/previews/
 client/build/static/media/
+client/build/img
+client/build/previews
+client/public/img
+client/public/previews
+client/src/images.json
+client/src/previews.json
+mobile/
