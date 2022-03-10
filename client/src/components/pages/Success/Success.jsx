@@ -3,7 +3,7 @@ import axios from "axios"
 import { useEffect } from "react"
 
 const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : "http://localhost:3000"
-const staticRoute = `${siteRoute}/client/build`
+const staticRoute = `${siteRoute}/img`
 
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
     useEffect(() => {
