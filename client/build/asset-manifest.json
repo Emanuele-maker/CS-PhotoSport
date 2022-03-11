@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "http://csphotosport.com/client/build/static/css/main.b7253084.css",
-    "main.js": "http://csphotosport.com/client/build/static/js/main.0df07298.js",
+    "main.css": "http://csphotosport.com/client/build/static/css/main.20e8e737.css",
+    "main.js": "http://csphotosport.com/client/build/static/js/main.d8ed9ec2.js",
     "static/media/IMG_8061.jpg": "http://csphotosport.com/client/build/static/media/IMG_8061.7d46acd6cbb04cf1eab6.jpg",
     "static/media/ImCross.svg": "http://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
     "index.html": "http://csphotosport.com/client/build/index.html",
-    "main.b7253084.css.map": "http://csphotosport.com/client/build/static/css/main.b7253084.css.map",
-    "main.0df07298.js.map": "http://csphotosport.com/client/build/static/js/main.0df07298.js.map"
+    "main.20e8e737.css.map": "http://csphotosport.com/client/build/static/css/main.20e8e737.css.map",
+    "main.d8ed9ec2.js.map": "http://csphotosport.com/client/build/static/js/main.d8ed9ec2.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7253084.css",
-    "static/js/main.0df07298.js"
+    "static/css/main.20e8e737.css",
+    "static/js/main.d8ed9ec2.js"
   ]
 }
