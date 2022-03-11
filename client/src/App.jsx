@@ -10,18 +10,16 @@ import "./style.scss"
 import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
-
-const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : "http://localhost:3000"
-const staticRoute = `${siteRoute}/client/build`
+import { siteRoute, imagesRoute } from "./staticInfo"
 
 const categories = [
   {
     title: "Pallanuoto",
-    cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
+    cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
         title: "CN Latina vs Muri Antichi",
-        cover: `${staticRoute}/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`,
+        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`,
       },
       {
         title: "Open Waterpolo 2019",
@@ -31,15 +29,15 @@ const categories = [
   },
   {
     title: "Kite, Windsurf & Windfoil",
-    cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
+    cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
     albums: [
       {
         title: "Fogliano 2 Febbraio 2022",
-        cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`
+        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`
       },
       {
         title: "Fogliano 26 Gennaio 2022",
-        cover: `${staticRoute}/img/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg` 
+        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg` 
       }
     ]
   }

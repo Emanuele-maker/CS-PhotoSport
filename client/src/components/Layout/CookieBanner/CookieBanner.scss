@@ -7,6 +7,8 @@
     position: fixed;
     top: calc(100% - 4rem);
     background-color: white;
+    position: fixed;
+    z-index: 1;
 
     p {
         font-size: 1.5rem;

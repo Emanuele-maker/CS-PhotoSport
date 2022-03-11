@@ -3,6 +3,7 @@ import "./Layout.scss"
 import { useState } from "react"
 import Header from "./Header/Header"
 import CookieBanner from "./CookieBanner/CookieBanner"
+import Footer from "./Footer/Footer"
 
 export default function Layout({ children, cartCount, isCartIconVisible }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
@@ -16,6 +17,7 @@ export default function Layout({ children, cartCount, isCartIconVisible }) {
                 { children }
             </div>
             <CookieBanner />
+            <Footer />
         </>
     )
 }

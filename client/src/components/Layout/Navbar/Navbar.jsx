@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./Navbar.scss"
-import Footer from "../Footer/Footer"
+import CopyRight from "../Copyright/CopyRight"
 import { useNavigate } from "react-router-dom"
 
 export default function Navbar({ onCloseNav }) {
@@ -20,7 +20,7 @@ export default function Navbar({ onCloseNav }) {
                         <li onClick={() => onClickLink("/carrello")}><Link className="cart-link link" to="/carrello">Carrello</Link></li>
                         <li onClick={() => onClickLink("/contatti")}><Link className="link" to="/contatti">Contatti</Link></li>
                     </ul>
-                <Footer />
+                <CopyRight />
             </div>
         </nav>
     )
