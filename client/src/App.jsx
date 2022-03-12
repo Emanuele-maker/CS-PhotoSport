@@ -23,11 +23,11 @@ const categories = [
       },
       {
         title: "Open Waterpolo 2019",
-        cover: require("./IMG_8061.jpg")
+        cover: require("./cover/Cover open waterpolo.jpg")
       },
       {
         title: "CN Latina vs Villa York",
-        cover: require("./Cover CN Latina vs Villa York.jpg")
+        cover: require("./cover/Cover CN Latina vs Villa York.jpg")
       }
     ]
   },
@@ -42,6 +42,16 @@ const categories = [
       {
         title: "Fogliano 26 Gennaio 2022",
         cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg` 
+      }
+    ]
+  },
+  {
+    title: "Beachvolley",
+    cover: require("./cover/Cover beachvolley.jpg"),
+    albums: [
+      {
+        title: "Torneo Opes 2021",
+        cover: require("./cover/Cover torneo opes.jpg")
       }
     ]
   }
