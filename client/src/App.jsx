@@ -24,6 +24,10 @@ const categories = [
       {
         title: "Open Waterpolo 2019",
         cover: require("./IMG_8061.jpg")
+      },
+      {
+        title: "CN Latina vs Villa York",
+        cover: require("./Cover CN Latina vs Villa York.jpg")
       }
     ]
   },
