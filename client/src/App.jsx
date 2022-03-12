@@ -11,6 +11,7 @@ import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
 import { siteRoute, imagesRoute } from "./staticInfo"
+import Search from "./components/pages/Search/Search"
 
 const categories = [
   {
@@ -149,6 +150,7 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
+              <Route path="/ricerca" element={<Search categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>

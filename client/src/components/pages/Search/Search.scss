@@ -1,0 +1,21 @@
+@import "../../../config";
+@import "../../Grid.scss";
+
+.search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+
+    &-bar {
+        font-family: $font;
+        background-color: black;
+        border: none;
+        color: white;
+        width: 20rem;
+
+        &::placeholder {
+            color: white;
+        }
+    }
+}
