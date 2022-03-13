@@ -1,6 +1,5 @@
 import "./SubCategoryCard.scss"
 import { useNavigate } from "react-router-dom"
-import LazyImage from "../LazyImage"
 
 export default function CategoryCard({ category, subCategory }) {
     const navigate = useNavigate()
@@ -9,7 +8,7 @@ export default function CategoryCard({ category, subCategory }) {
         <div className="category-container" onClick={() => {
             navigate(`/${category.title}/${subCategory.title}`)
         }}>
-        <LazyImage src={ subCategory.cover } alt="Cover dell'album" />
+        <img src={ subCategory.cover } alt="Cover dell'album" />
         <h4>{ subCategory.title }</h4>
         </div>
     )
