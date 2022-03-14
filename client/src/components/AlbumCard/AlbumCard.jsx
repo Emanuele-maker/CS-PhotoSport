@@ -1,5 +1,6 @@
 import "./AlbumCard.scss"
 import { useNavigate } from "react-router-dom"
+import LazyImage from "../LazyImage"
 
 export default function AlbumCard({ category, subCategory, album }) {
     const navigate = useNavigate()
@@ -9,7 +10,7 @@ export default function AlbumCard({ category, subCategory, album }) {
             if (subCategory) navigate(`/${category}/${subCategory}/${album.title}`)
             else navigate(`/${category}/album/${album.title}`)
         }}>
-            <img src={ album.cover } alt="Cover dell'album" />
+            <LazyImage src={ album.cover } alt="Cover dell'album" />
             <h4>{ album.title }</h4>
         </div>
     )

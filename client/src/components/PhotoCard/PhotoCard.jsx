@@ -1,9 +1,10 @@
+import LazyImage from "../LazyImage"
 import "./PhotoCard.scss"
 
 export default function PhotoCard({ preview, onAddToCart, addedToCart }) {
   return (
       <div className="photo-container">
-          <img src={preview} />
+          <LazyImage src={preview} />
           { 
             addedToCart 
             ?
