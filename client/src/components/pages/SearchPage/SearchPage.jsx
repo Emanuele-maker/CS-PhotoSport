@@ -1,11 +1,11 @@
-import "./Search.scss"
-import { AiOutlineSearch } from "react-icons/ai"
+import "./SearchPage.scss"
 import { useEffect, useState } from "react"
 import AlbumCard from "../../AlbumCard/AlbumCard"
+import SearchBar from "../../SearchBar/SearchBar"
 
 let searchParam = ""
 
-export default function Search({ categories }) {
+export default function SearchPage({ categories }) {
     const [filteredAlbums, setFilteredAlbums] = useState([])
 
     const initFilteredAlbums = () => {
@@ -37,10 +37,7 @@ export default function Search({ categories }) {
 
     return (
         <>
-            <div className="search">
-               <AiOutlineSearch color="white" size="2.2rem" />
-               <input type="text" className="search-bar" placeholder="Inserisci il nome dell'album da cercare..." onInput={onChange} height="2rem" />
-            </div>
+            <SearchBar onChange={onChange} />
             <div className="grid filtered-albums">
                 {
                     filteredAlbums.map((album, albumIndex) => {

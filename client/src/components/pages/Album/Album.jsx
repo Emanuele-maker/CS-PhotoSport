@@ -34,6 +34,7 @@ export default function Album({ onAddToCart, previewsStruct }) {
     return (
         <>
             <Heading>{ album_name }</Heading>
+            <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2>
             <div className="grid photos-container">
                     <>
                         {
