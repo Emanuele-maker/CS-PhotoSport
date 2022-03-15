@@ -6,12 +6,12 @@ import { imagesRoute, siteRoute } from "../../../staticInfo"
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
     useEffect(() => {
       function downloadImage(img, imageSrc) {
-          const link = document.createElement('a')
-          link.href = imageSrc
-          link.download = `${img.fileName}`
-          document.body.appendChild(link)
-          link.click()
-          document.body.removeChild(link)
+        const link = document.createElement('a')
+        link.href = imageSrc
+        link.download = img.fileName
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
       }
       (async () =>
       {
@@ -23,12 +23,14 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
             }
       })
       .then(res => {
+          console.log(res)
           onSetSessionId(res.data.session.id)
           localStorage.setItem("sessionId", res.data.session.id)
           if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
             onSetBoughtImages(res.data.session.boughtImages)
             res.data.session.boughtImages.forEach(image => {
-              downloadImage(image, `${imagesRoute}/${image.category}/${image.album}/${image.fileName}`)
+              if (image.subCategory !== undefined) downloadImage(image, `${imagesRoute}/${image.category}/${image.subCategory}/${image.album}/${image.fileName}`)
+              else downloadImage(image, `${imagesRoute}/${image.category}/${image.album}/${image.fileName}`)
               localStorage.setItem("downloaded", "true")
             })
             onResetBoughtImages()
@@ -39,7 +41,7 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
     }, [])
 
   return (
-    <div className="success-content">
+    <div className="success-content" rel="noopener noreferrer" target="_blank">
       <h1>Pagamento Riuscito!</h1>
       <h2>Le immagini acquistate verranno scaricate automaticamente dal tuo browser!</h2>
     </div>

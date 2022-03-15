@@ -2,8 +2,7 @@ import "./Cart.scss"
 import { useState, useEffect } from "react"
 import CartItem from "../../CartItem/CartItem"
 import Heading from "../../Heading/Heading"
-
-const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : ""
+import { siteRoute } from "../../../staticInfo"
 
 export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     const [statefulItems, setStatefulItems] = useState(cartItems)

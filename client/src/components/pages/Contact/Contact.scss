@@ -20,6 +20,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         margin: .5rem;
 
         h2 {
@@ -51,5 +52,13 @@
     h3 {
         color: white;
         text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-content {
+        a {
+            font-size: 1rem;
+        }
     }
 }

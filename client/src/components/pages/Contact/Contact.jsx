@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import Heading from "../../Heading/Heading"
 import "./Contact.scss"
-import { AiOutlineMail } from "react-icons/ai"
-import { BsTools } from "react-icons/bs"
+import BsTools from "./BsTools.svg"
+import AiOutlineMail from "./AiOutlineMail.svg"
 
 export default function Contact({ sessionId }) {
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function Contact({ sessionId }) {
     <div className="contact-content">
         <Heading>Contatti</Heading>
         <div className="email-contact">
-          <AiOutlineMail className="email-icon" size="1.8rem" color="white" />
+          <img src={AiOutlineMail} className="email-icon" alt="icon email" />
           <h2><a href="mailto: postmaster@csphotosport.com">postmaster@csphotosport.com</a></h2>
         </div>
         <div className="credits">
@@ -21,7 +21,7 @@ export default function Contact({ sessionId }) {
         </div>
         <div className="support-tools">
           <div className="support-tools-header">
-            <BsTools color="white" size="1.8rem" />
+            <img src={BsTools} />
             <h2>Strumenti di supporto:</h2>
           </div>
           <h3>ID di sessione: { sessionId }</h3>

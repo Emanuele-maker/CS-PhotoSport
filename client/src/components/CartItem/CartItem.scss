@@ -8,10 +8,12 @@
     margin-top: 1.3rem;
     width: 100%;
 
-    .preview {
-        height: 120%;
+    span {
         margin: 0 2.5rem;
-        margin-right: 1rem;
+        img {
+            width: 40%;
+            height: 20%;
+        }
     }
 
     .cross-icon {
@@ -21,10 +23,6 @@
 
     .cross-icon:hover {
         cursor: pointer;
-    }
-
-    h3 {
-        color: white;
     }
 }
 
