@@ -1,9 +1,7 @@
 import "./Sucess.scss"
 import axios from "axios"
 import { useEffect } from "react"
-
-const siteRoute = process.env.NODE_ENV === "production" ? "http://csphotosport.com" : "http://localhost:3000"
-const staticRoute = `${siteRoute}/img`
+import { imagesRoute, siteRoute } from "../../../staticInfo"
 
 export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoughtImages }) {
     useEffect(() => {
@@ -30,7 +28,7 @@ export default function Success({ onSetSessionId, onSetBoughtImages, onResetBoug
           if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
             onSetBoughtImages(res.data.session.boughtImages)
             res.data.session.boughtImages.forEach(image => {
-              downloadImage(image, `${staticRoute}/img/${image.category}/${image.album}/${image.fileName}`)
+              downloadImage(image, `${imagesRoute}/${image.category}/${image.album}/${image.fileName}`)
               localStorage.setItem("downloaded", "true")
             })
             onResetBoughtImages()
