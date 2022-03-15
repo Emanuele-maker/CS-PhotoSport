@@ -34,7 +34,7 @@ const createCheckoutSession = async (req, res) => {
             },
             quantity: 1
         }],
-        success_url: /*process.env.NODE_ENV === "production" ? `http://csphotosport.com/success` : */"http://localhost:3000/success",
+        success_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com/success` : "http://localhost:3000/success",
         cancel_url: process.env.NODE_ENV === "production" ? `http://csphotosport.com` : "http://localhost:3000"
     })
     .then(checkout => {
