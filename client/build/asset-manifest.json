@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "http://csphotosport.com/client/build/static/css/main.1ccbf8f5.css",
-    "main.js": "http://csphotosport.com/client/build/static/js/main.103e4559.js",
+    "main.css": "http://csphotosport.com/client/build/static/css/main.6e30e480.css",
+    "main.js": "http://csphotosport.com/client/build/static/js/main.2f96eac3.js",
     "static/media/Cover CN Latina vs Villa York.jpg": "http://csphotosport.com/client/build/static/media/Cover CN Latina vs Villa York.2360d5af4403dcd76255.jpg",
     "static/media/Cover torneo opes.jpg": "http://csphotosport.com/client/build/static/media/Cover torneo opes.be367b11e1430bdd6a98.jpg",
     "static/media/Cover open waterpolo.jpg": "http://csphotosport.com/client/build/static/media/Cover open waterpolo.7d46acd6cbb04cf1eab6.jpg",
@@ -11,11 +11,11 @@
     "static/media/BsTools.svg": "http://csphotosport.com/client/build/static/media/BsTools.e885b606250f403ca3cd56cd7aab902d.svg",
     "index.html": "http://csphotosport.com/client/build/index.html",
     "static/media/AiOutlineMail.svg": "http://csphotosport.com/client/build/static/media/AiOutlineMail.54299657d85b7046df219ac44d8b2709.svg",
-    "main.1ccbf8f5.css.map": "http://csphotosport.com/client/build/static/css/main.1ccbf8f5.css.map",
-    "main.103e4559.js.map": "http://csphotosport.com/client/build/static/js/main.103e4559.js.map"
+    "main.6e30e480.css.map": "http://csphotosport.com/client/build/static/css/main.6e30e480.css.map",
+    "main.2f96eac3.js.map": "http://csphotosport.com/client/build/static/js/main.2f96eac3.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ccbf8f5.css",
-    "static/js/main.103e4559.js"
+    "static/css/main.6e30e480.css",
+    "static/js/main.2f96eac3.js"
   ]
 }

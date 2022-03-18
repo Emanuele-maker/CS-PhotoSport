@@ -65,12 +65,10 @@ const categories = [
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
 
 let cartImages = []
-let boughtImagesInit = []
 
 export default function App() {
   const [cartCount, setcartCount] = useState(0)
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
-  const [boughtImages, setBoughtImages] = useState(undefined)
   const [sessionId, setSessionId] = useState("")
 
   useEffect(() => {
@@ -90,12 +88,11 @@ export default function App() {
     getSessionInfo()
 
     setStatefulCartImages(cartImages)
-    setBoughtImages(boughtImagesInit)
 
     const img = document.querySelectorAll("img")
     img.forEach(image => image.ondragstart = () => { return false })
 
-  }, [boughtImages, sessionId])
+  }, [sessionId])
 
       function objectsAreEqual(object1, object2) {
         if (!object1 || !object2) return false
@@ -155,7 +152,7 @@ export default function App() {
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
-              <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} onSetBoughtImages={(boughtImages) => setBoughtImages(boughtImages)} onResetBoughtImages={() => setBoughtImages([])} />} />
+              <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>
