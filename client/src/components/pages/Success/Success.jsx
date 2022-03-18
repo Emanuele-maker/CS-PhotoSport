@@ -55,7 +55,7 @@ export default function Success({ onSetSessionId, onResetBoughtImages }) {
       {
         boughtImages.length > 0 ? 
         <>
-          <div className="download-all"><button className="download-all-btn" onClick={downloadAll}>Scarica tutte le foto</button></div>
+          {/* <div className="download-all"><button className="download-all-btn" onClick={downloadAll}>Scarica tutte le foto</button></div> */}
           <div className="grid">
             {
               boughtImages.map(img => {
