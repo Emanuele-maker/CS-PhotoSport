@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "http://csphotosport.com/client/build/static/css/main.6e30e480.css",
-    "main.js": "http://csphotosport.com/client/build/static/js/main.17755eb0.js",
-    "static/media/Cover CN Latina vs Villa York.jpg": "http://csphotosport.com/client/build/static/media/Cover CN Latina vs Villa York.2360d5af4403dcd76255.jpg",
-    "static/media/Cover torneo opes.jpg": "http://csphotosport.com/client/build/static/media/Cover torneo opes.be367b11e1430bdd6a98.jpg",
-    "static/media/Cover open waterpolo.jpg": "http://csphotosport.com/client/build/static/media/Cover open waterpolo.7d46acd6cbb04cf1eab6.jpg",
-    "static/media/Cover beachvolley.jpg": "http://csphotosport.com/client/build/static/media/Cover beachvolley.b6a8a9a7be3583adc386.jpg",
-    "static/media/51935679994_4080fb8de3_c.jpg": "http://csphotosport.com/client/build/static/media/51935679994_4080fb8de3_c.43b735464416db543716.jpg",
-    "static/media/ImCross.svg": "http://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
-    "static/media/BsTools.svg": "http://csphotosport.com/client/build/static/media/BsTools.e885b606250f403ca3cd56cd7aab902d.svg",
-    "index.html": "http://csphotosport.com/client/build/index.html",
-    "static/media/AiOutlineMail.svg": "http://csphotosport.com/client/build/static/media/AiOutlineMail.54299657d85b7046df219ac44d8b2709.svg",
-    "main.6e30e480.css.map": "http://csphotosport.com/client/build/static/css/main.6e30e480.css.map",
-    "main.17755eb0.js.map": "http://csphotosport.com/client/build/static/js/main.17755eb0.js.map"
+    "main.css": "https://csphotosport.com/client/build/static/css/main.6e30e480.css",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.8609b65f.js",
+    "static/media/Cover CN Latina vs Villa York.jpg": "https://csphotosport.com/client/build/static/media/Cover CN Latina vs Villa York.2360d5af4403dcd76255.jpg",
+    "static/media/Cover torneo opes.jpg": "https://csphotosport.com/client/build/static/media/Cover torneo opes.be367b11e1430bdd6a98.jpg",
+    "static/media/Cover open waterpolo.jpg": "https://csphotosport.com/client/build/static/media/Cover open waterpolo.7d46acd6cbb04cf1eab6.jpg",
+    "static/media/Cover beachvolley.jpg": "https://csphotosport.com/client/build/static/media/Cover beachvolley.b6a8a9a7be3583adc386.jpg",
+    "static/media/51935679994_4080fb8de3_c.jpg": "https://csphotosport.com/client/build/static/media/51935679994_4080fb8de3_c.43b735464416db543716.jpg",
+    "static/media/ImCross.svg": "https://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
+    "static/media/BsTools.svg": "https://csphotosport.com/client/build/static/media/BsTools.e885b606250f403ca3cd56cd7aab902d.svg",
+    "index.html": "https://csphotosport.com/client/build/index.html",
+    "static/media/AiOutlineMail.svg": "https://csphotosport.com/client/build/static/media/AiOutlineMail.54299657d85b7046df219ac44d8b2709.svg",
+    "main.6e30e480.css.map": "https://csphotosport.com/client/build/static/css/main.6e30e480.css.map",
+    "main.8609b65f.js.map": "https://csphotosport.com/client/build/static/js/main.8609b65f.js.map"
   },
   "entrypoints": [
     "static/css/main.6e30e480.css",
-    "static/js/main.17755eb0.js"
+    "static/js/main.8609b65f.js"
   ]
 }
