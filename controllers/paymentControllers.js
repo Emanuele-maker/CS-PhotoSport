@@ -34,8 +34,8 @@ const createCheckoutSession = async (req, res) => {
             },
             quantity: 1
         }],
-        success_url: process.env.NODE_ENV === "production" ? `https://csphotosport.com/success` : "https://localhost:3000/success",
-        cancel_url: process.env.NODE_ENV === "production" ? `https://csphotosport.com` : "https://localhost:3000"
+        success_url: process.env.NODE_ENV === "production" ? `https://csphotosport.com/success` : "http://localhost:3000/success",
+        cancel_url: process.env.NODE_ENV === "production" ? `https://csphotosport.com` : "http://localhost:3000"
     })
     .then(checkout => {
         session.boughtImages = req.body.items

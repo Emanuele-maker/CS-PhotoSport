@@ -5,6 +5,7 @@ import Heading from "../Heading/Heading"
 import NotFound from "../pages/404/404"
 import { useEffect } from "react"
 import SubCategoryList from "../SubCategoryList/SubCategoryList"
+import formatURL from "../../formatURL"
 
 export default function AlbumList({ categories }) {
     const { category_name, sub_category_name } = useParams()
@@ -12,14 +13,14 @@ export default function AlbumList({ categories }) {
     useEffect(() => {
         document.title = `CS PhotoSport: ${category_name}`
     }, [])
-    const category = categories.find(c => c.title === category_name)
+    const category = categories.find(c => formatURL(c.title) === category_name)
     if (!category) return <NotFound />
     if (category.subCategories && !sub_category_name) return <SubCategoryList categories={category.subCategories} generalCategories={categories} areSub={true} />
     
     let subCategory, albums
 
     if (category.subCategories) {
-        subCategory = category.subCategories.find(sC => sC.title === sub_category_name)
+        subCategory = category.subCategories.find(sC => formatURL(sC.title) === sub_category_name)
         if (!subCategory) return <NotFound />
         else albums = subCategory.albums
     }
@@ -29,7 +30,7 @@ export default function AlbumList({ categories }) {
 
     return (
         <>
-            <Heading>{ category_name }</Heading>
+            <Heading>{ category_name.replaceAll("-", " ") }</Heading>
             <div className="grid albums-container">
                 { albums.map((album, albumIndex) => {
                     return (<AlbumCard key={albumIndex} album={album} category={category_name} subCategory={sub_category_name} />)
