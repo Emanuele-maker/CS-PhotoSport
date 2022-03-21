@@ -18,7 +18,6 @@ export default function SearchPage({ categories }) {
 
     const startingAlbums = initFilteredAlbums()
 
-
     const updateFilteredAlbums = () => {
         if (searchParam.length < 1) return setFilteredAlbums(startingAlbums)
         const albums = initFilteredAlbums().filter(album => album.title.toLowerCase().includes(searchParam.toLowerCase()))

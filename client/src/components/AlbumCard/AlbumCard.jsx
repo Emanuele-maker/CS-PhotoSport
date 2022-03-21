@@ -8,8 +8,8 @@ export default function AlbumCard({ category, subCategory, album }) {
 
     return (
         <div className="album-container" onClick={() => {
-            if (subCategory) navigate(`/${category}/${subCategory}/${formatURL(album.title)}`)
-            else navigate(`/${category}/album/${formatURL(album.title)}`)
+            if (subCategory) navigate(formatURL(`/${category}/${subCategory}/${album.title}`))
+            else navigate(formatURL(`/${category}/album/${album.title}`))
         }}>
             <LazyImage src={ album.cover } alt="Cover dell'album" />
             <h4>{ album.title }</h4>
