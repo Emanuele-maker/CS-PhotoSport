@@ -47,6 +47,28 @@ const createCheckoutSession = async (req, res) => {
     })
 }
 
+const createMobileCheckoutSession = async (req, res) => {
+    const customer = await stripe.customers.create()
+    const ephemeralKey = await stripe.ephemeralKeys.create({ customer: customer.id }, { apiVersion: '2020-08-27' })
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: 1099,
+        currency: 'eur',
+        customer: customer.id,
+        automatic_payment_methods: {
+          enabled: true,
+        }
+    })
+
+    res.json({
+        paymentIntent: paymentIntent.client_secret,
+        ephemeralKey: ephemeralKey.secret,
+        customer: customer.id,
+        publishableKey: process.env.STRIPE_PUBLIC_KEY
+    })
+}
+
+
 module.exports = { 
     createCheckoutSession, 
+    createMobileCheckoutSession
 }
