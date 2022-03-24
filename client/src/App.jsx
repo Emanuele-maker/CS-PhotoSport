@@ -20,7 +20,7 @@ const categories = [
     albums: [
       {
         title: "CN Latina vs Muri Antichi",
-        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`,
+        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
       },
       {
         title: "Open Waterpolo 2019",
@@ -123,7 +123,7 @@ export default function App() {
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
               <Route path="/:category_name" element={<AlbumList categories={categories} />} />
-              <Route path="/:category_name/album/:album_name" element={<Album previewsStruct={previews} onAddToCart={(image) => {
+              <Route path="/:category_name/album/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={(image) => {
                   image.addedToCart = true
                   cartImages.push(image)
                   setStatefulCartImages(cartImages)
@@ -135,7 +135,7 @@ export default function App() {
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
-              <Route path="/:category_name/:sub_category_name/:album_name" element={<Album previewsStruct={previews} onAddToCart={(image) => {
+              <Route path="/:category_name/:sub_category_name/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={(image) => {
                   image.addedToCart = true
                   cartImages.push(image)
                   setStatefulCartImages(cartImages)

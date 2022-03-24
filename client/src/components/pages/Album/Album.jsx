@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom"
-import PhotoCard from "../../PhotoCard/PhotoCard"
 import "./Album.scss"
 import { useEffect } from "react"
-import Heading from "../../Heading/Heading"
 import NotFound from "../404/404"
-import { previewsRoute } from "../../../staticInfo"
 import formatURL from "../../../formatURL"
+import PaymentAlbum from "../../PaymentAlbum/PaymentAlbum"
+import FreeAlbum from "../../FreeAlbum/FreeAlbum"
 
-export default function Album({ onAddToCart, previewsStruct }) {
+export default function Album({ onAddToCart, previewsStruct, categories }) {
     const { category_name, sub_category_name, album_name } = useParams()
 
     useEffect(() => {
@@ -34,19 +33,17 @@ export default function Album({ onAddToCart, previewsStruct }) {
 
     const previews = album.previews
 
+    const isFree = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name).isFree
+
     return (
         <>
-            <Heading>{ album_name.replaceAll("-", " ") }</Heading>
-            <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2>
-            <div className="grid photos-container">
-                    <>
-                        {
-                            previews ? previews.map((preview, previewIndex) => {
-                                return <PhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                            }) : <h1>Nessuna foto trovata in questo album</h1>
-                        }
-                    </>
-            </div>
+            { 
+                isFree
+                ? 
+                <FreeAlbum onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+                : 
+                <PaymentAlbum onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+            }
         </>
     )
 }
