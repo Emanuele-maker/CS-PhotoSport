@@ -23,3 +23,16 @@
     color: white;
     font-weight: bolder;
 }
+
+.share-icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-icon {
+    &:hover {
+        cursor: pointer;
+    }
+}
