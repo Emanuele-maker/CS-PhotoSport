@@ -7,7 +7,7 @@ export default function FreeAlbum({ previews, previewsStruct, category_name, sub
   return (
     <>
             <Heading>{ album_name.replaceAll("-", " ") }</Heading>
-            <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto <span className="highlighted">Gratis</span></h2>
+            <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2>
             <div className="grid photos-container">
                     <>
                         {

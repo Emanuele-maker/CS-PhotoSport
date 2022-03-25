@@ -10,7 +10,7 @@ import "./style.scss"
 import NotFound from "./components/pages/404/404"
 import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
-import { siteRoute, imagesRoute } from "./staticInfo"
+import { siteRoute, imagesRoute, previewsRoute } from "./staticInfo"
 import SearchPage from "./components/pages/SearchPage/SearchPage"
 
 const categories = [
@@ -61,6 +61,11 @@ const categories = [
       {
         title: "Torneo Opes 2021",
         cover: require("./cover/Cover torneo opes.jpg")
+      },
+      {
+        title: "Rome Beach Finals 2019",
+        cover: `${previewsRoute}/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg`,
+        isFree: true
       }
     ]
   }

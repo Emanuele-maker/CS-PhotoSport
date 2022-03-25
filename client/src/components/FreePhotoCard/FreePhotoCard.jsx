@@ -15,7 +15,7 @@ export default function FreePhotoCard({ preview }) {
       <>
         <div className="photo-container">
           <LazyImage src={preview} />
-          <button className="download" onClick={() => downloadImage(preview)}>Scarica</button>
+          <button className="download" onClick={() => downloadImage(preview.replace("previews", "img"))}>Scarica</button>
         </div>
       </>
   )
