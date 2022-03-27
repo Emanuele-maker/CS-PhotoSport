@@ -59,6 +59,10 @@ const categories = [
     cover: require("./cover/Cover beachvolley.jpg"),
     albums: [
       {
+        title: "FIPAV 27.3.2022",
+        cover: require("./cover/Cover FIPAV 27.3.2022.jpg")
+      },
+      {
         title: "Torneo Opes 2021",
         cover: require("./cover/Cover torneo opes.jpg")
       },
