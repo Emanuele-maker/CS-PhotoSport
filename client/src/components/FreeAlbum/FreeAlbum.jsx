@@ -10,7 +10,7 @@ export default function FreeAlbum({ previews, previewsStruct, category_name, sub
     text: "Guarda questo album di CSPhotoSport!",
     url: window.location.href
   }
-  const canShare = navigator.canShare(shareData)
+  const canShare = navigator?.canShare?.(shareData)
 
   const share = () => {
 
@@ -43,13 +43,15 @@ export default function FreeAlbum({ previews, previewsStruct, category_name, sub
             <Heading>{ album_name.replaceAll("-", " ") }</Heading>
             <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2>
             <h2 className="sub-title">Condividi su:</h2>
-            <div className="share-icons">
-              <BsShareFill className="share-icon" size="2rem" color="white" onClick={share} />
-              <BsWhatsapp className="share-icon" size="2rem" color="white" onClick={whatsappShare} />
-              <BsFacebook className="share-icon" size="2rem" color="white" onClick={fackebookShare} />
-              <BsTelegram className="share-icon" size="2rem" color="white" onClick={telegramShare} />
-              <BsTwitter className="share-icon" size="2rem" color="white" onClick={twitterShare} />
-            </div>
+            {
+              canShare && <div className="share-icons">
+                <BsShareFill className="share-icon" size="2rem" color="white" onClick={share} />
+                <BsWhatsapp className="share-icon" size="2rem" color="white" onClick={whatsappShare} />
+                <BsFacebook className="share-icon" size="2rem" color="white" onClick={fackebookShare} />
+                <BsTelegram className="share-icon" size="2rem" color="white" onClick={telegramShare} />
+                <BsTwitter className="share-icon" size="2rem" color="white" onClick={twitterShare} />
+              </div>
+            }
             <div className="grid photos-container">
                     <>
                         {
