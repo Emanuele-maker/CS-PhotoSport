@@ -1,10 +1,15 @@
-import "./PaymentAlbum.scss"
+import "./AlbumPage.scss"
 import Heading from "../Heading/Heading"
 import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
+import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
 import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram } from "react-icons/bs"
+import { useState } from "react"
+import SearchBar from "../SearchBar/SearchBar"
 
-export default function PaymentAlbum({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name }) {
+export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree }) {
+  const [filteredPreviews, setFilteredPreviews] = useState(previews)
+
   const shareData = {
     title: album.title,
     text: "Guarda questo album di CSPhotoSport!",
@@ -38,10 +43,23 @@ export default function PaymentAlbum({ previews, previewsStruct, category_name, 
     else window.open(`https://t.me/share/url?url=${shareData.url}&text=${shareData.text}`)
   }
 
+  // create a function that updates the filteredPreviews state
+
+  const filterPreviews = (e) => {
+    // set the filteredPreviews state to the initial previews state if the input is empty
+    if (e.target.value === "") return setFilteredPreviews(previews)
+    const search = e.target.value.toLowerCase()
+    const filtered = previews.filter(preview => preview.fileName.toLowerCase().includes(search))
+    setFilteredPreviews(filtered)
+  }
+
   return (
     <>
             <Heading>{ album_name.replaceAll("-", " ") }</Heading>
-            <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2>
+            { isFree 
+            ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
+            : <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2> 
+            }
             {
               canShare &&
               <>
@@ -55,15 +73,17 @@ export default function PaymentAlbum({ previews, previewsStruct, category_name, 
               </div>
               </>
             }
+            <SearchBar width="12rem" onChange={filterPreviews} placeholder="Inserisci il nome della foto..." />
             <div className="grid photos-container">
                     <>
                         {
-                            previews ? previews.map((preview, previewIndex) => {
-                                return <PhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                            }) : <h1>Nessuna foto trovata in questo album</h1>
+                            filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
+                                return isFree ? <FreePhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} /> : <PhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                            })
                         }
                     </>
             </div>
+            { filteredPreviews.length < 1 && <h2 className="sub-title">Nessuna foto trovata</h2> }
     </>
   )
 }

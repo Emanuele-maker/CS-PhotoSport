@@ -3,8 +3,7 @@ import "./Album.scss"
 import { useEffect } from "react"
 import NotFound from "../404/404"
 import formatURL from "../../../formatURL"
-import PaymentAlbum from "../../PaymentAlbum/PaymentAlbum"
-import FreeAlbum from "../../FreeAlbum/FreeAlbum"
+import AlbumPage from "../../AlbumPage/AlbumPage"
 
 export default function Album({ onAddToCart, previewsStruct, categories }) {
     const { category_name, sub_category_name, album_name } = useParams()
@@ -37,12 +36,8 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
 
     return (
         <>
-            { 
-                isFree
-                ? 
-                <FreeAlbum onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
-                : 
-                <PaymentAlbum onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+            {
+                <AlbumPage isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
             }
         </>
     )
