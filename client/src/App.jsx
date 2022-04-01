@@ -60,7 +60,8 @@ const categories = [
     albums: [
       {
         title: "FIPAV 27.3.2022",
-        cover: require("./cover/Cover FIPAV 27.3.2022.jpg")
+        cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
+        useSearch: true
       },
       {
         title: "Torneo Opes 2021",

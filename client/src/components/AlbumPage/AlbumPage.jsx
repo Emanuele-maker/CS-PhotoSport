@@ -7,7 +7,7 @@ import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram } from "reac
 import { useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 
-export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree }) {
+export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
 
   const shareData = {
@@ -73,7 +73,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
               </div>
               </>
             }
-            <SearchBar width="15rem" onChange={filterPreviews} placeholder="Inserisci il cognome del giocatore" />
+            { useSearch && <SearchBar width="15rem" onChange={filterPreviews} placeholder="Inserisci il cognome del giocatore" /> }
             <div className="grid photos-container">
                     <>
                         {

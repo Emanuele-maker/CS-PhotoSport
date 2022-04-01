@@ -33,11 +33,12 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
     const previews = album.previews
 
     const isFree = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name).isFree
+    const useSearch = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name).useSearch
 
     return (
         <>
             {
-                <AlbumPage isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+                <AlbumPage useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
             }
         </>
     )
