@@ -73,7 +73,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
               </div>
               </>
             }
-            <SearchBar width="12rem" onChange={filterPreviews} placeholder="Inserisci il nome della foto..." />
+            <SearchBar width="15rem" onChange={filterPreviews} placeholder="Inserisci il cognome del giocatore" />
             <div className="grid photos-container">
                     <>
                         {
