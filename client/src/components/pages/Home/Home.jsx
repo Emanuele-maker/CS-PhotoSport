@@ -2,7 +2,7 @@ import CategoryList from "../../CategoryList/CategoryList"
 import Heading from "../../Heading/Heading"
 import "./Home.scss"
 import { useEffect } from "react"
-import AdComponent from "../../AdComponent"
+// import AdComponent from "../../AdComponent"
 
 export default function Home({ categories }) {
     useEffect(() => {
@@ -11,7 +11,7 @@ export default function Home({ categories }) {
 
     return (
         <div className="home-container">
-            <AdComponent />
+            {/* <AdComponent /> */}
             <Heading>HOME</Heading>
             <CategoryList categories={categories} />
         </div>
