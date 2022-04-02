@@ -7,10 +7,10 @@ export default function AdComponent() {
 
     return (
         <ins className="adsbygoogle"
-        style={{display: "block", height: "90px"}}
+        style={{ display: "block" }}
         data-ad-client="ca-pub-5204475998828585"
-        slot="4985105893"
-        format="auto"
-        responsive="true"></ins>
+        data-ad-slot="4985105893"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
     )
 }
