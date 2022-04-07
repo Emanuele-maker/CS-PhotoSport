@@ -15,6 +15,19 @@ import SearchPage from "./components/pages/SearchPage/SearchPage"
 
 const categories = [
   {
+    title: "Running",
+    cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
+    albums: [
+      {
+        title: "Vivicittà Latina 2022",
+        cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
+        isFree: true,
+        useSearch: true,
+        searchPlaceholder: "Inserisci il pettorale del corridore",
+      }
+    ]
+  },
+  {
     title: "Pallanuoto",
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
@@ -61,7 +74,8 @@ const categories = [
       {
         title: "FIPAV 27.3.2022",
         cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
-        useSearch: true
+        useSearch: true,
+        searchPlaceholder: "Inserisci il cognome del giocatore",
       },
       {
         title: "Torneo Opes 2021",
