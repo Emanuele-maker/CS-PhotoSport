@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://csphotosport.com/client/build/static/css/main.a2f4d57f.css",
-    "main.js": "https://csphotosport.com/client/build/static/js/main.a0c4c636.js",
+    "main.css": "https://csphotosport.com/client/build/static/css/main.aba18b00.css",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.46104382.js",
     "static/media/Cover CN Latina vs Villa York.jpg": "https://csphotosport.com/client/build/static/media/Cover CN Latina vs Villa York.2360d5af4403dcd76255.jpg",
     "static/media/Cover torneo opes.jpg": "https://csphotosport.com/client/build/static/media/Cover torneo opes.be367b11e1430bdd6a98.jpg",
     "static/media/Cover FIPAV 27.3.2022.jpg": "https://csphotosport.com/client/build/static/media/Cover FIPAV 27.3.2022.4fb4e2c584e6f94315f2.jpg",
@@ -9,15 +9,15 @@
     "static/media/Cover open waterpolo.jpg": "https://csphotosport.com/client/build/static/media/Cover open waterpolo.7d46acd6cbb04cf1eab6.jpg",
     "static/media/Cover beachvolley.jpg": "https://csphotosport.com/client/build/static/media/Cover beachvolley.b6a8a9a7be3583adc386.jpg",
     "static/media/51935679994_4080fb8de3_c.jpg": "https://csphotosport.com/client/build/static/media/51935679994_4080fb8de3_c.43b735464416db543716.jpg",
-    "index.html": "https://csphotosport.com/client/build/index.html",
     "static/media/ImCross.svg": "https://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
     "static/media/BsTools.svg": "https://csphotosport.com/client/build/static/media/BsTools.e885b606250f403ca3cd56cd7aab902d.svg",
+    "index.html": "https://csphotosport.com/client/build/index.html",
     "static/media/AiOutlineMail.svg": "https://csphotosport.com/client/build/static/media/AiOutlineMail.54299657d85b7046df219ac44d8b2709.svg",
-    "main.a2f4d57f.css.map": "https://csphotosport.com/client/build/static/css/main.a2f4d57f.css.map",
-    "main.a0c4c636.js.map": "https://csphotosport.com/client/build/static/js/main.a0c4c636.js.map"
+    "main.aba18b00.css.map": "https://csphotosport.com/client/build/static/css/main.aba18b00.css.map",
+    "main.46104382.js.map": "https://csphotosport.com/client/build/static/js/main.46104382.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2f4d57f.css",
-    "static/js/main.a0c4c636.js"
+    "static/css/main.aba18b00.css",
+    "static/js/main.46104382.js"
   ]
 }

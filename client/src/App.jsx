@@ -32,6 +32,10 @@ const categories = [
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
+        title: "CN Latina vs Olympic Roma",
+        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
+      },
+      {
         title: "CN Latina vs Muri Antichi",
         cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
       },
@@ -179,6 +183,7 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
+              {/* <Route path="news" element={<News />} /> */}
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/*" element={<NotFound />} />
