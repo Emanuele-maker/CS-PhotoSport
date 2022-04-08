@@ -34,6 +34,7 @@ const categories = [
       {
         title: "CN Latina vs Olympic Roma",
         cover: `${imagesRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
+        isFree: true
       },
       {
         title: "CN Latina vs Muri Antichi",
