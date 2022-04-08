@@ -33,7 +33,7 @@ const categories = [
     albums: [
       {
         title: "CN Latina vs Olympic Roma",
-        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
+        cover: `${previewsRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
         isFree: true
       },
       {
