@@ -10,6 +10,7 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
 
     useEffect(() => {
         document.title = `CS PhotoSport: ${album_name}`
+        window.scrollTo(0, 0)
     }, [album_name])
 
     const category = previewsStruct[Object.keys(previewsStruct).find(key => {

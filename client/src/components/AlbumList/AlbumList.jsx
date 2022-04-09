@@ -12,6 +12,7 @@ export default function AlbumList({ categories }) {
 
     useEffect(() => {
         document.title = `CS PhotoSport: ${category_name}`
+        window.scrollTo(0, 0)
     }, [])
     const category = categories.find(c => formatURL(c.title) === category_name)
     if (!category) return <NotFound />

@@ -1,9 +1,10 @@
 .navbar-list-item {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: .3rem 0;
     padding: .3rem 0;
     width: 100%;
-    text-align: center;
     transition: background-color .4s;
     &:hover {
         background-color: #004171;
@@ -15,6 +16,6 @@
         text-transform: uppercase;
         font-size: 1.2rem;
         color: #458BA9;
-        width: 100%;
+        padding: 0 .5rem;
     }
 }

@@ -12,6 +12,7 @@ import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
 import { siteRoute, imagesRoute, previewsRoute } from "./staticInfo"
 import SearchPage from "./components/pages/SearchPage/SearchPage"
+import News from "./components/pages/News/News"
 
 const categories = [
   {
@@ -184,7 +185,7 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
-              {/* <Route path="news" element={<News />} /> */}
+              <Route path="news" element={<News />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/*" element={<NotFound />} />

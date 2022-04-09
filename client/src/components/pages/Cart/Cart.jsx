@@ -38,6 +38,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
 
     useEffect(() => {
       document.title = "CS PhotoSport: Carrello"
+      window.scrollTo(0, 0)
     }, [])
 
     return (

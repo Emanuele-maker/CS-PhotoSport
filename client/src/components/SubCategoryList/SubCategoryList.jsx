@@ -3,9 +3,14 @@ import Heading from "../Heading/Heading"
 import "./SubCategoryList.scss"
 import { useParams } from "react-router-dom"
 import formatURL from "../../formatURL"
+import { useEffect } from "react"
 
 export default function SubCategoryList({ categories, generalCategories }) {
     const { category_name } = useParams()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <>

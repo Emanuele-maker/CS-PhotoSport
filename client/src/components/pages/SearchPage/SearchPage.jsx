@@ -2,6 +2,7 @@ import "./SearchPage.scss"
 import { useEffect, useState } from "react"
 import AlbumCard from "../../AlbumCard/AlbumCard"
 import SearchBar from "../../SearchBar/SearchBar"
+import Heading from "../../Heading/Heading"
 
 let searchParam = ""
 
@@ -32,10 +33,12 @@ export default function SearchPage({ categories }) {
     useEffect(() => {
         setFilteredAlbums(startingAlbums)
         window.title = "CS PhotoSport: Cerca"
+        window.scrollTo(0, 0)
     }, [])
 
     return (
         <>
+            <Heading>Ricerca</Heading>
             <SearchBar onChange={onChange} />
             <div className="grid filtered-albums">
                 {
