@@ -3,8 +3,11 @@ import Heading from "../../Heading/Heading"
 import { useEffect, useState } from "react"
 import BlogPostCard from "../../BlogPostCard/BlogPostCard"
 import { previewsRoute } from "../../../staticInfo"
+import { useParams } from "react-router-dom"
 
 const News = () => {
+    const { post_name } = useParams()
+
     const [blogPosts, setBlogPosts] = useState([
         {
             title: "CN Latina vs Olympic Roma",
@@ -26,7 +29,15 @@ const News = () => {
     ])
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        if (!post_name) return window.scrollTo(0, 0)
+        const blogPosts = [...document.getElementsByClassName("blog-post")]
+        const blogPost = blogPosts.find(blogPost => {
+            const children = [...blogPost.children]
+            const blogPostTitle = children.find(child => child.id === "blog-post-title")
+            return blogPostTitle.textContent.toLowerCase() === post_name.toLowerCase()
+        })
+        if (!blogPost) return window.scrollTo(0, 0)
+        blogPost.scrollIntoView({ behavior: "smooth" })
     }, [])
 
     return (

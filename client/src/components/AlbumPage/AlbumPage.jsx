@@ -3,12 +3,15 @@ import Heading from "../Heading/Heading"
 import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
 import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
-import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram } from "react-icons/bs"
+import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram, BsNewspaper } from "react-icons/bs"
 import { useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
+import { useNavigate } from "react-router-dom"
 
-export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, searchValue, setSearchValue, onSearch }) {
+export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
+
+  const navigate = useNavigate()
 
   const shareData = {
     title: album.title,
@@ -56,6 +59,15 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   return (
     <>
             <Heading>{ album_name.replaceAll("-", " ") }</Heading>
+            { 
+              useNews &&
+              <div className="news-btn-container">
+                <button className="news-btn" onClick={() => navigate(`/news/${album.title}`, { replace: true })}>
+                  <BsNewspaper size="1.5rem" color="white" />
+                  <span>Guarda l'articolo</span>
+                </button>
+              </div>
+            }
             { isFree 
             ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
             : <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2> 

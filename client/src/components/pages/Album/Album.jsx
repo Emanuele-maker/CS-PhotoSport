@@ -10,7 +10,6 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
 
     useEffect(() => {
         document.title = `CS PhotoSport: ${album_name}`
-        window.scrollTo(0, 0)
     }, [album_name])
 
     const category = previewsStruct[Object.keys(previewsStruct).find(key => {
@@ -33,12 +32,12 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
 
     const previews = album.previews
 
-    const { useSearch, isFree, searchPlaceholder } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
+    const { useSearch, isFree, searchPlaceholder, useNews } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
 
     return (
         <>
             {
-                <AlbumPage searchPlaceholder={searchPlaceholder} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+                <AlbumPage searchPlaceholder={searchPlaceholder} useNews={useNews} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
             }
         </>
     )

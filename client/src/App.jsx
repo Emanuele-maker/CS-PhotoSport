@@ -35,7 +35,8 @@ const categories = [
       {
         title: "CN Latina vs Olympic Roma",
         cover: `${previewsRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
-        isFree: true
+        isFree: true,
+        useNews: true
       },
       {
         title: "CN Latina vs Muri Antichi",
@@ -185,7 +186,8 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
-              <Route path="news" element={<News />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/news/:post_name" element={<News />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/*" element={<NotFound />} />

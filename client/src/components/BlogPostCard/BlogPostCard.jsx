@@ -7,7 +7,7 @@ const BlogPostCard = ({ title, date, paragraph, headerImage, albumRoute, links }
     return (
         <div className="blog-post">
             <img src={headerImage} alt={title} onClick={() => navigate(albumRoute)} />
-            <h1>{ title }</h1>
+            <h1 id="blog-post-title">{ title }</h1>
             <h2>{ date }</h2>
             <button onClick={() => navigate(albumRoute)}>Guarda le foto</button>
             <p>{ paragraph }</p>
