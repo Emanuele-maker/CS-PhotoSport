@@ -29,6 +29,17 @@ const categories = [
     ]
   },
   {
+    title: "Eventi",
+    cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_3575.jpg`,
+    albums: [
+      {
+        title: "X Summer 10.4.2022",
+        cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
+        isFree: true
+      }
+    ]
+  },
+  {
     title: "Pallanuoto",
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
