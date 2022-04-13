@@ -36,6 +36,11 @@ const categories = [
         title: "X Summer 10.4.2022",
         cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
         isFree: true
+      },
+      {
+        title: "X Summer 2ª parte",
+        cover: `${previewsRoute}/Eventi/X Summer 2ª parte/IMG_8620.jpg`,
+        isFree: true
       }
     ]
   },
