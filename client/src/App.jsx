@@ -25,6 +25,13 @@ const categories = [
         isFree: true,
         useSearch: true,
         searchPlaceholder: "Inserisci il pettorale del corridore",
+      },
+      {
+        title: "Vivicittà 2ª parte",
+        cover: `${previewsRoute}/Running/Vivicittà Latina 2022/84 0000.jpg`,
+        isFree: true,
+        useSearch: true,
+        searchPlaceholder: "Inserisci il pettorale del corridore",
       }
     ]
   },
