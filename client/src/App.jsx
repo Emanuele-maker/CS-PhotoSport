@@ -62,6 +62,11 @@ const categories = [
         useNews: true
       },
       {
+        title: "Anzio Waterpolis vs CN Latina",
+        cover: `${previewsRoute}/Pallanuoto/Anzio Waterpolis vs CN Latina/IMG_2552.jpg`,
+        isFree: true
+      },
+      {
         title: "CN Latina vs Muri Antichi",
         cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
       },
