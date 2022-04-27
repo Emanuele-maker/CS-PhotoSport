@@ -56,6 +56,11 @@ const categories = [
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
+        title: "CN Latina vs Aquademia Velletri",
+        cover: `${previewsRoute}/Pallanuoto/CN Latina vs Aquademia Velletri/IMG_9617.jpg`,
+        isFree: true
+      },
+      {
         title: "F&D H2O vs Brizz Nuoto",
         cover: `${previewsRoute}/Pallanuoto/F&D H2O vs Brizz Nuoto/IMG_9497.jpg`,
         isFree: true
