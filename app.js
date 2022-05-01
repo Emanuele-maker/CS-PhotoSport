@@ -10,8 +10,8 @@ const app = express()
 
 app.use("/", express.static(path.join(__dirname, "./client/build")))
 if (process.env.NODE_ENV === "development") {
-    app.use("/img", express.static(path.join(__dirname, "./client/public/img")))
-    app.use("/previews", express.static(path.join(__dirname, "./client/public/previews")))
+    app.use("/img", express.static(path.join(__dirname, "./img")))
+    app.use("/previews", express.static(path.join(__dirname, "./previews")))
 }
 
 app.use(bodyParser.json({

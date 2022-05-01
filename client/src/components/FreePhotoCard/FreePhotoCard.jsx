@@ -6,6 +6,7 @@ export default function FreePhotoCard({ preview }) {
     const link = document.createElement('a')
     link.href = imageSrc
     link.download = "CS PhotoSport"
+    link.setAttribute("class", "download-link")
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
