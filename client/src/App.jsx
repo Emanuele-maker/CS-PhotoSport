@@ -61,6 +61,11 @@ const categories = [
         isFree: true
       },
       {
+        title: "Castelli Romani vs CN Latina",
+        cover: `${previewsRoute}/Pallanuoto/Castelli Romani vs CN Latina/IMG_9386.jpg`,
+        isFree: true
+      },
+      {
         title: "F&D H2O vs Brizz Nuoto",
         cover: `${previewsRoute}/Pallanuoto/F&D H2O vs Brizz Nuoto/IMG_9497.jpg`,
         isFree: true
