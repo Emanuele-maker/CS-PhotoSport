@@ -41,7 +41,7 @@ const categories = [
     albums: [
       {
         title: "PRE XSummer",
-        cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_3568.jpg`,
+        cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_8568.jpg`,
         isFree: true
       },
       {
