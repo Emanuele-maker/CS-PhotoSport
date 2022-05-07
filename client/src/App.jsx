@@ -40,8 +40,8 @@ const categories = [
     cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_3575.jpg`,
     albums: [
       {
-        title: "PRE-XSummer",
-        cover: `${previewsRoute}/Eventi/PRE-XSummer/IMG_3568.jpg`,
+        title: "PRE XSummer",
+        cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_3568.jpg`,
         isFree: true
       },
       {
