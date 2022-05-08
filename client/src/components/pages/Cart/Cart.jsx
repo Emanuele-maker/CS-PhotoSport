@@ -29,7 +29,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     }
 
   const getPrice = (quantity) => {
-      const basePrice = 3.5
+      const basePrice = 3
       const discount = 1 / 10
       const limit = 10
       if (quantity < limit) return basePrice * quantity
@@ -43,7 +43,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
 
     return (
         <div className="cart">
-          <h2>
+          {/* <h2>
             SCONTO: Per ogni 10 foto che acquisti viene attribuito un 10% di sconto al prezzo totale
             <br />
             Prezzo di base: €3.50
@@ -53,8 +53,9 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             20 foto: €63
             <br />
             continuando per tutti i multipli di 10
-          </h2>
+          </h2> */}
           <Heading>Carrello</Heading>
+          <h2 className="sub-title">Ogni <span className="highlighted">10 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
           <div className="cart-content">
             {
               cartItems && cartItems.length > 0 ?

@@ -70,7 +70,11 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
             }
             { isFree 
             ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
-            : <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.50</span> l'una</h2> 
+            : 
+            <>
+              <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.00</span> l'una</h2>
+              <h2 className="sub-title">Ogni <span className="highlighted">10 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
+            </>
             }
             {
               canShare &&
@@ -90,7 +94,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
                     <>
                         {
                             filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
-                                return isFree ? <FreePhotoCard key={previewIndex} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} /> : <PhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                              return isFree ? <FreePhotoCard key={previewIndex} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} /> : <PhotoCard key={previewIndex} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                             })
                         }
                     </>

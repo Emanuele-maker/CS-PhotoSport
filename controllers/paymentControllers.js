@@ -10,7 +10,7 @@ if (!STRIPE_PRIVATE_KEY)
 const stripe = new Stripe(STRIPE_PRIVATE_KEY)
 
 const getPrice = (quantity) => {
-    const basePrice = 3.5
+    const basePrice = 3
     const discount = 1 / 10
     const limit = 10
     if (quantity < limit) return basePrice * quantity
