@@ -20,6 +20,12 @@ const beginSession = (req, res) => {
         return res.json({ session: toFindSession })
     }
 }
+
+const getSessions = (req, res) => {
+    return res.json({ sessions: sessions })
+}
+
 module.exports = {
+    getSessions,
     beginSession
 }
