@@ -16,6 +16,16 @@ import News from "./components/pages/News/News"
 
 const categories = [
   {
+    title: "Triathlon",
+    cover: `${imagesRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
+    albums: [
+      {
+        title: "The Green Race Nuoto",
+        cover: `${imagesRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`
+      }
+    ]
+  },
+  {
     title: "Running",
     cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
     albums: [

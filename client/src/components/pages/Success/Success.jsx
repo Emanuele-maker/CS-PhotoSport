@@ -52,6 +52,7 @@ export default function Success({ onSetSessionId, onResetBoughtImages }) {
   return (
     <div className="success-content" rel="noopener noreferrer" target="_blank">
       <h1>Pagamento Riuscito!</h1>
+      <h1>Scarica le foto acquistate</h1>
       {
         boughtImages.length > 0 ? 
         <>
