@@ -17,11 +17,11 @@ import News from "./components/pages/News/News"
 const categories = [
   {
     title: "Triathlon",
-    cover: `${imagesRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
+    cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
     albums: [
       {
         title: "The Green Race Nuoto",
-        cover: `${imagesRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`
+        cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`
       }
     ]
   },
