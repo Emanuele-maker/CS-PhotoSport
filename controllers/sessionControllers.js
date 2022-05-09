@@ -1,31 +1,29 @@
 const crypto = require("crypto")
-const sessions = require("../models/Session.js")
+const conn = require("../db/conn")
 
 function generateSession() {
-    const newSession = {
-        id: crypto.randomBytes(16).toString("hex"),
+    const sessionId = crypto.randomBytes(16).toString("hex")
+    conn.query(`INSERT INTO sessions (id, bought, boughtImages) VALUES ("${sessionId}", FALSE, "[]");`, (err, rows) => {
+        if (err) throw err
+
+        console.log("Generated new Session")
+    })
+    
+    return {
+        id: sessionId,
         bought: false,
         boughtImages: []
     }
-    sessions.push(newSession)
-    return newSession
 }
 const beginSession = (req, res) => {
-    const toFindSession = sessions.find(session => session.id === req.params.session_id)
-    if (!req.params.session_id || !toFindSession) {
-        const session = generateSession()
-        return res.json({ session: session })
-    }
-    else {
-        return res.json({ session: toFindSession })
-    }
-}
+    conn.query(`SELECT * FROM sessions WHERE id = "${req.params.session_id}";`, (err, rows) => {
+        if (err) throw err
 
-const getSessions = (req, res) => {
-    return res.json({ sessions: sessions })
+        if (rows.length === 0) return res.json({ session: generateSession() })
+        else return res.json({ session: rows[0] })
+    })
 }
 
 module.exports = {
-    getSessions,
     beginSession
 }

@@ -166,15 +166,18 @@ export default function App() {
 
   useEffect(() => {
     const getSessionInfo = async() => {
-      await axios.get(`${siteRoute}/api/begin-session/${localStorage.getItem("sessionId")}`, {
+      await fetch(`${siteRoute}/api/begin-session/${localStorage.getItem("sessionId")}`, {
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       })
       .then(res => {
-        setSessionId(res.data.session.id)
-        localStorage.setItem("sessionId", res.data.session.id)
+        return res.json()
+      })
+      .then(({ session }) => {
+        setSessionId(session.id)
+        localStorage.setItem("sessionId", session.id)
       })
     }
 
@@ -185,7 +188,7 @@ export default function App() {
     const img = document.querySelectorAll("img")
     img.forEach(image => image.ondragstart = () => { return false })
 
-  }, [sessionId])
+  }, [])
 
       function objectsAreEqual(object1, object2) {
         if (!object1 || !object2) return false

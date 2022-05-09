@@ -41,7 +41,7 @@ export default function Success({ onSetSessionId, onResetBoughtImages }) {
             onSetSessionId(res.data.session.id)
             localStorage.setItem("sessionId", res.data.session.id)
             if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
-              setBoughtImages(res.data.session.boughtImages)
+              setBoughtImages(JSON.parse(res.data.session.boughtImages))
             }
         })
         }
