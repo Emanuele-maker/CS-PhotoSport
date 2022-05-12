@@ -22,6 +22,10 @@ const categories = [
     cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
     albums: [
       {
+        title: "The Green Race Corsa",
+        cover: `${previewsRoute}/Triathlon/The Green Race Corsa/IMG_1121.jpg`
+      },
+      {
         title: "The Green Race Nuoto",
         cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`
       },
