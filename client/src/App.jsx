@@ -40,6 +40,10 @@ const categories = [
     cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
     albums: [
       {
+        title: "Mezza Latina 2022",
+        cover: `${previewsRoute}/Running/Mezza Latina 2022/2331.jpg`
+      },
+      {
         title: "Vivicittà Latina 2022",
         cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
         isFree: true,
