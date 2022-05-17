@@ -8,13 +8,6 @@ const conn = mysql.createConnection({
     database: process.env.DB_NAME
 })
 
-// const conn = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "Emanuele.01",
-//     database: "cs_photosport"
-// })
-
 console.log("Connected to database")
 
 module.exports = conn

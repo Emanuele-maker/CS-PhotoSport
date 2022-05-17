@@ -3,7 +3,7 @@ const conn = require("../db/conn")
 
 function generateSession() {
     const sessionId = crypto.randomBytes(16).toString("hex")
-    conn.query(`INSERT INTO sessions (id, bought, boughtImages) VALUES ("${sessionId}", FALSE, "[]");`, (err, rows) => {
+    conn.query(`INSERT INTO sessions (id, bought, moment, boughtImages) VALUES ("${sessionId}", FALSE, "", "[]");`, (err, rows) => {
         if (err) throw err
 
         console.log("Generated new Session")
@@ -12,6 +12,7 @@ function generateSession() {
     return {
         id: sessionId,
         bought: false,
+        moment: "",
         boughtImages: []
     }
 }

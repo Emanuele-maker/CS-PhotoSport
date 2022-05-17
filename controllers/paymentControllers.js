@@ -1,6 +1,7 @@
 const { Stripe } = require("stripe")
 require("dotenv").config()
 const conn = require("../db/conn")
+const moment = require("moment")
 
 const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY
 
@@ -42,6 +43,13 @@ const createCheckoutSession = async (req, res) => {
         })
         .then(checkout => {
             conn.query(`UPDATE sessions SET boughtImages = '${JSON.stringify(req.body.items)}' WHERE id = "${req.params.session_id}"`, (err, rows) => {
+                if (err) throw err
+            })
+            conn.query(`UPDATE sessions SET bought = TRUE WHERE id = "${req.params.session_id}"`, (err, rows) => {
+                if (err) throw err
+            })
+            conn.query(`UPDATE sessions SET moment = "${moment().format()}" WHERE id = "${req.params.session_id}"`, (err, rows) => {
+                console.table(rows)
                 if (err) throw err
             })
             res.json({ url: checkout.url })
