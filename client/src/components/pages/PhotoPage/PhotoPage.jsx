@@ -1,5 +1,5 @@
 import "./PhotoPage.scss"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import LazyImage from "../../LazyImage"
 import { previewsRoute, imagesRoute } from "../../../staticInfo"
 import { BiArrowBack } from "react-icons/bi"
@@ -11,6 +11,7 @@ import { useState } from "react"
 
 const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
     const { category_name, album_name, image_name } = useParams()
+    const navigate = useNavigate()
 
     const category = categories.find(category => formatURL(category.title) === category_name)
 
@@ -51,7 +52,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
     return (
         <div className="photo-page">
             <div className="photo-page-nav">
-                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => window.history.back()} />
+                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}`)} />
                 { useShare && <IoIosShareAlt className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={share} /> }
             </div>
             <LazyImage src={`${previewsRoute}/${category.title}/${album.title}/${image_name}`} />
