@@ -37,7 +37,7 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
     return (
         <>
             {
-                <AlbumPage searchPlaceholder={searchPlaceholder} useNews={useNews} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
+                <AlbumPage searchPlaceholder={searchPlaceholder} category={category} useNews={useNews} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name}  />
             }
         </>
     )

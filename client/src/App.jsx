@@ -13,6 +13,7 @@ import Contact from "./components/pages/Contact/Contact"
 import { siteRoute, imagesRoute, previewsRoute } from "./staticInfo"
 import SearchPage from "./components/pages/SearchPage/SearchPage"
 import News from "./components/pages/News/News"
+import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 // import { initializeApp } from "firebase/app"
 // import { getAnalytics } from "firebase/analytics"
 
@@ -238,6 +239,14 @@ export default function App() {
         return true
       }
 
+    const onAddToCart = (image) => {
+      image.addedToCart = true
+      cartImages.push(image)
+      setStatefulCartImages(cartImages)
+      setcartCount(cartCount + 1)
+      return image
+    }
+
     return (
       <Router>
         <Layout cartCount={cartCount}>
@@ -245,25 +254,13 @@ export default function App() {
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
               <Route path="/:category_name" element={<AlbumList categories={categories} />} />
-              <Route path="/:category_name/album/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={(image) => {
-                  image.addedToCart = true
-                  cartImages.push(image)
-                  setStatefulCartImages(cartImages)
-                  setcartCount(cartCount + 1)
-                  return image
-              }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+              <Route path="/:category_name/album/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={onAddToCart} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
                   const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
                   if (!cartImageToFind) return
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
-              <Route path="/:category_name/:sub_category_name/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={(image) => {
-                  image.addedToCart = true
-                  cartImages.push(image)
-                  setStatefulCartImages(cartImages)
-                  setcartCount(cartCount + 1)
-                  return image
-              }} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+              <Route path="/:category_name/:sub_category_name/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={onAddToCart} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
                   const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
                   if (!cartImageToFind) return
                   cartImageToFind.previewSrc = previewSrc
@@ -281,6 +278,7 @@ export default function App() {
               <Route path="/news/:post_name" element={<News />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
+              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>

@@ -49,7 +49,6 @@ const createCheckoutSession = async (req, res) => {
                 if (err) throw err
             })
             conn.query(`UPDATE sessions SET moment = "${moment().format()}" WHERE id = "${req.params.session_id}"`, (err, rows) => {
-                console.table(rows)
                 if (err) throw err
             })
             res.json({ url: checkout.url })

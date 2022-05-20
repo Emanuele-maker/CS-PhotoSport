@@ -1,11 +1,16 @@
 import LazyImage from "../LazyImage"
 import "./PhotoCard.scss"
+import { useNavigate } from "react-router-dom"
 
-export default function PhotoCard({ preview, onAddToCart, addedToCart }) {
+export default function PhotoCard({ preview, onAddToCart, addedToCart, category_name, album_name, imageName }) {
+  const navigate = useNavigate()
+
   return (
       <div className="photo-container">
-          <LazyImage src={preview} />
-          { 
+          <div className="photo-container-image" onClick={() => navigate(`/${category_name}/album/${album_name}/${imageName}`)}>
+            <LazyImage src={preview} />
+          </div>
+          {
             addedToCart 
             ?
             <button className="added-to-cart">Elemento aggiunto al carrello</button>

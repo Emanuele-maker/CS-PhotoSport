@@ -37,7 +37,6 @@ export default function Success({ onSetSessionId, onResetBoughtImages }) {
               }
         })
         .then(res => {
-            console.log(res)
             onSetSessionId(res.data.session.id)
             localStorage.setItem("sessionId", res.data.session.id)
             if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
