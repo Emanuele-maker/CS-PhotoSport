@@ -53,6 +53,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
         <div className="photo-page">
             <div className="photo-page-nav">
                 <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}`)} />
+                <h2>{ image_name.replace(".jpg", "") }</h2>
                 { useShare && <IoIosShareAlt className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={share} /> }
             </div>
             <LazyImage src={`${previewsRoute}/${category.title}/${album.title}/${image_name}`} />
