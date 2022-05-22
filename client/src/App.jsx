@@ -129,6 +129,10 @@ const categories = [
     cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
     albums: [
       {
+        title: "Fogliano 21 Maggio 2022",
+        cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg`,
+      },
+      {
         title: "Fogliano 20 Maggio 2022",
         cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg`,
       },
