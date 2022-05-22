@@ -4,7 +4,7 @@ import "./SearchBar.scss"
 export default function SearchBar({ onChange, placeholder, width }) {
   return (
     <div className="search">
-        <AiOutlineSearch color="white" size="2.2rem" />
+        <AiOutlineSearch color="white" size="3rem" />
         <input type="text" className="search-bar" placeholder={placeholder} onInput={onChange} height="2rem" style={{ width: width }} />
     </div>
   )

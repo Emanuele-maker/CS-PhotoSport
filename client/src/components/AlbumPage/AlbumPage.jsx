@@ -52,7 +52,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
     // set the filteredPreviews state to the initial previews state if the input is empty
     if (e.target.value === "") return setFilteredPreviews(previews)
     const search = e.target.value.toLowerCase()
-    const filtered = previews.filter(preview => preview.fileName.toLowerCase().includes(search))
+    const filtered = previews.filter(preview => preview.fileName.toLowerCase().split(" ").includes(search))
     setFilteredPreviews(filtered)
   }
 
@@ -89,7 +89,12 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
               </div>
               </>
             }
-            { useSearch && <SearchBar width="15rem" onChange={filterPreviews} placeholder={searchPlaceholder ? searchPlaceholder : ""} /> }
+            { useSearch &&
+              <>
+                <h1 className="search-title">Cerca tra le foto</h1>
+                <SearchBar width="80%" onChange={filterPreviews} placeholder={searchPlaceholder ? searchPlaceholder : ""} />
+              </>
+            }
             <div className="grid photos-container">
                     <>
                         {

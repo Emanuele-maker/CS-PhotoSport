@@ -39,7 +39,8 @@ export default function SearchPage({ categories }) {
     return (
         <>
             <Heading>Ricerca</Heading>
-            <SearchBar onChange={onChange} />
+            <h1 className="sub-title">Effettua una ricerca tra gli album del sito</h1>
+            <SearchBar onChange={onChange} width="80%" />
             <div className="grid filtered-albums">
                 {
                     filteredAlbums.map((album, albumIndex) => {
