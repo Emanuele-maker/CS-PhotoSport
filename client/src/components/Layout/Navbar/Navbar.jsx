@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import NavbarListItem from "../NavbarListItem/NavbarListItem"
 import { AiOutlineHome, AiOutlineSearch, AiOutlineShoppingCart, AiOutlineMail } from "react-icons/ai"
 import { BsNewspaper } from "react-icons/bs"
+import { FaQuestion } from "react-icons/fa"
 
 export default function Navbar({ onCloseNav }) {
     const navigate = useNavigate()
@@ -21,6 +22,7 @@ export default function Navbar({ onCloseNav }) {
                     <NavbarListItem onClick={onClickLink} href="/" text="HOME" icon={<AiOutlineHome color="#458BA9" size="1.5rem" />} />
                     <NavbarListItem onClick={onClickLink} href="/ricerca" text="CERCA" icon={<AiOutlineSearch color="#458BA9" size="1.5rem" />} />
                     <NavbarListItem onClick={onClickLink} href="/carrello" text="CARRELLO" icon={<AiOutlineShoppingCart color="#458BA9" size="1.5rem" />} />
+                    <NavbarListItem onClick={onClickLink} href="/chi-siamo" text="CHI SIAMO" icon={<FaQuestion color="#458BA9" size="1.5rem" />} />
                     <NavbarListItem onClick={onClickLink} href="/news" text="NEWS" icon={<BsNewspaper color="#458BA9" size="1.5rem" />} />
                     <NavbarListItem onClick={onClickLink} href="/contatti" text="CONTATTI" icon={<AiOutlineMail color="#458BA9" size="1.5rem" />} />
                 </ul>

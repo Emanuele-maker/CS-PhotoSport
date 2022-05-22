@@ -8,7 +8,7 @@ export default function PhotoCard({ preview, onAddToCart, addedToCart, category_
   return (
       <div className="photo-container">
           <div className="photo-container-image" onClick={() => navigate(`/${category_name}/album/${album_name}/${imageName}`)}>
-            <LazyImage src={preview} />
+            <LazyImage src={preview} onDrag={() => {}} />
           </div>
           {
             addedToCart 

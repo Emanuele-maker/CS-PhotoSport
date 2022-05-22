@@ -1,0 +1,41 @@
+.about-page {
+    width: 100%;
+
+    h3 {
+        text-align: center;
+        color: white;
+        font-size: 2.7rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        margin-bottom: 2.5rem;
+    }
+
+    &-sub-title {
+        font-size: 1.8rem;
+        margin-bottom: 5rem;
+        color: white;
+        font-weight: 300;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 680px) {
+    .about-page {
+        h3 {
+            font-size: 1.9rem;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .about-page {
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        &-sub-title {
+            font-size: 1.2rem;
+        }
+    }
+}

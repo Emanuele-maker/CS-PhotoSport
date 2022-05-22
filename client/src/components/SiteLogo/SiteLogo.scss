@@ -1,0 +1,28 @@
+.site-logo {
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    align-items: center;
+    z-index: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    img {
+        width: 9rem;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-logo {
+        h1 {
+            font-size: 1.7rem;
+        }
+        img {
+            width: 6.4rem;
+        }
+    }
+}

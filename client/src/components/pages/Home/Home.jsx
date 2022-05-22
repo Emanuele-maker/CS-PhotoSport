@@ -1,7 +1,7 @@
 import CategoryList from "../../CategoryList/CategoryList"
-import Heading from "../../Heading/Heading"
 import "./Home.scss"
 import { useEffect } from "react"
+import SiteLogo from "../../SiteLogo/SiteLogo"
 
 export default function Home({ categories }) {
     useEffect(() => {
@@ -10,7 +10,7 @@ export default function Home({ categories }) {
 
     return (
         <div className="home-container">
-            <Heading>HOME</Heading>
+            <SiteLogo />
             <CategoryList categories={categories} />
         </div>
     )

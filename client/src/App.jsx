@@ -14,8 +14,7 @@ import { siteRoute, imagesRoute, previewsRoute } from "./staticInfo"
 import SearchPage from "./components/pages/SearchPage/SearchPage"
 import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
-// import { initializeApp } from "firebase/app"
-// import { getAnalytics } from "firebase/analytics"
+import About from "./components/pages/About/About"
 
 const categories = [
   {
@@ -174,22 +173,6 @@ const categories = [
   }
 ]
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyD3t6-qDFoiMOYWU7QxlYWfYWPfDX_-qCc",
-//   authDomain: "csphotosport-17cb4.firebaseapp.com",
-//   projectId: "csphotosport-17cb4",
-//   storageBucket: "csphotosport-17cb4.appspot.com",
-//   messagingSenderId: "503941906380",
-//   appId: "1:503941906380:web:86798537544f0e8c152769",
-//   measurementId: "G-E1E7J2L996"
-// }
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
-
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
 
 let cartImages = []
@@ -279,6 +262,7 @@ export default function App() {
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
               <Route path="/news" element={<News />} />
+              <Route path="/chi-siamo" element={<About />} />
               <Route path="/news/:post_name" element={<News />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
