@@ -23,6 +23,9 @@
         padding: 0;
 
         a {
+            div {
+                margin: 0;
+            }
             margin: 0;
             .cart-icon {
                 margin: 0;
@@ -33,10 +36,13 @@
             margin-bottom: .08rem;
             display: flex;
             justify-content: center;
+            align-items: center;
             color: white;
             background-color: black;
             padding: 0 .1rem;
-            border-radius: 20px;
+            width: 22px;
+            height: 20px;
+            border-radius: 10px;
         }
     }
 

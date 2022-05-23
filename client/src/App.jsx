@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import Layout from "./components/Layout/Layout"
 import Album from "./components/pages/Album/Album"
@@ -185,6 +184,7 @@ export default function App() {
   const [cartCount, setcartCount] = useState(0)
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
   const [sessionId, setSessionId] = useState("")
+  const [shakeCartIcon, setShakeCartIcon] = useState(false)
 
   useEffect(() => {
     const getSessionInfo = async() => {
@@ -235,12 +235,13 @@ export default function App() {
       cartImages.push(image)
       setStatefulCartImages(cartImages)
       setcartCount(cartCount + 1)
+      setShakeCartIcon(true)
       return image
     }
 
     return (
       <Router>
-        <Layout cartCount={cartCount}>
+        <Layout shakeCartIcon={shakeCartIcon} setShakeCartIcon={setShakeCartIcon} cartCount={cartCount}>
             <Routes>
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
