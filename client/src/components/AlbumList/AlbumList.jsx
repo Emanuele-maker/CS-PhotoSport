@@ -27,13 +27,15 @@ export default function AlbumList({ categories }) {
     }
     else albums = category.albums
 
+    const publicAlbums = albums.filter(album => !album.isPrivate)
+
     if (!albums) return <NotFound />
 
     return (
         <>
             <Heading>{ category_name.replaceAll("-", " ") }</Heading>
             <div className="grid albums-container">
-                { albums.map((album, albumIndex) => {
+                { publicAlbums.map((album, albumIndex) => {
                     return (<AlbumCard key={albumIndex} album={album} category={category_name} subCategory={sub_category_name} />)
                 }) }
             </div>
