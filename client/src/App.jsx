@@ -269,7 +269,7 @@ export default function App() {
               <Route path="/news" element={<News />} />
               <Route path="/chi-siamo" element={<About />} />
               <Route path="/news/:post_name" element={<News />} />
-              <Route path="/ricerca" element={<SearchPage categories={categories} />} />
+              <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/*" element={<NotFound />} />

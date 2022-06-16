@@ -1,11 +1,11 @@
 import { AiOutlineSearch } from "react-icons/ai"
 import "./SearchBar.scss"
 
-export default function SearchBar({ onChange, placeholder, width }) {
+export default function SearchBar({ onChange, placeholder, width, notUseSearchIcon }) {
   return (
-    <div className="search">
-        <AiOutlineSearch color="white" size="3rem" />
-        <input type="text" className="search-bar" placeholder={placeholder} onInput={onChange} height="2rem" style={{ width: width }} />
+    <div className="search-bar-container">
+        { !notUseSearchIcon && <AiOutlineSearch color="white" size="3rem" /> }
+        <input type="text" placeholder={placeholder} onInput={onChange} height="2rem" style={{ width: width }} />
     </div>
   )
 }
@@ -13,5 +13,5 @@ export default function SearchBar({ onChange, placeholder, width }) {
 // set default props for SearchBar
 SearchBar.defaultProps = {
   placeholder: "Inserisci il nome dell'album da cercare...",
-  width: "20rem"
+  width: "100%"
 }

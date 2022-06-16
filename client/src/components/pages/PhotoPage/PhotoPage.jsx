@@ -52,7 +52,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
     return (
         <div className="photo-page">
             <div className="photo-page-nav">
-                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}`)} />
+                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(-1)} />
                 <h2>{ image_name.replace(".jpg", "") }</h2>
                 { useShare && <IoIosShareAlt className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={share} /> }
             </div>

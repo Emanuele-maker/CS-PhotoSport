@@ -9,7 +9,7 @@ export default function Layout({ children, cartCount, isCartIconVisible, shakeCa
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
 
     return (
-        <>
+        <div className="layout">
             { isMobileNavbarOpened ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
             <Header setShakeCartIcon={setShakeCartIcon} shakeCartIcon={shakeCartIcon} isCartIconVisible={isCartIconVisible} setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { setIsMobileNavbarOpened(false) }}>
@@ -18,6 +18,6 @@ export default function Layout({ children, cartCount, isCartIconVisible, shakeCa
             </div>
             <CookieBanner />
             <Footer />
-        </>
+        </div>
     )
 }
