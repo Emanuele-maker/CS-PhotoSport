@@ -81,7 +81,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
                             return <AlbumCard category={category} subCategory={subCategory} album={item} key={itemIndex} />
                         }
                         if (item.fileName) {
-                            const isAlbumFree = categories.find(category => category.title === item.category).albums.find(album => album.title === item.album)
+                            const isAlbumFree = categories.find(category => category.title === item.category).albums.find(album => album.title === item.album).isFree
                             if (isAlbumFree) return <FreePhotoCard category_name={formatURL(item.category)} album_name={formatURL(item.album)} key={itemIndex} imageName={item.fileName} preview={`${previewsRoute}/${item.category}/${item.album}/${item.fileName}`} />
                             else return <PhotoCard category_name={formatURL(item.category)} album_name={formatURL(item.album)} key={itemIndex} onAddToCart={onAddImageToCart} addedToCart={item.addedToCart} imageName={item.fileName} preview={`${previewsRoute}/${item.category}/${item.album}/${item.fileName}`} />
                         }
