@@ -84,6 +84,10 @@ const categories = [
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
+        title: "Zero9 vs CN Latina 11.6.2022",
+        cover: `${previewsRoute}/Pallanuoto/Zero9 vs CN Latina 11.6.2022/IMG_7414.jpg`,
+      },
+      {
         title: "CN Latina vs Aquademia Velletri",
         cover: `${previewsRoute}/Pallanuoto/CN Latina vs Aquademia Velletri/IMG_9617.jpg`,
         isFree: true
