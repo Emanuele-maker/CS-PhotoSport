@@ -17,7 +17,7 @@ export default function Layout({ children, cartCount, isCartIconVisible, shakeCa
                 { children }
             </div>
             <CookieBanner />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

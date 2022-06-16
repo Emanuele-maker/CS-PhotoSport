@@ -9,7 +9,7 @@ import { previewsRoute } from "../../../staticInfo"
 import { AiOutlineSearch } from "react-icons/ai"
 import formatURL from "../../../formatURL"
 
-export default function SearchPage({ categories, previewsStruct, onAddImageToCart }) {
+export default function SearchPage({ categories, previewsStruct, onAddImageToCart, disableFooter }) {
     const [filteredItems, setFilteredItems] = useState([])
     const [searchParam, setSearchParam] = useState("")
     const [showNoResults, setShowNoResults] = useState(false)
