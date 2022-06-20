@@ -84,6 +84,11 @@ const categories = [
     cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg`,
     albums: [
       {
+        title: "Bomber Waterpolo",
+        cover: `${previewsRoute}/Pallanuoto/Bomber Waterpolo/IMG_8086.jpg`,
+        isFree: true
+      },
+      {
         title: "Zero9 vs CN Latina 11.6.2022",
         cover: `${previewsRoute}/Pallanuoto/Zero9 vs CN Latina 11.6.2022/IMG_7414.jpg`,
       },
@@ -161,6 +166,11 @@ const categories = [
     title: "Beachvolley",
     cover: require("./cover/Cover beachvolley.jpg"),
     albums: [
+      {
+        title: "Torneo Promozionale Finale Femminile",
+        cover: `${previewsRoute}/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg`,
+        isFree: true
+      },
       {
         title: "FIPAV 27.3.2022",
         cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
