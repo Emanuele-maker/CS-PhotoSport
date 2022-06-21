@@ -167,6 +167,11 @@ const categories = [
     cover: require("./cover/Cover beachvolley.jpg"),
     albums: [
       {
+        title: "Beach World Champs Rome",
+        cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
+        isFree: true
+      },
+      {
         title: "Torneo Promozionale Finale Femminile",
         cover: `${previewsRoute}/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg`,
         isFree: true
