@@ -164,7 +164,7 @@ const categories = [
   },
   {
     title: "Beachvolley",
-    cover: require("./cover/Cover beachvolley.jpg"),
+    cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
     albums: [
       {
         title: "Beach World Champs Rome",
