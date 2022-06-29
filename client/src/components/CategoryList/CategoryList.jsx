@@ -7,10 +7,14 @@ export default function CategoryList({ categories }) {
         window.scrollTo(0, 0)
     }, [])
 
+    const publicCategories = categories.filter(category => {
+        return !category.isPrivate
+    })
+
     return (
         <>
             <div className="grid categories-container">
-                { categories.map((category, categoryIndex) => {
+                { publicCategories.map((category, categoryIndex) => {
                     return (<CategoryCard key={categoryIndex} category={category} isSub={false} />)
                 }) }
             </div>

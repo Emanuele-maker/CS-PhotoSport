@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://csphotosport.com/client/build/static/css/main.e0e022cc.css",
-    "main.js": "https://csphotosport.com/client/build/static/js/main.8613b5f7.js",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.78139707.js",
     "static/media/Cover CN Latina vs Villa York.jpg": "https://csphotosport.com/client/build/static/media/Cover CN Latina vs Villa York.2360d5af4403dcd76255.jpg",
     "static/media/Cover torneo opes.jpg": "https://csphotosport.com/client/build/static/media/Cover torneo opes.be367b11e1430bdd6a98.jpg",
     "static/media/Cover FIPAV 27.3.2022.jpg": "https://csphotosport.com/client/build/static/media/Cover FIPAV 27.3.2022.4fb4e2c584e6f94315f2.jpg",
@@ -13,10 +13,10 @@
     "static/media/BsTools.svg": "https://csphotosport.com/client/build/static/media/BsTools.e885b606250f403ca3cd56cd7aab902d.svg",
     "static/media/AiOutlineMail.svg": "https://csphotosport.com/client/build/static/media/AiOutlineMail.54299657d85b7046df219ac44d8b2709.svg",
     "main.e0e022cc.css.map": "https://csphotosport.com/client/build/static/css/main.e0e022cc.css.map",
-    "main.8613b5f7.js.map": "https://csphotosport.com/client/build/static/js/main.8613b5f7.js.map"
+    "main.78139707.js.map": "https://csphotosport.com/client/build/static/js/main.78139707.js.map"
   },
   "entrypoints": [
     "static/css/main.e0e022cc.css",
-    "static/js/main.8613b5f7.js"
+    "static/js/main.78139707.js"
   ]
 }

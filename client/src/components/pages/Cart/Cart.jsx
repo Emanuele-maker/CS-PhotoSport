@@ -29,9 +29,9 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     }
 
   const getPrice = (quantity) => {
-      const basePrice = 3
+      const basePrice = 5
       const discount = 1 / 10
-      const limit = 10
+      const limit = 5
       if (quantity < limit) return basePrice * quantity
       else return Math.round((basePrice * quantity) - (basePrice * quantity * discount))
   }

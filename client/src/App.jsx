@@ -17,6 +17,22 @@ import About from "./components/pages/About/About"
 
 const categories = [
   {
+    title: "9e595881",
+    actualTitle: "Danza - I 4 Elementi",
+    cover: `${previewsRoute}/9e595881/Backstage/IMG_9564.jpg`,
+    isPrivate: true,
+    albums: [
+      {
+        title: "Backstage",
+        cover: `${previewsRoute}/9e595881/Backstage/IMG_9564.jpg`
+      },
+      {
+        title: "Fuoco Modulo",
+        cover: `${previewsRoute}/9e595881/Fuoco Modulo/IMG_9616.jpg`
+      }
+    ]
+  },
+  {
     title: "Triathlon",
     cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
     albums: [
