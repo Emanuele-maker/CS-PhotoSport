@@ -1,6 +1,6 @@
 import "./Sucess.scss"
 import axios from "axios"
-import { imagesRoute, siteRoute } from "../../../staticInfo"
+import { imagesRoute, previewsRoute, siteRoute } from "../../../staticInfo"
 import ImageCard from "../../ImageCard/ImageCard"
 import { useEffect, useState } from "react"
 
@@ -59,7 +59,7 @@ export default function Success({ onSetSessionId, onResetBoughtImages }) {
           <div className="grid">
             {
               boughtImages.map(img => {
-                return <ImageCard download={download} imageName={img.fileName} imageSrc={img.subCategory ? `${imagesRoute}/${img.category}/${img.subCategory}/${img.album}/${img.fileName}` : `${imagesRoute}/${img.category}/${img.album}/${img.fileName}`} />
+                return <ImageCard download={download} imageName={img.fileName} imageSrc={img.subCategory ? `${previewsRoute}/${img.category}/${img.subCategory}/${img.album}/${img.fileName}` : `${previewsRoute}/${img.category}/${img.album}/${img.fileName}`} />
               })
             }
           </div>

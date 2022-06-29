@@ -17,7 +17,7 @@ export default function ImageCard({ imageName, imageSrc, download }) {
   return (
     <div className="image-container">
         <LazyImage src={imageSrc} alt="" />
-        <button className="download-btn" id={imageName}>Scarica</button>
+        <button className="download-btn" id={imageName}>Scarica l'originale</button>
     </div>
   )
 }
