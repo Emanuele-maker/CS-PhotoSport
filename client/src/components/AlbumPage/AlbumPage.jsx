@@ -72,8 +72,8 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
             ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
             : 
             <>
-              <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€3.00</span> l'una</h2>
-              <h2 className="sub-title">Ogni <span className="highlighted">10 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
+              <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€5.00</span> l'una</h2>
+              <h2 className="sub-title">Ogni <span className="highlighted">5 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
             </>
             }
             {
