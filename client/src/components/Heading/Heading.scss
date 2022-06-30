@@ -1,13 +1,25 @@
 $font-size: 2.8rem;
 $bg-color: rgb(102, 101, 101);
 
-.heading {
-    width: 100%;
-    color: white;
+.heading-container {
     background-color: $bg-color;
-    font-size: $font-size;
-    text-align: center;
-    text-transform: uppercase;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 1.2rem 0;
+
+    .heading {
+        margin: 0;
+        width: 100%;
+        color: white;
+        font-size: $font-size;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .back-button {
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 600px) {

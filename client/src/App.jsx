@@ -64,6 +64,7 @@ const categories = [
         isFree: true,
         useSearch: true,
         searchPlaceholder: "Inserisci il pettorale del corridore",
+        searchType: "number"
       },
       {
         title: "Vivicittà 2ª parte",
@@ -71,6 +72,7 @@ const categories = [
         isFree: true,
         useSearch: true,
         searchPlaceholder: "Inserisci il pettorale del corridore",
+        searchType: "number"
       }
     ]
   },
@@ -197,6 +199,7 @@ const categories = [
         cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
         useSearch: true,
         searchPlaceholder: "Inserisci il cognome del giocatore",
+        searchType: "text"
       },
       {
         title: "Torneo Opes 2021",

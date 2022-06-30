@@ -8,8 +8,10 @@ import { useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { useNavigate } from "react-router-dom"
 
-export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews }) {
+export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews, searchType }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
+  const [searchChars, setSearchChars] = useState(0)
+  const minSearchChars = 3
 
   const navigate = useNavigate()
 
@@ -50,9 +52,12 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
 
   const filterPreviews = (e) => {
     // set the filteredPreviews state to the initial previews state if the input is empty
-    if (e.target.value === "") return setFilteredPreviews(previews)
+    setSearchChars(e.target.value.length)
+    if (e.target.value == "") return setFilteredPreviews(previews)
     const search = e.target.value.toLowerCase()
-    const filtered = previews.filter(preview => preview.fileName.toLowerCase().split(" ").includes(search))
+    let filtered = []
+    if (searchType === "number") filtered = previews.filter(preview => preview.fileName.toLowerCase().split(" ").includes(search))
+    else filtered = previews.filter(preview => preview.fileName.toLowerCase().includes(search))
     setFilteredPreviews(filtered)
   }
 
@@ -92,20 +97,25 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
             { useSearch &&
               <>
                 <h1 className="search-title">Cerca tra le foto</h1>
-                <SearchBar width="80%" onChange={filterPreviews} placeholder={searchPlaceholder ? searchPlaceholder : ""} />
+                <SearchBar searchType={searchType ? searchType : "text"} width="80%" onChange={filterPreviews} placeholder={searchPlaceholder ? searchPlaceholder : ""} />
               </>
             }
-            <div className="grid photos-container">
-                    <>
-                        {
-                            filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
-                              if (isFree) return <FreePhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                              else return <PhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                            })
-                        }
-                    </>
-            </div>
-            { filteredPreviews.length < 1 && <h2 className="sub-title">Nessuna foto trovata</h2> }
+            {
+              ((searchChars > 0 && searchChars < minSearchChars) && searchType === "text") ?
+              <h2 className="sub-title">Inserisci almeno { minSearchChars } caratteri nella ricerca</h2>
+              :
+                filteredPreviews.length < 1 ? <h2 className="sub-title">Nessuna foto trovata</h2> :
+                <div className="grid photos-container">
+                        <>
+                            {
+                                filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
+                                  if (isFree) return <FreePhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                  else return <PhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                })
+                            }
+                        </>
+                </div>
+            }
     </>
   )
 }
