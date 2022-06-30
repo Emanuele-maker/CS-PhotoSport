@@ -29,6 +29,30 @@ const categories = [
       {
         title: "Fuoco Modulo",
         cover: `${previewsRoute}/9e595881/Fuoco Modulo/IMG_9616.jpg`
+      },
+      {
+        title: "Fuoco Corso Moderno Grandi",
+        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Grandi/IMG_9752.jpg`
+      },
+      {
+        title: "Fuoco Corso Open Mamme",
+        cover: `${previewsRoute}/9e595881/Fuoco Corso Open Mamme/IMG_9801.jpg`
+      },
+      {
+        title: "Fuoco Corso Moderno Piccole",
+        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Piccole/IMG_9987.jpg`
+      },
+      {
+        title: "Fuoco Corso Moderno Avanzato",
+        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Avanzato/IMG_0306.jpg`
+      },
+      {
+        title: "Fuoco Corso Moderno Juniores",
+        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Juniores/IMG_0435.jpg`
+      },
+      {
+        title: "Fuoco Hip Hop",
+        cover: `${previewsRoute}/9e595881/Fuoco Hip Hop/IMG_0450.jpg`
       }
     ]
   },
