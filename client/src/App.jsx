@@ -18,7 +18,7 @@ import About from "./components/pages/About/About"
 const categories = [
   {
     title: "9e595881",
-    actualTitle: "Danza - I 4 Elementi",
+    actualTitle: "DANZA - I 4 Elementi",
     cover: `${previewsRoute}/9e595881/Backstage/IMG_9564.jpg`,
     isPrivate: true,
     albums: [
