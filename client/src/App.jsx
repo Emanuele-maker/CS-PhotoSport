@@ -125,6 +125,10 @@ const categories = [
       {
         title: "Terra Corsi Moderno",
         cover: `${previewsRoute}/9e595881/Terra Corsi Moderno/IMG_2664.jpg`
+      },
+      {
+        title: "Saluti Finali",
+        cover: `${previewsRoute}/9e595881/Saluti Finali/IMG_2945.jpg`
       }
     ]
   },
