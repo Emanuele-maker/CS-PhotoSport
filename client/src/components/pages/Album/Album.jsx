@@ -32,7 +32,7 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
 
     const previews = album.previews
 
-    const { useSearch, isFree, searchPlaceholder, useNews, searchType } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
+    const { useSearch, isFree, searchPlaceholder, useNews, searchType, notUseBack } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
 
     return (
         <>

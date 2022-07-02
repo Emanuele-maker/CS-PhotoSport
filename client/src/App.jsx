@@ -53,6 +53,78 @@ const categories = [
       {
         title: "Fuoco Hip Hop",
         cover: `${previewsRoute}/9e595881/Fuoco Hip Hop/IMG_0450.jpg`
+      },
+      {
+        title: "Aria Classico Avanzato",
+        cover: `${previewsRoute}/9e595881/Aria Classico Avanzato/IMG_0630.jpg`
+      },
+      {
+        title: "Aria Corsi I e II Regolare",
+        cover: `${previewsRoute}/9e595881/Aria Corsi I e II Regolare/IMG_0776.jpg`
+      },
+      {
+        title: "Aria Hip Hop",
+        cover: `${previewsRoute}/9e595881/Aria Hip Hop/IMG_0879.jpg`
+      },
+      {
+        title: "Aria Corso Aspiranti",
+        cover: `${previewsRoute}/9e595881/Aria Corso Aspiranti/IMG_0957.jpg`
+      },
+      {
+        title: "Aria Moderno Intermedio",
+        cover: `${previewsRoute}/9e595881/Aria Moderno Intermedio/IMG_1022.jpg`
+      },
+      {
+        title: "Acqua Modulo",
+        cover: `${previewsRoute}/9e595881/Acqua Modulo/IMG_1125.jpg`
+      },
+      {
+        title: "Acqua Moderno Juniores e Intermedio",
+        cover: `${previewsRoute}/9e595881/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg`
+      },
+      {
+        title: "Acqua Moderno Piccole",
+        cover: `${previewsRoute}/9e595881/Acqua Moderno Piccole/IMG_1478.jpg`
+      },
+      {
+        title: "Acqua Moderno Juniores",
+        cover: `${previewsRoute}/9e595881/Acqua Moderno Juniores/IMG_1550.jpg`
+      },
+      {
+        title: "Acqua Classico Avanzato",
+        cover: `${previewsRoute}/9e595881/Acqua Classico Avanzato/IMG_1674.jpg`
+      },
+      {
+        title: "Acqua Hip Hop Principianti",
+        cover: `${previewsRoute}/9e595881/Acqua Hip Hop Principianti/IMG_1795.jpg`
+      },
+      {
+        title: "Acqua Aspiranti",
+        cover: `${previewsRoute}/9e595881/Acqua Aspiranti/IMG_1941.jpg`
+      },
+      {
+        title: "Terra Corsi I e II Regolare",
+        cover: `${previewsRoute}/9e595881/Terra Corsi I e II Regolare/IMG_2055.jpg`
+      },
+      {
+        title: "Terra Hip Hop Baby",
+        cover: `${previewsRoute}/9e595881/Terra Hip Hop Baby/IMG_2205.jpg`
+      },
+      {
+        title: "Terra Moderno Avanzato",
+        cover: `${previewsRoute}/9e595881/Terra Moderno Avanzato/IMG_2407.jpg`
+      },
+      {
+        title: "Terra Moderno Intermedio",
+        cover: `${previewsRoute}/9e595881/Terra Moderno Intermedio/IMG_2460.jpg`
+      },
+      {
+        title: "Terra Martina Guizzo",
+        cover: `${previewsRoute}/9e595881/Terra Martina Guizzo/IMG_2568.jpg`
+      },
+      {
+        title: "Terra Corsi Moderno",
+        cover: `${previewsRoute}/9e595881/Terra Corsi Moderno/IMG_2664.jpg`
       }
     ]
   },

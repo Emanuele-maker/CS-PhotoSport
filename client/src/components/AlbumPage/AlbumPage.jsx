@@ -4,7 +4,7 @@ import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
 import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
 import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram, BsNewspaper } from "react-icons/bs"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { useNavigate } from "react-router-dom"
 
@@ -60,6 +60,10 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
     else filtered = previews.filter(preview => preview.fileName.toLowerCase().includes(search))
     setFilteredPreviews(filtered)
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>
