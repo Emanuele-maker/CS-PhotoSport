@@ -11,6 +11,30 @@
     position: fixed;
     top: 0;
 
+    .desktop-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 100%;
+
+        .header-items-list {
+            display: flex;
+            gap: 1rem;
+            height: 100%;
+        }
+    }
+
+    &-site-logo {
+        display: flex;
+        align-items: center;
+        &-image {
+            user-select: none;
+            border-radius: 18px;
+            width: 70px;
+            height: 54px;
+        }
+    }
+
     * {
         margin-right: .3rem;
     }
@@ -75,6 +99,7 @@
 
     .bars {
         margin-left: .5rem;
+        display: none;
     }
 }
 
@@ -86,6 +111,18 @@
 @keyframes change-color {
     to {
         color: #458BA9;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        .desktop-left {
+            display: none;
+        }
+
+        .bars {
+            display: block;
+        }
     }
 }
 
