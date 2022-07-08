@@ -318,6 +318,8 @@ let previews = JSON.parse(JSON.stringify(require("./previews.json")))
 
 let cartImages = []
 
+document.cookie += "; SameSite=None; Secure"
+
 export default function App() {
   const [cartCount, setcartCount] = useState(0)
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
