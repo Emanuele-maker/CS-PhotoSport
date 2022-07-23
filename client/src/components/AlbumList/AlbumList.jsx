@@ -33,7 +33,7 @@ export default function AlbumList({ categories }) {
 
     return (
         <>
-            <Heading>{ category.actualTitle || category_name.replaceAll("-", " ") }</Heading>
+            <Heading backUrl="/">{ category.actualTitle || category_name.replaceAll("-", " ") }</Heading>
             <div className="grid albums-container">
                 { publicAlbums.map((album, albumIndex) => {
                     return (<AlbumCard key={albumIndex} album={album} category={category_name} subCategory={sub_category_name} />)

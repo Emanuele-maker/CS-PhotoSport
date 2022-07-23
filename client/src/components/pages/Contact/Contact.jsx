@@ -11,7 +11,7 @@ export default function Contact({ sessionId }) {
 
   return (
     <div className="contact-content">
-        <Heading>Contatti</Heading>
+        <Heading backUrl={-1}>Contatti</Heading>
         <div className="email-contact">
           <img src={AiOutlineMail} className="email-icon" alt="icon email" />
           <h2><a href="mailto: postmaster@csphotosport.com">postmaster@csphotosport.com</a></h2>

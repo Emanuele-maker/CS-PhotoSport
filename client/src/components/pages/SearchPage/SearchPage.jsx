@@ -57,7 +57,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
 
     return (
         <>
-            <Heading>Ricerca</Heading>
+            <Heading backUrl={-1}>Ricerca</Heading>
             <h1 className="sub-title">Effettua una ricerca tra gli album del sito</h1>
             <div className="search-page-container">
                 <SearchBar notUseSearchIcon={true} onChange={(event) => setSearchParam(event.target.value)} width="100%" />

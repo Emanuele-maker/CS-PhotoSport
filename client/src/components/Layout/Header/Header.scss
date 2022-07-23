@@ -46,6 +46,19 @@
         margin: 0;
         padding: 0;
 
+        .saved-photos-icon-container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            margin-right: 1rem;
+            a {
+                display: flex;
+                height: 100%;
+                align-items: center;
+            }
+            display: none;
+        }
+
         a {
             div {
                 margin: 0;
@@ -122,6 +135,12 @@
 
         .bars {
             display: block;
+        }
+
+        .cart-container {
+            .saved-photos-icon-container {
+                display: block;
+            }
         }
     }
 }

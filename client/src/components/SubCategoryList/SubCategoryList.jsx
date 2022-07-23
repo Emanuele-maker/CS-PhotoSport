@@ -14,7 +14,7 @@ export default function SubCategoryList({ categories, generalCategories }) {
 
     return (
         <>
-            <Heading>{category_name}</Heading>
+            <Heading backUrl={`/${category_name}`}>{category_name}</Heading>
             <div className="grid categories-container">
                 { categories.map((category, categoryIndex) => {
                     return (<SubCategoryCard key={categoryIndex} category={formatURL(generalCategories.find(c => c.title === category_name))} subCategory={category} />)

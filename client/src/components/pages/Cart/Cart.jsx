@@ -54,7 +54,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             <br />
             continuando per tutti i multipli di 10
           </h2> */}
-          <Heading>Carrello</Heading>
+          <Heading backUrl={-1}>Carrello</Heading>
           <h2 className="sub-title">Ogni <span className="highlighted">10 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
           <div className="cart-content">
             {

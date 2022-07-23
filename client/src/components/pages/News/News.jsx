@@ -42,7 +42,7 @@ const News = () => {
 
     return (
         <div className="news-page">
-            <Heading>NEWS</Heading>
+            <Heading backUrl={-1}>NEWS</Heading>
             {
                 blogPosts.map((blogPost, key) => (
                     <BlogPostCard key={key} {...blogPost} />

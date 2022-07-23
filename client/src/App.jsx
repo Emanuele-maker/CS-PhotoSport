@@ -347,10 +347,7 @@ export default function App() {
 
     setStatefulCartImages(cartImages)
 
-    const img = document.querySelectorAll("img")
-    img.forEach(image => image.ondragstart = () => { return false })
-
-  }, [])
+  }, [sessionId])
 
       function objectsAreEqual(object1, object2) {
         if (!object1 || !object2) return false

@@ -67,7 +67,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
 
   return (
     <>
-            <Heading>{ album_name.replaceAll("-", " ") }</Heading>
+            <Heading backUrl={`/${category_name}`}>{ album_name.replaceAll("-", " ") }</Heading>
             { 
               useNews &&
               <div className="news-btn-container">
