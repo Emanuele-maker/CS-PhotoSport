@@ -4,7 +4,7 @@ import { imagesRoute, previewsRoute, siteRoute } from "../../../staticInfo"
 import ImageCard from "../../ImageCard/ImageCard"
 import { useEffect, useState } from "react"
 
-export default function Success({ onSetSessionId, onResetBoughtImages }) {
+export default function Success({ onSetSessionId }) {
     const [boughtImages, setBoughtImages] = useState([])
 
     function downloadImage(img, imageSrc) {

@@ -5,7 +5,7 @@ import Heading from "../../Heading/Heading"
 import { siteRoute } from "../../../staticInfo"
 
 export default function Cart({ cartItems, onRemoveItem, sessionId }) {
-    const [statefulItems, setStatefulItems] = useState(cartItems)
+    const [statefulItems, setStatefulItems] = useState(cartItems || JSON.parse(localStorage.getItem("cartImages")))
 
     async function goToCheckout() {
         await fetch(`${siteRoute}/api/checkout/${sessionId}`, {

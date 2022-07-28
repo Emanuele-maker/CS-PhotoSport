@@ -9,7 +9,6 @@ import { BsNewspaper } from "react-icons/bs"
 import { FaQuestion } from "react-icons/fa"
 import { buildRoute } from "../../../staticInfo"
 import HeaderItem from "../../HeaderItem/HeaderItem"
-import { IoMdPhotos } from "react-icons/io"
 
 export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setShakeCartIcon }) {
     const navigate = useNavigate()
@@ -24,7 +23,6 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                     <HeaderItem title="Chi Siamo" icon={<FaQuestion size="18px" color="white" />} href="/chi-siamo" />
                     <HeaderItem title="News" icon={<BsNewspaper size="18px" color="white" />} href="/news" />
                     <HeaderItem title="Contatti" icon={<AiOutlineMail size="18px" color="white" />} href="/contatti" />
-                    <HeaderItem title="Foto Salvate" icon={<IoMdPhotos size="18px" color="white" />} href="/foto-salvate" />
                 </div>
             </div>
             <div className="cart-container">

@@ -15,6 +15,7 @@ import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
 
+
 const categories = [
   {
     title: "9e595881",
@@ -314,14 +315,17 @@ const categories = [
   }
 ]
 
+
+
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
 
-let cartImages = []
+let cartImages = JSON.parse(localStorage.getItem("cartImages")) || []
+let cartCountInit = cartImages.length
 
 document.cookie += "; SameSite=None; Secure"
 
 export default function App() {
-  const [cartCount, setcartCount] = useState(0)
+  const [cartCount, setcartCount] = useState(cartCountInit)
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
   const [sessionId, setSessionId] = useState("")
   const [shakeCartIcon, setShakeCartIcon] = useState(false)
@@ -373,6 +377,7 @@ export default function App() {
       setStatefulCartImages(cartImages)
       setcartCount(cartCount + 1)
       setShakeCartIcon(true)
+      localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
       return image
     }
 
@@ -400,6 +405,7 @@ export default function App() {
                   cartImages.splice(cartImages.indexOf(item), 1)
                   setcartCount(cartCount - 1)
                   setStatefulCartImages(cartImages)
+                  localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
