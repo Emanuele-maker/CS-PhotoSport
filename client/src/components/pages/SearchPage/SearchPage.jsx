@@ -39,14 +39,15 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
     }
 
     const updateFilteredItems = () => {
-        if (searchParam.length < 1) return setFilteredItems([])
+        if (searchParam.trim().length < 1) return setFilteredItems([])
         const imgParam = "IMG_"
+        const lowerSearchParam = searchParam.toLowerCase().trim()
         const items = initFilteredItems().filter(item => {
             if (item.title) {
-                if (item.tags && item.tags.length > 0) return item.title.toLowerCase().includes(searchParam.toLowerCase()) || item.tags.find(tag => tag.toLowerCase() === searchParam.toLowerCase())
-                return item.title.toLowerCase().includes(searchParam.toLowerCase())
+                if (item.tags && item.tags.length > 0) return item.title.toLowerCase().includes(lowerSearchParam.toLowerCase()) || item.tags.find(tag => tag.toLowerCase() === lowerSearchParam.toLowerCase())
+                return item.title.toLowerCase().includes(lowerSearchParam.toLowerCase())
             }
-            if (item.fileName) return (item.fileName.toLowerCase().includes(searchParam.toLowerCase()) && !anythingInCommon(searchParam.toLowerCase(), imgParam.toLowerCase()) && item.fileName.includes(imgParam))
+            if (item.fileName) return (item.fileName.toLowerCase().includes(lowerSearchParam.toLowerCase()) && !anythingInCommon(lowerSearchParam.toLowerCase(), imgParam.toLowerCase()) && item.fileName.includes(imgParam))
         })
         if (items.length < 1) setShowNoResults(true)
         else setShowNoResults(false)
