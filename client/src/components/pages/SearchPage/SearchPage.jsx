@@ -9,7 +9,7 @@ import { previewsRoute } from "../../../staticInfo"
 import { AiOutlineSearch } from "react-icons/ai"
 import formatURL from "../../../formatURL"
 
-export default function SearchPage({ categories, previewsStruct, onAddImageToCart, disableFooter }) {
+export default function SearchPage({ categories, previewsStruct, onAddImageToCart }) {
     const [filteredItems, setFilteredItems] = useState([])
     const [searchParam, setSearchParam] = useState("")
     const [showNoResults, setShowNoResults] = useState(false)
@@ -42,7 +42,10 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
         if (searchParam.length < 1) return setFilteredItems([])
         const imgParam = "IMG_"
         const items = initFilteredItems().filter(item => {
-            if (item.title) return item.title.toLowerCase().includes(searchParam.toLowerCase())
+            if (item.title) {
+                if (item.tags && item.tags.length > 0) return item.title.toLowerCase().includes(searchParam.toLowerCase()) || item.tags.find(tag => tag.toLowerCase() === searchParam.toLowerCase())
+                return item.title.toLowerCase().includes(searchParam.toLowerCase())
+            }
             if (item.fileName) return (item.fileName.toLowerCase().includes(searchParam.toLowerCase()) && !anythingInCommon(searchParam.toLowerCase(), imgParam.toLowerCase()) && item.fileName.includes(imgParam))
         })
         if (items.length < 1) setShowNoResults(true)
@@ -60,7 +63,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
             <Heading backUrl={-1}>Ricerca</Heading>
             <h1 className="sub-title">Effettua una ricerca tra gli album del sito</h1>
             <div className="search-page-container">
-                <SearchBar notUseSearchIcon={true} onChange={(event) => setSearchParam(event.target.value)} width="100%" />
+                <SearchBar notUseSearchIcon={true} placeholder="Inserisci una parola chiave..." onChange={(event) => setSearchParam(event.target.value)} width="100%" />
                 <button onClick={updateFilteredItems} className="search-submit">
                     <AiOutlineSearch size="2.5rem" />
                     <span>CERCA</span>

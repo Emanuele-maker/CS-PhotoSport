@@ -15,7 +15,6 @@ import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
 
-
 const categories = [
   {
     title: "9e595881",
@@ -139,15 +138,18 @@ const categories = [
     albums: [
       {
         title: "The Green Race Corsa",
-        cover: `${previewsRoute}/Triathlon/The Green Race Corsa/IMG_1121.jpg`
+        cover: `${previewsRoute}/Triathlon/The Green Race Corsa/IMG_1121.jpg`,
+        tags: ["Corsa", "Triathlon", "Triathlete", "Running", "Run", "TheGreenRace", "Runner"]
       },
       {
         title: "The Green Race Nuoto",
-        cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`
+        cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`,
+        tags: ["Swim", "Swimming", "Nuoto", "TheGreenRace", "Triathlete", "Triathlon"]
       },
       {
         title: "The Green Race Ciclismo",
-        cover: `${previewsRoute}/Triathlon/The Green Race Ciclismo/IMG_0723.jpg`
+        cover: `${previewsRoute}/Triathlon/The Green Race Ciclismo/IMG_0723.jpg`,
+        tags: ["Bike", "Triathlon", "Triathlete", "Biking", "TheGreenRace", "Bicicletta"]
       }
     ]
   },
@@ -157,7 +159,8 @@ const categories = [
     albums: [
       {
         title: "Mezza Latina 2022",
-        cover: `${previewsRoute}/Running/Mezza Latina 2022/IMG_2331.jpg`
+        cover: `${previewsRoute}/Running/Mezza Latina 2022/IMG_2331.jpg`,
+        tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Maratona", "Mezza Maratona", "Eventi", "Runner"]
       },
       {
         title: "Vivicittà Latina 2022",
@@ -165,7 +168,8 @@ const categories = [
         isFree: true,
         useSearch: true,
         searchPlaceholder: "Inserisci il pettorale del corridore",
-        searchType: "number"
+        searchType: "number",
+        tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner"]
       },
       {
         title: "Vivicittà 2ª parte",
@@ -173,7 +177,8 @@ const categories = [
         isFree: true,
         useSearch: true,
         searchPlaceholder: "Inserisci il pettorale del corridore",
-        searchType: "number"
+        searchType: "number",
+        tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner"]
       }
     ]
   },
@@ -184,17 +189,20 @@ const categories = [
       {
         title: "PRE XSummer",
         cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_8568.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
       },
       {
         title: "X Summer 10.4.2022",
         cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
       },
       {
         title: "X Summer 2ª parte",
         cover: `${previewsRoute}/Eventi/X Summer 2ª parte/IMG_8620.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
       }
     ]
   },
@@ -205,49 +213,59 @@ const categories = [
       {
         title: "Bomber Waterpolo",
         cover: `${previewsRoute}/Pallanuoto/Bomber Waterpolo/IMG_8086.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Waterpolo", "Pallanuoto", "Pro Recco", "Presciutti", "Nicholas Presciutti", "Cristian Presciutti", "Daniel Presciutti", "Summer", "Summer Camp", "Giovanili", "Under 18", "Under 14", "Under 12"]
       },
       {
         title: "Zero9 vs CN Latina 11.6.2022",
         cover: `${previewsRoute}/Pallanuoto/Zero9 vs CN Latina 11.6.2022/IMG_7414.jpg`,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Under 14"]
       },
       {
         title: "CN Latina vs Aquademia Velletri",
         cover: `${previewsRoute}/Pallanuoto/CN Latina vs Aquademia Velletri/IMG_9617.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Under 14"]
       },
       {
         title: "Castelli Romani vs CN Latina",
         cover: `${previewsRoute}/Pallanuoto/Castelli Romani vs CN Latina/IMG_9386.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Under 18"]
       },
       {
         title: "F&D H2O vs Brizz Nuoto",
         cover: `${previewsRoute}/Pallanuoto/F&D H2O vs Brizz Nuoto/IMG_9497.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Women", "Femminile"]
       },
       {
         title: "CN Latina vs Olympic Roma",
         cover: `${previewsRoute}/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg`,
         isFree: true,
-        useNews: true
+        useNews: true,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Water", "Under 14"]
       },
       {
         title: "Anzio Waterpolis vs CN Latina",
         cover: `${previewsRoute}/Pallanuoto/Anzio Waterpolis vs CN Latina/IMG_2552.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Water", "Giovanili", "Under 18"]
       },
       {
         title: "CN Latina vs Muri Antichi",
-        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`
+        cover: `${imagesRoute}/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg`,
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Water", "Serie A2", "A2"]
       },
       {
         title: "Open Waterpolo 2019",
-        cover: require("./cover/Cover open waterpolo.jpg")
+        cover: require("./cover/Cover open waterpolo.jpg"),
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Water", "Under 11"]
       },
       {
         title: "CN Latina vs Villa York",
-        cover: require("./cover/Cover CN Latina vs Villa York.jpg")
+        cover: require("./cover/Cover CN Latina vs Villa York.jpg"),
+        tags: ["Waterpolo", "Pallanuoto", "FIN", "Championship", "Tournament", "Match", "Torneo", "Partita", "Campionato", "Water", "Serie A2", "A2"]
       }
     ]
   },
@@ -258,26 +276,32 @@ const categories = [
       {
         title: "Fogliano 21 Maggio 2022",
         cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg`,
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 20 Maggio 2022",
         cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg`,
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 20 Marzo 2022",
-        cover: require("./cover/Cover Fogliano 20 Marzo 2022.jpg")
+        cover: require("./cover/Cover Fogliano 20 Marzo 2022.jpg"),
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 12 marzo 2022",
-        cover: require("./cover/51935679994_4080fb8de3_c.jpg")
+        cover: require("./cover/51935679994_4080fb8de3_c.jpg"),
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 2 Febbraio 2022",
-        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`
+        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`,
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 26 Gennaio 2022",
-        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg` 
+        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg`,
+        tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       }
     ]
   },
@@ -288,28 +312,33 @@ const categories = [
       {
         title: "Beach World Champs Rome",
         cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
         title: "Torneo Promozionale Finale Femminile",
         cover: `${previewsRoute}/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
         title: "FIPAV 27.3.2022",
         cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
         useSearch: true,
         searchPlaceholder: "Inserisci il cognome del giocatore",
-        searchType: "text"
+        searchType: "text",
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
         title: "Torneo Opes 2021",
-        cover: require("./cover/Cover torneo opes.jpg")
+        cover: require("./cover/Cover torneo opes.jpg"),
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
         title: "Rome Beach Finals 2019",
         cover: `${previewsRoute}/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg`,
-        isFree: true
+        isFree: true,
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       }
     ]
   }
