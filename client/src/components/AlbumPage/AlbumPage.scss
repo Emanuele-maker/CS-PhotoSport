@@ -1,4 +1,3 @@
-@import "../Grid.scss";
 @import "../../config";
 
 .search-title {
@@ -10,16 +9,48 @@
     width: 100%;
 }
 
-.photos-container {
-    margin-top: 2rem;
-    margin-left: 1rem;
+// .photos-container {
+//     margin-top: 2rem;
+//     margin-left: 1rem;
 
-    h1 {
-        color: white;
-        text-align: left;
+//     width: 100%;
+//     display: grid;
+//     // column-gap: $grid-gap;
+//     grid-template-columns: $grid-width $grid-width $grid-width $grid-width;
+//     justify-content: center;
+//     // place-items: center;
+
+//     h1 {
+//         color: white;
+//         text-align: left;
+//         width: 90%;
+//     }
+// }
+
+.photos-container {
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .photos-container {
         width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+
+        div {
+            margin: .8rem 0;
+            width: 100%;
+        }
     }
 }
+
 .news-btn-container {
     display: flex;
     width: 100%;

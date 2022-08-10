@@ -22,6 +22,7 @@
     "express": "^4.17.2",
     "moment": "^2.29.3",
     "mysql": "^2.18.1",
+    "photo-grid-box": "^2.0.4",
     "stripe": "^8.195.0"
   },
   "devDependencies": {

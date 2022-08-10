@@ -28,7 +28,6 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
             <div className="cart-container">
                 <div className="search-container" onClick={() => navigate("/ricerca")}>
                     <AiOutlineSearch size="2rem" className="icon search-icon" />
-                    <p>cerca nel sito</p>
                 </div>
                 <Link to="/carrello">
                     <Tada spy={shakeCartIcon} onReveal={() => setShakeCartIcon(false)}>

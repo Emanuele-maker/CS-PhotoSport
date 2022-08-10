@@ -27,9 +27,35 @@
         }
     }
 
+    .image-navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            svg {
+                cursor: pointer;
+                transition: all .3 ease-in-out;
+                transition-property: opacity;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+        .image-holder {
+            img {
+                user-select: none;
+            }
+        }
+    }
+
     button {
         padding: .7rem;
-        margin: 1.4rem 0;
+        margin: 1rem 0;
         border-radius: 18px;
         font-size: 1rem;
         width: 20rem;
@@ -77,11 +103,24 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .photo-page {
+        .image-navigation {
+            justify-content: center;
+            svg {
+                display: none;
+            }
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .photo-page {
-        span {
-            img {
-                width: 100%;
+        .image-navigation {
+            span {
+                img {
+                    width: 100%;
+                }
             }
         }
     }

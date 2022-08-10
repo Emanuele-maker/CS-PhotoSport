@@ -22,7 +22,7 @@ export default function FreePhotoCard({ preview, category_name, album_name, imag
         <div className="photo-container-image" onClick={() => navigate(`/${category_name}/album/${album_name}/${imageName}`)}>
           <LazyImage src={preview} />
         </div>
-          <button className="download" onClick={() => downloadImage(preview.replace("previews", "img"))}>Scarica</button>
+          {/* <button className="download" onClick={() => downloadImage(preview.replace("previews", "img"))}>Scarica</button> */}
         </div>
       </>
   )

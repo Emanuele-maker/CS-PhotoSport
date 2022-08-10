@@ -63,13 +63,16 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
         <>
             <Heading backUrl={-1}>Ricerca</Heading>
             <h1 className="sub-title">Effettua una ricerca tra gli album del sito</h1>
-            <div className="search-page-container">
+            <form className="search-page-container" onSubmit={event => {
+                event.preventDefault()
+                updateFilteredItems()
+            }}>
                 <SearchBar notUseSearchIcon={true} placeholder="Inserisci una parola chiave..." onChange={(event) => setSearchParam(event.target.value)} width="100%" />
-                <button onClick={updateFilteredItems} className="search-submit">
+                <button type="submit" className="search-submit">
                     <AiOutlineSearch size="2.5rem" />
                     <span>CERCA</span>
                 </button>
-            </div>
+            </form>
             { showNoResults && <h1 className="sub-title">Nessun risultato trovato</h1> }
             <div className="grid filtered-albums">
                 {

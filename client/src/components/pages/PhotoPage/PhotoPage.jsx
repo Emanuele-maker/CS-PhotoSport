@@ -1,12 +1,12 @@
 import "./PhotoPage.scss"
 import { useParams, useNavigate } from "react-router-dom"
 import LazyImage from "../../LazyImage"
-import { previewsRoute, imagesRoute } from "../../../staticInfo"
+import { previewsRoute, imagesRoute, siteRoute } from "../../../staticInfo"
 import { BiArrowBack } from "react-icons/bi"
-import { IoIosShareAlt } from "react-icons/io"
+import { IoIosShareAlt, IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import formatURL from "../../../formatURL"
 import { FaShoppingCart } from "react-icons/fa"
-import { BsDownload } from "react-icons/bs"
+import { BsDownload, BsCartPlus, BsCartCheck } from "react-icons/bs"
 import { useState } from "react"
 
 const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
@@ -21,17 +21,20 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
 
     const isFree = album?.isFree === true
 
-    const image = previewsStruct[Object.keys(previewsStruct).find(key => {
+    const initalImage = previewsStruct[Object.keys(previewsStruct).find(key => {
         return key === category.title
     })]?.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
 
-    const [addedToCart, setAddedToCart] = useState(image?.addedToCart)
+    const [currentImage, setCurrentImage] = useState(initalImage)
+
+    const [addedToCart, setAddedToCart] = useState(currentImage?.addedToCart)
+    const [cartBtnClicked, setCartBtnClicked] = useState(false)
 
     const share = () => {
         const shareData = {
-            title: image.fileName,
+            title: currentImage.fileName,
             text: "Guarda questa foto su CS PhotoSport!",
-            url: `${window.location.origin}/${category_name}/album/${album_name}/${image_name}`
+            url: `${window.location.origin}/${category_name}/album/${album_name}/${currentImage.fileName}`
         }
         if (!navigator?.canShare?.(shareData)) return alert("Il tuo browser non supporta la condivisione!")
         navigator.share(shareData)
@@ -48,27 +51,54 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
         document.body.removeChild(link)
     }
 
+    const moveImageBack = () => {
+        const albumStruct = previewsStruct[Object.keys(previewsStruct).find(key => {
+            return key === category.title
+        })]?.find(alb => alb.title === album.title)?.previews
+        const imgIndex = albumStruct.indexOf(currentImage) - 1
+        if (imgIndex < 0) return
+        setCartBtnClicked(false)
+        setCurrentImage(albumStruct[imgIndex])
+    }
+
+    const moveImageForward = () => {
+        const albumStruct = previewsStruct[Object.keys(previewsStruct).find(key => {
+            return key === category.title
+        })]?.find(alb => alb.title === album.title)?.previews
+        const imgIndex = albumStruct.indexOf(currentImage) + 1
+        if (imgIndex > albumStruct.width - 1) return
+        setCartBtnClicked(false)
+        setCurrentImage(albumStruct[imgIndex])
+    }
 
     return (
         <div className="photo-page">
             <div className="photo-page-nav">
-                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(-1)} />
-                <h2>{ image_name.replace(".jpg", "") }</h2>
-                { useShare && <IoIosShareAlt className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={share} /> }
+                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}?scrollTo=${currentImage.fileName}`)} />
+                <h2>{ currentImage.fileName.replace(".jpg", "") }</h2>
+                {cartBtnClicked || currentImage.addedToCart ? <BsCartCheck className="nav-icon nav-share-button" color="white" size="3.5rem" /> : <BsCartPlus className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={() => { onAddToCart(currentImage); setCartBtnClicked(true)}} />  }
             </div>
-            <LazyImage src={`${previewsRoute}/${category.title}/${album.title}/${image_name}`} />
+            <div className="image-navigation">
+                <div className="icon-container">
+                    <IoIosArrowBack onClick={moveImageBack} className="nav-icon" color="white" size="3.5rem" />
+                </div>
+                <div className="image-holder">
+                    <LazyImage src={`${previewsRoute}/${category.title}/${album.title}/${currentImage.fileName}`} />
+                </div>
+                <div className="icon-container">
+                    <IoIosArrowForward onClick={moveImageForward} className="nav-icon" color="white" size="3.5rem" />
+                </div>
+            </div>
             {
                 isFree ?
                 <button className="download" onClick={() => downloadImage(`${imagesRoute}/${category.title}/${album.title}/${image_name}`)}><BsDownload size="1.3rem" color="white" />Scarica</button>
-
                 :
-
                 addedToCart
                 ?
                 <button className="added-to-cart">Elemento aggiunto al carrello</button>
                 :
                 <button className="add-to-cart" onClick={() => {
-                    onAddToCart(image)
+                    onAddToCart(currentImage)
                     setAddedToCart(true)
                 }}><FaShoppingCart size="1.5rem" />Aggiungi al carrello</button>
             }

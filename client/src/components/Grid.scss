@@ -1,23 +1,61 @@
 @import "../config";
 
-.grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: $grid-width $grid-width $grid-width $grid-width;
-    grid-gap: $grid-gap;
-    text-align: center;
+.grid-container {
+    position: relative;
+    width: 95%;
 }
+
+.grid {
+    width: 100%;
+    display: grid;
+    column-gap: $grid-gap;
+    grid-template-columns: $grid-width $grid-width $grid-width;
+    row-gap: 70px;
+    justify-content: center;
+    place-items: center;
+}
+
+// @media (min-width: 1200px) {
+//     .grid {
+//         grid-template-columns: repeat(3,minmax(0,1fr));
+//     }
+// }
+
+// @media (max-width: 768px) {
+//     .grid {
+//         grid-template-columns: repeat(2,minmax(0,1fr));
+//     }
+// }
+
+// @media (max-width: 481px) {
+//     .grid {
+//         row-gap: 50px;
+//     }
+// }
 
 @media (max-width: 1000px) {
     .grid {
+        grid-template-columns: $grid-width $grid-width $grid-width $grid-width;
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-container {
         display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .grid {
+        display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 0;
 
         div {
             margin: 1rem 0;
-            width: 90%;
+            width: 80%;
         }
     }
 }

@@ -4,9 +4,16 @@ import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
 import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
 import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram, BsNewspaper } from "react-icons/bs"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import SearchBar from "../SearchBar/SearchBar"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
+import 'photo-grid-box/build/photo-grid-box.min.css'
+
+function useQuery() {
+  const { search } = useLocation()
+
+  return useMemo(() => new URLSearchParams(search), [search])
+}
 
 export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews, searchType }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
@@ -14,6 +21,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   const minSearchChars = 3
 
   const navigate = useNavigate()
+  const query = useQuery()
 
   const shareData = {
     title: album.title,
@@ -23,7 +31,6 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   const canShare = navigator?.canShare?.(shareData)
 
   const share = () => {
-
     if (!canShare) alert("Il tuo browser non supporta la condivisione!")
     else navigator.share(shareData)
   }
@@ -53,7 +60,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   const filterPreviews = (e) => {
     // set the filteredPreviews state to the initial previews state if the input is empty
     setSearchChars(e.target.value.length)
-    if (e.target.value == "") return setFilteredPreviews(previews)
+    if (e.target.value === "") return setFilteredPreviews(previews)
     const search = e.target.value.toLowerCase()
     let filtered = []
     if (searchType === "number") filtered = previews.filter(preview => preview.fileName.toLowerCase().split(" ").includes(search))
@@ -62,8 +69,10 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (!query.get("scrollTo")) return window.scrollTo(0, 0)
+    const photoContainer = Array.from(document.getElementsByClassName("photo-container")).find(container => container.id === query.get("scrollTo"))
+    photoContainer.scrollIntoView({ behavior: "smooth" })
+  }, [query])
 
   return (
     <>
@@ -109,7 +118,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
               <h2 className="sub-title">Inserisci almeno { minSearchChars } caratteri nella ricerca</h2>
               :
                 filteredPreviews.length < 1 ? <h2 className="sub-title">Nessuna foto trovata</h2> :
-                <div className="grid photos-container">
+                <div className="photos-container">
                         <>
                             {
                                 filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {

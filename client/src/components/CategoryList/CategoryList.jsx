@@ -12,12 +12,12 @@ export default function CategoryList({ categories }) {
     })
 
     return (
-        <>
-            <div className="grid categories-container">
+        <div className="grid-container">
+            <div className="grid list-container">
                 { publicCategories.map((category, categoryIndex) => {
                     return (<CategoryCard key={categoryIndex} category={category} isSub={false} />)
                 }) }
             </div>
-        </>
+        </div>
     )
 }

@@ -92,21 +92,15 @@
     }
 
     .search-container {
-        background-color: white;
         display: flex;
         align-items: center;
-        margin-right: 2rem;
+        margin-right: 1rem;
         border-radius: 18px;
         padding: .1rem;
         height: 2.6rem;
 
         .search-icon {
-            color: black;
-        }
-
-        &:hover {
-            cursor: pointer;
-            background-color: darken($color: #ffffff, $amount: 10%);
+            color: white;
         }
     }
 
