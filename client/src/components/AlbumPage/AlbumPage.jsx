@@ -71,6 +71,7 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
   useEffect(() => {
     if (!query.get("scrollTo")) return window.scrollTo(0, 0)
     const photoContainer = Array.from(document.getElementsByClassName("photo-container")).find(container => container.id === query.get("scrollTo"))
+    if (!photoContainer) return
     photoContainer.scrollIntoView({ behavior: "smooth" })
   }, [query])
 
