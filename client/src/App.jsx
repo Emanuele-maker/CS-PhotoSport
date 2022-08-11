@@ -190,19 +190,19 @@ const categories = [
         title: "PRE XSummer",
         cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_8568.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       },
       {
         title: "X Summer 10.4.2022",
         cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       },
       {
         title: "X Summer 2ª parte",
         cover: `${previewsRoute}/Eventi/X Summer 2ª parte/IMG_8620.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Windfoil", "Good Vibes"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       }
     ]
   },
@@ -270,17 +270,17 @@ const categories = [
     ]
   },
   {
-    title: "Kite, Windsurf & Windfoil",
-    cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
+    title: "Kite, Windsurf & Wingfoil",
+    cover: `${imagesRoute}/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg`,
     albums: [
       {
         title: "Fogliano 21 Maggio 2022",
-        cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg`,
+        cover: `${previewsRoute}/Kite, Windsurf & Wingfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg`,
         tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 20 Maggio 2022",
-        cover: `${previewsRoute}/Kite, Windsurf & Windfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg`,
+        cover: `${previewsRoute}/Kite, Windsurf & Wingfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg`,
         tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
@@ -295,12 +295,12 @@ const categories = [
       },
       {
         title: "Fogliano 2 Febbraio 2022",
-        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`,
+        cover: `${imagesRoute}/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg`,
         tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       },
       {
         title: "Fogliano 26 Gennaio 2022",
-        cover: `${imagesRoute}/Kite, Windsurf & Windfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg`,
+        cover: `${imagesRoute}/Kite, Windsurf & Wingfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg`,
         tags: ["Kite", "Windsurf", "Wingfoil", "Surf", "Surfing", "Windsurfing", "Wingfoiling", "Waves", "Onde", "WaterSports", "Water", "Vento", "Wind", "Vento"]
       }
     ]
