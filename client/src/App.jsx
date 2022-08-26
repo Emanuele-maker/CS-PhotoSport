@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
+import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom"
 import Layout from "./components/Layout/Layout"
 import Album from "./components/pages/Album/Album"
 import Cart from "./components/pages/Cart/Cart"
@@ -14,121 +14,144 @@ import SearchPage from "./components/pages/SearchPage/SearchPage"
 import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
+import formatURL from "./formatURL"
+
+const DANZA_SECRET_CODE = "07e108bd394a"
 
 const categories = [
   {
-    title: "9e595881",
+    title: "Danza",
+    cover: `${imagesRoute}/${DANZA_SECRET_CODE}/Aria Moderno Intermedio/IMG_1022.jpg`,
+    fake: true,
+    albums: [
+      {
+        title: "Mode Modalità Danza I 4 Elementi",
+        cover: `${imagesRoute}/${DANZA_SECRET_CODE}/Terra Corsi Moderno/IMG_2664.jpg`,
+        fake: true,
+        message: (
+          <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+            <p className="danza-msg" style={{ textAlign: "center", flexWrap: "wrap", color: "white", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+              <span>Per l'acquisto delle foto, inviare una richiesta alla mail</span>
+              <a href="mailto:cristian.salvadori@gmail.com" style={{ color: "white" }}>cristian.salvadori@gmail.com</a>
+            </p>
+          </div>
+        )
+      }
+    ]
+  },
+  {
+    title: "07e108bd394a",
     actualTitle: "DANZA - I 4 Elementi",
-    cover: `${previewsRoute}/9e595881/Backstage/IMG_9564.jpg`,
+    cover: `${previewsRoute}/07e108bd394a/Backstage/IMG_9564.jpg`,
     isPrivate: true,
     albums: [
       {
         title: "Backstage",
-        cover: `${previewsRoute}/9e595881/Backstage/IMG_9564.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Backstage/IMG_9564.jpg`
       },
       {
         title: "Fuoco Modulo",
-        cover: `${previewsRoute}/9e595881/Fuoco Modulo/IMG_9616.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Modulo/IMG_9616.jpg`
       },
       {
         title: "Fuoco Corso Moderno Grandi",
-        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Grandi/IMG_9752.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Grandi/IMG_9752.jpg`
       },
       {
         title: "Fuoco Corso Open Mamme",
-        cover: `${previewsRoute}/9e595881/Fuoco Corso Open Mamme/IMG_9801.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Open Mamme/IMG_9801.jpg`
       },
       {
         title: "Fuoco Corso Moderno Piccole",
-        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Piccole/IMG_9987.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Piccole/IMG_9987.jpg`
       },
       {
         title: "Fuoco Corso Moderno Avanzato",
-        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Avanzato/IMG_0306.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Avanzato/IMG_0306.jpg`
       },
       {
         title: "Fuoco Corso Moderno Juniores",
-        cover: `${previewsRoute}/9e595881/Fuoco Corso Moderno Juniores/IMG_0435.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Juniores/IMG_0435.jpg`
       },
       {
         title: "Fuoco Hip Hop",
-        cover: `${previewsRoute}/9e595881/Fuoco Hip Hop/IMG_0450.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Hip Hop/IMG_0450.jpg`
       },
       {
         title: "Aria Classico Avanzato",
-        cover: `${previewsRoute}/9e595881/Aria Classico Avanzato/IMG_0630.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Classico Avanzato/IMG_0630.jpg`
       },
       {
         title: "Aria Corsi I e II Regolare",
-        cover: `${previewsRoute}/9e595881/Aria Corsi I e II Regolare/IMG_0776.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Corsi I e II Regolare/IMG_0776.jpg`
       },
       {
         title: "Aria Hip Hop",
-        cover: `${previewsRoute}/9e595881/Aria Hip Hop/IMG_0879.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Hip Hop/IMG_0879.jpg`
       },
       {
         title: "Aria Corso Aspiranti",
-        cover: `${previewsRoute}/9e595881/Aria Corso Aspiranti/IMG_0957.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Corso Aspiranti/IMG_0957.jpg`
       },
       {
         title: "Aria Moderno Intermedio",
-        cover: `${previewsRoute}/9e595881/Aria Moderno Intermedio/IMG_1022.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Moderno Intermedio/IMG_1022.jpg`
       },
       {
         title: "Acqua Modulo",
-        cover: `${previewsRoute}/9e595881/Acqua Modulo/IMG_1125.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Modulo/IMG_1125.jpg`
       },
       {
         title: "Acqua Moderno Juniores e Intermedio",
-        cover: `${previewsRoute}/9e595881/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg`
       },
       {
         title: "Acqua Moderno Piccole",
-        cover: `${previewsRoute}/9e595881/Acqua Moderno Piccole/IMG_1478.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Piccole/IMG_1478.jpg`
       },
       {
         title: "Acqua Moderno Juniores",
-        cover: `${previewsRoute}/9e595881/Acqua Moderno Juniores/IMG_1550.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores/IMG_1550.jpg`
       },
       {
         title: "Acqua Classico Avanzato",
-        cover: `${previewsRoute}/9e595881/Acqua Classico Avanzato/IMG_1674.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Classico Avanzato/IMG_1674.jpg`
       },
       {
         title: "Acqua Hip Hop Principianti",
-        cover: `${previewsRoute}/9e595881/Acqua Hip Hop Principianti/IMG_1795.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Hip Hop Principianti/IMG_1795.jpg`
       },
       {
         title: "Acqua Aspiranti",
-        cover: `${previewsRoute}/9e595881/Acqua Aspiranti/IMG_1941.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Aspiranti/IMG_1941.jpg`
       },
       {
         title: "Terra Corsi I e II Regolare",
-        cover: `${previewsRoute}/9e595881/Terra Corsi I e II Regolare/IMG_2055.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Corsi I e II Regolare/IMG_2055.jpg`
       },
       {
         title: "Terra Hip Hop Baby",
-        cover: `${previewsRoute}/9e595881/Terra Hip Hop Baby/IMG_2205.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Hip Hop Baby/IMG_2205.jpg`
       },
       {
         title: "Terra Moderno Avanzato",
-        cover: `${previewsRoute}/9e595881/Terra Moderno Avanzato/IMG_2407.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Avanzato/IMG_2407.jpg`
       },
       {
         title: "Terra Moderno Intermedio",
-        cover: `${previewsRoute}/9e595881/Terra Moderno Intermedio/IMG_2460.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Intermedio/IMG_2460.jpg`
       },
       {
         title: "Terra Martina Guizzo",
-        cover: `${previewsRoute}/9e595881/Terra Martina Guizzo/IMG_2568.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Martina Guizzo/IMG_2568.jpg`
       },
       {
         title: "Terra Corsi Moderno",
-        cover: `${previewsRoute}/9e595881/Terra Corsi Moderno/IMG_2664.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Corsi Moderno/IMG_2664.jpg`
       },
       {
         title: "Saluti Finali",
-        cover: `${previewsRoute}/9e595881/Saluti Finali/IMG_2945.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Saluti Finali/IMG_2945.jpg`
       }
     ]
   },
@@ -444,6 +467,7 @@ export default function App() {
               <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
               <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
+              <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>

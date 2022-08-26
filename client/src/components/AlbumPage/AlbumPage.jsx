@@ -15,13 +15,27 @@ function useQuery() {
   return useMemo(() => new URLSearchParams(search), [search])
 }
 
-export default function AlbumPage({ previews, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews, searchType }) {
+export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews, searchType }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
   const [searchChars, setSearchChars] = useState(0)
   const minSearchChars = 3
 
   const navigate = useNavigate()
   const query = useQuery()
+
+  useEffect(() => {
+    if (!query.get("scrollTo")) return window.scrollTo(0, 0)
+    const photoContainer = Array.from(document.getElementsByClassName("photo-container")).find(container => container.id === query.get("scrollTo"))
+    if (!photoContainer) return
+    photoContainer.scrollIntoView({ behavior: "smooth" })
+  }, [query])
+
+  if (fake) return (
+    <>
+      <Heading backUrl={`/${category_name}`}>{ clientAlbum.title }</Heading>
+      {clientAlbum.message}
+    </>
+  )
 
   const shareData = {
     title: album.title,
@@ -67,13 +81,6 @@ export default function AlbumPage({ previews, previewsStruct, category_name, sub
     else filtered = previews.filter(preview => preview.fileName.toLowerCase().includes(search))
     setFilteredPreviews(filtered)
   }
-
-  useEffect(() => {
-    if (!query.get("scrollTo")) return window.scrollTo(0, 0)
-    const photoContainer = Array.from(document.getElementsByClassName("photo-container")).find(container => container.id === query.get("scrollTo"))
-    if (!photoContainer) return
-    photoContainer.scrollIntoView({ behavior: "smooth" })
-  }, [query])
 
   return (
     <>

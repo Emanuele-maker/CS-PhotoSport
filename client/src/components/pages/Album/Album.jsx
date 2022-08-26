@@ -15,29 +15,30 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
     const category = previewsStruct[Object.keys(previewsStruct).find(key => {
         return key.toLowerCase().replaceAll(" ", "-") === category_name
     })]
-    if (!category) return <NotFound />
+    const isFake = categories.find(category => formatURL(category.title) === category_name).fake
+    if (!category && !categories.find(category => formatURL(category.title) === category_name).fake) return <NotFound />
 
     let subCategory, albums, album
 
-    if (category.subCategories) {
+    if (category?.subCategories && !isFake) {
         subCategory = category.subCategories.find(c => formatURL(c.title) === sub_category_name)
         if (!subCategory) return <NotFound />
         albums = subCategory.albums
         if (!albums) return <NotFound />
         album = albums.find(album => album.title === album_name)
-    } else {
+    } else if (!isFake) {
         album = category.find(album => formatURL(album.title) === album_name)
     }
-    if (!album) return <NotFound />
+    if (!album && !isFake) return <NotFound />
 
-    const previews = album.previews
+    const previews = album?.previews
 
-    const { useSearch, isFree, searchPlaceholder, useNews, searchType, notUseBack } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
+    const { useSearch, isFree, searchPlaceholder, useNews, searchType, fake } = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
 
     return (
         <>
             {
-                <AlbumPage searchPlaceholder={searchPlaceholder} category={category} useNews={useNews} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name} searchType={searchType}  />
+                <AlbumPage clientAlbum={categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)} searchPlaceholder={searchPlaceholder} category={category} fake={fake} useNews={useNews} useSearch={useSearch} isFree={isFree} onAddToCart={onAddToCart} category_name={category_name} subCategory={subCategory} sub_category_name={sub_category_name} previews={previews} previewsStruct={previewsStruct} album={album} album_name={album_name} searchType={searchType}  />
             }
         </>
     )
