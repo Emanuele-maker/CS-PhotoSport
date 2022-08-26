@@ -16,17 +16,15 @@ import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
 import formatURL from "./formatURL"
 
-const DANZA_SECRET_CODE = "07e108bd394a"
-
 const categories = [
   {
     title: "Danza",
-    cover: `${imagesRoute}/${DANZA_SECRET_CODE}/Aria Moderno Intermedio/IMG_1022.jpg`,
+    cover: require("./cover/danza.jpg"),
     fake: true,
     albums: [
       {
         title: "Mode Modalità Danza I 4 Elementi",
-        cover: `${imagesRoute}/${DANZA_SECRET_CODE}/Terra Corsi Moderno/IMG_2664.jpg`,
+        cover: require("./cover/i 4 elementi.jpg"),
         fake: true,
         message: (
           <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
