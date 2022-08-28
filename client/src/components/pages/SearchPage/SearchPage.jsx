@@ -16,7 +16,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
 
     const initFilteredItems = () => {
         const items = []
-        categories.forEach(category => {
+        categories.filter(category => !category.fake).forEach(category => {
             category.albums.forEach(album => items.push(album))
             const structAlbums = previewsStruct[category.title]
             structAlbums.forEach(album => {
