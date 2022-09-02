@@ -31,6 +31,7 @@ const categories = [
             <p className="danza-msg" style={{ textAlign: "center", flexWrap: "wrap", color: "white", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
               <span>Per l'acquisto delle foto, inviare una richiesta alla mail</span>
               <a href="mailto:cristian.salvadori@gmail.com" style={{ color: "white" }}>cristian.salvadori@gmail.com</a>
+              <p >O contattare attraverso messaggio diretto sul profilo Instagram <a style={{ color: "white" }} href="https://instagram.com/cs_photosport">cs_photosport</a></p>
             </p>
           </div>
         )
