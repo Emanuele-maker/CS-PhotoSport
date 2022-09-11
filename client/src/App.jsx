@@ -211,6 +211,11 @@ const categories = [
     cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
     albums: [
       {
+        title: "We Run Latina 2022",
+        cover: `${previewsRoute}/Running/We Run Latina 2022/IMG_3154.jpg`,
+        tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner"]
+      },
+      {
         title: "Mezza Latina 2022",
         cover: `${previewsRoute}/Running/Mezza Latina 2022/IMG_2331.jpg`,
         tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Maratona", "Mezza Maratona", "Eventi", "Runner"]
