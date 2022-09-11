@@ -62,10 +62,11 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 </Link>
                 <p className="cart-count">{ cartCount }</p>
                     <Link to="/profilo" className="profile-picture-container">
-                        { 
+                        {
                             (isLoggedIn && profilePicture) ?
                             <img src={profilePicture} className="profile-picture" />
                             :
+                            (isLoggedIn && !profilePicture) &&
                             <AiOutlineUser className="profile-picture" color="grey" size="2rem" />
                         }
                     </Link>
