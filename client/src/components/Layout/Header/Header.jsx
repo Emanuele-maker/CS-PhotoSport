@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaBars } from "react-icons/fa"
-import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai"
+import { AiOutlineSearch, AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai"
 import "./Header.scss"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
@@ -47,10 +47,14 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 </div>
             </div>
             <div className="cart-container">
-                { !isLoggedIn && <GoogleLogin size="medium" auto_select onSuccess={res => {
+                {/* { !isLoggedIn && <GoogleLogin size="medium" auto_select onSuccess={res => {
                    const { sub, picture, name, email } = jwtDecode(res.credential)
                    logUserIn(sub, name, email, picture)
-                }} onError={() => console.log("Login error")} /> }
+                }} onError={() => console.log("Login error")} /> } */}
+                {
+                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button">Registrati</button>
+                    // <AiOutlineUserAdd size="2rem" className="icon" color="white" onClick={() => navigate("/profilo")} />
+                }
                 {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}
                 <div className="search-container" onClick={() => navigate("/ricerca")}>
                     <AiOutlineSearch size="2rem" className="icon search-icon" />

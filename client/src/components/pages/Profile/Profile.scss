@@ -45,9 +45,31 @@
 
 .login-page {
     width: 100%;
+    .register-explaination {
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+    }
     .login-btn {
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+}
+
+@media (max-width: 1100px) {
+    .login-page {
+        .register-explaination {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .login-page {
+        .register-explaination {
+            font-size: 1rem;
+        }
     }
 }

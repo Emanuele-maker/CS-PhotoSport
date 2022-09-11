@@ -67,13 +67,16 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
         </div>
         :
         <div className="login-page">
-          <Heading backUrl={-1}>ACCEDI</Heading>
+          <Heading backUrl={-1}>REGISTRATI</Heading>
           <div className="login-btn">
             <GoogleLogin auto_select onSuccess={res => {
               const { sub, picture, name, email } = jwtDecode(res.credential)
               logUserIn(sub, name, email, picture)
             }} />
           </div>
+          <p className="register-explaination">
+            Registrati con il tuo account Google per salvare le foto che acquisti su tutti i tuoi dispositivi.
+          </p>
         </div>
       }
     </>
