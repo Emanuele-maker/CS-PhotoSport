@@ -19,6 +19,12 @@ router.get("/myUser/:userId", async(req, res) => {
     })
 })
 
+router.post("/myUser/add-image", async(req, res) => {
+    conn.query(`UPDATE users SET images = '${JSON.stringify(req.body.images)}' WHERE id = ${req.body.user_id}`, (err, rows) => {
+        if (err) console.error(err)
+    })
+})
+
 module.exports = { 
     router
 }

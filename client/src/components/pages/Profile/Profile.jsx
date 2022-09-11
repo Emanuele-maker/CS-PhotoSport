@@ -10,7 +10,7 @@ import ImageCard from "../../ImageCard/ImageCard"
 import { AiOutlineUser } from "react-icons/ai"
 
 const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profilePicture }) => {
-  const [boughtImages, setBoughtImages] = useState([])
+  const boughtImages = JSON.parse(localStorage.getItem("userImages")) || [] 
 
   const downloadImage = (img, imageSrc) => {
     const link = document.createElement('a')
@@ -27,18 +27,6 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
     else downloadImage(image, `${imagesRoute}/${image.category}/${image.album}/${image.fileName}`)
   }
 
-  useEffect(() => {
-    axios.get(`${siteRoute}/api/myUser/${localStorage.getItem("userId")}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(res => {
-      setBoughtImages(JSON.parse(res.data.user.images))
-    })
-  }, [])
-
   return (
     <>
       {
@@ -47,9 +35,11 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
             <Heading backUrl={-1}>Il tuo account</Heading>
             <div className="profile-info">
                 {
-                  profilePicture && isLoggedIn ?
-                  <img src={profilePicture} alt="Immagine del profilo" />
-                  : <AiOutlineUser color="white" />
+                  (profilePicture && isLoggedIn) ?
+                  <img src={profilePicture} />
+                  :
+                  (isLoggedIn && !profilePicture) && 
+                  <AiOutlineUser color="white" />
                 }
                 <h2>{ userName }</h2>
                 <h3>{ email }</h3>
@@ -64,7 +54,8 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
             {
               (boughtImages && boughtImages.length > 0) &&
               <div className="bought-images">
-                <div className="photos-container">
+                <h1 style={{ width: "100%", color: "white", textAlign: "center" }}>LE TUE FOTO</h1>
+                <div className="photos-container grid">
                   {
                     boughtImages.map(image => (
                       <ImageCard download={download} imageName={image.fileName} imageSrc={`${imagesRoute}/${image.category}/${image.album}/${image.fileName}`} />

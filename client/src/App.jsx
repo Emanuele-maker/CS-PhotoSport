@@ -452,6 +452,7 @@ export default function App() {
         setUserName(user.userName)
         setUserPicture(user.picture)
         setUserImages(JSON.parse(user.images))
+        localStorage.setItem("userImages", JSON.stringify(JSON.parse(user.images)))
         localStorage.setItem("profilePicture", user.picture)
       })
     }
@@ -549,7 +550,7 @@ export default function App() {
               <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
-              <Route path="/profilo" element={<Profile userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />
+              <Route path="/profilo" element={<Profile boughtImages={userImages} userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>

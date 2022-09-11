@@ -44,8 +44,12 @@ export default function Success({ onSetSessionId, onAddUserImage, isLoggedIn, lo
           localStorage.setItem("sessionId", res.data.session.id)
           if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
             setBoughtImages(JSON.parse(res.data.session.boughtImages))
+            console.log(JSON.parse(res.data.session.boughtImages))
+            axios.post(`${siteRoute}/api/myUser/add-image`, {
+              images: [...JSON.parse(res.data.session.boughtImages), ...JSON.parse(localStorage.getItem("userImages"))],
+              user_id: localStorage.getItem("userId")
+            })
           }
-          console.log(res.data.session.boughtImages)
         })
         }
       )()
@@ -56,18 +60,18 @@ export default function Success({ onSetSessionId, onAddUserImage, isLoggedIn, lo
     <div className="success-content" rel="noopener noreferrer" target="_blank">
       <h1>Pagamento Riuscito!</h1>
       <h1>Scarica le foto acquistate</h1>
-      {/* {
+      {
         isLoggedIn ?
         <h2>Puoi trovarle anche sul tuo <Link to="/profilo">Profilo</Link></h2>
         :
-        <>
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
           <h2>Accedi al tuo account Google per avere sempre accesso alle tue foto acquistate</h2>
           <GoogleLogin auto_select onSuccess={res => {
             const { sub, picture, name, email } = jwtDecode(res.credential)
             logUserIn(sub, name, email, picture)
           }} />
-        </>
-      } */}
+        </div>
+      }
       {
         boughtImages.length > 0 ? 
         <>
