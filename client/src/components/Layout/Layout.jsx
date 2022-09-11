@@ -5,13 +5,13 @@ import Header from "./Header/Header"
 import CookieBanner from "./CookieBanner/CookieBanner"
 import Footer from "./Footer/Footer"
 
-export default function Layout({ children, cartCount, isCartIconVisible, shakeCartIcon, setShakeCartIcon }) {
+export default function Layout({ children, cartCount, isCartIconVisible, shakeCartIcon, setShakeCartIcon, isLoggedIn, logUserIn, profilePicture }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
 
     return (
         <div className="layout">
             { isMobileNavbarOpened ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
-            <Header setShakeCartIcon={setShakeCartIcon} shakeCartIcon={shakeCartIcon} isCartIconVisible={isCartIconVisible} setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
+            <Header profilePicture={profilePicture} logUserIn={logUserIn} isLoggedIn={isLoggedIn} setShakeCartIcon={setShakeCartIcon} shakeCartIcon={shakeCartIcon} isCartIconVisible={isCartIconVisible} setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { setIsMobileNavbarOpened(false) }}>
                 <div className={`obfuscator ${isMobileNavbarOpened ? "visible" : "invisible"}`}></div>
                 { children }

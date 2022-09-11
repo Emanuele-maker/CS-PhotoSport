@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaBars } from "react-icons/fa"
-import { AiOutlineSearch } from "react-icons/ai"
+import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai"
 import "./Header.scss"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
@@ -9,9 +9,30 @@ import { BsNewspaper } from "react-icons/bs"
 import { FaQuestion } from "react-icons/fa"
 import { buildRoute } from "../../../staticInfo"
 import HeaderItem from "../../HeaderItem/HeaderItem"
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google"
+// import { AiOutlineGoogle } from "react-icons/ai"
+import jwtDecode from "jwt-decode"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setShakeCartIcon }) {
+export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setShakeCartIcon, isLoggedIn, logUserIn, profilePicture }) {
     const navigate = useNavigate()
+    const [canLoadImage, setCanLoadImage] = useState(false)
+
+    // const login = useGoogleLogin({
+    //     onSuccess: response => console.log(response),
+    //     flow: "auth-code"
+    // })
+
+    useEffect(() => {
+        if (!profilePicture) return
+        axios.get(profilePicture, {
+            method: "GET"
+        })
+        .then(res => {
+            setCanLoadImage(res.status === 200)
+        })
+    }, [])
 
     return (
         <div className={`header`}>
@@ -26,6 +47,11 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 </div>
             </div>
             <div className="cart-container">
+                { !isLoggedIn && <GoogleLogin auto_select onSuccess={res => {
+                   const { sub, picture, name, email } = jwtDecode(res.credential)
+                   logUserIn(sub, name, email, picture)
+                }} onError={() => console.log("Login error")} /> }
+                {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}
                 <div className="search-container" onClick={() => navigate("/ricerca")}>
                     <AiOutlineSearch size="2rem" className="icon search-icon" />
                 </div>
@@ -35,6 +61,14 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                     </Tada>
                 </Link>
                 <p className="cart-count">{ cartCount }</p>
+                    <Link to="/profilo" className="profile-picture-container">
+                        { 
+                            (isLoggedIn && profilePicture) ?
+                            <img src={profilePicture} className="profile-picture" />
+                            :
+                            <AiOutlineUser className="profile-picture" color="grey" size="2rem" />
+                        }
+                    </Link>
             </div>
         </div>
     )

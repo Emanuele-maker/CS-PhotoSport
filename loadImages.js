@@ -24,7 +24,8 @@ fs.readdir(path.join(__dirname, "./client/public/img"), (err, categories) => {
                                     fileName: fileName,
                                     album: album,
                                     category: category,
-                                    addedToCart: false
+                                    addedToCart: false,
+                                    favorite: false
                                 }
                             })
                         })
@@ -44,7 +45,8 @@ fs.readdir(path.join(__dirname, "./client/public/img"), (err, categories) => {
                                             fileName: fileName,
                                             album: album,
                                             category: category,
-                                            addedToCart: false
+                                            addedToCart: false,
+                                            favorite: false
                                         }
                                     })
                                 })
@@ -65,7 +67,8 @@ fs.readdir(path.join(__dirname, "./client/public/img"), (err, categories) => {
                                                     album: album,
                                                     category: category,
                                                     subCategory: subC,
-                                                    addedToCart: false
+                                                    addedToCart: false,
+                                                    favorite: false
                                                 }
                                             })
                                         }
@@ -101,7 +104,8 @@ fs.readdir(path.join(__dirname, "./client/public/previews"), (err, categories) =
                                     fileName: fileName,
                                     album: album,
                                     category: category,
-                                    addedToCart: false
+                                    addedToCart: false,
+                                    favorite: false
                                 }
                             })
                         })
@@ -121,7 +125,8 @@ fs.readdir(path.join(__dirname, "./client/public/previews"), (err, categories) =
                                             fileName: fileName,
                                             album: album,
                                             category: category,
-                                            addedToCart: false
+                                            addedToCart: false,
+                                            favorite: false
                                         }
                                     })
                                 })
@@ -142,7 +147,8 @@ fs.readdir(path.join(__dirname, "./client/public/previews"), (err, categories) =
                                                     album: album,
                                                     category: category,
                                                     subCategory: subC,
-                                                    addedToCart: false
+                                                    addedToCart: false,
+                                                    favorite: false
                                                 }
                                             })
                                         }

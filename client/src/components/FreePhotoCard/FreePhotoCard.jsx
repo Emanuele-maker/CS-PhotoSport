@@ -2,7 +2,7 @@ import LazyImage from "../LazyImage"
 import "./FreePhotoCard.scss"
 import { useNavigate } from "react-router-dom"
 
-export default function FreePhotoCard({ preview, category_name, album_name, imageName }) {
+export default function FreePhotoCard({ preview, category_name, album_name, imageName, reference }) {
   const navigate = useNavigate()
 
   const downloadImage = (imageSrc) => {
@@ -18,7 +18,7 @@ export default function FreePhotoCard({ preview, category_name, album_name, imag
 
   return (
       <>
-        <div className="photo-container">
+        <div className="photo-container" ref={reference}>
         <div className="photo-container-image" onClick={() => navigate(`/${category_name}/album/${album_name}/${imageName}`)}>
           <LazyImage src={preview} />
         </div>

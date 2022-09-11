@@ -15,6 +15,10 @@ import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
 import formatURL from "./formatURL"
+import axios from "axios"
+import Profile from "./components/pages/Profile/Profile"
+import { useGoogleLogin } from "@react-oauth/google"
+import jwtDecode from "jwt-decode"
 
 const categories = [
   {
@@ -46,111 +50,138 @@ const categories = [
     albums: [
       {
         title: "Backstage",
-        cover: `${previewsRoute}/07e108bd394a/Backstage/IMG_9564.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Backstage/IMG_9564.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Modulo",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Modulo/IMG_9616.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Modulo/IMG_9616.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Corso Moderno Grandi",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Grandi/IMG_9752.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Grandi/IMG_9752.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Corso Open Mamme",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Open Mamme/IMG_9801.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Open Mamme/IMG_9801.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Corso Moderno Piccole",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Piccole/IMG_9987.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Piccole/IMG_9987.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Corso Moderno Avanzato",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Avanzato/IMG_0306.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Avanzato/IMG_0306.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Corso Moderno Juniores",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Juniores/IMG_0435.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Corso Moderno Juniores/IMG_0435.jpg`,
+        priceInCents: 500
       },
       {
         title: "Fuoco Hip Hop",
-        cover: `${previewsRoute}/07e108bd394a/Fuoco Hip Hop/IMG_0450.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Fuoco Hip Hop/IMG_0450.jpg`,
+        priceInCents: 500
       },
       {
         title: "Aria Classico Avanzato",
-        cover: `${previewsRoute}/07e108bd394a/Aria Classico Avanzato/IMG_0630.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Classico Avanzato/IMG_0630.jpg`,
+        priceInCents: 500
       },
       {
         title: "Aria Corsi I e II Regolare",
-        cover: `${previewsRoute}/07e108bd394a/Aria Corsi I e II Regolare/IMG_0776.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Corsi I e II Regolare/IMG_0776.jpg`,
+        priceInCents: 500
       },
       {
         title: "Aria Hip Hop",
-        cover: `${previewsRoute}/07e108bd394a/Aria Hip Hop/IMG_0879.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Hip Hop/IMG_0879.jpg`,
+        priceInCents: 500
       },
       {
         title: "Aria Corso Aspiranti",
-        cover: `${previewsRoute}/07e108bd394a/Aria Corso Aspiranti/IMG_0957.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Corso Aspiranti/IMG_0957.jpg`,
+        priceInCents: 500
       },
       {
         title: "Aria Moderno Intermedio",
-        cover: `${previewsRoute}/07e108bd394a/Aria Moderno Intermedio/IMG_1022.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Aria Moderno Intermedio/IMG_1022.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Modulo",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Modulo/IMG_1125.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Modulo/IMG_1125.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Moderno Juniores e Intermedio",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Moderno Piccole",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Piccole/IMG_1478.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Piccole/IMG_1478.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Moderno Juniores",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores/IMG_1550.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Moderno Juniores/IMG_1550.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Classico Avanzato",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Classico Avanzato/IMG_1674.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Classico Avanzato/IMG_1674.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Hip Hop Principianti",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Hip Hop Principianti/IMG_1795.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Hip Hop Principianti/IMG_1795.jpg`,
+        priceInCents: 500
       },
       {
         title: "Acqua Aspiranti",
-        cover: `${previewsRoute}/07e108bd394a/Acqua Aspiranti/IMG_1941.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Acqua Aspiranti/IMG_1941.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Corsi I e II Regolare",
-        cover: `${previewsRoute}/07e108bd394a/Terra Corsi I e II Regolare/IMG_2055.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Corsi I e II Regolare/IMG_2055.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Hip Hop Baby",
-        cover: `${previewsRoute}/07e108bd394a/Terra Hip Hop Baby/IMG_2205.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Hip Hop Baby/IMG_2205.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Moderno Avanzato",
-        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Avanzato/IMG_2407.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Avanzato/IMG_2407.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Moderno Intermedio",
-        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Intermedio/IMG_2460.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Moderno Intermedio/IMG_2460.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Martina Guizzo",
-        cover: `${previewsRoute}/07e108bd394a/Terra Martina Guizzo/IMG_2568.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Martina Guizzo/IMG_2568.jpg`,
+        priceInCents: 500
       },
       {
         title: "Terra Corsi Moderno",
-        cover: `${previewsRoute}/07e108bd394a/Terra Corsi Moderno/IMG_2664.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Terra Corsi Moderno/IMG_2664.jpg`,
+        priceInCents: 500
       },
       {
         title: "Saluti Finali",
-        cover: `${previewsRoute}/07e108bd394a/Saluti Finali/IMG_2945.jpg`
+        cover: `${previewsRoute}/07e108bd394a/Saluti Finali/IMG_2945.jpg`,
+        priceInCents: 500
       }
     ]
   },
@@ -205,26 +236,39 @@ const categories = [
     ]
   },
   {
-    title: "Eventi",
-    cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_3575.jpg`,
+    title: "Beachvolley",
+    cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
     albums: [
       {
-        title: "PRE XSummer",
-        cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_8568.jpg`,
+        title: "Beach World Champs Rome",
+        cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
-        title: "X Summer 10.4.2022",
-        cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
+        title: "Torneo Promozionale Finale Femminile",
+        cover: `${previewsRoute}/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       },
       {
-        title: "X Summer 2ª parte",
-        cover: `${previewsRoute}/Eventi/X Summer 2ª parte/IMG_8620.jpg`,
+        title: "FIPAV 27.3.2022",
+        cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
+        useSearch: true,
+        searchPlaceholder: "Inserisci il cognome del giocatore",
+        searchType: "text",
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
+      },
+      {
+        title: "Torneo Opes 2021",
+        cover: require("./cover/Cover torneo opes.jpg"),
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
+      },
+      {
+        title: "Rome Beach Finals 2019",
+        cover: `${previewsRoute}/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg`,
         isFree: true,
-        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
+        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
       }
     ]
   },
@@ -328,45 +372,30 @@ const categories = [
     ]
   },
   {
-    title: "Beachvolley",
-    cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
+    title: "Eventi",
+    cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_3575.jpg`,
     albums: [
       {
-        title: "Beach World Champs Rome",
-        cover: `${previewsRoute}/Beachvolley/Beach World Champs Rome/IMG_8131.jpg`,
+        title: "PRE XSummer",
+        cover: `${previewsRoute}/Eventi/PRE XSummer/IMG_8568.jpg`,
         isFree: true,
-        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       },
       {
-        title: "Torneo Promozionale Finale Femminile",
-        cover: `${previewsRoute}/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg`,
+        title: "X Summer 10.4.2022",
+        cover: `${previewsRoute}/Eventi/X Summer 10.4.2022/IMG_8476.jpg`,
         isFree: true,
-        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       },
       {
-        title: "FIPAV 27.3.2022",
-        cover: require("./cover/Cover FIPAV 27.3.2022.jpg"),
-        useSearch: true,
-        searchPlaceholder: "Inserisci il cognome del giocatore",
-        searchType: "text",
-        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
-      },
-      {
-        title: "Torneo Opes 2021",
-        cover: require("./cover/Cover torneo opes.jpg"),
-        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
-      },
-      {
-        title: "Rome Beach Finals 2019",
-        cover: `${previewsRoute}/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg`,
+        title: "X Summer 2ª parte",
+        cover: `${previewsRoute}/Eventi/X Summer 2ª parte/IMG_8620.jpg`,
         isFree: true,
-        tags: ["Beachvolley", "Beach Volley", "Beach Volleyball", "World Tour", "Beach", "Tournament", "Torneo"]
+        tags: ["Running", "Cycling", "Windsurf", "Eventi", "Kite", "Fun", "Divertimento", "Ginnastica", "Training", "Gimnastic", "Bike", "Bicicletta", "Biking", "Kids", "Arti Marziali", "Martial Arts", "Wingfoil", "Good Vibes"]
       }
     ]
   }
 ]
-
-
 
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
 
@@ -380,6 +409,12 @@ export default function App() {
   const [statefulCartImages, setStatefulCartImages] = useState(undefined)
   const [sessionId, setSessionId] = useState("")
   const [shakeCartIcon, setShakeCartIcon] = useState(false)
+  const [userName, setUserName] = useState()
+  const [userId, setUserId] = useState()
+  const [userPicture, setUserPicture] = useState()
+  const [userEmail, setUserEmail] = useState()
+  const [userImages, setUserImages] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     const getSessionInfo = async() => {
@@ -398,6 +433,30 @@ export default function App() {
       })
     }
 
+    const getUserInfo = async() => {
+      if (!localStorage.getItem("userId")) return
+      await fetch(`${siteRoute}/api/myUser/${localStorage.getItem("userId")}`, {
+        headers : {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => {
+        return res.json()
+      })
+      .then(({ user }) => {
+        setLoggedIn(true)
+        setUserEmail(user.email)
+        setUserId(user.id)
+        localStorage.setItem("userId", user.id)
+        setUserName(user.userName)
+        setUserPicture(user.picture)
+        setUserImages(JSON.parse(user.images))
+        localStorage.setItem("profilePicture", user.picture)
+      })
+    }
+
+    getUserInfo()
     getSessionInfo()
 
     setStatefulCartImages(cartImages)
@@ -429,12 +488,35 @@ export default function App() {
       setcartCount(cartCount + 1)
       setShakeCartIcon(true)
       localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
+      if (loggedIn) setUserImages([...userImages, image])
       return image
+    }
+
+
+    const logUserIn = (id, name, email, picture) => {
+      setLoggedIn(true)
+      setUserEmail(email)
+      setUserName(name)
+      setUserId(id)
+      setUserPicture(picture)
+      localStorage.setItem("userId", id)
+      localStorage.setItem("profilePicture", picture)
+      axios.post(`${siteRoute}/api/user`, {
+        id,
+        userName: name,
+        email,
+        picture
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
     }
 
     return (
       <Router>
-        <Layout shakeCartIcon={shakeCartIcon} setShakeCartIcon={setShakeCartIcon} cartCount={cartCount}>
+        <Layout profilePicture={userPicture} logUserIn={logUserIn} isLoggedIn={loggedIn} setIsLoggedIn={setLoggedIn} shakeCartIcon={shakeCartIcon} setShakeCartIcon={setShakeCartIcon} cartCount={cartCount}>
             <Routes>
               <Route exact path="/" element={<Home categories={categories} />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
@@ -451,7 +533,7 @@ export default function App() {
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
-              <Route path="/carrello" element={<Cart cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
+              <Route path="/carrello" element={<Cart categories={categories} cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
                   item.addedToCart = false
                   cartImages.splice(cartImages.indexOf(item), 1)
                   setcartCount(cartCount - 1)
@@ -464,9 +546,10 @@ export default function App() {
               <Route path="/chi-siamo" element={<About />} />
               <Route path="/news/:post_name" element={<News />} />
               <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
-              <Route path="/success" element={<Success onSetSessionId={(id) => setSessionId(id)} />} />
-              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
+              <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
+              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
+              <Route path="/profilo" element={<Profile userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </Layout>

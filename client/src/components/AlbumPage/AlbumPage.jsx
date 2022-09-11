@@ -4,7 +4,7 @@ import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
 import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
 import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram, BsNewspaper } from "react-icons/bs"
-import { useEffect, useState, useMemo } from "react"
+import { useEffect, useState, useMemo, useRef } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { useNavigate, useLocation } from "react-router-dom"
 import 'photo-grid-box/build/photo-grid-box.min.css'
@@ -18,16 +18,17 @@ function useQuery() {
 export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct, category_name, sub_category_name, subCategory, onAddToCart, album, album_name, isFree, useSearch, searchPlaceholder, useNews, searchType }) {
   const [filteredPreviews, setFilteredPreviews] = useState(previews)
   const [searchChars, setSearchChars] = useState(0)
+  const scrollToPhoto = useRef()
   const minSearchChars = 3
+  const basePrice = 300
 
   const navigate = useNavigate()
   const query = useQuery()
 
   useEffect(() => {
     if (!query.get("scrollTo")) return window.scrollTo(0, 0)
-    const photoContainer = Array.from(document.getElementsByClassName("photo-container")).find(container => container.id === query.get("scrollTo"))
-    if (!photoContainer) return
-    photoContainer.scrollIntoView({ behavior: "smooth" })
+    if (!scrollToPhoto) return
+    scrollToPhoto.current.scrollIntoView({ behavior: "smooth" })
   }, [query])
 
   if (fake) return (
@@ -98,7 +99,7 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
             ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
             : 
             <>
-              <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€5.00</span> l'una</h2>
+              <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto a soli <span className="highlighted">€{ parseFloat((clientAlbum.priceInCents || basePrice) / 100).toFixed(2) }</span> l'una</h2>
               <h2 className="sub-title">Ogni <span className="highlighted">5 Foto</span> verrà applicato un <span className="highlighted">10% di sconto</span></h2>
             </>
             }
@@ -130,8 +131,8 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
                         <>
                             {
                                 filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
-                                  if (isFree) return <FreePhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                                  else return <PhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                  if (isFree) return <FreePhotoCard reference={scrollToPhoto} key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                  else return <PhotoCard reference={scrollToPhoto} key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                                 })
                             }
                         </>

@@ -4,8 +4,19 @@ import CartItem from "../../CartItem/CartItem"
 import Heading from "../../Heading/Heading"
 import { siteRoute } from "../../../staticInfo"
 
-export default function Cart({ cartItems, onRemoveItem, sessionId }) {
+const getTotalPrice = (items, basePrice, categories) => {
+  let totalPrice = 0
+  items.forEach(item => {
+    const clientAlbum = categories.find(category => category.title === item.category)?.albums.find(album => album.title === item.album)
+    if (clientAlbum && clientAlbum.priceInCents) totalPrice += clientAlbum.priceInCents
+    else totalPrice += basePrice
+  })
+  return totalPrice
+}
+
+export default function Cart({ cartItems, onRemoveItem, sessionId, categories }) {
     const [statefulItems, setStatefulItems] = useState(cartItems || JSON.parse(localStorage.getItem("cartImages")))
+    const basePrice = 300
 
     async function goToCheckout() {
         await fetch(`${siteRoute}/api/checkout/${sessionId}`, {
@@ -16,6 +27,7 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             },
             body: JSON.stringify({
               items: statefulItems,
+              totalPrice: getTotalPrice(statefulItems, basePrice, categories)
             }),
         })
         .then(res => {
@@ -28,12 +40,11 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
         })
     }
 
-  const getPrice = (quantity) => {
-      const basePrice = 5
-      const discount = 1 / 10
-      const limit = 5
-      if (quantity < limit) return basePrice * quantity
-      else return Math.round((basePrice * quantity) - (basePrice * quantity * discount))
+  const getPrice = (quantity, price) => {
+    const discount = 1 / 10
+    const limit = 5
+    if (quantity < limit) return price
+    else return Math.round((price) - (price * discount))
   }
 
     useEffect(() => {
@@ -60,8 +71,8 @@ export default function Cart({ cartItems, onRemoveItem, sessionId }) {
             {
               cartItems && cartItems.length > 0 ?
               statefulItems.map((item, itemIndex) => {
-                if (itemIndex === statefulItems.length - 1) return <><CartItem key={item.index} item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} /><div className="total">Totale: €{ getPrice(statefulItems.length) }</div></>
-                return <CartItem key={item.index} item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} />
+                if (itemIndex === statefulItems.length - 1) return <><CartItem key={item.index} item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} /><div className="total">Totale: €{ parseFloat(getPrice(statefulItems.length, getTotalPrice(statefulItems, basePrice, categories) / 100)).toFixed(2) }</div></>
+                return <CartItem key={item.fileName} item={item} onRemove={(item) => setStatefulItems(onRemoveItem(item))} />
               })
               :
               <h2>Nessun elemento ancora aggiunto al carrello</h2>

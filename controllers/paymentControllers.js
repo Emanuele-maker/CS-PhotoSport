@@ -10,12 +10,11 @@ if (!STRIPE_PRIVATE_KEY)
 
 const stripe = new Stripe(STRIPE_PRIVATE_KEY)
 
-const getPrice = (quantity) => {
-    const basePrice = 5
+const getPrice = (quantity, price) => {
     const discount = 1 / 10
     const limit = 5
-    if (quantity < limit) return basePrice * quantity
-    else return Math.round((basePrice * quantity) - (basePrice * quantity * discount))
+    if (quantity < limit) return price
+    else return Math.round((price) - (price * discount))
 }
 
 const createCheckoutSession = async (req, res) => {
@@ -34,7 +33,7 @@ const createCheckoutSession = async (req, res) => {
                     product_data: {
                         name: "immagini"
                     },
-                    unit_amount: getPrice(req.body.items.length) * 100
+                    unit_amount: getPrice(req.body.items.length, req.body.totalPrice)
                 },
                 quantity: 1
             }],

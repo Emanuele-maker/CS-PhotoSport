@@ -8,8 +8,9 @@ import formatURL from "../../../formatURL"
 import { FaShoppingCart } from "react-icons/fa"
 import { BsDownload, BsCartPlus, BsCartCheck } from "react-icons/bs"
 import { useState } from "react"
+import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 
-const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
+const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
     const { category_name, album_name, image_name } = useParams()
     const navigate = useNavigate()
 
@@ -102,7 +103,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart }) => {
                 isFree ?
                 <button className="download" onClick={() => downloadImage(`${imagesRoute}/${category.title}/${album.title}/${image_name}`)}><BsDownload size="1.3rem" color="white" />Scarica</button>
                 :
-                addedToCart
+                currentImage.addedToCart
                 ?
                 <button className="added-to-cart">Elemento aggiunto al carrello</button>
                 :
