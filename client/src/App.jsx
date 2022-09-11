@@ -213,6 +213,7 @@ const categories = [
       {
         title: "We Run Latina 2022",
         cover: `${previewsRoute}/Running/We Run Latina 2022/IMG_3154.jpg`,
+        isFree: true,
         tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner"]
       },
       {
