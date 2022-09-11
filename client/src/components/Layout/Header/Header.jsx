@@ -47,7 +47,7 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 </div>
             </div>
             <div className="cart-container">
-                { !isLoggedIn && <GoogleLogin auto_select onSuccess={res => {
+                { !isLoggedIn && <GoogleLogin size="medium" auto_select onSuccess={res => {
                    const { sub, picture, name, email } = jwtDecode(res.credential)
                    logUserIn(sub, name, email, picture)
                 }} onError={() => console.log("Login error")} /> }
