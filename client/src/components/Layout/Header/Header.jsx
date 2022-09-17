@@ -6,10 +6,9 @@ import { useNavigate } from "react-router-dom"
 import Tada from 'react-reveal/Tada'
 import { AiOutlineHome, AiOutlineMail } from "react-icons/ai"
 import { BsNewspaper } from "react-icons/bs"
-import { FaQuestion } from "react-icons/fa"
+import { FaQuestion, FaWallet } from "react-icons/fa"
 import { buildRoute } from "../../../staticInfo"
 import HeaderItem from "../../HeaderItem/HeaderItem"
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google"
 // import { AiOutlineGoogle } from "react-icons/ai"
 import jwtDecode from "jwt-decode"
 import { useEffect, useState } from "react"
@@ -23,6 +22,10 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
     //     onSuccess: response => console.log(response),
     //     flow: "auth-code"
     // })
+
+    const donate = () => {
+        window.open("https://donate.stripe.com/cN203Ycfkg1f6xW3cc")
+    }
 
     useEffect(() => {
         if (!profilePicture) return
@@ -51,8 +54,12 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                    const { sub, picture, name, email } = jwtDecode(res.credential)
                    logUserIn(sub, name, email, picture)
                 }} onError={() => console.log("Login error")} /> } */}
+                <button className="donate-button" onClick={() => donate()}>
+                    <FaWallet size="1rem" color="white" />
+                    Dona
+                </button>
                 {
-                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button">Registrati</button>
+                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button register-nav-button">Registrati</button>
                     // <AiOutlineUserAdd size="2rem" className="icon" color="white" onClick={() => navigate("/profilo")} />
                 }
                 {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}

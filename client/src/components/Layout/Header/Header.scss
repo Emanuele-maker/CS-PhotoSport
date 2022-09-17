@@ -1,5 +1,22 @@
 @import "../../../config";
 
+.register-button {
+    padding: .5rem;
+    margin: 1.4rem 0;
+    border-radius: 18px;
+    font-size: 1rem;
+    width: 7rem;
+    border: solid;
+    background-color: #0F0F0F;
+    color: white;
+    font-family: "Poppins", sans-serif;
+
+    &:hover {
+        cursor: pointer;
+        background-color: lighten($color: #0F0F0F, $amount: 20%);
+    }
+}
+
 .header {
     background-color: #004171;
     height: 4rem;
@@ -11,20 +28,33 @@
     position: fixed;
     top: 0;
 
-    .register-button {
+    .donate-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: .5rem;
-        margin: 1.4rem 0;
+        margin: 1.4rem 1rem;
         border-radius: 18px;
         font-size: 1rem;
         width: 7rem;
         border: solid;
-        background-color: #0F0F0F;
+        background-color: #272727;
         color: white;
         font-family: "Poppins", sans-serif;
-    
+
         &:hover {
             cursor: pointer;
-            background-color: lighten($color: #0F0F0F, $amount: 20%);
+            background-color: lighten($color: #272727, $amount: 10%)
+        }
+    }
+
+    @media (max-width: 450px) {
+        .register-nav-button {
+            display: none;
+        }
+
+        .donate-button {
+            margin-right: .4rem;
         }
     }
 
