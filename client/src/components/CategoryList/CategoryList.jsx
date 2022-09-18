@@ -15,7 +15,9 @@ export default function CategoryList({ categories }) {
         <div className="grid-container">
             <div className="grid list-container">
                 { publicCategories.map((category, categoryIndex) => {
-                    return (<CategoryCard key={categoryIndex} category={category} isSub={false} />)
+                    return (
+                        <CategoryCard key={categoryIndex} category={category} isSub={false} />
+                    )
                 }) }
             </div>
         </div>
