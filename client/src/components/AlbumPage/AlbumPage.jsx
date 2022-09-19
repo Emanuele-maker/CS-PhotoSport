@@ -38,6 +38,13 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
     </>
   )
 
+  if (clientAlbum.coming_soon) return (
+    <>
+      <Heading backUrl={`/${category_name}`}>{ clientAlbum.title }</Heading>
+      <h1 style={{ color: "white", width: "100%", fontSize: "1.2rem", textAlign: "center" }}>Le foto di questo album verranno pubblicate a breve...</h1>
+    </>
+  )
+
   const shareData = {
     title: album.title,
     text: "Guarda questo album di CSPhotoSport!",

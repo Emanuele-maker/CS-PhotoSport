@@ -186,30 +186,15 @@ const categories = [
     ]
   },
   {
-    title: "Triathlon",
-    cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
-    albums: [
-      {
-        title: "The Green Race Corsa",
-        cover: `${previewsRoute}/Triathlon/The Green Race Corsa/IMG_1121.jpg`,
-        tags: ["Corsa", "Triathlon", "Triathlete", "Running", "Run", "TheGreenRace", "Runner"]
-      },
-      {
-        title: "The Green Race Nuoto",
-        cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`,
-        tags: ["Swim", "Swimming", "Nuoto", "TheGreenRace", "Triathlete", "Triathlon"]
-      },
-      {
-        title: "The Green Race Ciclismo",
-        cover: `${previewsRoute}/Triathlon/The Green Race Ciclismo/IMG_0723.jpg`,
-        tags: ["Bike", "Triathlon", "Triathlete", "Biking", "TheGreenRace", "Bicicletta"]
-      }
-    ]
-  },
-  {
     title: "Running",
     cover: `${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`,
     albums: [
+      {
+        title: "Corsa del pane genzanese",
+        cover: `${previewsRoute}/Running/Corsa del pane genzanese/IMG_3733.jpg`,
+        isFree: true,
+        tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner", "Pane", "Corsa del pane", "Genzano"]
+      },
       {
         title: "We Run Latina 2022",
         cover: `${previewsRoute}/Running/We Run Latina 2022/IMG_3154.jpg`,
@@ -238,6 +223,27 @@ const categories = [
         searchPlaceholder: "Inserisci il pettorale del corridore",
         searchType: "number",
         tags: ["Running", "Run", "Corsa", "Corsa Su Strada", "Eventi", "Runner"]
+      }
+    ]
+  },
+  {
+    title: "Triathlon",
+    cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_9955.jpg`,
+    albums: [
+      {
+        title: "The Green Race Corsa",
+        cover: `${previewsRoute}/Triathlon/The Green Race Corsa/IMG_1121.jpg`,
+        tags: ["Corsa", "Triathlon", "Triathlete", "Running", "Run", "TheGreenRace", "Runner"]
+      },
+      {
+        title: "The Green Race Nuoto",
+        cover: `${previewsRoute}/Triathlon/The Green Race Nuoto/IMG_0048.jpg`,
+        tags: ["Swim", "Swimming", "Nuoto", "TheGreenRace", "Triathlete", "Triathlon"]
+      },
+      {
+        title: "The Green Race Ciclismo",
+        cover: `${previewsRoute}/Triathlon/The Green Race Ciclismo/IMG_0723.jpg`,
+        tags: ["Bike", "Triathlon", "Triathlete", "Biking", "TheGreenRace", "Bicicletta"]
       }
     ]
   },
