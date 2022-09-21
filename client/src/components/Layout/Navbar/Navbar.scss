@@ -1,5 +1,10 @@
 @import "../../../config";
 
+.exiting {
+    animation-name: slideOut;
+    animation-duration: .6s;
+}
+
 .nav {
     background-color: white;
     display: flex;
@@ -8,12 +13,14 @@
     flex-wrap: nowrap;
     height: 100%;
     max-height: 100%;
-    width: $nav-width;
+    width: 17rem;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
     overflow-y: auto;
+    animation-name: slideIn;
+    animation-duration: .6s;
 
     h1 {
         font-size: 2rem;
@@ -73,20 +80,20 @@
     }
 }
 
-@keyframes go-in {
+@keyframes slideIn {
     from {
-        left: -$nav-width;
+        left: -17rem;
     }
     to {
         left: 0;
     }
 }
 
-@keyframes go-out {
+@keyframes slideOut {
     from {
         left: 0;
     }
     to {
-        left: -$nav-width;
+        left: -17rem;
     }
 }

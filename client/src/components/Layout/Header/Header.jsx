@@ -54,12 +54,12 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                    const { sub, picture, name, email } = jwtDecode(res.credential)
                    logUserIn(sub, name, email, picture)
                 }} onError={() => console.log("Login error")} /> } */}
-                <button className="donate-button" onClick={() => donate()}>
+                <button className="donate-button donate-nav-button" onClick={() => donate()}>
                     <FaWallet size="1rem" color="white" />
                     Dona
                 </button>
                 {
-                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button register-nav-button">Registrati</button>
+                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button">Registrati</button>
                     // <AiOutlineUserAdd size="2rem" className="icon" color="white" onClick={() => navigate("/profilo")} />
                 }
                 {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}

@@ -10,7 +10,7 @@ export default function Layout({ children, cartCount, isCartIconVisible, shakeCa
 
     return (
         <div className="layout">
-            { isMobileNavbarOpened ? <Navbar onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
+            { isMobileNavbarOpened ? <Navbar isLoggedIn={isLoggedIn} onCloseNav={() => setIsMobileNavbarOpened(false)} cartCount={cartCount} /> : <></> }
             <Header profilePicture={profilePicture} logUserIn={logUserIn} isLoggedIn={isLoggedIn} setShakeCartIcon={setShakeCartIcon} shakeCartIcon={shakeCartIcon} isCartIconVisible={isCartIconVisible} setMobileNavbar={() => setIsMobileNavbarOpened(true)} cartCount={cartCount} />
             <div className={`page-content`} onClick={() => { setIsMobileNavbarOpened(false) }}>
                 <div className={`obfuscator ${isMobileNavbarOpened ? "visible" : "invisible"}`}></div>
