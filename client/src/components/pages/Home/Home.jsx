@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import SiteLogo from "../../SiteLogo/SiteLogo"
 import { useNavigate } from "react-router-dom"
 import Zoom from "react-reveal/Zoom"
+import Ad from "../../Ad/Ad"
 import { FaWallet } from "react-icons/fa"
 
 export default function Home({ categories }) {
@@ -14,6 +15,7 @@ export default function Home({ categories }) {
 
     return (
         <div className="home-container">
+            <Ad />
             <SiteLogo />
             <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
                 <Zoom big delay={1550}>
