@@ -15,7 +15,7 @@ export default function Home({ categories }) {
 
     return (
         <div className="home-container">
-            <Ad />
+            {/* <Ad /> */}
             <SiteLogo />
             <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
                 <Zoom big delay={1550}>
