@@ -8,6 +8,8 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "buildImages": "buildImages.bat",
+    "filterImages": "node filterImages.js",
+    "crea-album": "node crea-album.js",
     "build": "call cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -16,10 +18,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
+    "chalk": "^5.0.1",
+    "chalk-animation": "^2.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "edit-json-file": "^1.7.0",
     "express": "^4.17.2",
+    "inquirer": "^9.1.2",
     "moment": "^2.29.3",
     "mysql": "^2.18.1",
     "photo-grid-box": "^2.0.4",

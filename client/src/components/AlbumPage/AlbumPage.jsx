@@ -34,7 +34,7 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
   if (fake) return (
     <>
       <Heading backUrl={`/${category_name}`}>{ clientAlbum.title }</Heading>
-      {clientAlbum.message}
+      <div dangerouslySetInnerHTML={{__html: clientAlbum.message}}></div>
     </>
   )
 

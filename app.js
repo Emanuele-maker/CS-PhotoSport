@@ -13,6 +13,7 @@ app.use("/", express.static(path.join(__dirname, "./client/build")))
 if (process.env.NODE_ENV === "development") {
     app.use("/img", express.static(path.join(__dirname, "./client/public/img")))
     app.use("/previews", express.static(path.join(__dirname, "./client/public/previews")))
+    app.use("/cover", express.static(path.join(__dirname, "./client/public/cover")))
 }
 
 app.use(bodyParser.json({
