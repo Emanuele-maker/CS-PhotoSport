@@ -754,40 +754,6 @@
           ]
         }
       ]
-    },
-    {
-      "title": "Basket",
-      "cover": "http://localhost:3000/previews/Basket/Prova/cover.jpg",
-      "albums": [
-        {
-          "title": "Prova",
-          "category": "Basket",
-          "cover": "http://localhost:3000/previews/undefined/Prova/cover.jpg",
-          "isFree": true,
-          "useSearch": false,
-          "searchPlaceholder": null,
-          "searchType": null,
-          "priceInCents": 0,
-          "tags": []
-        }
-      ]
-    },
-    {
-      "title": "Basket",
-      "cover": "http://localhost:3000/previews/Basket/Prova/cover.jpg",
-      "albums": [
-        {
-          "title": "Prova",
-          "category": "Basket",
-          "cover": "http://localhost:3000/previews/undefined/Prova/cover.jpg",
-          "isFree": true,
-          "useSearch": false,
-          "searchPlaceholder": null,
-          "searchType": null,
-          "priceInCents": 0,
-          "tags": []
-        }
-      ]
     }
   ]
 }
