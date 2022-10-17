@@ -362,6 +362,14 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "King of the pool 2022",
+          "category": "Pallanuoto",
+          "cover": "http://localhost:3000/previews/Pallanuoto/King of the pool 2022/IMG_5061.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "tags": ["Pallanuoto", "Pescara", "Waterpolo", "Tournament", "Torneo", "Water", "Under 16"]
+        },
+        {
           "title": "Bomber Waterpolo",
           "cover": "https://csphotosport.com/previews/Pallanuoto/Bomber Waterpolo/IMG_8086.jpg",
           "isFree": true,
@@ -744,6 +752,40 @@
             "Wingfoil",
             "Good Vibes"
           ]
+        }
+      ]
+    },
+    {
+      "title": "Basket",
+      "cover": "http://localhost:3000/previews/Basket/Prova/cover.jpg",
+      "albums": [
+        {
+          "title": "Prova",
+          "category": "Basket",
+          "cover": "http://localhost:3000/previews/undefined/Prova/cover.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "title": "Basket",
+      "cover": "http://localhost:3000/previews/Basket/Prova/cover.jpg",
+      "albums": [
+        {
+          "title": "Prova",
+          "category": "Basket",
+          "cover": "http://localhost:3000/previews/undefined/Prova/cover.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
         }
       ]
     }

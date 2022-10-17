@@ -69,6 +69,16 @@ const execBuildImages = async() => {
 }
 
 const buildReact = async() => {
+    const answer = inquirer.prompt({
+        name: "use_react",
+        message: "Vuoi compilare React?",
+        type: "list",
+        choices: [
+            "Si",
+            "No"
+        ]
+    })
+    if (answer.use_react === "No") return
     exec("move ..\\client\\public\\img ..\\", {"shell": "powershell.exe"}, (err, stdout, stderr) => {
         if (err) console.error(err)
     })
@@ -214,7 +224,7 @@ const configureAlbum = async() => {
 
     if (newCategoryExists) newCategory.albums.push(newAlbum)
     else {
-        categories.find(category => category.title === album.category_name)?.albums.push(newAlbum)
+        categories.find(category => category.title === album.category_name)?.albums.unshift(newAlbum)
         categoriesFile.set("categories", categories)
         categoriesFile.save()
     }
