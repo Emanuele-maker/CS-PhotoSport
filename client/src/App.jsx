@@ -17,6 +17,7 @@ import About from "./components/pages/About/About"
 import formatURL from "./formatURL"
 import axios from "axios"
 import Profile from "./components/pages/Profile/Profile"
+import PrivacyPolicy from "./components/pages/PrivacyPolicy/PrivacyPolicy"
 
 // const categories = [
 //   {
@@ -559,6 +560,7 @@ export default function App() {
               <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/profilo" element={<Profile boughtImages={userImages} userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
