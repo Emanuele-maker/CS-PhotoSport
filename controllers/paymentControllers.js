@@ -8,7 +8,9 @@ const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY
 if (!STRIPE_PRIVATE_KEY)
     throw new Error("Could not get any Stripe API access key from the execution enviroment")
 
-const stripe = new Stripe(STRIPE_PRIVATE_KEY)
+const stripe = new Stripe(STRIPE_PRIVATE_KEY, {
+    apiVersion: "2020-08-27",
+})
 
 const getPrice = (quantity, price) => {
     const discount = 1 / 10
