@@ -1,10 +1,10 @@
 const { Router } = require("express")
-const { createCheckoutSession, createMobileCheckoutSession } = require("../controllers/paymentControllers.js")
+const { createCheckoutSession, createNativePayment } = require("../controllers/paymentControllers.js")
 
 const router = Router()
 
 router.post("/checkout/:session_id", createCheckoutSession)
-router.post("/mobile-checkout", createMobileCheckoutSession)
+router.post("/payment-sheet", createNativePayment)
 
 module.exports = { 
     router

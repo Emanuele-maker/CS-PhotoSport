@@ -18,7 +18,7 @@ const getPrice = (quantity, price) => {
 }
 
 const createCheckoutSession = async (req, res) => {
-    conn.query(`SELECT * FROM sessions WHERE id = "${req.params.session_id}";`, async (err, rows) => {
+    conn.query(`SELECT * FROM sessions WHERE id = "${req.params.session_id}"`, async (err, rows) => {
         if (err) throw err
         if (rows.length === 0 || !rows) return res.status(400).json({ error: "Session not found" })
         const session = rows[0]
@@ -59,28 +59,52 @@ const createCheckoutSession = async (req, res) => {
     })
 }
 
-const createMobileCheckoutSession = async (req, res) => {
-    const customer = await stripe.customers.create()
-    const ephemeralKey = await stripe.ephemeralKeys.create({ customer: customer.id }, { apiVersion: '2020-08-27' })
-    const paymentIntent = await stripe.paymentIntents.create({
-        amount: 1099,
-        currency: 'eur',
-        customer: customer.id,
-        automatic_payment_methods: {
-          enabled: true,
-        }
+const createNativePayment = async(req, res) => {
+    const {
+      email,
+      items,
+      currency,
+      request_three_d_secure,
+      payment_method_types = [],
+    } = req.body
+
+    const stripe = new Stripe(stripeSecretKey, {
+      apiVersion: "2020-08-27",
+      typescript: true,
     })
 
-    res.json({
-        paymentIntent: paymentIntent.client_secret,
-        ephemeralKey: ephemeralKey.secret,
-        customer: customer.id,
-        publishableKey: process.env.STRIPE_PUBLIC_KEY
-    })
+    const customer = await stripe.customers.create({ email })
+
+    const params = {
+      amount: 1400,
+      currency,
+      customer: customer.id,
+      payment_method_options: {
+        card: {
+          request_three_d_secure: request_three_d_secure || "automatic",
+        },
+        sofort: {
+          preferred_language: "en",
+        },
+      },
+      payment_method_types: payment_method_types,
+    }
+    console.log('!@# 1')
+    try {
+      const paymentIntent = await stripe.paymentIntents.create(params)
+      console.log('!@# create pi', paymentIntent)
+      res.send({
+        clientSecret: paymentIntent.client_secret,
+      })
+    } catch (error) {
+      console.log('!@# create error', error)
+      res.send({
+        error: error.raw.message,
+      })
+    }
 }
 
-
 module.exports = { 
-    createCheckoutSession, 
-    createMobileCheckoutSession
+    createCheckoutSession,
+    createNativePayment
 }
