@@ -74,9 +74,15 @@ const createNativePayment = async(req, res) => {
       amount: 1400,
       currency,
       customer: customer.id,
-      automatic_payment_methods: {
-        enabled: true,
-      }
+      payment_method_options: {
+        card: {
+          request_three_d_secure: request_three_d_secure || "automatic",
+        },
+        sofort: {
+          preferred_language: "en",
+        },
+      },
+      payment_method_types: payment_method_types,
     }
     console.log('!@# 1')
     try {
