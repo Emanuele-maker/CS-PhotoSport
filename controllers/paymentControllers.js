@@ -65,7 +65,7 @@ const createNativePayment = async(req, res) => {
       items,
       currency,
       request_three_d_secure,
-      payment_method_types = [],
+      payment_method_types = ["card"],
     } = req.body
 
     const customer = await stripe.customers.create({ email })
