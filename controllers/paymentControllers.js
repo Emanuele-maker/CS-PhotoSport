@@ -64,7 +64,7 @@ const createCheckoutSession = async (req, res) => {
 const createNativePayment = async(req, res) => {
     const {
       email,
-      items,
+      totalPrice,
       currency,
       request_three_d_secure,
       payment_method_types = ["card"],
@@ -73,7 +73,7 @@ const createNativePayment = async(req, res) => {
     const customer = await stripe.customers.create({ email })
 
     const params = {
-      amount: 1400,
+      amount: totalPrice,
       currency,
       customer: customer.id,
       payment_method_options: {
