@@ -11,7 +11,8 @@
     "filterImages": "node filterImages.js",
     "crea-album": "node crea-album.js",
     "build": "call cd client && npm run build",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "mobile": "cd cs-photosport && npm start"
   },
   "keywords": [],
   "author": "",
