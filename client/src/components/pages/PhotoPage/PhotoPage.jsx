@@ -75,7 +75,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
     return (
         <div className="photo-page">
             <div className="photo-page-nav">
-                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}?scrollTo=${currentImage.fileName}`)} />
+                {/* <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}?scrollTo=${currentImage.fileName}`)} /> */}
                 <h2>{ currentImage.fileName.replace(".jpg", "") }</h2>
                 {
                     !album.isFree &&
