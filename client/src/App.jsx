@@ -553,9 +553,9 @@ export default function App() {
                   return statefulCartImages
               }} />} />
               <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
-              <Route path="/news" element={<News />} />
+              {/* <Route path="/news" element={<News />} /> */}
               <Route path="/chi-siamo" element={<About />} />
-              <Route path="/news/:post_name" element={<News />} />
+              {/* <Route path="/news/:post_name" element={<News />} /> */}
               <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
               <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
               <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
