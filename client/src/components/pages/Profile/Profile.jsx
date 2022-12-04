@@ -71,7 +71,7 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
             {
                 (boughtImages && boughtImages.length > 0) &&
                 <div className="bought-images">
-                  <h1 style={{ width: "100%", color: "white", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>LE TUE FOTO ACQUISTATE<FaShoppingCart color="white" size="1.5rem" /></h1>
+                  <h1 style={{ width: "100%", color: "white", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem" }}>LE TUE FOTO ACQUISTATE<FaShoppingCart color="white" size="1.5rem" /></h1>
                   <div className="photos-container grid">
                     {
                       boughtImages.map(image => (

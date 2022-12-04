@@ -44,7 +44,6 @@ export default function Success({ onSetSessionId, onAddUserImage, isLoggedIn, lo
           localStorage.setItem("sessionId", res.data.session.id)
           if (res.data.session.boughtImages && res.data.session.boughtImages.length > 0) {
             setBoughtImages(JSON.parse(res.data.session.boughtImages))
-            console.log(JSON.parse(res.data.session.boughtImages))
             axios.post(`${siteRoute}/api/myUser/add-image`, {
               images: [...JSON.parse(res.data.session.boughtImages), ...JSON.parse(localStorage.getItem("userImages"))],
               user_id: localStorage.getItem("userId")
