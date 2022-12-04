@@ -2,167 +2,152 @@
   "categories": [
     {
       "title": "Danza",
-      "cover": "https://csphotosport.com/cover/danza.jpg",
-      "fake": true,
-      "albums": [
-        {
-          "title": "Mode Modalità Danza I 4 Elementi",
-          "cover": "https://csphotosport.com/cover/i 4 elementi.jpg",
-          "fake": true,
-          "message": "(\n            <div style=\"width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center\">\n              <p class=\"danza-msg\" style=\"text-align: center; flex-wrap: wrap; color: white; display: flex; justifyContent: center; alignItems: center; flexDirection: column\">\n                <span>Per l'acquisto delle foto, inviare una richiesta alla mail</span>\n                <a href=\"mailto:cristian.salvadori@gmail.com\" style=\"color: white; width: 100%\">cristian.salvadori@gmail.com</a>\n                <br \\>\n<p style=\"width: 100%; text-align-center\" class=\"danza-msg\"><span style=\"color: white; width: 100%; text-align: center\">O contattare attraverso messaggio diretto sul profilo Instagram</span> <a style=\"color: white; width: 100%; text-align: center\" href=\"https://instagram.com/cs_photosport\">cs_photosport</a></p>\n              </p>\n            </div>\n          )"
-        }
-      ]
-    },
-    {
-      "title": "07e108bd394a",
-      "actualTitle": "DANZA - I 4 Elementi",
-      "cover": "https://csphotosport.com/previews/07e108bd394a/Backstage/IMG_9564.jpg",
-      "isPrivate": true,
+      "cover": "http://localhost:3000/cover/danza.jpg",
       "albums": [
         {
           "title": "Backstage",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Backstage/IMG_9564.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Backstage/IMG_9564.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Modulo",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Modulo/IMG_9616.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Modulo/IMG_9616.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Corso Moderno Grandi",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Corso Moderno Grandi/IMG_9752.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Corso Moderno Grandi/IMG_9752.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Corso Open Mamme",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Corso Open Mamme/IMG_9801.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Corso Open Mamme/IMG_9801.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Corso Moderno Piccole",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Corso Moderno Piccole/IMG_9987.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Corso Moderno Piccole/IMG_9987.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Corso Moderno Avanzato",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Corso Moderno Avanzato/IMG_0306.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Corso Moderno Avanzato/IMG_0306.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Corso Moderno Juniores",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Corso Moderno Juniores/IMG_0435.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Corso Moderno Juniores/IMG_0435.jpg",
           "priceInCents": 400
         },
         {
           "title": "Fuoco Hip Hop",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Fuoco Hip Hop/IMG_0450.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Fuoco Hip Hop/IMG_0450.jpg",
           "priceInCents": 400
         },
         {
           "title": "Aria Classico Avanzato",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Aria Classico Avanzato/IMG_0630.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Aria Classico Avanzato/IMG_0630.jpg",
           "priceInCents": 400
         },
         {
           "title": "Aria Corsi I e II Regolare",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Aria Corsi I e II Regolare/IMG_0776.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Aria Corsi I e II Regolare/IMG_0776.jpg",
           "priceInCents": 400
         },
         {
           "title": "Aria Hip Hop",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Aria Hip Hop/IMG_0879.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Aria Hip Hop/IMG_0879.jpg",
           "priceInCents": 400
         },
         {
           "title": "Aria Corso Aspiranti",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Aria Corso Aspiranti/IMG_0957.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Aria Corso Aspiranti/IMG_0957.jpg",
           "priceInCents": 400
         },
         {
           "title": "Aria Moderno Intermedio",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Aria Moderno Intermedio/IMG_1022.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Aria Moderno Intermedio/IMG_1022.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Modulo",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Modulo/IMG_1125.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Modulo/IMG_1125.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Moderno Juniores e Intermedio",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Moderno Juniores e Intermedio/IMG_1248.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Moderno Piccole",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Moderno Piccole/IMG_1478.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Moderno Piccole/IMG_1478.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Moderno Juniores",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Moderno Juniores/IMG_1550.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Moderno Juniores/IMG_1550.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Classico Avanzato",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Classico Avanzato/IMG_1674.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Classico Avanzato/IMG_1674.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Hip Hop Principianti",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Hip Hop Principianti/IMG_1795.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Hip Hop Principianti/IMG_1795.jpg",
           "priceInCents": 400
         },
         {
           "title": "Acqua Aspiranti",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Acqua Aspiranti/IMG_1941.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Acqua Aspiranti/IMG_1941.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Corsi I e II Regolare",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Corsi I e II Regolare/IMG_2055.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Corsi I e II Regolare/IMG_2055.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Hip Hop Baby",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Hip Hop Baby/IMG_2205.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Hip Hop Baby/IMG_2205.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Moderno Avanzato",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Moderno Avanzato/IMG_2407.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Moderno Avanzato/IMG_2407.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Moderno Intermedio",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Moderno Intermedio/IMG_2460.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Moderno Intermedio/IMG_2460.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Martina Guizzo",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Martina Guizzo/IMG_2568.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Martina Guizzo/IMG_2568.jpg",
           "priceInCents": 400
         },
         {
           "title": "Terra Corsi Moderno",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Terra Corsi Moderno/IMG_2664.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Terra Corsi Moderno/IMG_2664.jpg",
           "priceInCents": 400
         },
         {
           "title": "Saluti Finali",
-          "cover": "https://csphotosport.com/previews/07e108bd394a/Saluti Finali/IMG_2945.jpg",
+          "cover": "http://localhost:3000/previews/Danza/Saluti Finali/IMG_2945.jpg",
           "priceInCents": 400
         }
       ]
     },
     {
       "title": "Running",
-      "cover": "https://csphotosport.com/previews/Running/Vivicittà Latina 2022/1 2 6.jpg",
+      "cover": "http://localhost:3000/previews/Running/Vivicittà Latina 2022/1 2 6.jpg",
       "albums": [
         {
           "title": "Corsa del pane genzanese",
-          "cover": "https://csphotosport.com/previews/Running/Corsa del pane genzanese/IMG_3733.jpg",
+          "cover": "http://localhost:3000/previews/Running/Corsa del pane genzanese/IMG_3733.jpg",
           "isFree": true,
           "tags": [
             "Running",
@@ -178,7 +163,7 @@
         },
         {
           "title": "We Run Latina 2022",
-          "cover": "https://csphotosport.com/previews/Running/We Run Latina 2022/IMG_3154.jpg",
+          "cover": "http://localhost:3000/previews/Running/We Run Latina 2022/IMG_3154.jpg",
           "isFree": true,
           "tags": [
             "Running",
@@ -191,7 +176,7 @@
         },
         {
           "title": "Mezza Latina 2022",
-          "cover": "https://csphotosport.com/previews/Running/Mezza Latina 2022/IMG_2331.jpg",
+          "cover": "http://localhost:3000/previews/Running/Mezza Latina 2022/IMG_2331.jpg",
           "tags": [
             "Running",
             "Run",
@@ -205,7 +190,7 @@
         },
         {
           "title": "Vivicittà Latina 2022",
-          "cover": "https://csphotosport.com/previews/Running/Vivicittà Latina 2022/1 2 6.jpg",
+          "cover": "http://localhost:3000/previews/Running/Vivicittà Latina 2022/1 2 6.jpg",
           "isFree": true,
           "useSearch": true,
           "searchPlaceholder": "Inserisci il pettorale del corridore",
@@ -221,7 +206,7 @@
         },
         {
           "title": "Vivicittà 2ª parte",
-          "cover": "https://csphotosport.com/previews/Running/Vivicittà 2ª parte/84 0000.jpg",
+          "cover": "http://localhost:3000/previews/Running/Vivicittà 2ª parte/84 0000.jpg",
           "isFree": true,
           "useSearch": true,
           "searchPlaceholder": "Inserisci il pettorale del corridore",
@@ -239,11 +224,11 @@
     },
     {
       "title": "Triathlon",
-      "cover": "https://csphotosport.com/previews/Triathlon/The Green Race Nuoto/IMG_9955.jpg",
+      "cover": "http://localhost:3000/previews/Triathlon/The Green Race Nuoto/IMG_9955.jpg",
       "albums": [
         {
           "title": "The Green Race Corsa",
-          "cover": "https://csphotosport.com/previews/Triathlon/The Green Race Corsa/IMG_1121.jpg",
+          "cover": "http://localhost:3000/previews/Triathlon/The Green Race Corsa/IMG_1121.jpg",
           "tags": [
             "Corsa",
             "Triathlon",
@@ -256,7 +241,7 @@
         },
         {
           "title": "The Green Race Nuoto",
-          "cover": "https://csphotosport.com/previews/Triathlon/The Green Race Nuoto/IMG_0048.jpg",
+          "cover": "http://localhost:3000/previews/Triathlon/The Green Race Nuoto/IMG_0048.jpg",
           "tags": [
             "Swim",
             "Swimming",
@@ -268,7 +253,7 @@
         },
         {
           "title": "The Green Race Ciclismo",
-          "cover": "https://csphotosport.com/previews/Triathlon/The Green Race Ciclismo/IMG_0723.jpg",
+          "cover": "http://localhost:3000/previews/Triathlon/The Green Race Ciclismo/IMG_0723.jpg",
           "tags": [
             "Bike",
             "Triathlon",
@@ -282,11 +267,11 @@
     },
     {
       "title": "Beachvolley",
-      "cover": "https://csphotosport.com/previews/Beachvolley/Beach World Champs Rome/IMG_8131.jpg",
+      "cover": "http://localhost:3000/previews/Beachvolley/Beach World Champs Rome/IMG_8131.jpg",
       "albums": [
         {
           "title": "Beach World Champs Rome",
-          "cover": "https://csphotosport.com/previews/Beachvolley/Beach World Champs Rome/IMG_8131.jpg",
+          "cover": "http://localhost:3000/previews/Beachvolley/Beach World Champs Rome/IMG_8131.jpg",
           "isFree": true,
           "tags": [
             "Beachvolley",
@@ -300,7 +285,7 @@
         },
         {
           "title": "Torneo Promozionale Finale Femminile",
-          "cover": "https://csphotosport.com/previews/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg",
+          "cover": "http://localhost:3000/previews/Beachvolley/Torneo Promozionale Finale Femminile/IMG_8773.jpg",
           "isFree": true,
           "tags": [
             "Beachvolley",
@@ -314,7 +299,7 @@
         },
         {
           "title": "FIPAV 27.3.2022",
-          "cover": "https://csphotosport.com/cover/Cover FIPAV 27.3.2022.jpg",
+          "cover": "http://localhost:3000/cover/Cover FIPAV 27.3.2022.jpg",
           "useSearch": true,
           "searchPlaceholder": "Inserisci il cognome del giocatore",
           "searchType": "text",
@@ -330,7 +315,7 @@
         },
         {
           "title": "Torneo Opes 2021",
-          "cover": "https://csphotosport.com/cover/Cover torneo opes.jpg",
+          "cover": "http://localhost:3000/cover/Cover torneo opes.jpg",
           "tags": [
             "Beachvolley",
             "Beach Volley",
@@ -343,7 +328,7 @@
         },
         {
           "title": "Rome Beach Finals 2019",
-          "cover": "https://csphotosport.com/previews/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg",
+          "cover": "http://localhost:3000/previews/Beachvolley/Rome Beach Finals 2019/IMG_8952.jpg",
           "isFree": true,
           "tags": [
             "Beachvolley",
@@ -359,25 +344,25 @@
     },
     {
       "title": "Pallanuoto",
-      "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
+      "cover": "http://localhost:3000/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
           "title": "Anzio Waterpolis vs Olympic Roma",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/Anzio Waterpolis vs Olympic Roma/IMG_6507.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/Anzio Waterpolis vs Olympic Roma/IMG_6507.jpg",
           "isFree": true,
           "tags": ["Pallanuoto", "Olympic", "Waterpolo", "Water", "Under 16", "Anzio", "FIN", "Campionato", "Championship"]
         },
         {
           "title": "King of the pool 2022",
           "category": "Pallanuoto",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/King of the pool 2022/IMG_5061.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/King of the pool 2022/IMG_5061.jpg",
           "isFree": true,
           "useSearch": false,
           "tags": ["Pallanuoto", "Pescara", "Waterpolo", "Tournament", "Torneo", "Water", "Under 16"]
         },
         {
           "title": "Bomber Waterpolo",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/Bomber Waterpolo/IMG_8086.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/Bomber Waterpolo/IMG_8086.jpg",
           "isFree": true,
           "tags": [
             "Waterpolo",
@@ -397,7 +382,7 @@
         },
         {
           "title": "Zero9 vs CN Latina 11.6.2022",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/Zero9 vs CN Latina 11.6.2022/IMG_7414.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/Zero9 vs CN Latina 11.6.2022/IMG_7414.jpg",
           "tags": [
             "Waterpolo",
             "Pallanuoto",
@@ -413,7 +398,7 @@
         },
         {
           "title": "CN Latina vs Aquademia Velletri",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/CN Latina vs Aquademia Velletri/IMG_9617.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/CN Latina vs Aquademia Velletri/IMG_9617.jpg",
           "isFree": true,
           "tags": [
             "Waterpolo",
@@ -430,7 +415,7 @@
         },
         {
           "title": "Castelli Romani vs CN Latina",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/Castelli Romani vs CN Latina/IMG_9386.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/Castelli Romani vs CN Latina/IMG_9386.jpg",
           "isFree": true,
           "tags": [
             "Waterpolo",
@@ -447,7 +432,7 @@
         },
         {
           "title": "F&D H2O vs Brizz Nuoto",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/F&D H2O vs Brizz Nuoto/IMG_9497.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/F&D H2O vs Brizz Nuoto/IMG_9497.jpg",
           "isFree": true,
           "tags": [
             "Waterpolo",
@@ -465,7 +450,7 @@
         },
         {
           "title": "Roma Vis Nova vs CN Latina",
-          "cover": "https://csphotosport.com/cover/cover vis nova vs cnl.jpg",
+          "cover": "http://localhost:3000/cover/cover vis nova vs cnl.jpg",
           "tags": [
             "Waterpolo",
             "Pallanuoto",
@@ -482,7 +467,7 @@
         },
         {
           "title": "CN Latina vs Olympic Roma",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/CN Latina vs Olympic Roma/IMG_2722.jpg",
           "isFree": true,
           "useNews": true,
           "tags": [
@@ -501,7 +486,7 @@
         },
         {
           "title": "Anzio Waterpolis vs CN Latina",
-          "cover": "https://csphotosport.com/previews/Pallanuoto/Anzio Waterpolis vs CN Latina/IMG_2552.jpg",
+          "cover": "http://localhost:3000/previews/Pallanuoto/Anzio Waterpolis vs CN Latina/IMG_2552.jpg",
           "isFree": true,
           "tags": [
             "Waterpolo",
@@ -520,7 +505,7 @@
         },
         {
           "title": "CN Latina vs Muri Antichi",
-          "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg",
+          "cover": "http://localhost:3000/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1258.jpg",
           "tags": [
             "Waterpolo",
             "Pallanuoto",
@@ -538,7 +523,7 @@
         },
         {
           "title": "Open Waterpolo 2019",
-          "cover": "https://csphotosport.com/cover/Cover open waterpolo.jpg",
+          "cover": "http://localhost:3000/cover/Cover open waterpolo.jpg",
           "tags": [
             "Waterpolo",
             "Pallanuoto",
@@ -553,7 +538,7 @@
         },
         {
           "title": "CN Latina vs Villa York",
-          "cover": "https://csphotosport.com/cover/Cover CN Latina vs Villa York.jpg",
+          "cover": "http://localhost:3000/cover/Cover CN Latina vs Villa York.jpg",
           "tags": [
             "Waterpolo",
             "Pallanuoto",
@@ -573,11 +558,11 @@
     },
     {
       "title": "Kite, Windsurf & Wingfoil",
-      "cover": "https://csphotosport.com/img/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg",
+      "cover": "http://localhost:3000/img/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6924.jpg",
       "albums": [
         {
           "title": "Fogliano 21 Maggio 2022",
-          "cover": "https://csphotosport.com/previews/Kite, Windsurf & Wingfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg",
+          "cover": "http://localhost:3000/previews/Kite, Windsurf & Wingfoil/Fogliano 21 Maggio 2022/IMG_5146.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -597,7 +582,7 @@
         },
         {
           "title": "Fogliano 20 Maggio 2022",
-          "cover": "https://csphotosport.com/previews/Kite, Windsurf & Wingfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg",
+          "cover": "http://localhost:3000/previews/Kite, Windsurf & Wingfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -617,7 +602,7 @@
         },
         {
           "title": "Fogliano 20 Marzo 2022",
-          "cover": "https://csphotosport.com/cover/Cover Fogliano 20 Marzo 2022.jpg",
+          "cover": "http://localhost:3000/cover/Cover Fogliano 20 Marzo 2022.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -637,7 +622,7 @@
         },
         {
           "title": "Fogliano 12 marzo 2022",
-          "cover": "https://csphotosport.com/cover/51935679994_4080fb8de3_c.jpg",
+          "cover": "http://localhost:3000/cover/51935679994_4080fb8de3_c.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -657,7 +642,7 @@
         },
         {
           "title": "Fogliano 2 Febbraio 2022",
-          "cover": "https://csphotosport.com/img/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg",
+          "cover": "http://localhost:3000/img/Kite, Windsurf & Wingfoil/Fogliano 2 Febbraio 2022/IMG_6955.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -677,7 +662,7 @@
         },
         {
           "title": "Fogliano 26 Gennaio 2022",
-          "cover": "https://csphotosport.com/img/Kite, Windsurf & Wingfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg",
+          "cover": "http://localhost:3000/img/Kite, Windsurf & Wingfoil/Fogliano 26 Gennaio 2022/IMG_6658.jpg",
           "tags": [
             "Kite",
             "Windsurf",
@@ -699,11 +684,11 @@
     },
     {
       "title": "Eventi",
-      "cover": "https://csphotosport.com/previews/Eventi/X Summer 10.4.2022/IMG_3575.jpg",
+      "cover": "http://localhost:3000/previews/Eventi/X Summer 10.4.2022/IMG_3575.jpg",
       "albums": [
         {
           "title": "PRE XSummer",
-          "cover": "https://csphotosport.com/previews/Eventi/PRE XSummer/IMG_8568.jpg",
+          "cover": "http://localhost:3000/previews/Eventi/PRE XSummer/IMG_8568.jpg",
           "isFree": true,
           "tags": [
             "Running",
@@ -728,7 +713,7 @@
         },
         {
           "title": "X Summer 10.4.2022",
-          "cover": "https://csphotosport.com/previews/Eventi/X Summer 10.4.2022/IMG_8476.jpg",
+          "cover": "http://localhost:3000/previews/Eventi/X Summer 10.4.2022/IMG_8476.jpg",
           "isFree": true,
           "tags": [
             "Running",
@@ -753,7 +738,7 @@
         },
         {
           "title": "X Summer 2ª parte",
-          "cover": "https://csphotosport.com/previews/Eventi/X Summer 2ª parte/IMG_8620.jpg",
+          "cover": "http://localhost:3000/previews/Eventi/X Summer 2ª parte/IMG_8620.jpg",
           "isFree": true,
           "tags": [
             "Running",

@@ -1,5 +1,5 @@
 import "./PhotoPage.scss"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import LazyImage from "../../LazyImage"
 import { previewsRoute, imagesRoute, siteRoute } from "../../../staticInfo"
 import { BiArrowBack } from "react-icons/bi"
@@ -9,10 +9,11 @@ import { FaShoppingCart } from "react-icons/fa"
 import { BsDownload, BsCartPlus, BsCartCheck } from "react-icons/bs"
 import { useState } from "react"
 import { AiOutlineStar, AiFillStar } from "react-icons/ai"
+import axios from "axios"
+import { ImCross } from "react-icons/im"
 
-const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
+const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState }) => {
     const { category_name, album_name, image_name } = useParams()
-    const navigate = useNavigate()
 
     const category = categories.find(category => formatURL(category.title) === category_name)
 
@@ -72,10 +73,32 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
         setCurrentImage(albumStruct[imgIndex])
     }
 
+    const addFavorite = () => {
+        setUserFavorites([...userFavoritesState, currentImage])
+        axios.post(`${siteRoute}/api/myUser/add-favorite`, {
+            user_id: localStorage.getItem("userId"),
+            favorites: [...userFavoritesState, currentImage]
+        }, {
+            method: "POST"
+        })
+        localStorage.setItem("userFavorites", JSON.stringify([...userFavoritesState, currentImage]))
+    }
+
+    const removeFavorite = () => {
+        setUserFavorites(userFavoritesState.filter(favorite => favorite.fileName !== currentImage.fileName))
+        axios.post(`${siteRoute}/api/myUser/add-favorite`, {
+            user_id: localStorage.getItem("userId"),
+            favorites: userFavoritesState.filter(favorite => favorite.fileName !== currentImage.fileName)
+        }, {
+            method: "POST"
+        })
+        localStorage.setItem("userFavorites", JSON.stringify(userFavoritesState.filter(favorite => favorite.fileName !== currentImage.fileName)))
+    }
+
     return (
         <div className="photo-page">
             <div className="photo-page-nav">
-                {/* <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => navigate(`/${category_name}/album/${album_name}?scrollTo=${currentImage.fileName}`)} /> */}
+                <BiArrowBack className="nav-icon back-button" color="white" size="3.5rem" onClick={() => window.close()} />
                 <h2>{ currentImage.fileName.replace(".jpg", "") }</h2>
                 {
                     !album.isFree &&
@@ -83,7 +106,10 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
                         {
                             (cartBtnClicked || currentImage.addedToCart) 
                             ? <BsCartCheck className="nav-icon nav-share-button" color="white" size="3.5rem" /> 
-                            : <BsCartPlus className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={() => { onAddToCart(currentImage); setCartBtnClicked(true)}} />
+                            : <BsCartPlus className="nav-icon nav-share-button" color="white" size="3.5rem" onClick={() => {
+                                onAddToCart(currentImage)
+                                setCartBtnClicked(true)
+                            }} />
                         }
                     </>
                 }
@@ -111,6 +137,13 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn }) => {
                     onAddToCart(currentImage)
                     setAddedToCart(true)
                 }}><FaShoppingCart size="1.5rem" />Aggiungi al carrello</button>
+            }
+            {
+                <button className={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite}>
+                    {
+                        userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? (<><ImCross color="white" size="1rem" />Rimuovi dai preferiti</>) : (<><AiOutlineStar color="white" size="1.5rem" />Aggiungi ai preferiti</>)
+                    }
+                </button>
             }
             {
                 useShare &&

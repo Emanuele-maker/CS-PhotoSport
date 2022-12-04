@@ -1,0 +1,13 @@
+    {
+      "title": "Danza",
+      "cover": "http://localhost:3000/cover/danza.jpg",
+      "fake": true,
+      "albums": [
+        {
+          "title": "Mode Modalità Danza I 4 Elementi",
+          "cover": "http://localhost:3000/cover/i 4 elementi.jpg",
+          "fake": true,
+          "message": "(\n            <div style=\"width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center\">\n              <p class=\"danza-msg\" style=\"text-align: center; flex-wrap: wrap; color: white; display: flex; justifyContent: center; alignItems: center; flexDirection: column\">\n                <span>Per l'acquisto delle foto, inviare una richiesta alla mail</span>\n                <a href=\"mailto:cristian.salvadori@gmail.com\" style=\"color: white; width: 100%\">cristian.salvadori@gmail.com</a>\n                <br \\>\n<p style=\"width: 100%; text-align-center\" class=\"danza-msg\"><span style=\"color: white; width: 100%; text-align: center\">O contattare attraverso messaggio diretto sul profilo Instagram</span> <a style=\"color: white; width: 100%; text-align: center\" href=\"https://instagram.com/cs_photosport\">cs_photosport</a></p>\n              </p>\n            </div>\n          )"
+        }
+      ]
+    },

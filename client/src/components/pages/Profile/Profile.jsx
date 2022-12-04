@@ -5,12 +5,15 @@ import { GoogleLogin, googleLogout } from "@react-oauth/google"
 import jwtDecode from "jwt-decode"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { imagesRoute, siteRoute } from "../../../staticInfo"
+import { imagesRoute, previewsRoute, siteRoute } from "../../../staticInfo"
 import ImageCard from "../../ImageCard/ImageCard"
-import { AiOutlineUser } from "react-icons/ai"
+import { AiFillStar, AiOutlineUser } from "react-icons/ai"
+import PhotoCard from "../../PhotoCard/PhotoCard"
+import formatURL from "../../../formatURL"
+import { FaShoppingCart } from "react-icons/fa"
 
-const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profilePicture }) => {
-  const boughtImages = JSON.parse(localStorage.getItem("userImages")) || [] 
+const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profilePicture, userFavoritesState }) => {
+  const boughtImages = JSON.parse(localStorage.getItem("userImages")) || []
 
   const downloadImage = (img, imageSrc) => {
     const link = document.createElement('a')
@@ -51,19 +54,34 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
                   Disconnetti
                 </button>
             </div>
+            <>
             {
-              (boughtImages && boughtImages.length > 0) &&
+              (userFavoritesState && userFavoritesState.length > 0) &&
               <div className="bought-images">
-                <h1 style={{ width: "100%", color: "white", textAlign: "center" }}>LE TUE FOTO</h1>
-                <div className="photos-container grid">
-                  {
-                    boughtImages.map(image => (
-                      <ImageCard download={download} imageName={image.fileName} imageSrc={`${imagesRoute}/${image.category}/${image.album}/${image.fileName}`} />
-                    ))
-                  }
-                </div>
+                  <h1 style={{ width: "100%", color: "white", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>PREFERITI<AiFillStar color="white" size="2.5rem" /></h1>
+                  <div className="photos-container grid">
+                    {
+                      userFavoritesState.map(image => (
+                        <PhotoCard imageName={image.fileName} category_name={formatURL(image.category)} album_name={formatURL(image.album)} preview={`${previewsRoute}/${image.category}/${image.album}/${image.fileName}`} />
+                      ))
+                    }
+                  </div>
               </div>
             }
+            {
+                (boughtImages && boughtImages.length > 0) &&
+                <div className="bought-images">
+                  <h1 style={{ width: "100%", color: "white", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>LE TUE FOTO ACQUISTATE<FaShoppingCart color="white" size="1.5rem" /></h1>
+                  <div className="photos-container grid">
+                    {
+                      boughtImages.map(image => (
+                        <ImageCard download={download} imageName={image.fileName} imageSrc={`${imagesRoute}/${image.category}/${image.album}/${image.fileName}`} />
+                      ))
+                    }
+                  </div>
+                </div>
+            }
+            </>
         </div>
         :
         <div className="login-page">

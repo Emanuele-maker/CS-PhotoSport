@@ -25,6 +25,13 @@ router.post("/myUser/add-image", async(req, res) => {
     })
 })
 
+router.post("/myUser/add-favorite", async(req, res) => {
+    conn.query(`UPDATE users SET favorites = '${JSON.stringify(req.body.favorites)}' WHERE id = ${req.body.user_id}`, (err, rows) => {
+        if (err) console.error(err)
+    })
+    res.status(201).json({ message: "process went trough" })
+})
+
 module.exports = { 
     router
 }
