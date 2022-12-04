@@ -172,7 +172,7 @@ export default function App() {
               {/* <Route path="/news/:post_name" element={<News />} /> */}
               <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
               <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
-              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage setUserFavorites={setUserFavorites} userFavoritesState={userFavorites} isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
+              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage logUserIn={logUserIn} setUserFavorites={setUserFavorites} userFavoritesState={userFavorites} isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/profilo" element={<Profile userFavoritesState={userFavorites} boughtImages={userImages} userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />

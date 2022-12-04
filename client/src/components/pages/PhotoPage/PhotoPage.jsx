@@ -11,8 +11,9 @@ import { useState } from "react"
 import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 import axios from "axios"
 import { ImCross } from "react-icons/im"
+import LoginPopup from "../../LoginPopup/LoginPopup"
 
-const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState }) => {
+const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState, logUserIn }) => {
     const { category_name, album_name, image_name } = useParams()
 
     const category = categories.find(category => formatURL(category.title) === category_name)
@@ -28,7 +29,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
     })]?.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
 
     const [currentImage, setCurrentImage] = useState(initalImage)
-
+    const [isLoginPopupVisible, setIsLoginPopupVisible] = useState(false)
     const [addedToCart, setAddedToCart] = useState(currentImage?.addedToCart)
     const [cartBtnClicked, setCartBtnClicked] = useState(false)
 
@@ -139,7 +140,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                 }}><FaShoppingCart size="1.5rem" />Aggiungi al carrello</button>
             }
             {
-                <button className={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite}>
+                <button className={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={isLoggedIn ? userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite : () => setIsLoginPopupVisible(true)}>
                     {
                         userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? (<><ImCross color="white" size="1rem" />Rimuovi dai preferiti</>) : (<><AiOutlineStar color="white" size="1.5rem" />Aggiungi ai preferiti</>)
                     }
@@ -152,6 +153,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                     Condividi
                 </button>
             }
+            <LoginPopup isVisible={isLoginPopupVisible} logUserIn={logUserIn} setIsVisible={setIsLoginPopupVisible} />
         </div>
     )
 }

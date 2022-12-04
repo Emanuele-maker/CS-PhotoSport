@@ -3,7 +3,7 @@ import "./Layout.scss"
 import { useState } from "react"
 import Header from "./Header/Header"
 import CookieBanner from "./CookieBanner/CookieBanner"
-import Footer from "./Footer/Footer"
+// import Footer from "./Footer/Footer"
 
 export default function Layout({ children, cartCount, isCartIconVisible, shakeCartIcon, setShakeCartIcon, isLoggedIn, logUserIn, profilePicture }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)

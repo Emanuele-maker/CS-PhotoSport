@@ -1,0 +1,42 @@
+.login-popup-visible,
+.login-popup-invisible {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    gap: .7rem;
+    z-index: 10;
+    color: #121212;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: #F2F2F2;
+    width: 25rem;
+    h3, .head {
+        background-color: #F2F2F2;
+    }
+    h3 {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        svg {
+            cursor: pointer;
+        }
+    }
+    .login-btn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.login-popup-invisible {
+    display: none;
+}
