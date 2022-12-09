@@ -11,13 +11,13 @@ import AlbumList from "./components/AlbumList/AlbumList"
 import Contact from "./components/pages/Contact/Contact"
 import { siteRoute } from "./staticInfo"
 import SearchPage from "./components/pages/SearchPage/SearchPage"
-import News from "./components/pages/News/News"
 import PhotoPage from "./components/pages/PhotoPage/PhotoPage"
 import About from "./components/pages/About/About"
 import formatURL from "./formatURL"
 import axios from "axios"
 import Profile from "./components/pages/Profile/Profile"
 import PrivacyPolicy from "./components/pages/PrivacyPolicy/PrivacyPolicy"
+import VideoPlayer from "./components/pages/VideoPlayer/VideoPlayer"
 
 const categories = JSON.parse(JSON.stringify(require("./categories.json"))).categories
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
@@ -158,6 +158,7 @@ export default function App() {
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
+              <Route path="/:category_name/album/:album_name/video" element={<VideoPlayer categories={categories} />} />
               <Route path="/carrello" element={<Cart categories={categories} cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
                   item.addedToCart = false
                   cartImages.splice(cartImages.indexOf(item), 1)

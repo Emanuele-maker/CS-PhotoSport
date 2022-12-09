@@ -8,6 +8,8 @@ import { useEffect, useState, useMemo, useRef } from "react"
 import SearchBar from "../SearchBar/SearchBar"
 import { useNavigate, useLocation } from "react-router-dom"
 import 'photo-grid-box/build/photo-grid-box.min.css'
+import formatURL from "../../formatURL"
+import { RiVideoFill } from "react-icons/ri"
 
 function useQuery() {
   const { search } = useLocation()
@@ -93,12 +95,21 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
   return (
     <>
             <Heading backUrl={`/${category_name}`}>{ album_name.replaceAll("-", " ") }</Heading>
-            { 
+            {
               useNews &&
               <div className="news-btn-container">
                 <button className="news-btn" onClick={() => navigate(`/news/${album.title}`, { replace: true })}>
                   <BsNewspaper size="1.5rem" color="white" />
                   <span>Guarda l'articolo</span>
+                </button>
+              </div>
+            }
+            {
+              clientAlbum.useVideo &&
+              <div className="news-btn-container">
+                <button className="news-btn" onClick={() => navigate(formatURL(`/${category_name}/album/${album_name}/video`))}>
+                  <RiVideoFill size="1.5rem" color="white" />
+                  <span>Gaurda i video</span>
                 </button>
               </div>
             }

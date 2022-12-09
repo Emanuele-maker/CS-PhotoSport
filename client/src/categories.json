@@ -347,6 +347,22 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Anzio Waterpolis vs Distretti Ecologici Roma",
+          "cover": "https://csphotosport.com/img/Pallanuoto/Anzio Waterpolis vs Distretti Ecologici Roma/IMG_6843",
+          "isFree": true,
+          "useVideo": true,
+          "videos": [
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/3rGyN0j6ebI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/QhJFo8SDWhw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/vQO27nigUJU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/d51HwPvptSQ' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/8omKKKODf1s' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/TJcA1xMRwyw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='560' height='315' src='https://www.youtube.com/embed/qP0-dBymuvg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+          ],
+          "tags": ["Pallanuoto", "DistrettiEcologici", "Waterpolo", "Water", "Under 18", "Anzio", "FIN", "Campionato", "Championship", "Preliminary", "Preliminare"]
+        },
+        {
           "title": "Anzio Waterpolis vs Olympic Roma",
           "cover": "https://csphotosport.com/previews/Pallanuoto/Anzio Waterpolis vs Olympic Roma/IMG_6507.jpg",
           "isFree": true,
