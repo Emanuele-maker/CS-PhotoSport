@@ -109,7 +109,7 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
               <div className="news-btn-container">
                 <button className="news-btn" onClick={() => navigate(formatURL(`/${category_name}/album/${album_name}/video`))}>
                   <RiVideoFill size="1.5rem" color="white" />
-                  <span>Gaurda i video</span>
+                  <span>Guarda i video</span>
                 </button>
               </div>
             }
