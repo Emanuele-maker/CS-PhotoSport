@@ -352,13 +352,13 @@
           "isFree": true,
           "useVideo": true,
           "videos": [
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/3rGyN0j6ebI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/QhJFo8SDWhw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/vQO27nigUJU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/d51HwPvptSQ' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/8omKKKODf1s' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/TJcA1xMRwyw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            "<iframe width='560' height='315' src='https://www.youtube.com/embed/qP0-dBymuvg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/3rGyN0j6ebI' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/QhJFo8SDWhw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/vQO27nigUJU' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/d51HwPvptSQ' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/8omKKKODf1s' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/TJcA1xMRwyw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/qP0-dBymuvg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
           ],
           "tags": ["Pallanuoto", "DistrettiEcologici", "Waterpolo", "Water", "Under 18", "Anzio", "FIN", "Campionato", "Championship", "Preliminary", "Preliminare"]
         },

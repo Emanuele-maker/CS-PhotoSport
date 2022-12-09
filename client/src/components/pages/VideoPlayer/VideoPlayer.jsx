@@ -17,7 +17,7 @@ const VideoPlayer = ({ categories }) => {
         <div className="videos">
             {
                 album.videos.map(video => (
-                  <div dangerouslySetInnerHTML={{ __html: video }}></div>
+                  <div style={{ width: "80%" }} dangerouslySetInnerHTML={{ __html: video }}></div>
                 ))
             }
         </div>
