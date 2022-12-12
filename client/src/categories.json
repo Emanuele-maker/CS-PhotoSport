@@ -347,6 +347,20 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Alma Nuoto vs Anzio Waterpolis",
+          "cover": "https://csphotosport.com/img/Pallanuoto/Alma Nuoto vs Anzio Waterpolis/IMG_7458.jpg",
+          "isFree": true,
+          "useVideo": true,
+          "videos": [
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/z-6f6MxhxTc' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/q__VasKKPQ0' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/RFcPWsJ1QO4' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/NaEna6Qjsjg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/E6H5yUpOpfo' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+            "<iframe width='100%' height='315' src='https://www.youtube.com/embed/zLNRHUcQU0I' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe"
+          ]
+        },
+        {
           "title": "Anzio Waterpolis vs Distretti Ecologici Roma",
           "cover": "https://csphotosport.com/img/Pallanuoto/Anzio Waterpolis vs Distretti Ecologici Roma/IMG_6843.jpg",
           "isFree": true,
