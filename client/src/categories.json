@@ -358,17 +358,6 @@
           "tags": []
         },
         {
-          "title": "Prova",
-          "category": "Pallanuoto",
-          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Prova/cover.jpg",
-          "isFree": true,
-          "useSearch": false,
-          "searchPlaceholder": null,
-          "searchType": null,
-          "priceInCents": 0,
-          "tags": []
-        },
-        {
           "title": "Alma Nuoto vs Anzio Waterpolis",
           "cover": "https://csphotosport.com/img/Pallanuoto/Alma Nuoto vs Anzio Waterpolis/IMG_7458.jpg",
           "isFree": true,
