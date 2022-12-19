@@ -347,6 +347,28 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Olympic Roma vs Anzio Waterpolis",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Olympic Roma vs Anzio Waterpolis/IMG_8174.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        },
+        {
+          "title": "Prova",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Prova/cover.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        },
+        {
           "title": "Alma Nuoto vs Anzio Waterpolis",
           "cover": "https://csphotosport.com/img/Pallanuoto/Alma Nuoto vs Anzio Waterpolis/IMG_7458.jpg",
           "isFree": true,
@@ -374,13 +396,35 @@
             "<iframe width='100%' height='315' src='https://www.youtube.com/embed/TJcA1xMRwyw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
             "<iframe width='100%' height='315' src='https://www.youtube.com/embed/qP0-dBymuvg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
           ],
-          "tags": ["Pallanuoto", "DistrettiEcologici", "Waterpolo", "Water", "Under 18", "Anzio", "FIN", "Campionato", "Championship", "Preliminary", "Preliminare"]
+          "tags": [
+            "Pallanuoto",
+            "DistrettiEcologici",
+            "Waterpolo",
+            "Water",
+            "Under 18",
+            "Anzio",
+            "FIN",
+            "Campionato",
+            "Championship",
+            "Preliminary",
+            "Preliminare"
+          ]
         },
         {
           "title": "Anzio Waterpolis vs Olympic Roma",
           "cover": "https://csphotosport.com/previews/Pallanuoto/Anzio Waterpolis vs Olympic Roma/IMG_6507.jpg",
           "isFree": true,
-          "tags": ["Pallanuoto", "Olympic", "Waterpolo", "Water", "Under 16", "Anzio", "FIN", "Campionato", "Championship"]
+          "tags": [
+            "Pallanuoto",
+            "Olympic",
+            "Waterpolo",
+            "Water",
+            "Under 16",
+            "Anzio",
+            "FIN",
+            "Campionato",
+            "Championship"
+          ]
         },
         {
           "title": "King of the pool 2022",
@@ -388,7 +432,15 @@
           "cover": "https://csphotosport.com/previews/Pallanuoto/King of the pool 2022/IMG_5061.jpg",
           "isFree": true,
           "useSearch": false,
-          "tags": ["Pallanuoto", "Pescara", "Waterpolo", "Tournament", "Torneo", "Water", "Under 16"]
+          "tags": [
+            "Pallanuoto",
+            "Pescara",
+            "Waterpolo",
+            "Tournament",
+            "Torneo",
+            "Water",
+            "Under 16"
+          ]
         },
         {
           "title": "Bomber Waterpolo",

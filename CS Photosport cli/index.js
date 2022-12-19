@@ -2,14 +2,12 @@
 
 import staticInfo from "./staticInfo.js"
 import loadImages from "./loadImages.js"
-import filterPhotos from "./filterImages.js"
 import editJsonFile from "edit-json-file"
 
-import { exec } from "child_process"
+import { execSync } from "child_process"
 import colors from "colors"
 import fs from "fs"
 import inquirer from "inquirer"
-import chalk from "chalk"
 import chalkAnimation from "chalk-animation"
 
 let newCategory = {
@@ -36,7 +34,7 @@ const categories = [...categoriesFile.data.categories]
 const sleep = async(ms = 2500) => new Promise((r) => setTimeout(r, ms))
 
 const welcome = async() => {
-    const rainbowWelcome = chalkAnimation.rainbow("Ciao Boomerss, benvenuto nello strumento per aggiornare CS Photosport \n")
+    const rainbowWelcome = chalkAnimation.rainbow("Ciao Boomerss, benvenuto nello strumento per aggiornare CS Photosport! \n")
 
     await sleep()
 
@@ -46,92 +44,79 @@ const welcome = async() => {
 const moveImagesToPublic = async() => {
     fs.readdir("../client/public/img", (err, files) => {
         if (err || files.length === 0) {
-            exec("move ..\\img ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
+            execSync("move ..\\img ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
                 if (err) console.error(err)
             })
         }
     })
     fs.readdir("../client/public/previews", (err, files) => {
         if (err || files.length === 0) {
-            exec("move ..\\previews ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
+            execSync("move ..\\previews ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
                 if (err) console.error(err)
             })
         }
     })
 }
 
-const execBuildImages = async() => {
-    exec("break>..\\client\\src\\images.json && break>..\\client\\src\\previews.json", (err, stdout, stderr) => {
+const execSyncBuildImages = async() => {
+    console.log(colors.green("Sto compilando i puntatori delle foto, un attimo, tigre..."))
+    const build = execSync("break>..\\client\\src\\images.json && break>..\\client\\src\\previews.json && move ..\\client\\public\\img ..\\ && move ..\\client\\public\\previews ..\\", (err, stdout, stderr) => {
         if (err) console.error(err)
     })
-    console.log(colors.green("Sto compilando i puntatori delle foto, un attimo, tigre..."))
+    console.log(build.toString("hex"))
     loadImages()
 }
 
 const buildReact = async() => {
-    const answer = inquirer.prompt({
-        name: "use_react",
-        message: "Vuoi compilare React?",
-        type: "list",
-        choices: [
-            "Si",
-            "No"
-        ]
-    })
-    if (answer.use_react === "No") return
-    exec("move ..\\client\\public\\img ..\\", {"shell": "powershell.exe"}, (err, stdout, stderr) => {
-        if (err) console.error(err)
-    })
-    exec("move ..\\client\\public\\previews ..\\", {"shell": "powershell.exe"}, (err, stdout, stderr) => {
-        if (err) console.error(err)
-    })
+    // const answer = inquirer.prompt({
+    //     name: "use_react",
+    //     message: "Vuoi compilare React?",
+    //     type: "list",
+    //     choices: [
+    //         "Si",
+    //         "No"
+    //     ],
+    //     default() {
+    //         return "Si"
+    //     }
+    // })
+    // if (answer.use_react === "No") return
     console.log(colors.green("Sto costruendo React, un attimo, tigre..."))
-    exec("cd .. && npm run build", (err, stdout, stderr) => {
+    execSync("cd .. && npm run build", (err, stdout, stderr) => {
+        console.log(stdout)
         if (err) console.error(err)
     })
+        // execSync("", {"shell": "powershell.exe"}, (err, stdout, stderr) => {
+    //     if (err) console.error(err)
+    // })
+    // execSync("", (err, stdout, stderr) => {
+    //     console.log(stdout)
+    //     if (err) console.error(err)
+    // }).on("message", (message) => {
+    //     console.log(message)
+    // })
 }
 
 const main = async() => {
     const answers = await inquirer.prompt({
         name: "config_type",
         type: "list",
-        message: "Per iniziare seleziona cosa vuoi aggiornare nel sito",
+        message: "Per iniziare seleziona cosa vuoi aggiornare nel sito (Assicurati di aver travasato le foto)",
         choices: [
             "Crea Categoria",
-            "Crea Album (Assicurati di aver travasato le foto)",
-            "Aggiungi foto a un album (Assicurati di aver travasato le foto)",
-            "Filtra foto in un album"
+            "Crea Album",
         ]
     })
     
     if (answers.config_type === "Crea Categoria") await configureCategory()
-    if (answers.config_type === "Crea Album (Assicurati di aver travasato le foto)") await configureAlbum()
-    if (answers.config_type === "Filtra foto in un album") await filterImages()
+    if (answers.config_type === "Crea Album") await configureAlbum()
 }
 
-const filterImages = async() => {
-    const allAlbums = []
-    categories.map(category => {
-        category.albums.map(album => {
-            if (!album.fake) allAlbums.push(album)
-        })
-    })
-    const answers = inquirer.prompt([
-        {
-            name: "album",
-            type: "list",
-            message: "Album in cui filtrare le foto",
-            choices: allAlbums
-        },
-        {
-            name: "origin_path",
-            type: "input",
-            message: "Il percorso della cartella dell'hard disk da cui hai travasato le foto"
-        }
-    ])
-    const folder1 = `../client/public/img/${categories.find(category => category.albums.map(album => album.title === answers.album))?.title}/${answers.album}`
-    const folder2 = answers.origin_path
-    filterPhotos(folder1, folder2)
+const goodbye = async() => {
+    const text = chalkAnimation.rainbow("Grazie per aver utilizzato il programma!")
+    console.log("Prosegui nel file passaggi.txt per continuare la procedura di aggiornamento!")
+    text.stop()
+    process.exit(0)
 }
 
 const configureAlbum = async() => {
@@ -145,9 +130,9 @@ const configureAlbum = async() => {
         {
             name: "album_cover",
             type: "input",
-            message: "Cover dell'Album",
+            message: "Cover dell'Album SENZA .jpg",
             default() {
-                return "IMG_0001"
+                return "es. IMG_0001"
             }
         },
         {
@@ -158,15 +143,6 @@ const configureAlbum = async() => {
                 "Si",
                 "No"
             ]
-        },
-        {
-            name: "useSearch",
-            type: "list",
-            choices: [
-                "Si",
-                "No"
-            ],
-            message: "Vuoi usare la ricerca nell'album?"
         }
     ]
     if (!newCategoryExists) questions.unshift({
@@ -182,7 +158,7 @@ const configureAlbum = async() => {
 
     newAlbum.title = album.album_name
     newAlbum.category = newCategoryExists ? newCategory.title : album.category_name 
-    newAlbum.cover = `${staticInfo.previewsRoute}/${newCategoryExists ? newCategory.name : album.category_name}/${newAlbum.title}/${album.album_cover}`
+    newAlbum.cover = `${staticInfo.previewsRoute}/${newCategoryExists ? newCategory.title : album.category_name}/${newAlbum.title}/${album.album_cover}.jpg`
     newAlbum.isFree = album.isFree === "Si"
 
     if (album.isFree === "No") {
@@ -197,30 +173,30 @@ const configureAlbum = async() => {
         newAlbum.priceInCents = priceInfo.price * 100
     }
     
-    if (album.useSearch === "Si") {
-        const searchInfo = await inquirer.prompt([
-            {
-                name: "searchType",
-                type: "list",
-                choices: [
-                    "text",
-                    "number"
-                ],
-                message: "Scegli il tipo di ricerca da effettuare tra le foto (text è come PAGLIEI, number è come i pettorali)"
-            },
-            {
-                name: "searchPlaceholder",
-                type: "input",
-                message: "Testo da scrivere nella casella input di ricerca",
-                default() {
-                    return "Inserisci una parola chiave per la ricerca..."
-                }
-            }
-        ])
-        newAlbum.useSearch = true
-        newAlbum.searchPlaceholder = searchInfo.searchPlaceholder
-        newAlbum.searchType = searchInfo.searchType
-    }
+    // if (album.useSearch === "Si") {
+    //     const searchInfo = await inquirer.prompt([
+    //         {
+    //             name: "searchType",
+    //             type: "list",
+    //             choices: [
+    //                 "text",
+    //                 "number"
+    //             ],
+    //             message: "Scegli il tipo di ricerca da effettuare tra le foto (text è come PAGLIEI, number è come i pettorali)"
+    //         },
+    //         {
+    //             name: "searchPlaceholder",
+    //             type: "input",
+    //             message: "Testo da scrivere nella casella input di ricerca",
+    //             default() {
+    //                 return "Inserisci una parola chiave per la ricerca..."
+    //             }
+    //         }
+    //     ])
+    //     newAlbum.useSearch = true
+    //     newAlbum.searchPlaceholder = searchInfo.searchPlaceholder
+    //     newAlbum.searchType = searchInfo.searchType
+    // }
 
     if (newCategoryExists) newCategory.albums.push(newAlbum)
     else {
@@ -255,12 +231,12 @@ const configureCategory = async() => {
     const categoryCover = await inquirer.prompt({
         name: "category_cover",
         type: "input",
-        message: "Cover della categoria che vuoi creare",
+        message: "Cover della categoria che vuoi creare SENZA .jpg",
         default() {
-            return "IMG_0001"
+            return "es. IMG_0001"
         }
     })
-    newCategory.cover = `${staticInfo.previewsRoute}/${category.category_name}/${newAlbum.title}/${categoryCover.category_cover}`
+    newCategory.cover = `${staticInfo.previewsRoute}/${category.category_name}/${newAlbum.title}/${categoryCover.category_cover}.jpg`
 
     categories.push(newCategory)
     categoriesFile.set("categories", categories)
@@ -270,6 +246,6 @@ const configureCategory = async() => {
 await moveImagesToPublic()
 await welcome()
 await main()
-await execBuildImages()
-await buildReact()
-await moveImagesToPublic()
+await goodbye()
+// await execSyncBuildImages()
+// await buildReact()

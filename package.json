@@ -12,7 +12,8 @@
     "crea-album": "node crea-album.js",
     "build": "call cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "mobile": "cd cs-photosport && npm start"
+    "mobile": "cd cs-photosport && npm start",
+    "cli": "cd CS Photosport cli && npm start"
   },
   "keywords": [],
   "author": "",
