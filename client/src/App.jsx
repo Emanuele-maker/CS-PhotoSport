@@ -88,56 +88,56 @@ export default function App() {
 
   }, [sessionId])
 
-      function objectsAreEqual(object1, object2) {
-        if (!object1 || !object2) return false
-        const keys1 = Object.keys(object1)
-        const keys2 = Object.keys(object2)
-      
-        if (keys1.length !== keys2.length) {
-          return false
-        }
-      
-        for (let key of keys1) {
-          if (object1[key] !== object2[key]) {
-            return false
-          }
-        }
-      
-        return true
+  const objectsAreEqual = (object1, object2) => {
+    if (!object1 || !object2) return false
+    const keys1 = Object.keys(object1)
+    const keys2 = Object.keys(object2)
+  
+    if (keys1.length !== keys2.length) {
+      return false
+    }
+  
+    for (let key of keys1) {
+      if (object1[key] !== object2[key]) {
+        return false
       }
-
-    const onAddToCart = (image) => {
-      image.addedToCart = true
-      cartImages.push(image)
-      setStatefulCartImages(cartImages)
-      setcartCount(cartCount + 1)
-      setShakeCartIcon(true)
-      localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
-      if (loggedIn) setUserImages([...userImages, image])
-      return image
     }
+  
+    return true
+  }
+
+  const onAddToCart = (image) => {
+    image.addedToCart = true
+    cartImages.push(image)
+    setStatefulCartImages(cartImages)
+    setcartCount(cartCount + 1)
+    setShakeCartIcon(true)
+    localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
+    if (loggedIn) setUserImages([...userImages, image])
+    return image
+  }
 
 
-    const logUserIn = (id, name, email, picture) => {
-      setLoggedIn(true)
-      setUserEmail(email)
-      setUserName(name)
-      setUserId(id)
-      setUserPicture(picture)
-      localStorage.setItem("userId", id)
-      localStorage.setItem("profilePicture", picture)
-      axios.post(`${siteRoute}/api/user`, {
-        id,
-        userName: name,
-        email,
-        picture
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
-    }
+  const logUserIn = (id, name, email, picture) => {
+    setLoggedIn(true)
+    setUserEmail(email)
+    setUserName(name)
+    setUserId(id)
+    setUserPicture(picture)
+    localStorage.setItem("userId", id)
+    localStorage.setItem("profilePicture", picture)
+    axios.post(`${siteRoute}/api/user`, {
+      id,
+      userName: name,
+      email,
+      picture
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+  }
 
     return (
       <Router>

@@ -140,9 +140,9 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                 }}><FaShoppingCart size="1.5rem" />Aggiungi al carrello</button>
             }
             {
-                <button className={userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={isLoggedIn ? userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite : () => setIsLoginPopupVisible(true)}>
+                <button className={userFavoritesState?.find(favorite => favorite?.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={isLoggedIn ? userFavoritesState?.find(favorite => favorite?.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite : () => setIsLoginPopupVisible(true)}>
                     {
-                        userFavoritesState.find(favorite => favorite.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? (<><ImCross color="white" size="1rem" />Rimuovi dai preferiti</>) : (<><AiOutlineStar color="white" size="1.5rem" />Aggiungi ai preferiti</>)
+                        userFavoritesState?.find(favorite => favorite?.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? (<><ImCross color="white" size="1rem" />Rimuovi dai preferiti</>) : (<><AiOutlineStar color="white" size="1.5rem" />Aggiungi ai preferiti</>)
                     }
                 </button>
             }
