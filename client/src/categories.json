@@ -1,6 +1,23 @@
 {
   "categories": [
     {
+      "title": "Trofeo delle Regioni",
+      "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_9881.jpg",
+      "albums": [
+        {
+          "title": "Lazio vs Campania",
+          "category": "Trofeo delle Regioni",
+          "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_0018.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        }
+      ]
+    },
+    {
       "title": "Danza",
       "cover": "https://csphotosport.com/cover/danza.jpg",
       "albums": [
