@@ -5,6 +5,17 @@
       "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_9881.jpg",
       "albums": [
         {
+          "title": "Lazio vs Sicilia",
+          "category": "Trofeo delle Regioni",
+          "cover": "https://csphotosport.com/client/build/previews/Trofeo delle Regioni/Lazio vs Sicilia/IMG_9562.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        },
+        {
           "title": "Lazio vs Campania",
           "category": "Trofeo delle Regioni",
           "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_0018.jpg",
