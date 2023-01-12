@@ -2,7 +2,6 @@ import "./AlbumPage.scss"
 import Heading from "../Heading/Heading"
 import { previewsRoute } from "../../staticInfo"
 import PhotoCard from "../PhotoCard/PhotoCard"
-import FreePhotoCard from "../FreePhotoCard/FreePhotoCard"
 import { BsWhatsapp, BsFacebook, BsShareFill, BsTwitter, BsTelegram, BsNewspaper } from "react-icons/bs"
 import { useEffect, useState, useMemo, useRef } from "react"
 import SearchBar from "../SearchBar/SearchBar"
@@ -149,8 +148,7 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
                         <>
                             {
                                 filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
-                                  if (isFree) return <FreePhotoCard reference={scrollToPhoto} key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
-                                  else return <PhotoCard reference={scrollToPhoto} key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                                  return <PhotoCard key={previewIndex} category_name={category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                                 })
                             }
                         </>

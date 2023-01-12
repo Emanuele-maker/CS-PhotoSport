@@ -13,7 +13,7 @@
     "build": "call cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "mobile": "cd cs-photosport && npm start",
-    "cli": "cd CS Photosport cli && npm start"
+    "cli": "cd cli && npm start"
   },
   "keywords": [],
   "author": "",

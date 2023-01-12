@@ -1,7 +1,6 @@
 import "./SearchPage.scss"
 import { useEffect, useState } from "react"
 import AlbumCard from "../../AlbumCard/AlbumCard"
-import FreePhotoCard from "../../FreePhotoCard/FreePhotoCard"
 import PhotoCard from "../../PhotoCard/PhotoCard"
 import SearchBar from "../../SearchBar/SearchBar"
 import Heading from "../../Heading/Heading"
@@ -88,9 +87,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
                             return <AlbumCard category={category} subCategory={subCategory} album={item} key={itemIndex} />
                         }
                         if (item.fileName) {
-                            const isAlbumFree = categories.find(category => category.title === item.category).albums.find(album => album.title === item.album).isFree
-                            if (isAlbumFree) return <FreePhotoCard category_name={formatURL(item.category)} album_name={formatURL(item.album)} key={itemIndex} imageName={item.fileName} preview={`${previewsRoute}/${item.category}/${item.album}/${item.fileName}`} />
-                            else return <PhotoCard category_name={formatURL(item.category)} album_name={formatURL(item.album)} key={itemIndex} onAddToCart={onAddImageToCart} addedToCart={item.addedToCart} imageName={item.fileName} preview={`${previewsRoute}/${item.category}/${item.album}/${item.fileName}`} />
+                            return <PhotoCard category_name={formatURL(item.category)} album_name={formatURL(item.album)} key={itemIndex} onAddToCart={onAddImageToCart} addedToCart={item.addedToCart} imageName={item.fileName} preview={`${previewsRoute}/${item.category}/${item.album}/${item.fileName}`} />
                         }
                     })
                 }

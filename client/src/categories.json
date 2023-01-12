@@ -5,6 +5,17 @@
       "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_9881.jpg",
       "albums": [
         {
+          "title": "Lazio vs Sardegna",
+          "category": "Trofeo delle Regioni",
+          "cover": "https://csphotosport.com/client/build/previews/Trofeo delle Regioni/Lazio vs Sardegna/IMG_8911.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        },
+        {
           "title": "Lazio vs Lombardia",
           "category": "Trofeo delle Regioni",
           "cover": "https://csphotosport.com/client/build/previews/Trofeo delle Regioni/Lazio vs Lombardia/IMG_9256.jpg",

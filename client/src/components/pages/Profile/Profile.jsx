@@ -3,9 +3,7 @@ import "./Profile.scss"
 import { FiLogOut } from "react-icons/fi"
 import { GoogleLogin, googleLogout } from "@react-oauth/google"
 import jwtDecode from "jwt-decode"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { imagesRoute, previewsRoute, siteRoute } from "../../../staticInfo"
+import { imagesRoute, previewsRoute } from "../../../staticInfo"
 import ImageCard from "../../ImageCard/ImageCard"
 import { AiFillStar, AiOutlineUser } from "react-icons/ai"
 import PhotoCard from "../../PhotoCard/PhotoCard"
@@ -75,7 +73,7 @@ const Profile = ({ userName, email, isLoggedIn, logUserIn, setIsLoggedIn, profil
                   <div className="photos-container grid">
                     {
                       boughtImages.map(image => (
-                        <ImageCard download={download} imageName={image.fileName} imageSrc={`${imagesRoute}/${image.category}/${image.album}/${image.fileName}`} />
+                        <ImageCard download={download} imageName={image.fileName} imageSrc={`${previewsRoute}/${image.category}/${image.album}/${image.fileName}`} />
                       ))
                     }
                   </div>

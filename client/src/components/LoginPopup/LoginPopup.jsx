@@ -1,6 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google"
 import jwtDecode from "jwt-decode"
-import { useState } from "react"
 import { ImCross } from "react-icons/im"
 import "./LoginPopup.scss"
 
