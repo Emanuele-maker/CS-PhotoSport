@@ -31,7 +31,6 @@ const baseRoute = "/api"
 app.use(baseRoute, sessionRouter)
 app.use(baseRoute, paymentRouter)
 app.use(baseRoute, userRouter)
-
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'))
 })
