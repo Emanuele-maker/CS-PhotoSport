@@ -7,12 +7,14 @@ client/build/img
 client/build/previews
 client/public/img
 client/public/previews
+client/public/cover
 client/src/images.json
 client/src/previews.json
 mobile/
 client/src/previews.json
-cs-photosport
+csphotosport/
 img/
 previews/
+cover/
 passaggi.txt
 fanta-waterpolo/
