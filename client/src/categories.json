@@ -419,6 +419,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "CN Latina vs Anzio Waterpolis",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/CN Latina vs Anzio Waterpolis/IMG_0434.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": true
+        },
+        {
           "title": "Olympic Roma vs Anzio Waterpolis",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Olympic Roma vs Anzio Waterpolis/IMG_8174.jpg",

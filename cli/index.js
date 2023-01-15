@@ -44,16 +44,12 @@ const welcome = async() => {
 const moveImagesToPublic = async() => {
     fs.readdir("../client/public/img", (err, files) => {
         if (err || files.length === 0) {
-            execSync("move ..\\img ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
-                if (err) console.error(err)
-            })
+            execSync("move ..\\img ..\\client\\public", { "shell": "powershell.exe" })
         }
     })
     fs.readdir("../client/public/previews", (err, files) => {
         if (err || files.length === 0) {
-            execSync("move ..\\previews ..\\client\\public", { "shell": "powershell.exe" }, (err, stdout, stderr) => {
-                if (err) console.error(err)
-            })
+            execSync("move ..\\previews ..\\client\\public", { "shell": "powershell.exe" })
         }
     })
 }
@@ -65,36 +61,6 @@ const execSyncBuildImages = async() => {
     })
     console.log(build.toString("hex"))
     loadImages()
-}
-
-const buildReact = async() => {
-    // const answer = inquirer.prompt({
-    //     name: "use_react",
-    //     message: "Vuoi compilare React?",
-    //     type: "list",
-    //     choices: [
-    //         "Si",
-    //         "No"
-    //     ],
-    //     default() {
-    //         return "Si"
-    //     }
-    // })
-    // if (answer.use_react === "No") return
-    console.log(colors.green("Sto costruendo React, un attimo, tigre..."))
-    execSync("cd .. && npm run build", (err, stdout, stderr) => {
-        console.log(stdout)
-        if (err) console.error(err)
-    })
-        // execSync("", {"shell": "powershell.exe"}, (err, stdout, stderr) => {
-    //     if (err) console.error(err)
-    // })
-    // execSync("", (err, stdout, stderr) => {
-    //     console.log(stdout)
-    //     if (err) console.error(err)
-    // }).on("message", (message) => {
-    //     console.log(message)
-    // })
 }
 
 const main = async() => {
@@ -143,6 +109,15 @@ const configureAlbum = async() => {
                 "Si",
                 "No"
             ]
+        },
+        {
+            name: "isPrivate",
+            type: "list",
+            message: "L'album è privato?",
+            choices: [
+                "Si",
+                "No"
+            ]
         }
     ]
     if (!newCategoryExists) questions.unshift({
@@ -160,6 +135,7 @@ const configureAlbum = async() => {
     newAlbum.category = newCategoryExists ? newCategory.title : album.category_name 
     newAlbum.cover = `${staticInfo.previewsRoute}/${newCategoryExists ? newCategory.title : album.category_name}/${newAlbum.title}/${album.album_cover}.jpg`
     newAlbum.isFree = album.isFree === "Si"
+    newAlbum.isPrivate = album.isPrivate === "Si"
 
     if (album.isFree === "No") {
         const priceInfo = await inquirer.prompt({
@@ -172,31 +148,6 @@ const configureAlbum = async() => {
         })
         newAlbum.priceInCents = priceInfo.price * 100
     }
-    
-    // if (album.useSearch === "Si") {
-    //     const searchInfo = await inquirer.prompt([
-    //         {
-    //             name: "searchType",
-    //             type: "list",
-    //             choices: [
-    //                 "text",
-    //                 "number"
-    //             ],
-    //             message: "Scegli il tipo di ricerca da effettuare tra le foto (text è come PAGLIEI, number è come i pettorali)"
-    //         },
-    //         {
-    //             name: "searchPlaceholder",
-    //             type: "input",
-    //             message: "Testo da scrivere nella casella input di ricerca",
-    //             default() {
-    //                 return "Inserisci una parola chiave per la ricerca..."
-    //             }
-    //         }
-    //     ])
-    //     newAlbum.useSearch = true
-    //     newAlbum.searchPlaceholder = searchInfo.searchPlaceholder
-    //     newAlbum.searchType = searchInfo.searchType
-    // }
 
     if (newCategoryExists) newCategory.albums.push(newAlbum)
     else {
@@ -247,5 +198,3 @@ await moveImagesToPublic()
 await welcome()
 await main()
 await goodbye()
-// await execSyncBuildImages()
-// await buildReact()
