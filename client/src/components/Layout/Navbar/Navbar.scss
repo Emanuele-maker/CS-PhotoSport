@@ -27,6 +27,29 @@
         user-select: none;
     }
 
+    .download-app {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 1.5rem 0;
+
+        span {
+            font-size: 1.3rem;
+        }
+
+        a {
+            width: 100%;
+            text-align: center;
+
+            img {
+                width: 65%;
+            }
+        }
+    }
+
     footer {
         justify-self: end;
     }

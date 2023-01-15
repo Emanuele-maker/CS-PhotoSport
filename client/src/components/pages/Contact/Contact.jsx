@@ -1,31 +1,40 @@
 import { useEffect } from "react"
 import Heading from "../../Heading/Heading"
 import "./Contact.scss"
-import BsTools from "./BsTools.svg"
-import AiOutlineMail from "./AiOutlineMail.svg"
+import {AiOutlineFacebook, AiOutlineInstagram, AiOutlineMail} from "react-icons/ai"
+import playstorelogo from "../../../playstore.png"
 
-export default function Contact({ sessionId }) {
+export default function Contact() {
     useEffect(() => {
-        document.title = "CS PhotoSport"
+        document.title = "CS PhotoSport: social"
     }, [])
 
   return (
-    <div className="contact-content">
-        <Heading backUrl={-1}>Contatti</Heading>
-        <div className="email-contact">
-          <img src={AiOutlineMail} className="email-icon" alt="icon email" />
-          <h2><a href="mailto: postmaster@csphotosport.com">postmaster@csphotosport.com</a></h2>
-        </div>
+    <div className="social-content">
+        <Heading backUrl={-1}>Social</Heading>
         <div className="credits">
-          <h2>Webmaster: Emanuele Salvadori</h2>
+            <h2>Webmaster: Emanuele Salvadori</h2>
         </div>
-        <div className="support-tools">
-          <div className="support-tools-header">
-            <img src={BsTools} />
-            <h2>Strumenti di supporto:</h2>
-          </div>
-          <h3>ID di sessione: { sessionId }</h3>
+        <div className="buttons-container">
+            <a target="_blank" href="mailto:cristian.salvadori@gmail.com" className="social-button email-button">
+                <AiOutlineMail size="2.2rem" />
+                <span>Email</span>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/cs_photosport/" className="social-button instagram-button">
+                <AiOutlineInstagram size="2.2rem" />
+                <span>Instagram</span>
+            </a>
+            <a target="_blank" href="https://www.facebook.com/cristianphotosport/" className="social-button facebook-button">
+                <AiOutlineFacebook size="2.2rem" />
+                <span>Facebook</span>
+            </a>
         </div>
+        {/*<div className="download-app">*/}
+        {/*    <h2>Scarica l'app!</h2>*/}
+        {/*    <a href="#">*/}
+        {/*        <img src={playstorelogo} alt="play store link" />*/}
+        {/*    </a>*/}
+        {/*</div>*/}
     </div>
   )
 }

@@ -167,7 +167,7 @@ export default function App() {
                   localStorage.setItem("cartImages", JSON.stringify(statefulCartImages))
                   return statefulCartImages
               }} />} />
-              <Route path="/contatti" element={<Contact sessionId={sessionId} />} />
+              <Route path="/social" element={<Contact />} />
               {/* <Route path="/news" element={<News />} /> */}
               <Route path="/chi-siamo" element={<About />} />
               {/* <Route path="/news/:post_name" element={<News />} /> */}

@@ -1,4 +1,4 @@
-.contact-content {
+.social-content {
     width: 100%;
 
     h2 {
@@ -16,37 +16,59 @@
         font-weight: 400;
     }
 
-    .email-contact {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin: .5rem;
-
-        h2 {
-            margin-left: .3rem;
-        }
-    }
-
-    .support-tools {
+    .buttons-container {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 2.3rem 0;
+        gap: 1.3rem;
 
-        &-header {
+        .social-button {
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 0;
+            border-radius: 12px;
+            padding: 15px;
+            width: 13rem;
+            gap: .3rem;
+            border: none;
+            text-decoration: none;
+
+            span {
+                color: white;
+                font-size: 1.5rem;
+                font-family: Poppins;
+            }
+
+            svg {
+                color: white;
+            }
         }
 
-        h2, h3 {
-            margin: .4rem;
-        }
-    }
+        .email-button {
+            background-color: #efa423;
 
-    div {
-        margin: 2rem 0;
+            &:hover {
+                background-color: lighten(#efa423, 10%);
+            }
+        }
+
+        .instagram-button {
+            background-color: #F1076C;
+
+            &:hover {
+                background-color: lighten(#F1076C, 10%);
+            }
+        }
+
+        .facebook-button {
+            background-color: #1259B7;
+
+            &:hover {
+                background-color: lighten(#1259B7, 10%);
+            }
+        }
     }
 
     h3 {
@@ -56,7 +78,7 @@
 }
 
 @media (max-width: 500px) {
-    .contact-content {
+    .social-content {
         a {
             font-size: 1rem;
         }

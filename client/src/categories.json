@@ -5,6 +5,17 @@
       "cover": "https://csphotosport.com/previews/Trofeo delle Regioni/Lazio vs Campania/IMG_9881.jpg",
       "albums": [
         {
+          "title": "Lazio vs Marche",
+          "category": "Trofeo delle Regioni",
+          "cover": "https://csphotosport.com/client/build/previews/Trofeo delle Regioni/Lazio vs Marche/IMG_8398.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": []
+        },
+        {
           "title": "Lazio vs Toscana",
           "category": "Trofeo delle Regioni",
           "cover": "https://csphotosport.com/client/build/previews/Trofeo delle Regioni/Lazio vs Toscana/IMG_8513.jpg",

@@ -1,5 +1,5 @@
 import "./PhotoPage.scss"
-import { useParams } from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import LazyImage from "../../LazyImage"
 import { previewsRoute, imagesRoute, siteRoute } from "../../../staticInfo"
 import { BiArrowBack } from "react-icons/bi"
@@ -7,7 +7,7 @@ import { IoIosShareAlt, IoIosArrowBack, IoIosArrowForward } from "react-icons/io
 import formatURL from "../../../formatURL"
 import { FaShoppingCart } from "react-icons/fa"
 import { BsDownload, BsCartPlus, BsCartCheck } from "react-icons/bs"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 import axios from "axios"
 import { ImCross } from "react-icons/im"
@@ -15,6 +15,7 @@ import LoginPopup from "../../LoginPopup/LoginPopup"
 
 const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState, logUserIn }) => {
     const { category_name, album_name, image_name } = useParams()
+    const navigate = useNavigate()
 
     const category = categories.find(category => formatURL(category.title) === category_name)
 

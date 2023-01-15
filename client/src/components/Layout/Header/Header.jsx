@@ -46,7 +46,7 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                     <HeaderItem title="Home" icon={<AiOutlineHome size="18px" color="white" />} href="/" />
                     <HeaderItem title="Chi Siamo" icon={<FaQuestion size="18px" color="white" />} href="/chi-siamo" />
                     {/* <HeaderItem title="News" icon={<BsNewspaper size="18px" color="white" />} href="/news" /> */}
-                    <HeaderItem title="Contatti" icon={<AiOutlineMail size="18px" color="white" />} href="/contatti" />
+                    <HeaderItem title="Social" icon={<AiOutlineMail size="18px" color="white" />} href="/social" />
                 </div>
             </div>
             <div className="cart-container">
