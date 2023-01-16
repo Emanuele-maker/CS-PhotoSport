@@ -18,12 +18,12 @@ export default function Home({ categories }) {
         <div className="home-container">
             <SiteLogo />
             <Fade delay={1500} duration={500} width="100%">
-                {/*<div className="download-app">*/}
-                {/*    <h2>Scarica la nuova app!</h2>*/}
-                {/*    <a href="#">*/}
-                {/*        <img src={playstorelogo} alt="play store link"/>*/}
-                {/*    </a>*/}
-                {/*</div>*/}
+                <div className="download-app">
+                    <h2>Scarica la nuova app!</h2>
+                    <a href="https://play.google.com/store/apps/details?id=com.manudev.csphotosport&pli=1">
+                        <img src={playstorelogo} alt="play store link"/>
+                    </a>
+                </div>
             </Fade>
             <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
                 <Zoom big delay={2000}>

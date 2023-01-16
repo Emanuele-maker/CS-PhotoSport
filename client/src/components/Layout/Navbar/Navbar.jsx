@@ -28,12 +28,12 @@ export default function Navbar({ onCloseNav, isLoggedIn }) {
                     <NavbarListItem onClick={onClickLink} href="/social" text="SOCIAL" icon={<AiOutlineMail color="#458BA9" size="1.5rem" />} />
                     <NavbarListItem onClick={(href) => window.open(href)} href="https://donate.stripe.com/cN203Ycfkg1f6xW3cc" text="DONAZIONE" icon={<FaWallet color="#458BA9" size="1.5rem" />} />
                 </ul>
-                {/*<div className="download-app">*/}
-                {/*    <span>Scarica l'app</span>*/}
-                {/*    <Link to="#">*/}
-                {/*        <img src={playstorelogo} alt="play store link" />*/}
-                {/*    </Link>*/}
-                {/*</div>*/}
+                <div className="download-app">
+                    <span>Scarica l'app</span>
+                    <Link to="https://play.google.com/store/apps/details?id=com.manudev.csphotosport&pli=1">
+                        <img src={playstorelogo} alt="play store link" />
+                    </Link>
+                </div>
                 <CopyRight />
             </div>
         </nav>
