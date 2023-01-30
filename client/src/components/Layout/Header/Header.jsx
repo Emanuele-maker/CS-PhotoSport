@@ -50,18 +50,10 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 </div>
             </div>
             <div className="cart-container">
-                {/* { !isLoggedIn && <GoogleLogin size="medium" auto_select onSuccess={res => {
-                   const { sub, picture, name, email } = jwtDecode(res.credential)
-                   logUserIn(sub, name, email, picture)
-                }} onError={() => console.log("Login error")} /> } */}
                 <button className="donate-button donate-nav-button" onClick={() => donate()}>
                     <FaWallet size="1rem" color="white" />
                     Dona
                 </button>
-                {
-                    !isLoggedIn && <button onClick={() => navigate("/profilo")} className="register-button">Registrati</button>
-                    // <AiOutlineUserAdd size="2rem" className="icon" color="white" onClick={() => navigate("/profilo")} />
-                }
                 {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}
                 <div className="search-container" onClick={() => navigate("/ricerca")}>
                     <AiOutlineSearch size="2rem" className="icon search-icon" />
@@ -74,11 +66,10 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 <p className="cart-count">{ cartCount }</p>
                     <Link to="/profilo" className="profile-picture-container">
                         {
-                            (isLoggedIn && profilePicture) ?
+                            profilePicture ?
                             <img src={profilePicture} className="profile-picture" />
                             :
-                            (isLoggedIn && !profilePicture) &&
-                            <AiOutlineUser className="profile-picture" color="grey" size="2rem" />
+                            <AiOutlineUser className="profile-picture" color="white" size="2rem" />
                         }
                     </Link>
             </div>

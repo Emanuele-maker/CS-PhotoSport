@@ -2,8 +2,6 @@ import Navbar from "./Navbar/Navbar"
 import "./Layout.scss"
 import { useState } from "react"
 import Header from "./Header/Header"
-import CookieBanner from "./CookieBanner/CookieBanner"
-// import Footer from "./Footer/Footer"
 
 export default function Layout({ children, cartCount, isCartIconVisible, shakeCartIcon, setShakeCartIcon, isLoggedIn, logUserIn, profilePicture }) {
     const [isMobileNavbarOpened, setIsMobileNavbarOpened] = useState(false)
@@ -16,8 +14,6 @@ export default function Layout({ children, cartCount, isCartIconVisible, shakeCa
                 <div className={`obfuscator ${isMobileNavbarOpened ? "visible" : "invisible"}`}></div>
                 { children }
             </div>
-            <CookieBanner />
-            {/* <Footer /> */}
         </div>
     )
 }

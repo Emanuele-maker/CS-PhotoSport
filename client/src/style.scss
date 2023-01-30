@@ -12,13 +12,21 @@ body {
     background-color: #121212;
 }
 
-.danza-msg {
-    font-size: 2rem;
-}
+.download-app {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    color: white;
 
-@media (max-width: 500px) {
-    .danza-msg {
-        font-size: 1.3rem;
+    a {
+        text-decoration: none;
+        color: white;
+        img {
+            width: 13rem;
+        }
     }
 }
 
