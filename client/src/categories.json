@@ -5,6 +5,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Anzio Waterpolis vs Virtus Flaminio",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs Virtus Flaminio/IMG_1808.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Anzio Waterpolis vs Zero9 Team",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs Zero9 Team/IMG_1144.jpg",
