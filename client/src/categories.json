@@ -398,6 +398,18 @@
       "cover": "https://csphotosport.com/cover/danza.jpg",
       "albums": [
         {
+          "title": "Monica Bersani",
+          "category": "Danza",
+          "cover": "https://csphotosport.com/client/build/previews/Danza/Monica Bersani/IMG_9910.jpg",
+          "isFree": false,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 400,
+          "tags": [],
+          "isPrivate": true
+        },
+        {
           "title": "Backstage",
           "cover": "https://csphotosport.com/previews/Danza/Backstage/IMG_9564.jpg",
           "priceInCents": 400
