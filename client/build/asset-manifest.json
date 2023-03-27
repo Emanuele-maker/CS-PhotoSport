@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://csphotosport.com/client/build/static/css/main.900fccee.css",
-    "main.js": "https://csphotosport.com/client/build/static/js/main.1e645721.js",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.c0a36f45.js",
     "static/media/playstore.png": "https://csphotosport.com/client/build/static/media/playstore.869b82550dc485230a2b.png",
     "index.html": "https://csphotosport.com/client/build/index.html",
     "static/media/ImCross.svg": "https://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
     "main.900fccee.css.map": "https://csphotosport.com/client/build/static/css/main.900fccee.css.map",
-    "main.1e645721.js.map": "https://csphotosport.com/client/build/static/js/main.1e645721.js.map"
+    "main.c0a36f45.js.map": "https://csphotosport.com/client/build/static/js/main.c0a36f45.js.map"
   },
   "entrypoints": [
     "static/css/main.900fccee.css",
-    "static/js/main.1e645721.js"
+    "static/js/main.c0a36f45.js"
   ]
 }
