@@ -34,6 +34,13 @@ export default function AlbumList({ categories }) {
     return (
         <>
             <Heading backUrl="/">{ category.actualTitle || category_name.replaceAll("-", " ") }</Heading>
+            {
+                publicAlbums.length === 0 &&
+                <div className="albums-not-available">
+                    <h2>Se sei interessato alle foto, contattaci al seguente indirizzo email:</h2>
+                    <a href="mailto:cristian.salvadori@gmail.com">cristian.salvadori@gmail.com</a>
+                </div>
+            }
             <div className="grid-container">
                 <div className="grid list-container">
                     { publicAlbums.map((album, albumIndex) => {

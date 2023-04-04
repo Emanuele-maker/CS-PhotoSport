@@ -1071,6 +1071,24 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Basket",
+      "cover": "https://csphotosport.com/client/build/previews/Basket/Smg Latina vs Stella Azzurra Roma/IMG_5299.jpg",
+      "albums": [
+        {
+          "title": "Smg Latina vs Stella Azzurra Roma",
+          "category": "Basket",
+          "cover": "https://csphotosport.com/client/build/previews/Basket/Smg Latina vs Stella Azzurra Roma/IMG_5299.jpg",
+          "isFree": false,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 300,
+          "tags": [],
+          "isPrivate": true
+        }
+      ]
     }
   ]
 }
