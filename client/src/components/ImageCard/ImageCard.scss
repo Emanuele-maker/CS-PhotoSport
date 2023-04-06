@@ -33,13 +33,20 @@
             cursor: pointer;
         }
     }
+}
 
-    .download-btn {
-        background-color: #004171;
-        color: white;
+.download-btn {
+    padding: .7rem;
+    margin: 1.4rem 0;
+    border-radius: 18px;
+    font-size: 1rem;
+    width: 75%;
+    border: solid 1.3px grey;
 
-        &:hover {
-            background-color: lighten($color: #004171, $amount: 20%);
-        }
+    background-color: #004171;
+    color: white;
+
+    &:hover {
+        background-color: lighten($color: #004171, $amount: 20%);
     }
 }

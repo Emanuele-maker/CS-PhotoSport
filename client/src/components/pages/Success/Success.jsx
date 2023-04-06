@@ -63,7 +63,7 @@ export default function Success({ onSetSessionId, onAddUserImage, isLoggedIn, lo
         isLoggedIn ?
         <h2>Puoi trovarle anche sul tuo <Link to="/profilo">Profilo</Link></h2>
         :
-        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: "1rem" }}>
           <h2>Accedi al tuo account Google per avere sempre accesso alle tue foto acquistate</h2>
           <GoogleLogin auto_select onSuccess={res => {
             const { sub, picture, name, email } = jwtDecode(res.credential)

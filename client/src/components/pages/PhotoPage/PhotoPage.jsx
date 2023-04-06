@@ -12,6 +12,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 import axios from "axios"
 import { ImCross } from "react-icons/im"
 import LoginPopup from "../../LoginPopup/LoginPopup"
+import AddToCartBtn from "../../AddToCartBtn/AddToCartBtn"
 
 const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState, logUserIn }) => {
     const { category_name, album_name, image_name } = useParams()
@@ -135,10 +136,10 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                 ?
                 <button className="added-to-cart">Elemento aggiunto al carrello</button>
                 :
-                <button className="add-to-cart" onClick={() => {
+                <AddToCartBtn onClick={() => {
                     onAddToCart(currentImage)
                     setAddedToCart(true)
-                }}><FaShoppingCart size="1.5rem" />Aggiungi al carrello</button>
+                }} addedToCart={currentImage.addedToCart} />
             }
             {
                 <button className={userFavoritesState?.find(favorite => favorite?.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? "logout" : "add-to-cart"} onClick={isLoggedIn ? userFavoritesState?.find(favorite => favorite?.fileName === currentImage.fileName && favorite.album === currentImage.album && favorite.category === currentImage.category) ? removeFavorite : addFavorite : () => setIsLoginPopupVisible(true)}>

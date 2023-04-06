@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaBars } from "react-icons/fa"
-import { AiOutlineSearch, AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai"
+import { AiOutlineInfoCircle, AiOutlineSearch, AiOutlineUser, AiOutlineUserAdd } from "react-icons/ai"
 import "./Header.scss"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
@@ -45,6 +45,7 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                 <div className="header-items-list">
                     <HeaderItem title="Home" icon={<AiOutlineHome size="18px" color="white" />} href="/" />
                     <HeaderItem title="Chi Siamo" icon={<FaQuestion size="18px" color="white" />} href="/chi-siamo" />
+                    <HeaderItem title="Informazioni" icon={<AiOutlineInfoCircle size="18px" color="white" />} href="/info" />
                     {/* <HeaderItem title="News" icon={<BsNewspaper size="18px" color="white" />} href="/news" /> */}
                     <HeaderItem title="Social" icon={<AiOutlineMail size="18px" color="white" />} href="/social" />
                 </div>

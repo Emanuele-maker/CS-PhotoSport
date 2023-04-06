@@ -1,0 +1,39 @@
+@import "../../config";
+
+.video-btn-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    .video-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .8rem;
+        border-radius: 18px;
+        border: solid 2px white;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        transition: all .3s;
+        transition-property: color, background-color;
+
+        svg {
+            transition: all .3s;
+            transition-property: fill;
+        }
+
+        span {
+            padding: 0 .5rem;
+            font-family: $font;
+            font-size: 1.2rem;
+        }
+
+        &:hover {
+            background-color: white;
+            color: black;
+
+            svg {
+                fill: black;
+            }
+        }
+    }
+}

@@ -9,6 +9,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import 'photo-grid-box/build/photo-grid-box.min.css'
 import formatURL from "../../formatURL"
 import { RiVideoFill } from "react-icons/ri"
+import VideoButton from "../VideoButton/VideoButton"
 
 function useQuery() {
   const { search } = useLocation()
@@ -103,15 +104,9 @@ export default function AlbumPage({ previews, fake, clientAlbum, previewsStruct,
                 </button>
               </div>
             }
-            {
-              clientAlbum.useVideo &&
-              <div className="news-btn-container">
-                <button className="news-btn" onClick={() => navigate(formatURL(`/${category_name}/album/${album_name}/video`))}>
-                  <RiVideoFill size="1.5rem" color="white" />
-                  <span>Guarda i video</span>
-                </button>
-              </div>
-            }
+            {/* {
+              clientAlbum.useVideo && <VideoButton text="Guarda i video" action={() => navigate(formatURL(`/${category_name}/album/${album_name}/video`))} />
+            } */}
             { isFree 
             ? <h2 className="sub-title"><span className="highlighted">{ previews.length }</span> Foto</h2> 
             : 
