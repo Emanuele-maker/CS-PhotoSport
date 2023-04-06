@@ -18,7 +18,7 @@ const Info = () => {
           <h1>GUIDA A CSPHOTOSPORT</h1>
           <h2>COME FUNZIONA IL SITO</h2>
           <p>
-            CS PhotoSport offre ai suoi utenti il servizio di download di tutte le foto in alta risoluzione, che possono essere comodamente scaricate da tutti i dispositivi.
+            CS PhotoSport offre ai suoi utenti il servizio di download di tutte le foto in <b>altissima risoluzione (20+ MB)</b>, che possono essere comodamente scaricate da tutti i dispositivi.
             Per fare ciò, è sufficiente aggiungere le foto al carrello e scaricarle successivamente al checkout del pagamento.
             <br />
             <b>NOTA BENE:</b> Non offriamo un servizio di stampa delle immagini
