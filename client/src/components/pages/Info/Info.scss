@@ -114,12 +114,6 @@
             }
         }
     }
-    .tutorials-container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 2rem;
-    }
 }
 
 @media (max-width: 750px) {
@@ -148,7 +142,7 @@
 @media (max-width: 540px) {
     .info-page .text-container {
         .gif {
-            width: 18rem;
+            width: 100%;
         }
     }
 }

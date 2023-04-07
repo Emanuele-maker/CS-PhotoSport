@@ -19,6 +19,7 @@ import Profile from "./components/pages/Profile/Profile"
 import PrivacyPolicy from "./components/pages/PrivacyPolicy/PrivacyPolicy"
 import VideoPlayer from "./components/pages/VideoPlayer/VideoPlayer"
 import Info from "./components/pages/Info/Info"
+import Tutorials from "./components/pages/Tutorials/Tutorials"
 
 const categories = JSON.parse(JSON.stringify(require("./categories.json"))).categories
 let previews = JSON.parse(JSON.stringify(require("./previews.json")))
@@ -178,6 +179,7 @@ export default function App() {
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/info" element={<Info />} />
+              <Route path="/info/video" element={<Tutorials />} />
               <Route path="/profilo" element={<Profile userFavoritesState={userFavorites} boughtImages={userImages} userName={userName} email={userEmail} isLoggedIn={loggedIn} profilePicture={userPicture} logUserIn={logUserIn} setIsLoggedIn={setLoggedIn} />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>

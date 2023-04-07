@@ -13,7 +13,7 @@ const Info = () => {
   return (
     <div className="info-page">
         <Heading backUrl={-1}>Informazioni</Heading>
-        {/* <VideoButton text="Guarda il tutorial" action={() => navigate("/info/video")} /> */}
+        <VideoButton text="Guarda i tutorial" action={() => navigate("/info/video")} />
         <div className="text-container">
           <h1>GUIDA A CSPHOTOSPORT</h1>
           <h2>COME FUNZIONA IL SITO</h2>
