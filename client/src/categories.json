@@ -5,6 +5,30 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Anzio vs Aquademia",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio vs Aquademia/IMG_4707.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": true
+        },
+        {
+          "title": "Anzio Waterpolis vs Aquademia U18",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs Aquademia U18/IMG_4707.jpg",
+          "isFree": false,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 300,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Olympic Roma vs Anzio Waterpolis U16",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Olympic Roma vs Anzio Waterpolis U16/IMG_4196.jpg",
