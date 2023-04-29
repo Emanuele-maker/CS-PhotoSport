@@ -5,6 +5,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Virtus Flaminio vs Anzio Waterpolis U18",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Virtus Flaminio vs Anzio Waterpolis U18/IMG_5985.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Anzio Waterpolis vs Alma Nuoto U16",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs Alma Nuoto U16/IMG_5751.jpg",
