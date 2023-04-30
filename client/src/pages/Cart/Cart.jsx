@@ -6,9 +6,9 @@ import { siteRoute } from "../../staticInfo"
 import DiscountPopup from "../../components/DiscountPopup/DiscountPopup"
 import getPrice from "../../getTotalPrice"
 
-export default function Cart({ cartItems, onRemoveItem, sessionId, categories }) {
+export default function Cart({ cartItems, onRemoveItem, sessionId }) {
     const [statefulItems, setStatefulItems] = useState(cartItems || JSON.parse(localStorage.getItem("cartImages")))
-    const [isDiscountPopupOpened, setIsDiscountPopupOpened] = useState(!localStorage.getItem("discountPopupOpened"))
+    const [isDiscountPopupOpened, setIsDiscountPopupOpened] = useState(false)
     const basePrice = 300
 
     async function goToCheckout() {
