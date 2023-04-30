@@ -24,19 +24,19 @@ const DiscountPopup = ({ setIsPopupVisible }) => {
             <ul>
               <li>
                 <img src={stackedPhotos4} alt="stacked photos 4x" />
-                <span>4 foto = {Math.round(getPrice(4) / 100)}</span>
+                <span>4 foto = €{Math.round(getPrice(4) / 100)}</span>
               </li>
               <li>
                 <img src={stackedPhotos10} alt="stacked photos 10x" />
-                <span>10 foto = {Math.round(getPrice(10) / 100)}</span>
+                <span>10 foto = €{Math.round(getPrice(10) / 100)}</span>
               </li>
               <li>
                 <img src={stackedPhotos30} alt="stacked photos 30x" />
-                <span>30 foto = {Math.round(getPrice(30) / 100)}</span>
+                <span>30 foto = €{Math.round(getPrice(30) / 100)}</span>
               </li>
               <li>
                 <img src={stackedPhotos50} alt="stacked photos 50x" />
-                <span>50 foto = {Math.round(getPrice(50) / 100)}</span>
+                <span>50 foto = €{Math.round(getPrice(50) / 100)}</span>
               </li>
             </ul>
             <h3>Questi sconti vengono applicati automaticamente</h3>
