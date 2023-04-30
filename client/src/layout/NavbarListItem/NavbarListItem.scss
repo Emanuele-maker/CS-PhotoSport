@@ -1,0 +1,21 @@
+.navbar-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .3rem 0;
+    padding: .3rem 0;
+    width: 100%;
+    transition: background-color .4s;
+    &:hover {
+        background-color: #004171;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        color: #458BA9;
+        padding: 0 .5rem;
+    }
+}

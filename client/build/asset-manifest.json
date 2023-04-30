@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "https://csphotosport.com/client/build/static/css/main.cf964a52.css",
-    "main.js": "https://csphotosport.com/client/build/static/js/main.8f6fc199.js",
+    "main.css": "https://csphotosport.com/client/build/static/css/main.275a47c1.css",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.0cf1cb05.js",
     "static/media/cart.gif": "https://csphotosport.com/client/build/static/media/cart.5b5a21ea890d11acb027.gif",
+    "static/media/camera.gif": "https://csphotosport.com/client/build/static/media/camera.b01ccd140b2263f6195b.gif",
     "static/media/checkout.gif": "https://csphotosport.com/client/build/static/media/checkout.fa5a31b2bc4fccb0017a.gif",
     "static/media/playstore.png": "https://csphotosport.com/client/build/static/media/playstore.869b82550dc485230a2b.png",
     "index.html": "https://csphotosport.com/client/build/index.html",
+    "static/media/stacked-photo-4.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-4.fe2db022b7aee8ab9a718467c18b2679.svg",
+    "static/media/stacked-photo-50.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-50.c7d4c5c61822429937883f8b062f7c44.svg",
     "static/media/ImCross.svg": "https://csphotosport.com/client/build/static/media/ImCross.4cade8275aa47089c67815d1668f61d8.svg",
-    "main.cf964a52.css.map": "https://csphotosport.com/client/build/static/css/main.cf964a52.css.map",
-    "main.8f6fc199.js.map": "https://csphotosport.com/client/build/static/js/main.8f6fc199.js.map"
+    "static/media/stacked-photo-30.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-30.f5d0566f0100d7214abe2570f0bb431b.svg",
+    "static/media/stacked-photo-10.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-10.bd950aa7c2f68a518e02b2566bc6b1b7.svg",
+    "main.275a47c1.css.map": "https://csphotosport.com/client/build/static/css/main.275a47c1.css.map",
+    "main.0cf1cb05.js.map": "https://csphotosport.com/client/build/static/js/main.0cf1cb05.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf964a52.css",
-    "static/js/main.8f6fc199.js"
+    "static/css/main.275a47c1.css",
+    "static/js/main.0cf1cb05.js"
   ]
 }

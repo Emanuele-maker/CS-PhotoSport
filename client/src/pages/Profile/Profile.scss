@@ -1,0 +1,75 @@
+.profile-page {
+    width: 100%;
+    .profile-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            border-radius: 5rem;
+            width: 6rem;
+            user-select: none;
+        }
+
+        h2 {
+            color: #F2F2F2;
+            margin: .3rem 0;
+        }
+
+        h3 {
+            color: rgb(172, 172, 172);
+            margin: .2rem 0;
+        }
+    }
+}
+
+.logout {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    background-color: rgb(231, 15, 15);
+    padding: .5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    margin: .4rem 0;
+
+    &:hover {
+        background-color: lighten($color: (rgb(231, 15, 15)), $amount: 15%);
+    }
+}
+
+.login-page {
+    width: 100%;
+    .register-explaination {
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+    }
+    .login-btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1100px) {
+    .login-page {
+        .register-explaination {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .login-page {
+        .register-explaination {
+            font-size: 1rem;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import "../../components/Grid.scss";
+
+.photos-container {
+    margin-top: 2rem;
+    margin-left: 1rem;
+
+    h1 {
+        color: white;
+        text-align: left;
+        width: 100%;
+    }
+}
+
+.sub-title {
+    color: white;
+    font-weight: 350;
+    text-align: center;
+    width: 100%;
+    margin: 1rem;
+}
+
+.highlighted {
+    color: white;
+    font-weight: bolder;
+}

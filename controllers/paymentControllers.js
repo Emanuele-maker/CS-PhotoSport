@@ -12,13 +12,6 @@ const stripe = new Stripe(STRIPE_PRIVATE_KEY, {
     apiVersion: "2020-08-27",
 })
 
-const getPrice = (quantity, price) => {
-    const discount = 1 / 10
-    const limit = 5
-    if (quantity < limit) return price
-    else return Math.round((price) - (price * discount))
-}
-
 const createCheckoutSession = async (req, res) => {
     conn.query(`SELECT * FROM sessions WHERE id = "${req.params.session_id}"`, async (err, rows) => {
         if (err) throw err
@@ -35,7 +28,7 @@ const createCheckoutSession = async (req, res) => {
                     product_data: {
                         name: "immagini"
                     },
-                    unit_amount: getPrice(req.body.items.length, req.body.totalPrice)
+                    unit_amount: req.body.totalPrice
                 },
                 quantity: 1
             }],
