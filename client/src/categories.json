@@ -5,6 +5,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Anzio Waterpolis vs RN Vis Nova Roma U18",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs RN Vis Nova Roma U18/IMG_7076.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Bellator Frusino vs Anzio Waterpolis U18",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Bellator Frusino vs Anzio Waterpolis U18/IMG_6466.jpg",
