@@ -5,6 +5,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Anzio Waterpolis vs Club Acquatico Pescara U16",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs Club Acquatico Pescara U16/IMG_7249.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Anzio Waterpolis vs RN Vis Nova Roma U18",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Anzio Waterpolis vs RN Vis Nova Roma U18/IMG_7076.jpg",
