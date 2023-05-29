@@ -5,6 +5,18 @@
       "cover": "https://csphotosport.com/img/Pallanuoto/CN Latina vs Muri Antichi/IMG_1716.jpg",
       "albums": [
         {
+          "title": "Roma Vis Nova vs Anzio Waterpolis U16",
+          "category": "Pallanuoto",
+          "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Roma Vis Nova vs Anzio Waterpolis U16/IMG_8143.jpg",
+          "isFree": true,
+          "useSearch": false,
+          "searchPlaceholder": null,
+          "searchType": null,
+          "priceInCents": 0,
+          "tags": [],
+          "isPrivate": false
+        },
+        {
           "title": "Fiorillo Academy vs Anzio Waterpolis U18",
           "category": "Pallanuoto",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Fiorillo Academy vs Anzio Waterpolis U18/IMG_7959.jpg",
