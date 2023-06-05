@@ -1,25 +1,14 @@
-import { useEffect } from "react"
-import CategoryCard from "../CategoryCard/CategoryCard"
-import "./CategoryList.scss"
+import CardList from "../CardList/CardList"
+import formatURL from "../../formatURL"
 
-export default function CategoryList({ categories }) {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
-    const publicCategories = categories.filter(category => {
-        return !category.isPrivate
+export default function CategoryList({ categoriesToRender }) {
+    const listContent = categoriesToRender.map(({ title, cover }) => {
+        return {
+            title,
+            cover,
+            href: formatURL(`/${title}`)
+        }
     })
 
-    return (
-        <div className="grid-container">
-            <div className="grid list-container">
-                { publicCategories.map((category, categoryIndex) => {
-                    return (
-                        <CategoryCard key={categoryIndex} category={category} isSub={false} />
-                    )
-                }) }
-            </div>
-        </div>
-    )
+    return <CardList content={listContent} />
 }

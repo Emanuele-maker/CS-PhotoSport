@@ -32,7 +32,7 @@ export default function Home({ categories }) {
                     </button>
                 </Zoom>
             </div>
-            <CategoryList categories={categories} />
+            <CategoryList categoriesToRender={categories} />
         </div>
     )
 }

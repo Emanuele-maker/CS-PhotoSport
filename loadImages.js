@@ -56,7 +56,7 @@ fs.readdir(path.join(__dirname, "./client/public/img"), (err, categories) => {
                             imagesFile.set(category, {
                                 subCategories: subCategories.map(subC => {
                                     return {
-                                        title: subCategory,
+                                        title: subC,
                                         albums: albums.map(album => {
                                         return {
                                             title: album,

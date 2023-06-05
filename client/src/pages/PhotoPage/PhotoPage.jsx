@@ -5,28 +5,34 @@ import { previewsRoute, imagesRoute, siteRoute } from "../../staticInfo"
 import { BiArrowBack } from "react-icons/bi"
 import { IoIosShareAlt, IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import formatURL from "../../formatURL"
-import { FaShoppingCart } from "react-icons/fa"
 import { BsDownload, BsCartPlus, BsCartCheck } from "react-icons/bs"
-import { useState, useEffect } from "react"
-import { AiOutlineStar, AiFillStar } from "react-icons/ai"
+import { useState } from "react"
+import { AiOutlineStar } from "react-icons/ai"
 import axios from "axios"
 import { ImCross } from "react-icons/im"
 import LoginPopup from "../../components/LoginPopup/LoginPopup"
 import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn"
 
 const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUserFavorites, userFavoritesState, logUserIn }) => {
-    const { category_name, album_name, image_name } = useParams()
+    const { category_name, sub_category_name, album_name, image_name } = useParams()
     const navigate = useNavigate()
+
+    const useSub = sub_category_name !== undefined
 
     const category = categories.find(category => formatURL(category.title) === category_name)
 
-    const album = categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
+    const subCategory = category.subCategories.find(sub => formatURL(sub.title) === sub_category_name)
+
+    const album = useSub ? categories.find(category => formatURL(category.title) === category_name).subCategories.find(sub => formatURL(sub.title) === sub_category_name).albums.find(album => formatURL(album.title) === album_name) : categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
 
     const useShare = navigator?.share !== undefined && navigator?.canShare !== undefined
 
     const isFree = album?.isFree === true
 
-    const initalImage = previewsStruct[Object.keys(previewsStruct).find(key => {
+    const initalImage = useSub ? previewsStruct[Object.keys(previewsStruct).find(key => {
+        return key === category.title
+    })]?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
+    : previewsStruct[Object.keys(previewsStruct).find(key => {
         return key === category.title
     })]?.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
 
@@ -122,7 +128,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                     <IoIosArrowBack onClick={moveImageBack} className="nav-icon" color="white" size="3.5rem" />
                 </div>
                 <div className="image-holder">
-                    <LazyImage src={`${previewsRoute}/${category.title}/${album.title}/${currentImage.fileName}`} />
+                    <LazyImage src={`${previewsRoute}/${category.title}${useSub ? `/${sub_category_name}` : ""}/${album.title}/${currentImage.fileName}`} />
                 </div>
                 <div className="icon-container">
                     <IoIosArrowForward onClick={moveImageForward} className="nav-icon" color="white" size="3.5rem" />

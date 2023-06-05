@@ -154,13 +154,15 @@ export default function App() {
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
-              <Route path="/:category_name/:sub_category_name/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={onAddToCart} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
+              <Route path="/:category_name/:sub_category_name/album/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={onAddToCart} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {
                   const cartImageToFind = cartImages.find(img => objectsAreEqual(img, image))
                   if (!cartImageToFind) return
                   cartImageToFind.previewSrc = previewSrc
                   setStatefulCartImages(cartImages)
               }} />} />
               <Route path="/:category_name/album/:album_name/video" element={<VideoPlayer categories={categories} />} />
+              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage logUserIn={logUserIn} setUserFavorites={setUserFavorites} userFavoritesState={userFavorites} isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
+              <Route path="/:category_name/:sub_category_name/album/:album_name/:image_name" element={<PhotoPage logUserIn={logUserIn} setUserFavorites={setUserFavorites} userFavoritesState={userFavorites} isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/carrello" element={<Cart categories={categories} cartItems={statefulCartImages} sessionId={sessionId} onRemoveItem={(item) => {
                   item.addedToCart = false
                   cartImages.splice(cartImages.indexOf(item), 1)
@@ -175,7 +177,6 @@ export default function App() {
               {/* <Route path="/news/:post_name" element={<News />} /> */}
               <Route path="/ricerca" element={<SearchPage categories={categories} previewsStruct={previews} onAddImageToCart={onAddToCart} />} />
               <Route path="/success" element={<Success isLoggedIn={loggedIn} logUserIn={logUserIn} onSetSessionId={(id) => setSessionId(id)} />} />
-              <Route path="/:category_name/album/:album_name/:image_name" element={<PhotoPage logUserIn={logUserIn} setUserFavorites={setUserFavorites} userFavoritesState={userFavorites} isLoggedIn={loggedIn} categories={categories} onAddToCart={onAddToCart} previewsStruct={previews} />} />
               <Route path="/9e595881" element={<Navigate to={formatURL("/Danza/album/Mode Modalità Danza I 4 Elementi")} />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/info" element={<Info />} />
