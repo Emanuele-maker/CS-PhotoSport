@@ -21,7 +21,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
 
     const category = categories.find(category => formatURL(category.title) === category_name)
 
-    const subCategory = category.subCategories.find(sub => formatURL(sub.title) === sub_category_name)
+    const subCategory = category.subCategories?.find(sub => formatURL(sub.title) === sub_category_name)
 
     const album = useSub ? categories.find(category => formatURL(category.title) === category_name).subCategories.find(sub => formatURL(sub.title) === sub_category_name).albums.find(album => formatURL(album.title) === album_name) : categories.find(category => formatURL(category.title) === category_name).albums.find(album => formatURL(album.title) === album_name)
 
