@@ -1,5 +1,13 @@
 @import "../../config";
 
+.search-contianer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .search-bar-container {
     width: 100%;
     display: flex;

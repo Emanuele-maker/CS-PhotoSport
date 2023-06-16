@@ -9,7 +9,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import 'photo-grid-box/build/photo-grid-box.min.css'
 import DiscountPopup from "../DiscountPopup/DiscountPopup"
 import cameraGIF from "../../assets/camera.gif"
-// import formatURL from "../../formatURL"
+import formatURL from "../../formatURL"
 // import { RiVideoFill } from "react-icons/ri"
 // import VideoButton from "../VideoButton/VideoButton"
 
@@ -105,7 +105,7 @@ const AlbumPage = ({ previews, fake, clientAlbum, previewsStruct, category_name,
           <DiscountPopup setIsPopupVisible={setIsDiscountPopupOpened} />
         </>
       }
-      <Heading backUrl={`/${category_name}`}>{ album_name.replaceAll("-", " ") }</Heading>
+      <Heading backUrl={formatURL(`/${category_name}${subCategory ? `/${subCategory.title}` : ""}`)}>{ album_name.replaceAll("-", " ") }</Heading>
       {
         useNews &&
         <div className="news-btn-container">
@@ -162,7 +162,7 @@ const AlbumPage = ({ previews, fake, clientAlbum, previewsStruct, category_name,
           <>
               {
                   filteredPreviews.length > 0 && filteredPreviews.map((preview, previewIndex) => {
-                    return <PhotoCard key={previewIndex} category_name={category_name} sub_category_name={sub_category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${Object.keys(previewsStruct).find(key => key.toLowerCase().replaceAll(" ", "-") === category_name)}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
+                    return <PhotoCard key={previewIndex} category_name={category_name} sub_category_name={sub_category_name} album_name={album_name} imageName={preview.fileName} preview={`${previewsRoute}/${previewsStruct.find(cate => cate.title.toLowerCase().replaceAll(" ", "-") === category_name).title}${sub_category_name !== undefined ? `/${subCategory.title}` : ""}/${album.title.replaceAll("-", " ")}/${preview.fileName}`} onAddToCart={() => {preview = onAddToCart(preview)}} addedToCart={preview.addedToCart} />
                   })
               }
           </>

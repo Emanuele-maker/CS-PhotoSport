@@ -5,14 +5,13 @@ import NotFound from "../../pages/404/404"
 import formatURL from "../../formatURL"
 import CardList from "../CardList/CardList"
 import AlbumCard from "../AlbumCard/AlbumCard"
-import CategoryList from "../CategoryList/CategoryList"
 
 export default function AlbumList({ categories }) {
     const { category_name, sub_category_name } = useParams()
 
     const category = categories.find(c => formatURL(c.title) === category_name)
     if (!category) return <NotFound />
-    // if there are sub categories and we are not in a category, render that sub category list
+    // if there are sub categories and we are not in a sub category, render that sub category list
     if (category.subCategories && !sub_category_name) {
         const listContent = category.subCategories.map(({ title, cover }) => {
             return {
@@ -23,7 +22,7 @@ export default function AlbumList({ categories }) {
         })
         return (
             <div style={{ width: "100%" }}>
-                <Heading backUrl={`/${category_name}`}>{ category_name }</Heading>
+                <Heading backUrl={"/"}>{ category_name }</Heading>
                 <CardList content={listContent} />
             </div>
         )
@@ -49,7 +48,7 @@ export default function AlbumList({ categories }) {
 
     return (
         <>
-            <Heading backUrl={-1}>{ category.actualTitle || category_name.replaceAll("-", " ") }</Heading>
+            <Heading backUrl={`/${sub_category_name ? category_name : ""}`}>{ sub_category_name ? sub_category_name.replaceAll("-", " ") : category_name.replaceAll("-", " ") }</Heading>
             {
                 publicAlbums.length === 0 &&
                 <div className="albums-not-available">

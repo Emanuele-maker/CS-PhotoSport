@@ -29,12 +29,12 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
 
     const isFree = album?.isFree === true
 
-    const initalImage = useSub ? previewsStruct[Object.keys(previewsStruct).find(key => {
-        return key === category.title
-    })]?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
-    : previewsStruct[Object.keys(previewsStruct).find(key => {
-        return key === category.title
-    })]?.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
+    const initalImage = useSub ? previewsStruct.find(cate => {
+        return cate.title === category.title
+    })?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
+    : previewsStruct.find(cate => {
+        return cate.title === category.title
+    })?.find(alb => alb.title === album.title)?.previews?.find(img => img.fileName === image_name)
 
     const [currentImage, setCurrentImage] = useState(initalImage)
     const [isLoginPopupVisible, setIsLoginPopupVisible] = useState(false)
@@ -128,7 +128,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
                     <IoIosArrowBack onClick={moveImageBack} className="nav-icon" color="white" size="3.5rem" />
                 </div>
                 <div className="image-holder">
-                    <LazyImage src={`${previewsRoute}/${category.title}${useSub ? `/${sub_category_name}` : ""}/${album.title}/${currentImage.fileName}`} />
+                    <LazyImage src={`${previewsRoute}/${category.title}${useSub ? `/${subCategory.title}` : ""}/${album.title}/${currentImage.fileName}`} />
                 </div>
                 <div className="icon-container">
                     <IoIosArrowForward onClick={moveImageForward} className="nav-icon" color="white" size="3.5rem" />
@@ -136,7 +136,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
             </div>
             {
                 isFree ?
-                <button className="download" onClick={() => downloadImage(`${imagesRoute}/${category.title}/${album.title}/${image_name}`)}><BsDownload size="1.3rem" color="white" />Scarica</button>
+                <button className="download" onClick={() => downloadImage(`${imagesRoute}/${category.title}${useSub ? `/${subCategory.title}` : ""}/${album.title}/${image_name}`)}><BsDownload size="1.3rem" color="white" />Scarica</button>
                 :
                 currentImage.addedToCart
                 ?

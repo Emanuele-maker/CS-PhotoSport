@@ -7,9 +7,9 @@ import AlbumPage from "../../components/AlbumPage/AlbumPage"
 export default function Album({ onAddToCart, previewsStruct, categories }) {
     const { category_name, sub_category_name, album_name } = useParams()
 
-    const category = previewsStruct[Object.keys(previewsStruct).find(key => {
-        return key.toLowerCase().replaceAll(" ", "-") === category_name
-    })]
+    const category = previewsStruct.find(cate => {
+        return cate.title.toLowerCase().replaceAll(" ", "-") === category_name
+    })
     const isFake = categories.find(category => formatURL(category.title) === category_name).fake
     if (!category && !categories.find(category => formatURL(category.title) === category_name).fake) return <NotFound />
 
@@ -25,7 +25,7 @@ export default function Album({ onAddToCart, previewsStruct, categories }) {
         album = albums.find(album => formatURL(album.title) === album_name)
         useSub = true
     } else if (!isFake) {
-        album = category.find(album => formatURL(album.title) === album_name)
+        album = category.albums.find(album => formatURL(album.title) === album_name)
     }
     if (!album && !isFake) return <NotFound />
 

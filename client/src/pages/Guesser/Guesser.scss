@@ -1,0 +1,40 @@
+.guesser-container {
+    color: #F0F0F0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    main {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h1 {
+            font-size: 85px;
+            margin: 0;
+        }
+    }
+
+    .guess-table-grid {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1.8fr repeat(4, 1.3fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 4px;
+        color: #F0F0F0;
+        width: 100%;
+
+        .table-child {
+            padding: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 8px;
+        }
+
+        .label {
+            background-color: #28335A;
+        }
+    }
+}

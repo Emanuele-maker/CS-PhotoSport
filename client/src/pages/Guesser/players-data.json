@@ -1,0 +1,114 @@
+[
+    {
+        "name": "MATTEO AICARDI",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 37,
+        "role": "Centroboa"
+    },
+    {
+        "name": "GIACOMO CANNELLA",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 26,
+        "role": "Attaccante"
+    },
+    {
+        "name": "LUKA LONCAR",
+        "club": "Pro Recco",
+        "nationality": "Croazia",
+        "age": 36,
+        "role": "Centroboa"
+    },
+    {
+        "name": "TOMMASO NEGRI",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 37,
+        "role": "Portiere"
+    },
+    {
+        "name": "NICHOLAS PRESCIUTTI",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 30,
+        "role": "Difensore"
+    },
+    {
+        "name": "ALESSANDRO VELOTTO",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 28,
+        "role": "Centrovasca"
+    },
+    {
+        "name": "AARON JOHN YOUNGER",
+        "club": "Pro Recco",
+        "nationality": "Ungheria",
+        "age": 32,
+        "role": "Attaccante"
+    },
+    {
+        "name": "GERGO ZALANKI",
+        "club": "Pro Recco",
+        "nationality": "Ungheria",
+        "age": 28,
+        "role": "Attaccante"
+    },
+    {
+        "name": "MARCO DEL LUNGO",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 33,
+        "role": "Portiere"
+    },
+    {
+        "name": "FRANCESCO DI FULVIO",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 30,
+        "role": "Attaccante"
+    },
+    {
+        "name": "GONZALO OSCAR ECHENIQUE",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 33,
+        "role": "Attaccante"
+    },
+    {
+        "name": "PIETRO FIGLIOLI",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 39,
+        "role": "Attaccante"
+    },
+    {
+        "name": "ANDREA FONDELLI",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 29,
+        "role": "Centrovasca"
+    },
+    {
+        "name": "BENJAMIN THOMAS HALLOCK",
+        "club": "Pro Recco",
+        "nationality": "Stati Uniti d'America",
+        "age": 26,
+        "role": "Centroboa"
+    },
+    {
+        "name": "MATTEO IOCCHI GRATTA",
+        "club": "Pro Recco",
+        "nationality": "Italia",
+        "age": 21,
+        "role": "Difensore"
+    },
+    {
+        "name": "ALEKSANDAR IVOVIC",
+        "club": "Pro Recco",
+        "nationality": "Montenegro",
+        "age": 37,
+        "role": "Difensore"
+    }
+]

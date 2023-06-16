@@ -20,9 +20,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy"
 import VideoPlayer from "./pages/VideoPlayer/VideoPlayer"
 import Info from "./pages/Info/Info"
 import Tutorials from "./pages/Tutorials/Tutorials"
+import Guesser from "./pages/Guesser/Guesser"
+import previewsStruct from "./previews.json"
 
 const categories = JSON.parse(JSON.stringify(require("./categories.json"))).categories
-let previews = JSON.parse(JSON.stringify(require("./previews.json")))
+let previews = previewsStruct.previews
 
 let cartImages = JSON.parse(localStorage.getItem("cartImages")) || []
 let cartCountInit = cartImages.length
@@ -146,6 +148,7 @@ export default function App() {
         <Layout profilePicture={userPicture} logUserIn={logUserIn} isLoggedIn={loggedIn} setIsLoggedIn={setLoggedIn} shakeCartIcon={shakeCartIcon} setShakeCartIcon={setShakeCartIcon} cartCount={cartCount}>
             <Routes>
               <Route exact path="/" element={<Home categories={categories} />} />
+              <Route path="/guesser" element={<Guesser />} />
               <Route path="/:category_name/:sub_category_name" element={<AlbumList categories={categories} />} />
               <Route path="/:category_name" element={<AlbumList categories={categories} />} />
               <Route path="/:category_name/album/:album_name" element={<Album categories={categories} previewsStruct={previews} onAddToCart={onAddToCart} cartImages={statefulCartImages} onAddPreviewSrc={(image, previewSrc) => {

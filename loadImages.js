@@ -1,166 +1,119 @@
-const fs = require("fs")
-const editJsonFile = require("edit-json-file")
 const path = require("path")
+const dirTree = require("directory-tree")
+const editJsonFile = require("edit-json-file")
 
-let imagesFile = editJsonFile(path.join(__dirname, "./client/src/images.json"))
-let previewsFile = editJsonFile(path.join(__dirname, "./client/src/previews.json"))
+const treeIMG = dirTree(path.join(__dirname, "/client/public/img"))
+const treePrev = dirTree(path.join(__dirname, "/client/public/img"))
 
-fs.readdir(path.join(__dirname, "./client/public/img"), (err, categories) => {
-    if (err) throw new Error(err)
-    categories.forEach(category => {
-        fs.readdir(path.join(__dirname, `./client/public/img/${category}`), (err, subCategories) => {
-            if (err) throw new Error(err)
-            subCategories.forEach((subCategory, subCategoryIndex) => {
-                fs.readdir(path.join(__dirname, `./client/public/img/${category}/${subCategory}`), (err, albums) => {
-                    if (err) throw new Error(err)
-                    if (albums[0].endsWith(".jpg")) {
-                        const images = albums
-                        const album = subCategories[subCategoryIndex]
-                        imagesFile.append(category, {
-                            title: album,
-                            images: images.map((fileName, i) => {
-                                return {
-                                    index: i,
-                                    fileName: fileName,
-                                    album: album,
-                                    category: category,
-                                    addedToCart: false,
-                                    favorite: false
-                                }
-                            })
-                        })
-                        imagesFile.save()
-                        return
-                    }
-                    albums.forEach(album => {
-                        fs.readdir(path.join(__dirname, `./client/public/img/${category}/${subCategory}/${album}`), (err, fileImages) => {
-                            if (err) {
-                                const images = albums
-                                const album = subCategories[subCategoryIndex]
-                                imagesFile.append(category, {
-                                    title: album,
-                                    images: images.map((fileName, i) => {
-                                        return {
-                                            index: i,
-                                            fileName: fileName,
-                                            album: album,
-                                            category: category,
-                                            addedToCart: false,
-                                            favorite: false
-                                        }
-                                    })
-                                })
-                                imagesFile.save()
-                                return
-                            }
-                            imagesFile.set(category, {
-                                subCategories: subCategories.map(subC => {
-                                    return {
-                                        title: subC,
-                                        albums: albums.map(album => {
-                                        return {
-                                            title: album,
-                                            images: fileImages.map((fileName, i) => {
-                                                return {
-                                                    index: i,
-                                                    fileName: fileName,
-                                                    album: album,
-                                                    category: category,
-                                                    subCategory: subC,
-                                                    addedToCart: false,
-                                                    favorite: false
-                                                }
-                                            })
-                                        }
-                                        })
-                                    }
-                                })
-                            })
-                            imagesFile.save()
-                        })
-                    })
-                })
+const jsonIMG = editJsonFile(path.join(__dirname, "/client/src/images.json"))
+const jsonPrev = editJsonFile(path.join(__dirname, "/client/src/previews.json"))
+
+const imagesStruct = treeIMG.children.map(categoryFile => {
+    let category = {
+        title: categoryFile.name,
+        subCategories: [],
+        albums: []
+    }
+    categoryFile.children.forEach(subCategoryFile => {
+        if (subCategoryFile.children[0].name.endsWith(".jpg")) {
+            delete category.subCategories
+            const albumName = subCategoryFile.name
+            const albumImages = subCategoryFile.children.map((image, i) => {
+                return {
+                    index: i,
+                    fileName: image.name,
+                    album: albumName,
+                    category: categoryFile.name,
+                    addedToCart: false,
+                    favorite: false
+                }
             })
-        })
+            category.albums.push({
+                title: albumName,
+                images: albumImages
+            })
+        } else {
+            delete category.albums
+            const albums = subCategoryFile.children.map(album => {
+                const albumImages = album.children.map((image, i) => {
+                    return {
+                        index: i,
+                        fileName: image.name,
+                        album: album.name,
+                        category: categoryFile.name,
+                        subCategory: subCategoryFile.name,
+                        addedToCart: false,
+                        favorite: false
+                    }
+                })
+                return {
+                    title: album.name,
+                    images: albumImages
+                }
+            })
+            category.subCategories.push({
+                title: subCategoryFile.name,
+                albums
+            })
+        }
     })
+    return category
 })
 
-fs.readdir(path.join(__dirname, "./client/public/previews"), (err, categories) => {
-    if (err) throw new Error(err)
-    categories.forEach(category => {
-        fs.readdir(path.join(__dirname, `./client/public/previews/${category}`), (err, subCategories) => {
-            if (err) throw new Error(err)
-            subCategories.forEach((subCategory, subCategoryIndex) => {
-                fs.readdir(path.join(__dirname, `./client/public/previews/${category}/${subCategory}`), (err, albums) => {
-                    if (err) throw new Error(err)
-                    if (albums[0].endsWith(".jpg")) {
-                        const images = albums
-                        const album = subCategories[subCategoryIndex]
-                        previewsFile.append(category, {
-                            title: album,
-                            previews: images.map((fileName, i) => {
-                                return {
-                                    index: i,
-                                    fileName: fileName,
-                                    album: album,
-                                    category: category,
-                                    addedToCart: false,
-                                    favorite: false
-                                }
-                            })
-                        })
-                        previewsFile.save()
-                        return
-                    }
-                    albums.forEach(album => {
-                        fs.readdir(path.join(__dirname, `./client/public/previews/${category}/${subCategory}/${album}`), (err, fileImages) => {
-                            if (err) {
-                                const images = albums
-                                const album = subCategories[subCategoryIndex]
-                                previewsFile.append(category, {
-                                    title: album,
-                                    previews: images.map((fileName, i) => {
-                                        return {
-                                            index: i,
-                                            fileName: fileName,
-                                            album: album,
-                                            category: category,
-                                            addedToCart: false,
-                                            favorite: false
-                                        }
-                                    })
-                                })
-                                previewsFile.save()
-                                return
-                            }
-                            previewsFile.set(category, {
-                                subCategories: subCategories.map(subC => {
-                                    return {
-                                        title: subCategory,
-                                        albums: albums.map(album => {
-                                        return {
-                                            title: album,
-                                            previews: fileImages.map((fileName, i) => {
-                                                return {
-                                                    index: i,
-                                                    fileName: fileName,
-                                                    album: album,
-                                                    category: category,
-                                                    subCategory: subC,
-                                                    addedToCart: false,
-                                                    favorite: false
-                                                }
-                                            })
-                                        }
-                                        })
-                                    }
-                                })
-                            })
-                            previewsFile.save()
-                        })
-                    })
-                })
+const prevStruct = treePrev.children.map(categoryFile => {
+    let category = {
+        title: categoryFile.name,
+        subCategories: [],
+        albums: []
+    }
+    categoryFile.children.forEach(subCategoryFile => {
+        if (subCategoryFile.children[0].name.endsWith(".jpg")) {
+            delete category.subCategories
+            const albumName = subCategoryFile.name
+            const albumPreviews = subCategoryFile.children.map((image, i) => {
+                return {
+                    index: i,
+                    fileName: image.name,
+                    album: albumName,
+                    category: categoryFile.name,
+                    addedToCart: false,
+                    favorite: false
+                }
             })
-        })
+            category.albums.push({
+                title: albumName,
+                previews: albumPreviews
+            })
+        } else {
+            delete category.albums
+            const albums = subCategoryFile.children.map(album => {
+                const albumPreviews = album.children.map((image, i) => {
+                    return {
+                        index: i,
+                        fileName: image.name,
+                        album: album.name,
+                        category: categoryFile.name,
+                        subCategory: subCategoryFile.name,
+                        addedToCart: false,
+                        favorite: false
+                    }
+                })
+                return {
+                    title: album.name,
+                    previews: albumPreviews
+                }
+            })
+            category.subCategories.push({
+                title: subCategoryFile.name,
+                albums
+            })
+        }
     })
+    return category
 })
+
+jsonIMG.set("images", imagesStruct)
+jsonIMG.save()
+
+jsonPrev.set("previews", prevStruct)
+jsonPrev.save()
