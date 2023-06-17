@@ -10,7 +10,8 @@
           "albums": [
             {
               "title": "Lazio vs Marche",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Marche/IMG_8398.jpg",
               "isFree": true,
               "useSearch": false,
@@ -21,7 +22,8 @@
             },
             {
               "title": "Lazio vs Toscana",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Toscana/IMG_8513.jpg",
               "isFree": true,
               "useSearch": false,
@@ -32,7 +34,8 @@
             },
             {
               "title": "Lazio vs Sardegna",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Sardegna/IMG_8911.jpg",
               "isFree": true,
               "useSearch": false,
@@ -43,7 +46,8 @@
             },
             {
               "title": "Lazio vs Lombardia",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Lombardia/IMG_9256.jpg",
               "isFree": true,
               "useSearch": false,
@@ -54,7 +58,8 @@
             },
             {
               "title": "Lazio vs Sicilia",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Sicilia/IMG_9562.jpg",
               "isFree": true,
               "useSearch": false,
@@ -65,7 +70,8 @@
             },
             {
               "title": "Lazio vs Campania",
-              "category": "Trofeo delle Regioni",
+              "category": "Pallanuoto",
+              "subCategory": "Trofeo delle Regioni",
               "cover": "https://csphotosport.com/previews/Pallanuoto/Trofeo delle Regioni/Lazio vs Campania/IMG_0018.jpg",
               "isFree": true,
               "useSearch": false,
@@ -155,6 +161,19 @@
           "title": "Under 16",
           "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 16/Anzio Waterpolis vs Zero9 Team/IMG_1122.jpg",
           "albums": [
+            {
+              "title": "Vela N. Ancona vs Anzio Waterpolis",
+              "category": "Pallanuoto",
+              "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 16/Vela N. Ancona vs Anzio Waterpolis/IMG_9343.jpg",
+              "subCategory": "Under 16",
+              "isFree": true,
+              "useSearch": false,
+              "searchPlaceholder": null,
+              "searchType": null,
+              "priceInCents": 0,
+              "tags": [],
+              "isPrivate": false
+            },
             {
               "title": "SS Lazio vs Anzio Waterpolis",
               "category": "Pallanuoto",

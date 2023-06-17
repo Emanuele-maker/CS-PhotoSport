@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "https://csphotosport.com/client/build/static/css/main.c18df8af.css",
-    "main.js": "https://csphotosport.com/client/build/static/js/main.6e6e30c4.js",
+    "main.js": "https://csphotosport.com/client/build/static/js/main.20605ed8.js",
     "static/media/cart.gif": "https://csphotosport.com/client/build/static/media/cart.5b5a21ea890d11acb027.gif",
     "static/media/camera.gif": "https://csphotosport.com/client/build/static/media/camera.b01ccd140b2263f6195b.gif",
     "static/media/checkout.gif": "https://csphotosport.com/client/build/static/media/checkout.fa5a31b2bc4fccb0017a.gif",
@@ -13,10 +13,10 @@
     "static/media/stacked-photo-30.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-30.f5d0566f0100d7214abe2570f0bb431b.svg",
     "static/media/stacked-photo-10.svg": "https://csphotosport.com/client/build/static/media/stacked-photo-10.bd950aa7c2f68a518e02b2566bc6b1b7.svg",
     "main.c18df8af.css.map": "https://csphotosport.com/client/build/static/css/main.c18df8af.css.map",
-    "main.6e6e30c4.js.map": "https://csphotosport.com/client/build/static/js/main.6e6e30c4.js.map"
+    "main.20605ed8.js.map": "https://csphotosport.com/client/build/static/js/main.20605ed8.js.map"
   },
   "entrypoints": [
     "static/css/main.c18df8af.css",
-    "static/js/main.6e6e30c4.js"
+    "static/js/main.20605ed8.js"
   ]
 }
