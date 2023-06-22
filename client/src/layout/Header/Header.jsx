@@ -56,7 +56,7 @@ export default function Header({ cartCount, setMobileNavbar, shakeCartIcon, setS
                     Dona
                 </button>
                 {/* <AiOutlineGoogle size="2rem" className="icon search-icon" onClick={() => login()} /> */}
-                <div className="search-container" onClick={() => navigate("/ricerca")}>
+                <div className="search-icon-container" onClick={() => navigate("/ricerca")}>
                     <AiOutlineSearch size="2rem" className="icon search-icon" />
                 </div>
                 <Link to="/carrello">

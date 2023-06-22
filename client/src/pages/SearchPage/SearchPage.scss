@@ -1,11 +1,11 @@
-@import "../../components/Grid.scss";
+@import "../../config";
 
 .search-page-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
     gap: 1rem;
+    align-items: center;
     margin-bottom: 2.5rem;
 
     .sub-title {
@@ -15,7 +15,7 @@
 
     .search-submit {
         height: 4rem;
-        width: 12rem;
+        width: 10%;
         padding: 0;
         text-align: center;
         display: flex;
@@ -46,7 +46,7 @@
     }
 
     .search-bar-container {
-        width: 80%;
+        width: 100%;
         margin: 0;
         gap: 0;
     }

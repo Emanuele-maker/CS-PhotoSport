@@ -34,7 +34,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
     })?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews.find(img => img.fileName === image_name)
     : previewsStruct.find(cate => {
         return cate.title === category.title
-    })?.find(alb => alb.title === album.title)?.previews?.find(img => img.fileName === image_name)
+    })?.albums?.find(alb => alb.title === album.title)?.previews?.find(img => img.fileName === image_name)
 
     const [currentImage, setCurrentImage] = useState(initalImage)
     const [isLoginPopupVisible, setIsLoginPopupVisible] = useState(false)
@@ -45,7 +45,7 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
         const shareData = {
             title: currentImage.fileName,
             text: "Guarda questa foto su CS PhotoSport!",
-            url: `${window.location.origin}/${category_name}/album/${album_name}/${currentImage.fileName}`
+            url: `${window.location.origin}/${category_name}${useSub ? `/${sub_category_name}` : ""}/album/${album_name}/${currentImage.fileName}`
         }
         if (!navigator?.canShare?.(shareData)) return alert("Il tuo browser non supporta la condivisione!")
         navigator.share(shareData)

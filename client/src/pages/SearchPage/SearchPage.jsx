@@ -66,7 +66,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
                 event.preventDefault()
                 updateFilteredItems()
             }}>
-                <SearchBar notUseSearchIcon={true} placeholder="Inserisci una parola chiave..." onChange={(event) => setSearchParam(event.target.value)} width="100%" />
+            <SearchBar containerWidth="97%" notUseSearchIcon={true} placeholder="Inserisci una parola chiave..." onChange={(event) => setSearchParam(event.target.value)} width="95%" />
                 <button type="submit" className="search-submit">
                     <AiOutlineSearch size="2.5rem" />
                     <span>CERCA</span>

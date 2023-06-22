@@ -3,12 +3,12 @@ import "./SearchBar.scss"
 import SearchDropDown from "../SearchDropDown/SearchDropDown"
 import { useRef, useState } from "react"
 
-export default function SearchBar({ disabled, onChange, customButton, placeholder, width, notUseSearchIcon, type, dropDownContent, onSelectQuery }) {
+export default function SearchBar({ disabled, onChange, customButton, placeholder, width, notUseSearchIcon, type, dropDownContent, onSelectQuery, containerWidth }) {
   const [inputValue, setInputValue] = useState("")
   const inputRef = useRef()
 
   return (
-    <div className="search-container">
+    <div className="search-container" style={{ width: containerWidth ? containerWidth : "100%" }}>
         <div className="search-bar-container">
             { !notUseSearchIcon && <AiOutlineSearch color="white" size="3rem" /> }
             <input disabled={disabled} ref={inputRef} type={type} placeholder={placeholder} onInput={event => {
