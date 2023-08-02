@@ -1,5 +1,5 @@
 module.exports = (req, res, next) => {
-    const allowedOrigins = ['http://csphotosport.com', 'http://localhost:3000', 'http://localhost:5000']
+    const allowedOrigins = ['http://csphotosport.com', 'http://localhost:3000', 'http://localhost:5000', "http://127.0.0.1:5500/"]
     const origin = req.headers.origin
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin)
