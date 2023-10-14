@@ -4,9 +4,9 @@ const { getFullUser } = require("./getUserInfo")
 const conn = require("./db")
 require("dotenv").config()
 
-const TOKEN = process.env.BOT_TOKEN
-const CHATID = process.env.CHAT_ID
-const ADMINCHATID = process.env.ADMIN_CHAT_ID
+const TOKEN = "6638664906:AAHeCAQzwlT4wDOVfThJU5zvde4XGxMhjBM"
+const CHATID = "-1001739647238"
+const ADMINCHATID = "-1001970824240"
 const api = new TelegramBot(TOKEN, { polling: true })
 
 const feedbackRequests = []
