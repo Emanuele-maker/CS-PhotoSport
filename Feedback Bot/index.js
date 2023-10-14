@@ -75,7 +75,7 @@ const verifica = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".verifica", "").split(" ").find(word => word.startsWith("@"))?.replace("undefined", "")
+            let firstTaggedUser = msg.text.trim().replace(".verifica", "")?.split(" ")?.find(word => word.startsWith("@"))?.replace("undefined", "")
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
                 if (msg.reply_to_message?.from?.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
