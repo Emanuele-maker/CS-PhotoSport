@@ -63,9 +63,12 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
     }
 
     const moveImageBack = () => {
-        const albumStruct = previewsStruct[Object.keys(previewsStruct).find(key => {
-            return key === category.title
-        })]?.find(alb => alb.title === album.title)?.previews
+        const albumStruct = useSub ? previewsStruct.find(cate => {
+            return cate.title === category.title
+    }   )?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews
+        : previewsStruct.find(cate => {
+            return cate.title === category.title
+        })?.albums?.find(alb => alb.title === album.title)?.previews
         const imgIndex = albumStruct.indexOf(currentImage) - 1
         if (imgIndex < 0) return
         setCartBtnClicked(false)
@@ -73,9 +76,12 @@ const PhotoPage = ({ categories, previewsStruct, onAddToCart, isLoggedIn, setUse
     }
 
     const moveImageForward = () => {
-        const albumStruct = previewsStruct[Object.keys(previewsStruct).find(key => {
-            return key === category.title
-        })]?.find(alb => alb.title === album.title)?.previews
+        const albumStruct = useSub ? previewsStruct.find(cate => {
+            return cate.title === category.title
+    }   )?.subCategories.find(sub => sub.title === subCategory.title).albums.find(alb => alb.title === album.title)?.previews
+        : previewsStruct.find(cate => {
+            return cate.title === category.title
+        })?.albums?.find(alb => alb.title === album.title)?.previews
         const imgIndex = albumStruct.indexOf(currentImage) + 1
         if (imgIndex > albumStruct.width - 1) return
         setCartBtnClicked(false)
