@@ -5,7 +5,7 @@ const conn = require("./db")
 require("dotenv").config()
 
 const TOKEN = process.env.BOT_TOKEN
-const CHATID = process.env.DEV_CHAT_ID
+const CHATID = process.env.NODE_ENV === "development" ? process.env.DEV_CHAT_ID : process.env.CHAT_ID
 const ADMINCHATID = process.env.ADMIN_CHAT_ID
 const api = new TelegramBot(TOKEN, { polling: true })
 
