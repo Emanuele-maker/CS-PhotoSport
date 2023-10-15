@@ -4,9 +4,9 @@ const { getFullUser } = require("./getUserInfo")
 const conn = require("./db")
 require("dotenv").config()
 
-const TOKEN = "6638664906:AAHeCAQzwlT4wDOVfThJU5zvde4XGxMhjBM"
-const CHATID = "-1001739647238"
-const ADMINCHATID = "-1001970824240"
+const TOKEN = process.env.BOT_TOKEN
+const CHATID = process.env.DEV_CHAT_ID
+const ADMINCHATID = process.env.ADMIN_CHAT_ID
 const api = new TelegramBot(TOKEN, { polling: true })
 
 const feedbackRequests = []
@@ -75,9 +75,9 @@ const verifica = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".verifica", "")?.split(" ")?.find(word => word.startsWith("@"))?.replace("undefined", "")
+            let firstTaggedUser = msg.text.trim().replace(".verifica", "").split(" ").find(word => word.startsWith("@")).replace("undefined", "")
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
-                if (msg.reply_to_message?.from?.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
+                if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
                     parse_mode: "HTML"
                 })
@@ -114,9 +114,9 @@ const unverifica = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".unverifica", "").split(" ").find(word => word.startsWith("@"))?.replace("undefined", "")
+            let firstTaggedUser = msg.text.trim().replace(".unverifica", "").split(" ").find(word => word.startsWith("@")).replace("undefined", "")
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
-                if (msg.reply_to_message?.from?.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
+                if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
                     parse_mode: "HTML"
                 })
@@ -169,9 +169,9 @@ const addFeedback = msg => {
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
             let firstTaggedUser = msg.text.trim().replace(".addfeedback", "").split(" ").find(word => word.startsWith("@"))?.replace("undefined", "")
-            let numberOfFeedbacks = parseInt(msg.text.match(/\d+/g).join(""))
+            let numberOfFeedbacks = parseInt(msg.text.match(/\d+/g)?.join(""))
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
-                if (msg.reply_to_message?.from?.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
+                if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .addfeedback @username numero_di_feedback.\nEsempio: .addfeedback <code>@Giuggetto</code> <code>1</code>", {
                     parse_mode: "HTML"
                 })
@@ -207,9 +207,9 @@ const addFeedback = msg => {
 
 // get user info
 const inf = msg => {
-    let firstTaggedUser = msg.text.trim().replace(".inf", "").split(" ").find(word => word.startsWith("@"))?.replace("undefined", "")
+    let firstTaggedUser = msg.text.trim().replace(".inf", "").split(" ").find(word => word.startsWith("@")).replace("undefined", "")
     if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
-        if (msg.reply_to_message?.from?.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
+        if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
         else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
             parse_mode: "HTML"
         })
