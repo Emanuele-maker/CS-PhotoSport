@@ -75,14 +75,14 @@ const verifica = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".verifica", "").split(" ").find(word => word.startsWith("@")).replace("undefined", "")
+            let firstTaggedUser = msg.text.trim().replace(".verifica", "").split(" ").find(word => word.startsWith("@"))
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
                 if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
                     parse_mode: "HTML"
                 })
             }
-            firstTaggedUser = firstTaggedUser.replace("@", "")
+            firstTaggedUser = firstTaggedUser.replace("@", "").replace("undefined", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
                 if (!fullUser) return api.sendMessage(CHATID, `Utente @${firstTaggedUser} non trovato!`)
@@ -114,14 +114,14 @@ const unverifica = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".unverifica", "").split(" ").find(word => word.startsWith("@")).replace("undefined", "")
+            let firstTaggedUser = msg.text.trim().replace(".unverifica", "").split(" ").find(word => word.startsWith("@"))
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
                 if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .inf @username.\nEsempio: .inf <code>@Giuggetto</code>", {
                     parse_mode: "HTML"
                 })
             }
-            firstTaggedUser = firstTaggedUser.replace("@", "")
+            firstTaggedUser = firstTaggedUser.replace("@", "").replace("undefined", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
                 if (!fullUser) return api.sendMessage(CHATID, `Utente @${firstTaggedUser} non trovato!`)
@@ -168,8 +168,8 @@ const addFeedback = msg => {
         api.getChatMember(CHATID, msg.from.id)
         .then(member => {
             if (!adminsId.includes(member.user.id)) return api.sendMessage(CHATID, "Solo gli admin possono eseguire questo comando!")
-            let firstTaggedUser = msg.text.trim().replace(".addfeedback", "").split(" ").find(word => word.startsWith("@"))?.replace("undefined", "")
-            let numberOfFeedbacks = parseInt(msg.text.match(/\d+/g)?.join(""))
+            let firstTaggedUser = msg.text.trim().replace(".addfeedback", "").split(" ").find(word => word.startsWith("@"))
+            let numberOfFeedbacks = parseInt(msg.text.match(/\d+/g)) !== null ? parseInt(msg.text.match(/\d+/g).join("")) : 1
             if (!firstTaggedUser || firstTaggedUser.length < 1 || !firstTaggedUser.startsWith("@")) {
                 if (msg.reply_to_message.from.username !== undefined) firstTaggedUser = msg.reply_to_message.from.username
                 else return api.sendMessage(CHATID, "Per favore, utilizza la sintassi corretta: .addfeedback @username numero_di_feedback.\nEsempio: .addfeedback <code>@Giuggetto</code> <code>1</code>", {
@@ -177,7 +177,7 @@ const addFeedback = msg => {
                 })
             }
             if (typeof numberOfFeedbacks !== "number" || numberOfFeedbacks < 1) numberOfFeedbacks = 1
-            firstTaggedUser = firstTaggedUser.replace("@", "")
+            firstTaggedUser = firstTaggedUser.replace("@", "").replace("undefined", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
                 conn.query("SELECT * FROM users", (err, dbUsers) => {
