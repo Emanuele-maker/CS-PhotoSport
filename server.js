@@ -1,5 +1,6 @@
 const app = require("./app")
 const http = require("http")
+require("dotenv").config()
 require("./Feedback bot/index")
 
 const server = http.createServer(app)

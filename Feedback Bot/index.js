@@ -8,14 +8,12 @@ const TOKEN = process.env.BOT_TOKEN
 const CHATID = process.env.CHAT_ID
 const ADMINCHATID = process.env.ADMIN_CHAT_ID
 const api = new TelegramBot(TOKEN, { polling: true })
-
 const feedbackRequests = []
 const currentUsersMessages = {}
 
 const registerUser = (id, username) => {
     conn.query(`INSERT INTO users(id, username, feedbacks, sus, verified) VALUES("${id}", "${username}", 0, 0, false)`, (err, rows) => {
         if (err) return console.error(err)
-        console.log(rows)
     })
 }
 
@@ -211,7 +209,7 @@ const addFeedback = msg => {
                 })
             }
             let numberOfFeedbacks = parseInt(msg.text.replace(firstTaggedUser, "").match(/\d+/)?.join(""))
-            if (typeof numberOfFeedbacks !== "number" || numberOfFeedbacks < 1) numberOfFeedbacks = 1
+            if (!numberOfFeedbacks || typeof numberOfFeedbacks !== "number" || numberOfFeedbacks < 1) numberOfFeedbacks = 1
             firstTaggedUser = firstTaggedUser.replace("@", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
@@ -266,7 +264,7 @@ const delFeedback = msg => {
                 })
             }
             let numberOfFeedbacks = parseInt(msg.text.replace(firstTaggedUser, "").match(/\d+/)?.join(""))
-            if (typeof numberOfFeedbacks !== "number" || numberOfFeedbacks < 1) numberOfFeedbacks = 1
+            if (!numberOfFeedbacks || typeof numberOfFeedbacks !== "number" || numberOfFeedbacks < 1) numberOfFeedbacks = 1
             firstTaggedUser = firstTaggedUser.replace("@", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
@@ -311,7 +309,6 @@ const inf = msg => {
         if (!dbUsers || dbUsers < 1) return api.sendMessage(CHATID, "<b>Questo utente non è registrato, di conseguenza non ha feedback!</b> ✖", {
             parse_mode: "HTML"
         })
-        console.log(dbUsers)
         const user = dbUsers.find(u => u.username.toLowerCase() === firstTaggedUser.toLowerCase())
         if (!user) return api.sendMessage(CHATID, "<b>Questo utente non è registrato, di conseguenza non ha feedback!</b> ✖", {
             parse_mode: "HTML"
