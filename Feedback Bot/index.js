@@ -13,7 +13,7 @@ const feedbackRequests = []
 const currentUsersMessages = {}
 
 const registerUser = (id, username) => {
-    conn.query(`INSERT INTO users(id, username, feedbacks, sus, verified) VALUES("${id}", "${username}", 0, 0, false)`, err => {
+    conn.query(`INSERT INTO users(id, username, feedbacks, sus, verified) VALUES("${id}", "${username}", '0', 0, false)`, err => {
         if (err) console.error(err)
     })
 }
