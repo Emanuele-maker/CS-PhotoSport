@@ -13,8 +13,9 @@ const feedbackRequests = []
 const currentUsersMessages = {}
 
 const registerUser = (id, username) => {
-    conn.query(`INSERT INTO users(id, username, feedbacks, sus, verified) VALUES("${id}", "${username}", '0', 0, false)`, err => {
-        if (err) console.error(err)
+    conn.query(`INSERT INTO users(id, username, feedbacks, sus, verified) VALUES("${id}", "${username}", 0, 0, false)`, (err, rows) => {
+        if (err) return console.error(err)
+        console.log(rows)
     })
 }
 
@@ -91,7 +92,9 @@ const verifica = msg => {
             firstTaggedUser = firstTaggedUser.replace("@", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
-                if (!fullUser) return api.sendMessage(CHATID, `ato!`)
+                if (!fullUser) return api.sendMessage(CHATID, `<b>Questo utente non esiste!</b> ✖`, {
+                    parse_mode: "HTML"
+                })
                 conn.query("SELECT * FROM users", (err, dbUsers) => {
                     if (err) return console.error(err)
                     const usersId = dbUsers.map(dbUser => {
@@ -305,6 +308,10 @@ const inf = msg => {
     firstTaggedUser = firstTaggedUser.replace("@", "")
     conn.query("SELECT * FROM users", (err, dbUsers) => {
         if (err) return console.error(err)
+        if (!dbUsers || dbUsers < 1) return api.sendMessage(CHATID, "<b>Questo utente non è registrato, di conseguenza non ha feedback!</b> ✖", {
+            parse_mode: "HTML"
+        })
+        console.log(dbUsers)
         const user = dbUsers.find(u => u.username.toLowerCase() === firstTaggedUser.toLowerCase())
         if (!user) return api.sendMessage(CHATID, "<b>Questo utente non è registrato, di conseguenza non ha feedback!</b> ✖", {
             parse_mode: "HTML"
@@ -343,7 +350,9 @@ const sospetta = msg => {
             firstTaggedUser = firstTaggedUser.replace("@", "")
             getFullUser(firstTaggedUser)
             .then(fullUser => {
-                if (!fullUser) return api.sendMessage(CHATID, `Utente @${firstTaggedUser} non trovato!`)
+                if (!fullUser) return api.sendMessage(CHATID, `<b>Questo utente non esiste!</b> ✖`, {
+                    parse_mode: "HTML"
+                })
                 conn.query("SELECT * FROM users", (err, dbUsers) => {
                     if (err) return console.error(err)
                     const usersId = dbUsers.map(dbUser => {
