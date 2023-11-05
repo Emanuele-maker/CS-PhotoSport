@@ -61,7 +61,6 @@ const requestFeedback = msg => {
                             text: "✖️",
                             callback_data: `btn_no_${msg.from.id}`
                         },
-                    
                     ]
                 ]
             },
