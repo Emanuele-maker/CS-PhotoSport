@@ -371,6 +371,32 @@
           "cover": "https://csphotosport.com/img/Pallanuoto/Under 18/Anzio Waterpolis vs Distretti Ecologici Roma/IMG_6999.jpg",
           "albums": [
             {
+              "title": "Anzio Waterpolis vs Aquademia G2023",
+              "category": "Pallanuoto",
+              "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 18/Anzio Waterpolis vs Aquademia G2023/IMG_1673.jpg",
+              "subCategory": "Under 18",
+              "isFree": true,
+              "useSearch": false,
+              "searchPlaceholder": null,
+              "searchType": null,
+              "priceInCents": 0,
+              "tags": [],
+              "isPrivate": true
+            },
+            {
+              "title": "Anzio Waterpolis vs Aquademia Velletri 2023",
+              "category": "Pallanuoto",
+              "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 18/Anzio Waterpolis vs Aquademia Velletri 2023/IMG_1673.jpg",
+              "subCategory": "Under 18",
+              "isFree": false,
+              "useSearch": false,
+              "searchPlaceholder": null,
+              "searchType": null,
+              "priceInCents": 300,
+              "tags": [],
+              "isPrivate": false
+            },
+            {
               "title": "Anzio vs Lazio G2023",
               "category": "Pallanuoto",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 18/Anzio vs Lazio G2023/IMG_1384.jpg",
