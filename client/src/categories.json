@@ -384,6 +384,19 @@
           "cover": "https://csphotosport.com/img/Pallanuoto/Under 18/Anzio Waterpolis vs Distretti Ecologici Roma/IMG_6999.jpg",
           "albums": [
             {
+              "title": "Anzio Waterpolis vs Antares Latina",
+              "category": "Pallanuoto",
+              "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 18/Anzio Waterpolis vs Antares Latina/IMG_2481.jpg",
+              "subCategory": "Under 18",
+              "isFree": true,
+              "useSearch": false,
+              "searchPlaceholder": null,
+              "searchType": null,
+              "priceInCents": 0,
+              "tags": [],
+              "isPrivate": false
+            },
+            {
               "title": "Anzio vs Aquademia G2023",
               "category": "Pallanuoto",
               "cover": "https://csphotosport.com/client/build/previews/Pallanuoto/Under 18/Anzio vs Aquademia G2023/IMG_1673.jpg",
