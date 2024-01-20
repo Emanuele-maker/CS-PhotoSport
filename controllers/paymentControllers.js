@@ -3,12 +3,12 @@ require("dotenv").config()
 const conn = require("../db/conn")
 const moment = require("moment")
 
-const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY
+const STRIPE_PUBLIC_KEY = process.env.STRIPE_PUBLIC_KEY
 
-if (!STRIPE_PRIVATE_KEY)
+if (!STRIPE_PUBLIC_KEY)
     throw new Error("Could not get any Stripe API access key from the execution enviroment")
 
-const stripe = new Stripe(STRIPE_PRIVATE_KEY, {
+const stripe = new Stripe(STRIPE_PUBLIC_KEY, {
     apiVersion: "2020-08-27",
 })
 
