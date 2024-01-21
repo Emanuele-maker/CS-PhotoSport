@@ -29,8 +29,8 @@ const About = () => {
             </h3>
             <AboutContainer animDuration={animDuration} animDelay={animDuration * 2 - 150} imageSrc={`${previewsRoute}/Running/Vivicittà Latina 2022/1 2 6.jpg`} imageAlt="Running" title="RUNNING" href="/running" paragraph="Gare su strada a tutti i livelli" justify="left" bgColor="lightblue" />
             <AboutContainer animDuration={animDuration} animDelay={animDuration * 2 - 150} imageSrc={`${previewsRoute}/Kite, Windsurf & Wingfoil/Fogliano 20 Maggio 2022/IMG_4154.jpg`} imageAlt="Kite & WindSurf" title="KITE & WINDSURF" href="/kite,-windsurf-&-wingfoil" paragraph="" justify="right" bgColor="#fff993" />
-            <AboutContainer animDuration={animDuration} animDelay={100} imageSrc={`${previewsRoute}/Pallanuoto/Castelli Romani vs CN Latina/IMG_9386.jpg`} imageAlt="Pallanuoto" title="PALLANUOTO" href="/pallanuoto" paragraph="Partite di livello giovanile e professionale" justify="left" bgColor="#ff8e8e" />
-            <AboutContainer animDuration={animDuration} animDelay={100} imageSrc={`${previewsRoute}/Triathlon/The Green Race Ciclismo/IMG_0723.jpg`} imageAlt="Triathlon" title="TRIATHLON" href="/triathlon" paragraph="Competizioni regionali e nazionali" justify="right" bgColor="#9ffcc9" />
+            <AboutContainer animDuration={animDuration} animDelay={100} imageSrc={`${previewsRoute}/Pallanuoto/A2 Maschile/Castelli Romani vs CN Latina/IMG_9386.jpg`} imageAlt="Pallanuoto" title="PALLANUOTO" href="/pallanuoto" paragraph="Partite di livello giovanile e professionale" justify="left" bgColor="#ff8e8e" />
+            <AboutContainer animDuration={animDuration} animDelay={100} imageSrc={`${previewsRoute}/Triathlon/The Green Race/Ciclismo/IMG_0723.jpg`} imageAlt="Triathlon" title="TRIATHLON" href="/triathlon" paragraph="Competizioni regionali e nazionali" justify="right" bgColor="#9ffcc9" />
             <AboutContainer animDuration={animDuration} animDelay={100} imageSrc={`${coverRoute}/Cover FIPAV 27.3.2022.jpg`} imageAlt="Beach Volley" title="BEACH VOLLEY" href="/beachvolley" paragraph="Tornei amatoriali e professionali" justify="left" bgColor="#f7d7a0" />
         </div>
     )

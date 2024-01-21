@@ -16,13 +16,25 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
     const initFilteredItems = () => {
         const items = []
         categories.filter(category => !category.fake).forEach(category => {
-            category.albums.forEach(album => items.push(album))
-            const structAlbums = previewsStruct[category.title]
-            structAlbums.forEach(album => {
-                album.previews.forEach(preview => {
-                    items.push(preview)
+            if (category.albums) {
+                category.albums.forEach(album => items.push(album))
+                const structAlbums = previewsStruct.find(c => c.title === category.title).albums
+                structAlbums.forEach(album => {
+                    album.previews.forEach(preview => {
+                        items.push(preview)
+                    })
                 })
-            })
+            } else if (category.subCategories) {
+                category.subCategories.forEach(sub => {
+                    sub.albums.forEach(album => items.push(album))
+                    const structAlbums = previewsStruct.find(c => c.title === category.title).subCategories.find(s => s.title === sub.title).albums
+                    structAlbums.forEach(album => {
+                        album.previews.forEach(preview => {
+                            items.push(preview)
+                        })
+                    })
+                })
+            }
         })
         return items
     }
@@ -78,11 +90,11 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
                     filteredItems.map((item, itemIndex) => {
                         let category, subCategory
                         if (item.title) {
-                            if (categories.find(category => category.subCategories?.albums.includes(item)) !== undefined) {
+                            if (categories.find(category => category?.subCategories?.find(s => s.title === item.subCategory)?.albums?.includes(item)) !== undefined) {
                                 category = categories.find(category => category.subCategories?.find(subCategory => subCategory.albums.includes(item))).title
-                                subCategory = category.category.subCategories?.find(subCategory => subCategory.albums.includes(item)).title
+                                subCategory = category.subCategories?.find(subCategory => subCategory.albums.includes(item)).title
                             } else {
-                                category = categories.find(category => category.albums.includes(item)).title
+                                category = categories.find(category => category?.albums?.includes(item)).title
                             }
                             return <AlbumCard category={category} subCategory={subCategory} album={item} key={itemIndex} />
                         }
