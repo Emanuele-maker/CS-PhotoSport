@@ -1,15 +1,17 @@
 const { Router } = require("express")
-const fs = require("fs")
 const path = require("path")
-const moment = require("moment")
+const multer = require("multer")
+
+const upload = multer({
+    dest: path.join(__dirname, "../registrazioni tottoi")
+})
 
 const router = Router()
 
-router.post("/operazione-tottoi", (req, res) => {
+router.patch('/multipart-upload', upload.single("audio"), (req, res) => {
+    // You can access other HTTP parameters. They are located in the body object.
     console.log(req.body)
-    return res.json({
-        ciao: "ciao"
-    }).status(200)
+    res.end('OK')
 })
 
 module.exports = {
