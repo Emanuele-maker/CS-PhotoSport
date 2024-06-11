@@ -94,7 +94,7 @@ export default function SearchPage({ categories, previewsStruct, onAddImageToCar
                                 category = categories.find(category => category.subCategories?.find(subCategory => subCategory.albums.includes(item))).title
                                 subCategory = category.subCategories?.find(subCategory => subCategory.albums.includes(item)).title
                             } else {
-                                category = categories.find(category => category?.albums?.includes(item)).title
+                                category = categories.find(category => category?.albums?.includes(item))?.title
                             }
                             return <AlbumCard category={category} subCategory={subCategory} album={item} key={itemIndex} />
                         }

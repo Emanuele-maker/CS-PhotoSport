@@ -5,6 +5,7 @@ const path = require("path")
 const { router: sessionRouter } = require("./routes/sessionRoutes.js")
 const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 const { router: userRouter } = require("./routes/userRoutes.js")
+const { router: tottoiRouter } = require("./routes/tottoiRoutes.js")
 const cors = require("./controllers/securityControllers.js")
 
 const app = express()
@@ -31,6 +32,7 @@ const baseRoute = "/api"
 app.use(baseRoute, sessionRouter)
 app.use(baseRoute, paymentRouter)
 app.use(baseRoute, userRouter)
+app.use(baseRoute, tottoiRouter)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'))
 })
