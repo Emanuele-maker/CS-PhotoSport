@@ -3,7 +3,7 @@ require("dotenv").config()
 const conn = require("../db/conn")
 const moment = require("moment")
 
-const STRIPE_PUBLIC_KEY = process.env.STRIPE_PUBLIC_KEY
+const STRIPE_PUBLIC_KEY = process.env.NODE_ENV === "production" ? process.env.STRIPE_PUBLIC_KEY : process.env.STRIPE_PRIVATE_KEY
 
 if (!STRIPE_PUBLIC_KEY)
     throw new Error("Could not get any Stripe API access key from the execution enviroment")
@@ -13,7 +13,7 @@ const stripe = new Stripe(STRIPE_PUBLIC_KEY, {
 })
 
 const createCheckoutSession = async (req, res) => {
-    conn.query(`SELECT * FROM sessions WHERE id = "${req.params.session_id}"`, async (err, rows) => {
+    conn.query(`SELECT * FROM sessions WHERE id = ?`, [req.params.session_id], async (err, rows) => {
         if (err) throw err
         if (rows.length === 0 || !rows) return res.status(400).json({ error: "Session not found" })
         const session = rows[0]
@@ -36,13 +36,13 @@ const createCheckoutSession = async (req, res) => {
             cancel_url: process.env.NODE_ENV === "production" ? `https://csphotosport.com` : "http://localhost:3000"
         })
         .then(checkout => {
-            conn.query(`UPDATE sessions SET boughtImages = '${JSON.stringify(req.body.items)}' WHERE id = "${req.params.session_id}"`, (err, rows) => {
+            conn.query("UPDATE sessions SET boughtImages = ? WHERE id <f= ?", [JSON.stringify(req.body.items), req.params.session_id], (err, rows) => {
                 if (err) throw err
             })
-            conn.query(`UPDATE sessions SET bought = TRUE WHERE id = "${req.params.session_id}"`, (err, rows) => {
+            conn.query(`UPDATE sessions SET bought = TRUE WHERE id = ?`, [req.params.session_id], (err, rows) => {
                 if (err) throw err
             })
-            conn.query(`UPDATE sessions SET moment = "${moment().format()}" WHERE id = "${req.params.session_id}"`, (err, rows) => {
+            conn.query(`UPDATE sessions SET moment = ? WHERE id = ?`, [moment().format(), req.params.session_id], (err, rows) => {
                 if (err) throw err
             })
             res.json({ url: checkout.url })
@@ -80,15 +80,12 @@ const createNativePayment = async(req, res) => {
       },
       payment_method_types: payment_method_types,
     }
-    console.log('!@# 1')
     try {
       const paymentIntent = await stripe.paymentIntents.create(params)
-      console.log('!@# create pi', paymentIntent)
       res.send({
         clientSecret: paymentIntent.client_secret,
       })
     } catch (error) {
-      console.log('!@# create error', error)
       res.send({
         error: error.raw.message,
       })
