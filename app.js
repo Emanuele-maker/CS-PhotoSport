@@ -11,21 +11,6 @@ const cors = require("cors")
 
 const app = express()
 
-app.use("/", express.static(path.join(__dirname, "./client/build")))
-if (process.env.NODE_ENV === "development") {
-    app.use("/img", express.static(path.join(__dirname, "./client/public/img")))
-    app.use("/previews", express.static(path.join(__dirname, "./client/public/previews")))
-    app.use("/cover", express.static(path.join(__dirname, "./client/public/cover")))
-}
-
-app.use(bodyParser.json({
-    limit: '50mb'
-}))
-app.use(bodyParser.urlencoded({
-    limit: '50mb',
-    parameterLimit: 100000,
-    extended: true
-}))
 const allowedOrigins = process.env.NODE_ENV === "production"
   ? ["https://beluga-fll.netlify.app", "https://csphotosport.com"]
   : ["http://localhost:3000", "http://127.0.0.1:5500", /* etc */];
@@ -44,6 +29,22 @@ app.use(cors({
   allowedHeaders: ["Content-Type","Authorization"],
   credentials: true,             // <— allow session cookie from browser to pass through
 }));
+
+app.use("/", express.static(path.join(__dirname, "./client/build")))
+if (process.env.NODE_ENV === "development") {
+    app.use("/img", express.static(path.join(__dirname, "./client/public/img")))
+    app.use("/previews", express.static(path.join(__dirname, "./client/public/previews")))
+    app.use("/cover", express.static(path.join(__dirname, "./client/public/cover")))
+}
+
+app.use(bodyParser.json({
+    limit: '50mb'
+}))
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    parameterLimit: 100000,
+    extended: true
+}))
 
 const baseRoute = "/api"
 
