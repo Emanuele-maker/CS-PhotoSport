@@ -14,7 +14,16 @@ const allowedOrigins = process.env.NODE_ENV === "production"
 
 // Enable CORS with credentials
 app.use(cors({
-    origin: allowedOrigins,
+    origin: function(origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin) return callback(null, true);
+    
+        if (allowedOrigins.includes(origin)) {
+          return callback(null, true);
+        } else {
+          return callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ["GET","POST","OPTIONS"],
     allowedHeaders: ["Content-Type","Authorization"],
     credentials: true,        // <— allow cookies to be set
