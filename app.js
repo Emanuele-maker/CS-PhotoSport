@@ -13,21 +13,7 @@ const allowedOrigins = process.env.NODE_ENV === "production"
 : ["http://localhost:3000", "http://127.0.0.1:5500", /* etc */];
 
 // Enable CORS with credentials
-app.use(cors({
-    origin: function(origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl)
-        if (!origin) return callback(null, true);
-    
-        if (allowedOrigins.includes(origin)) {
-          return callback(null, true);
-        } else {
-          return callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ["GET","POST","OPTIONS"],
-    allowedHeaders: ["Content-Type","Authorization"],
-    credentials: true,        // <— allow cookies to be set
-}));
+app.use(cors());
 
 app.use(bodyParser.json({
     limit: '50mb'
