@@ -2,7 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
 const bcrypt = require("bcryptjs")
-const jwt = require("json-web-token")
+const jwt = require("jsonwebtoken")
 const cors = require("cors")
 
 
