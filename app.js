@@ -7,7 +7,7 @@ const jwt = require("json-web-token")
 const { router: sessionRouter } = require("./routes/sessionRoutes.js")
 const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 const { router: userRouter } = require("./routes/userRoutes.js")
-const cors = require("./controllers/securityControllers.js")
+const cors = require("cors")
 
 const app = express()
 
@@ -26,7 +26,24 @@ app.use(bodyParser.urlencoded({
     parameterLimit: 100000,
     extended: true
 }))
-app.use(cors())
+const allowedOrigins = process.env.NODE_ENV === "production"
+  ? ["https://beluga-fll.netlify.app", "https://csphotosport.com"]
+  : ["http://localhost:3000", "http://127.0.0.1:5500", /* etc */];
+
+// Enable CORS with credentials
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow requests with no origin (like mobile apps, curl, etc)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    callback(new Error(`Origin ${origin} not allowed by CORS`));
+  },
+  methods: ["GET","POST","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization"],
+  credentials: true,             // <— allow session cookie from browser to pass through
+}));
 
 const baseRoute = "/api"
 
