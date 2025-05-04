@@ -3,11 +3,11 @@ const bodyParser = require("body-parser")
 const path = require("path")
 const bcrypt = require("bcryptjs")
 const jwt = require("json-web-token")
+const cors = require("cors")
 
 const { router: sessionRouter } = require("./routes/sessionRoutes.js")
 const { router: paymentRouter } = require("./routes/paymentRoutes.js")
 const { router: userRouter } = require("./routes/userRoutes.js")
-const cors = require("cors")
 
 const app = express()
 
@@ -16,7 +16,12 @@ const allowedOrigins = process.env.NODE_ENV === "production"
   : ["http://localhost:3000", "http://127.0.0.1:5500", /* etc */];
 
 // Enable CORS with credentials
-app.use(cors());
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ["GET","POST","OPTIONS"],
+    allowedHeaders: ["Content-Type","Authorization"],
+    credentials: true,        // <— allow cookies to be set
+}));
 
 app.use("/", express.static(path.join(__dirname, "./client/build")))
 if (process.env.NODE_ENV === "development") {
