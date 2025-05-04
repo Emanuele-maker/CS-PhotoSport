@@ -1,7 +1,7 @@
 require("dotenv").config()
 
 module.exports = (req, res, next) => {
-    const allowedOrigins = process.env.NODE_ENV === "production" ? ['http://csphotosport.com', "https://beluga-fll.netlify.app/"] : ['http://csphotosport.com', 'http://localhost:3000', 'http://localhost:5000', "http://127.0.0.1:5500/", "http://127.0.0.1:5501/"]
+    const allowedOrigins = process.env.NODE_ENV === "production" ? ['http://csphotosport.com', "https://beluga-fll.netlify.app"] : ['http://csphotosport.com', 'http://localhost:3000', 'http://localhost:5000', "http://127.0.0.1:5500/", "http://127.0.0.1:5501/"]
     const origin = req.headers.origin
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin)
