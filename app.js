@@ -47,7 +47,7 @@ app.use(cors({
 
 const baseRoute = "/api"
 
-app.post(baseRoute, "/beluga/login", async (req, res) => {
+app.post(baseRoute + "/beluga/login", async (req, res) => {
     const PASSWORD_HASH = "$2b$12$z903d5MNPZxK4MryWKPzOusBL4XvHGU/X2DQIel.xHkp4M.u/sR/y"
     const { password } = req.body;
     if (!password) {
